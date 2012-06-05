@@ -1,5 +1,6 @@
-django==1.4
-psycopg2
+Django==1.4
+psycopg2==2.4.5
+dj-database-url==0.2.0
 south
 Markdown
 django-rosetta
