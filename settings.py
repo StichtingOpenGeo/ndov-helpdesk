@@ -33,7 +33,7 @@ TIME_ZONE = 'America/Chicago'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'nl'
 
-SITE_ID = 4
+SITE_ID = 1 
 
 LOGIN_URL = '/login/'
 
