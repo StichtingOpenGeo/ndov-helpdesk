@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-05 20:51+0200\n"
-"PO-Revision-Date: 2012-06-05 14:06\n"
+"PO-Revision-Date: 2012-11-03 16:21\n"
 "Last-Translator:   <joelhaasnoot+test@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -56,13 +56,15 @@ msgstr "Omschrijven van het probleem"
 
 #: helpdesk/forms.py:142
 msgid "Case owner"
-msgstr ""
+msgstr "Eigenaar"
 
 #: helpdesk/forms.py:143
 msgid ""
 "If you select an owner other than yourself, they'll be e-mailed details of "
 "this ticket immediately."
 msgstr ""
+"Als je jezelf niet als eigenaar kiest wordt deze persoon op de hoogte "
+"gesteld van dit ticket."
 
 #: helpdesk/forms.py:151 helpdesk/models.py:322
 #: helpdesk/management/commands/escalate_tickets.py:149
@@ -145,11 +147,11 @@ msgstr ""
 
 #: helpdesk/forms.py:390
 msgid "Urgency"
-msgstr ""
+msgstr "Urgentie"
 
 #: helpdesk/forms.py:391
 msgid "Please select a priority carefully."
-msgstr ""
+msgstr "Kies een urgentie niveau."
 
 #: helpdesk/forms.py:486
 msgid "Ticket Opened Via Web"
@@ -226,70 +228,77 @@ msgstr ""
 #: helpdesk/templates/helpdesk/ticket_list.html:199
 #: helpdesk/views/staff.py:342
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: helpdesk/models.py:37 helpdesk/models.py:792 helpdesk/models.py:1162
 msgid "Slug"
-msgstr ""
+msgstr "URL-deel"
 
 #: helpdesk/models.py:38
 msgid ""
 "This slug is used when building ticket ID's. Once set, try not to change it "
 "or e-mailing may get messy."
 msgstr ""
+"Dit wordt gebruikt om ticket IDs op te bouwen. Wijzig dit niet meer, anders "
+"wordt het versturen van emails erg lastig."
 
 #: helpdesk/models.py:43 helpdesk/models.py:1015 helpdesk/models.py:1085
 #: helpdesk/models.py:1159
 #: helpdesk/templates/helpdesk/email_ignore_list.html:13
 #: helpdesk/templates/helpdesk/ticket_cc_list.html:15
 msgid "E-Mail Address"
-msgstr ""
+msgstr "Emailadres"
 
 #: helpdesk/models.py:46
 msgid ""
 "All outgoing e-mails for this queue will use this e-mail address. If you use"
 " IMAP or POP3, this should be the e-mail address for that mailbox."
 msgstr ""
+"Alle uitgaande emails voor deze wachtrij gebruiken dit emailadres. Als je "
+"IMAP op POP3 gebruikt moet dit het mailadres zijn voor die mailbox."
 
 #: helpdesk/models.py:52 helpdesk/models.py:766
 msgid "Locale"
-msgstr ""
+msgstr "Taal"
 
 #: helpdesk/models.py:56
 msgid ""
 "Locale of this queue. All correspondence in this queue will be in this "
 "language."
 msgstr ""
+"Taal voor deze wachtrij. Alle corresponsentie zal in deze taal gebeuren."
 
 #: helpdesk/models.py:60
 msgid "Allow Public Submission?"
-msgstr ""
+msgstr "Inzendingen openbaar maken?"
 
 #: helpdesk/models.py:63
 msgid "Should this queue be listed on the public submission form?"
-msgstr ""
+msgstr "Kan "
 
 #: helpdesk/models.py:68
 msgid "Allow E-Mail Submission?"
-msgstr ""
+msgstr "Email inzendingen toelaten?"
 
 #: helpdesk/models.py:71
 msgid "Do you want to poll the e-mail box below for new tickets?"
-msgstr ""
+msgstr "Wil je het onderstaande emailadres controleren op nieuwe tickets?"
 
 #: helpdesk/models.py:76
 msgid "Escalation Days"
-msgstr ""
+msgstr "Aantal dagen voor escalatie"
 
 #: helpdesk/models.py:79
 msgid ""
 "For tickets which are not held, how often do you wish to increase their "
 "priority? Set to 0 for no escalation."
 msgstr ""
+"Voor tickets die niet worden vastgehouden,  hoe vaak moet de prioriteit "
+"hiervan worden verhoogd? Gebruik 0 om nooit te escaleren."
 
 #: helpdesk/models.py:84
 msgid "New Ticket CC Address"
-msgstr ""
+msgstr "Emailadres nieuwe tickets"
 
 #: helpdesk/models.py:88
 msgid ""
@@ -297,10 +306,13 @@ msgid ""
 "all new tickets created for this queue. Enter a comma between multiple "
 "e-mail addresses."
 msgstr ""
+"Als hier een emailadres wordt ingevoerd worden notificaties verstuurd voor "
+"alle nieuwe tickets die worden aangemaakt in de queue. Gebruik een komma "
+"voor meerdere email adressen."
 
 #: helpdesk/models.py:94
 msgid "Updated Ticket CC Address"
-msgstr ""
+msgstr "Emailadres gewijzigde tickets"
 
 #: helpdesk/models.py:98
 msgid ""
@@ -308,38 +320,45 @@ msgid ""
 "all activity (new tickets, closed tickets, updates, reassignments, etc) for "
 "this queue. Separate multiple addresses with a comma."
 msgstr ""
+"Als hier een emailadres wordt ingevoerd worden notificaties verstuurd voor "
+"alle activiteiten in de queue (nieuwe tickets, gesloten tickets, updates, "
+"etc). Gebruik een komma voor meerdere email adressen."
 
 #: helpdesk/models.py:105
 msgid "E-Mail Box Type"
-msgstr ""
+msgstr "Type emailadres"
 
 #: helpdesk/models.py:107
 msgid "POP 3"
-msgstr ""
+msgstr "POP3"
 
 #: helpdesk/models.py:107
 msgid "IMAP"
-msgstr ""
+msgstr "IMAP"
 
 #: helpdesk/models.py:110
 msgid ""
 "E-Mail server type for creating tickets automatically from a mailbox - both "
 "POP3 and IMAP are supported."
 msgstr ""
+"Type email server voor het automatisch aanmaken van tickets. Zowel POP3 als "
+"IMAP worden ondersteund."
 
 #: helpdesk/models.py:115
 msgid "E-Mail Hostname"
-msgstr ""
+msgstr "Email server"
 
 #: helpdesk/models.py:119
 msgid ""
 "Your e-mail server address - either the domain name or IP address. May be "
 "\"localhost\"."
 msgstr ""
+"Serveradres van je emailserver - een domeinnaam of IP adres. Kan "
+"\"localhost\" zijn."
 
 #: helpdesk/models.py:124
 msgid "E-Mail Port"
-msgstr ""
+msgstr "Email port"
 
 #: helpdesk/models.py:127
 msgid ""
@@ -347,36 +366,41 @@ msgid ""
 "for IMAP is \"143\". This may differ on some servers. Leave it blank to use "
 "the defaults."
 msgstr ""
+"Portnummer voor toegang to emailaccount. Standaardwaarde voor POP3 is 110 en"
+" voor IMAP 143. Dit kan afwijken per server. Laat leeg om standaardwaardes "
+"te hanteren."
 
 #: helpdesk/models.py:133
 msgid "Use SSL for E-Mail?"
-msgstr ""
+msgstr "Gebruik SSL?"
 
 #: helpdesk/models.py:136
 msgid ""
 "Whether to use SSL for IMAP or POP3 - the default ports when using SSL are "
 "993 for IMAP and 995 for POP3."
 msgstr ""
+"Moet SSL worden gebruikt om te communiceren met de emailserver? De standaard"
+" port voor SSL met IMAP is 993 en voor POP3 is 995."
 
 #: helpdesk/models.py:141
 msgid "E-Mail Username"
-msgstr ""
+msgstr "Email gebruikersnaam"
 
 #: helpdesk/models.py:145
 msgid "Username for accessing this mailbox."
-msgstr ""
+msgstr "Gebruikersnaam voor deze emailbox"
 
 #: helpdesk/models.py:149
 msgid "E-Mail Password"
-msgstr ""
+msgstr "Email wachtwoord"
 
 #: helpdesk/models.py:153
 msgid "Password for the above username"
-msgstr ""
+msgstr "Wachtwoord voor de bovenstaande gebruikersnaam"
 
 #: helpdesk/models.py:157
 msgid "IMAP Folder"
-msgstr ""
+msgstr "IMAP Map"
 
 #: helpdesk/models.py:161
 msgid ""
@@ -384,33 +408,35 @@ msgid ""
 "you to use one IMAP account for multiple queues, by filtering messages on "
 "your IMAP server into separate folders. Default: INBOX."
 msgstr ""
+"Indien IMAP wordt gebruikt, uit welke map moeten berichten worden bekeken? "
+"Standaardwaarde is INBOX."
 
 #: helpdesk/models.py:168
 msgid "E-Mail Check Interval"
-msgstr ""
+msgstr "Interval voor controleren mailbox"
 
 #: helpdesk/models.py:169
 msgid "How often do you wish to check this mailbox? (in Minutes)"
-msgstr ""
+msgstr "Hoe vaak moet deze mailbox worden bekeken? (in minuten)"
 
 #: helpdesk/models.py:240 helpdesk/templates/helpdesk/dashboard.html:11
 #: helpdesk/templates/helpdesk/ticket.html:130
 msgid "Open"
-msgstr ""
+msgstr "Open "
 
 #: helpdesk/models.py:241 helpdesk/templates/helpdesk/ticket.html:136
 #: helpdesk/templates/helpdesk/ticket.html:142
 #: helpdesk/templates/helpdesk/ticket.html:147
 #: helpdesk/templates/helpdesk/ticket.html:151
 msgid "Reopened"
-msgstr ""
+msgstr "Heropent"
 
 #: helpdesk/models.py:242 helpdesk/templates/helpdesk/dashboard.html:11
 #: helpdesk/templates/helpdesk/ticket.html:131
 #: helpdesk/templates/helpdesk/ticket.html:137
 #: helpdesk/templates/helpdesk/ticket.html:143
 msgid "Resolved"
-msgstr ""
+msgstr "Opgelost"
 
 #: helpdesk/models.py:243 helpdesk/templates/helpdesk/dashboard.html:11
 #: helpdesk/templates/helpdesk/ticket.html:132
@@ -418,67 +444,68 @@ msgstr ""
 #: helpdesk/templates/helpdesk/ticket.html:144
 #: helpdesk/templates/helpdesk/ticket.html:148
 msgid "Closed"
-msgstr ""
+msgstr "Gesloten"
 
 #: helpdesk/models.py:244 helpdesk/templates/helpdesk/ticket.html:133
 #: helpdesk/templates/helpdesk/ticket.html:139
 #: helpdesk/templates/helpdesk/ticket.html:152
 msgid "Duplicate"
-msgstr ""
+msgstr "Dubbel"
 
 #: helpdesk/models.py:248
 msgid "1. Critical"
-msgstr ""
+msgstr "1. Kritiek"
 
 #: helpdesk/models.py:249
 msgid "2. High"
-msgstr ""
+msgstr "2. Hoog"
 
 #: helpdesk/models.py:250
 msgid "3. Normal"
-msgstr ""
+msgstr "3. Normaal"
 
 #: helpdesk/models.py:251
 msgid "4. Low"
-msgstr ""
+msgstr "4. Laag"
 
 #: helpdesk/models.py:252
 msgid "5. Very Low"
-msgstr ""
+msgstr "5. Zeer laag"
 
 #: helpdesk/models.py:266 helpdesk/templates/helpdesk/dashboard.html:77
 #: helpdesk/templates/helpdesk/ticket_list.html:72
 #: helpdesk/templates/helpdesk/ticket_list.html:199
 msgid "Created"
-msgstr ""
+msgstr "Aangemaakt"
 
 #: helpdesk/models.py:268
 msgid "Date this ticket was first created"
-msgstr ""
+msgstr "Datum waarop dit ticket voor het eerst was aangemaakt."
 
 #: helpdesk/models.py:272
 msgid "Modified"
-msgstr ""
+msgstr "Laatst gewijzigd"
 
 #: helpdesk/models.py:274
 msgid "Date this ticket was most recently changed."
-msgstr ""
+msgstr "Datum waarop dit ticket als laatst is gewijzigd"
 
 #: helpdesk/models.py:278
 #: helpdesk/templates/helpdesk/public_view_ticket.html:16
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:26
 msgid "Submitter E-Mail"
-msgstr ""
+msgstr "Emailadres inzender"
 
 #: helpdesk/models.py:281
 msgid ""
 "The submitter will receive an email for all public follow-ups left for this "
 "task."
 msgstr ""
+"De inzender ontvangt en email voor alle publieke antwoorden voor deze taak."
 
 #: helpdesk/models.py:290
 msgid "Assigned to"
-msgstr ""
+msgstr "Toegewezen aan"
 
 #: helpdesk/models.py:294 helpdesk/templates/helpdesk/dashboard.html:37
 #: helpdesk/templates/helpdesk/dashboard.html:57
@@ -487,165 +514,173 @@ msgstr ""
 #: helpdesk/templates/helpdesk/ticket_list.html:81
 #: helpdesk/templates/helpdesk/ticket_list.html:199
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: helpdesk/models.py:300
 msgid "On Hold"
-msgstr ""
+msgstr "In de wacht"
 
 #: helpdesk/models.py:303
 msgid "If a ticket is on hold, it will not automatically be escalated."
-msgstr ""
+msgstr "Als een ticket in de wacht staat kan deze niet worden geëscaleerd."
 
 #: helpdesk/models.py:308 helpdesk/models.py:796
 #: helpdesk/templates/helpdesk/public_view_ticket.html:39
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:67
 msgid "Description"
-msgstr ""
+msgstr "Omschrijving"
 
 #: helpdesk/models.py:311
 msgid "The content of the customers query."
-msgstr ""
+msgstr "Vraag van de klant."
 
 #: helpdesk/models.py:315
 #: helpdesk/templates/helpdesk/public_view_ticket.html:46
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:74
 msgid "Resolution"
-msgstr ""
+msgstr "Antwoord"
 
 #: helpdesk/models.py:318
 msgid "The resolution provided to the customer by our staff."
-msgstr ""
+msgstr "Het antwoord geleverd aan de klant door ons personeel."
 
 #: helpdesk/models.py:326
 msgid "1 = Highest Priority, 5 = Low Priority"
-msgstr ""
+msgstr "1 = Hoogste prioriteit, 5 = Lage prioriteit"
 
 #: helpdesk/models.py:339
 msgid ""
 "The date this ticket was last escalated - updated automatically by "
 "management/commands/escalate_tickets.py."
 msgstr ""
+"The datum dat dit ticket als laatst is geëscaleerd - als laatste automatisch"
+" gewijzigd"
 
 #: helpdesk/models.py:348
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:22
 #: helpdesk/views/feeds.py:91 helpdesk/views/feeds.py:117
 #: helpdesk/views/feeds.py:169 helpdesk/views/staff.py:299
 msgid "Unassigned"
-msgstr ""
+msgstr "Niet toegewezen"
 
 #: helpdesk/models.py:387
 msgid " - On Hold"
-msgstr ""
+msgstr "- In de wacht"
 
 #: helpdesk/models.py:481 helpdesk/models.py:1073 helpdesk/models.py:1231
 #: helpdesk/models.py:1256 helpdesk/templates/helpdesk/public_homepage.html:26
 #: helpdesk/templates/helpdesk/public_view_form.html:12
 msgid "Ticket"
-msgstr ""
+msgstr "Ticket"
 
 #: helpdesk/models.py:485 helpdesk/models.py:714 helpdesk/models.py:1008
 #: helpdesk/models.py:1156
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: helpdesk/models.py:497 helpdesk/views/staff.py:313
 msgid "Comment"
-msgstr ""
+msgstr "Opmerking"
 
 #: helpdesk/models.py:503
 msgid "Public"
-msgstr ""
+msgstr "Openbaar"
 
 #: helpdesk/models.py:506
 msgid ""
 "Public tickets are viewable by the submitter and all staff, but non-public "
 "tickets can only be seen by staff."
 msgstr ""
+"Openbare tickets zijn zichtbaar voor de inzender en alle stafleden, niet-"
+"openbare tickets zijn alleen zichtbaar voor stafleden."
 
 #: helpdesk/models.py:514 helpdesk/models.py:888 helpdesk/models.py:1081
 #: helpdesk/views/staff.py:948 helpdesk/views/staff.py:954
 #: helpdesk/views/staff.py:960 helpdesk/views/staff.py:966
 msgid "User"
-msgstr ""
+msgstr "Gebruiker"
 
 #: helpdesk/models.py:518 helpdesk/templates/helpdesk/ticket.html:127
 msgid "New Status"
-msgstr ""
+msgstr "Nieuwe Status"
 
 #: helpdesk/models.py:522
 msgid "If the status was changed, what was it changed to?"
-msgstr ""
+msgstr "Als de status gewijzigd is, waar is de status naar gewijzigd?"
 
 #: helpdesk/models.py:551 helpdesk/models.py:608
 msgid "Follow-up"
-msgstr ""
+msgstr "Follow-up"
 
 #: helpdesk/models.py:555 helpdesk/models.py:1236
 msgid "Field"
-msgstr ""
+msgstr "Veld"
 
 #: helpdesk/models.py:560
 msgid "Old Value"
-msgstr ""
+msgstr "Oude waarde"
 
 #: helpdesk/models.py:566
 msgid "New Value"
-msgstr ""
+msgstr "Nieuwe waarde"
 
 #: helpdesk/models.py:574
 msgid "removed"
-msgstr ""
+msgstr "verwijderd"
 
 #: helpdesk/models.py:576
 #, python-format
 msgid "set to %s"
-msgstr ""
+msgstr "aangepast naar %s"
 
 #: helpdesk/models.py:578
 #, python-format
 msgid "changed from \"%(old_value)s\" to \"%(new_value)s\""
-msgstr ""
+msgstr "aangepast van \"%(old_value)s\" naar \"%(new_value)s\""
 
 #: helpdesk/models.py:612
 msgid "File"
-msgstr ""
+msgstr "Bestand"
 
 #: helpdesk/models.py:617
 msgid "Filename"
-msgstr ""
+msgstr "Bestandsnaam"
 
 #: helpdesk/models.py:622
 msgid "MIME Type"
-msgstr ""
+msgstr "MIME type"
 
 #: helpdesk/models.py:627
 msgid "Size"
-msgstr ""
+msgstr "Groote"
 
 #: helpdesk/models.py:628
 msgid "Size of this file in bytes"
-msgstr ""
+msgstr "Groote van dit bestand in bytes"
 
 #: helpdesk/models.py:663
 msgid ""
 "Leave blank to allow this reply to be used for all queues, or select those "
 "queues you wish to limit this reply to."
 msgstr ""
+"Laat leeg om dit antwoord te kunnen gebruiken voor alle wachtrijen, of "
+"selecteer voor welke wachtrijen dit bericht van toepassing voor is."
 
 #: helpdesk/models.py:668 helpdesk/models.py:709 helpdesk/models.py:1003
 #: helpdesk/templates/helpdesk/email_ignore_list.html:13
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #: helpdesk/models.py:670
 msgid ""
 "Only used to assist users with selecting a reply - not shown to the user."
 msgstr ""
+"Wordt alleen gebruikt om gebruikers een antwoord te laten selecteren - wordt"
+" niet getoond aan gebruiker."
 
 #: helpdesk/models.py:675
 msgid "Body"
-msgstr ""
+msgstr "Inhoud"
 
 #: helpdesk/models.py:676
 msgid ""
@@ -661,15 +696,15 @@ msgstr ""
 
 #: helpdesk/models.py:715
 msgid "Date on which escalation should not happen"
-msgstr ""
+msgstr "Datum waarop escalatie niet mag gebeuren"
 
 #: helpdesk/models.py:732
 msgid "Template Name"
-msgstr ""
+msgstr "Naam tempalte"
 
 #: helpdesk/models.py:737
 msgid "Subject"
-msgstr ""
+msgstr "Onderwerp"
 
 #: helpdesk/models.py:739
 msgid ""
@@ -680,7 +715,7 @@ msgstr ""
 
 #: helpdesk/models.py:745
 msgid "Heading"
-msgstr ""
+msgstr "Kop"
 
 #: helpdesk/models.py:747
 msgid ""
@@ -690,7 +725,7 @@ msgstr ""
 
 #: helpdesk/models.py:753
 msgid "Plain Text"
-msgstr ""
+msgstr "Platte tekst"
 
 #: helpdesk/models.py:754
 msgid ""
@@ -700,52 +735,52 @@ msgstr ""
 
 #: helpdesk/models.py:760
 msgid "HTML"
-msgstr ""
+msgstr "HTM-inhoud"
 
 #: helpdesk/models.py:761
 msgid "The same context is available here as in plain_text, above."
-msgstr ""
+msgstr "De zelfde context is hier te gebruiken als hierboven in plain_text"
 
 #: helpdesk/models.py:770
 msgid "Locale of this template."
-msgstr ""
+msgstr "Taal voor deze template"
 
 #: helpdesk/models.py:817 helpdesk/templates/helpdesk/kb_index.html:10
 #: helpdesk/templates/helpdesk/public_homepage.html:10
 msgid "Category"
-msgstr ""
+msgstr "Categorie"
 
 #: helpdesk/models.py:826
 msgid "Question"
-msgstr ""
+msgstr "Vraag"
 
 #: helpdesk/models.py:830
 msgid "Answer"
-msgstr ""
+msgstr "Antwoord"
 
 #: helpdesk/models.py:834
 msgid "Votes"
-msgstr ""
+msgstr "Stemmen"
 
 #: helpdesk/models.py:835
 msgid "Total number of votes cast for this item"
-msgstr ""
+msgstr "Totaal aantal stemmen"
 
 #: helpdesk/models.py:840
 msgid "Positive Votes"
-msgstr ""
+msgstr "Positieve stemmen"
 
 #: helpdesk/models.py:841
 msgid "Number of votes for this item which were POSITIVE."
-msgstr ""
+msgstr "Aantal stemmen op dit bericht die positief waren."
 
 #: helpdesk/models.py:846
 msgid "Last Updated"
-msgstr ""
+msgstr "Laatst gewijigd"
 
 #: helpdesk/models.py:847
 msgid "The date on which this question was most recently changed."
-msgstr ""
+msgstr "De datum waarop deze vraag laatst is gewijzigd."
 
 #: helpdesk/models.py:861
 msgid "Unrated"
@@ -753,15 +788,15 @@ msgstr ""
 
 #: helpdesk/models.py:892 helpdesk/templates/helpdesk/ticket_list.html:158
 msgid "Query Name"
-msgstr ""
+msgstr "Naam vraag"
 
 #: helpdesk/models.py:894
 msgid "User-provided name for this query"
-msgstr ""
+msgstr "Gebruiker gedefinieerde naam voor vraag"
 
 #: helpdesk/models.py:898
 msgid "Shared With Other Users?"
-msgstr ""
+msgstr "Gedeeld met andere gebruikers?"
 
 #: helpdesk/models.py:901
 msgid "Should other users see this query?"
