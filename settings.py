@@ -22,7 +22,7 @@ TIME_ZONE = 'America/Chicago'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'nl'
 
-SITE_ID = 1 
+SITE_ID = 4
 
 LOGIN_URL = '/login/'
 
@@ -139,9 +139,9 @@ except:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'ndov',                      # Or path to database file if using sqlite3.
-            'USER': 'haltes',                      # Not used with sqlite3.
-            'PASSWORD': 'haltes',                  # Not used with sqlite3.
+            'NAME': 'helpdesk',                      # Or path to database file if using sqlite3.
+            'USER': 'helpdesk',                      # Not used with sqlite3.
+            'PASSWORD': '',                  # Not used with sqlite3.
             'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
             'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
         }
