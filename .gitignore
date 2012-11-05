@@ -4,6 +4,7 @@
 .project
 .pydevproject
 .installed.cfg
+.heroku
 bin
 develop-eggs
 dist
