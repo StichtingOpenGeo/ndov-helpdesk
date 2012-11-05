@@ -13,3 +13,6 @@ parts
 src/*.egg-info
 lib
 lib64
+*.log
+*.pot
+local_settings.py
