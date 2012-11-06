@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="nl">
     <head>
-        <title>{% block helpdesk_title %}Helpdesk{% endblock %} :: {% trans "Powered by django-helpdesk" %}</title>
+        <title>{% block title %}{% block helpdesk_title %}Helpdesk{% endblock %}{% endblock %} :: {% trans "Site title" %}</title>
         <script src='{{ STATIC_URL }}helpdesk/jquery-1.5.min.js' type='text/javascript' language='javascript'></script>
         <script src='{{ STATIC_URL }}helpdesk/jquery-ui-1.8.9.custom.min.js' type='text/javascript' language='javascript'></script>
         {% comment %}
@@ -40,7 +40,6 @@
             </div>
 
             <footer class='footer'>
-                <p>{% include "helpdesk/attribution.html" %}</p>
 				<div class="btn-group">
 					<a href='{% url helpdesk_rss_index %}' class="btn"><img src='{{ STATIC_URL }}helpdesk/rss_icon.png' width='14' height='14' alt='{% trans "RSS Icon" %}' title='{% trans "RSS Feeds" %}' border='0' />{% trans "Feeds" %}</a>
 					{% if helpdesk_settings.HELPDESK_FOOTER_SHOW_API_LINK %}<a href='{% url helpdesk_api_help %}' class="btn">{% trans "API" %}</a>{% endif %}
