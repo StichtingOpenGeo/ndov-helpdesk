@@ -209,7 +209,7 @@ urlpatterns += patterns('',
         {
             'template': 'helpdesk/system_settings.html',
             'extra_context': {
-                'ADMIN_URL': getattr(settings, 'ADMIN_URL', '/admin/'),
+                'ADMIN_URL': getattr(settings, 'ADMIN_URL', '/helpdesk/admin/'),
             },
         },
         name='helpdesk_system_settings'),

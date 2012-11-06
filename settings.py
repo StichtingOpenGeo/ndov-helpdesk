@@ -16,7 +16,7 @@ MANAGERS = ADMINS
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/Amsterdam'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -47,7 +47,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = '/home/projects/ndov-helpdesk/static'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -104,7 +104,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 	'helpdesk',
 	'south',
-	'rosetta',
+    #	'rosetta',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin'
 )
@@ -132,18 +132,16 @@ LOGGING = {
     }
 }
 
-try:
-    import dj_database_url
-    DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
-except:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'helpdesk',                      # Or path to database file if using sqlite3.
-            'USER': 'helpdesk',                      # Not used with sqlite3.
-            'PASSWORD': '',                  # Not used with sqlite3.
-            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+        'NAME': 'ndov-helpdesk',                  
+        'USER': 'ndov-helpdesk',               
+        'PASSWORD': '',                
+        'HOST': '127.0.0.1',                
+        'PORT': '5432',                  
     }
+}
 
+QUEUE_EMAIL_BOX_TYPE = 'imap'
+QUEUE_EMAIL_BOX_SSL = False
