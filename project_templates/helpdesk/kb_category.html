@@ -1,7 +1,7 @@
 {% extends "helpdesk/public_base.html" %}{% load i18n %}
 
 {% block helpdesk_body %}
-<h2>Knowledgebase Category: {{ kbcat }}</h2>
+<h2>{{ category.title }}</h2>
 <p>{{ category.description }}</p>
 
 <table class='table table-striped'>
