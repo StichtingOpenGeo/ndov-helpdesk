@@ -1,5 +1,9 @@
 {% extends "helpdesk/public_base.html" %}{% load i18n %}{% load markup %}
-
+{% block helpdesk_head %}
+	<script src='{{ STATIC_URL }}prettify/prettify.js' type='text/javascript' language='javascript'></script>
+	<link rel='stylesheet' href='{{ STATIC_URL }}prettify/prettify.css' type='text/css' />
+{% endblock %}
+        
 {% block helpdesk_body %}
 <h2>{{ item.title }}</h2>
 

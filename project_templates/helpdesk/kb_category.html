@@ -5,10 +5,10 @@
 <p>{{ category.description }}</p>
 
 <table class='table table-striped'>
-	<tr><th>{% trans "Article" %}</th><th class="span2">{% trans "Rating" %}</th><th class="span2">{% trans "Last Update" %}</th></tr>
+	<tr><th>{% trans "Article" %}</th><th class="span4">{% trans "Last Update" %}</th><th class="span2">{% trans "Rating" %}</th></tr>
 
 {% for item in items %}
-	<tr><th><a href='{{ item.get_absolute_url }}'>{{ item.title }}</a></th><td>{{ item.score }}</td><td>{{ item.last_updated|timesince }} {% trans "ago" %}</td></tr>
+	<tr><th><a href='{{ item.get_absolute_url }}'>{{ item.title }}</a></th><td>{{ item.last_updated|timesince }} {% trans "ago" %}</td><td>{{ item.score }}</td></tr>
 {% endfor %}
 </table>
 
