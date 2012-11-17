@@ -6,7 +6,7 @@
 <h3>{{ item.question }}</h3>
 {{ item.answer|markdown }}
 
-<div class="alert alert-info">
+<div class="alert alert-info clearfix">
 	<strong>{% blocktrans with item.category.title as category_title and item.category.get_absolute_url as category_url %}View <a href='{{ category_url }}'>other {{ category_title }} articles</a></strong>, or continue <a href='../'>viewing other knowledgebase articles</a>.{% endblocktrans %}
 </div>
 
