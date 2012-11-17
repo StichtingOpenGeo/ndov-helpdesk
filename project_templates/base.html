@@ -16,20 +16,13 @@
         {% endcomment %}
 		<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap.min.css' type='text/css' />
 		<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap-responsive.min.css' type='text/css' />
+		<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap.addons.css' type='text/css' />
         <link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/jquery-smoothness-theme/jquery-ui-1.8.9.custom.css' type='text/css' />
 		{% if user.username %}
         <link rel='alternate' href='{% url helpdesk_rss_user user.username %}' type='application/rss+xml' title='{% trans "My Open Tickets" %}' />
         <link rel='alternate' href='{% url helpdesk_rss_activity %}' type='application/rss+xml' title='{% trans "All Recent Activity" %}' />
         <link rel='alternate' href='{% url helpdesk_rss_unassigned %}' type='application/rss+xml' title='{% trans "Unassigned Tickets" %}' />
 		{% endif %}
-		
-        <style type="text/css">
-        /* hide google translate top bar */
-        .goog-te-banner-frame {display: none !important;}
-        .goog-te-balloon-frame {display: none !important;}
-        /* hide google translate tooltips (generated for every translated item) */
-        .goog-tooltip {display: none !important; } 
-        </style>
 
         {% block helpdesk_head %}{% endblock %}
     </head>

@@ -1,0 +1,16 @@
+{% extends "helpdesk/public_base.html" %}{% load i18n %}
+
+{% block helpdesk_body %}
+<h2>{% blocktrans with category.title as kbcat %}Knowledgebase Category: {{ kbcat }}{% endblocktrans %}</h2>
+<p>{{ category.description }}</p>
+
+<table class='table table-striped'>
+<tr><th>{% trans "Article" %}</th><th class="span2">{% trans "Rating" %}</th><th class="span2">{% trans "Last Update" %}</th></tr>
+
+{% for item in items %}
+<tr><th><a href='{{ item.get_absolute_url }}'>{{ item.title }}</a></th><td>{{ item.score }}</td><td>{{ item.last_updated|timesince }} {% trans "ago" %}</td></tr>
+<tr><td colspan='3'>{{ item.question }}</td></tr>
+{% endfor %}
+</table>
+
+{% endblock %}
