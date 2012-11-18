@@ -356,6 +356,12 @@ class TicketForm(forms.Form):
 
 
 class PublicTicketForm(forms.Form):
+    submitter_email = forms.EmailField(
+        required=True,
+        label=_('Your E-Mail Address'),
+        help_text=_('We will e-mail you when your ticket is updated.'),
+        )
+    
     queue = forms.ChoiceField(
         label=_('Queue'),
         required=True,
@@ -365,18 +371,12 @@ class PublicTicketForm(forms.Form):
     title = forms.CharField(
         max_length=100,
         required=True,
-        widget=forms.TextInput(),
+        widget=forms.TextInput(attrs={'class': 'input-xxlarge'}),
         label=_('Summary of your query'),
         )
 
-    submitter_email = forms.EmailField(
-        required=True,
-        label=_('Your E-Mail Address'),
-        help_text=_('We will e-mail you when your ticket is updated.'),
-        )
-
     body = forms.CharField(
-        widget=forms.Textarea(),
+        widget=forms.Textarea(attrs={'class': 'input-xxlarge'}),
         label=_('Description of your issue'),
         required=True,
         help_text=_('Please be as descriptive as possible, including any '

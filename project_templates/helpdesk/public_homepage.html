@@ -1,0 +1,69 @@
+{% extends "helpdesk/public_base.html" %}{% load i18n %}
+
+{% block helpdesk_body %}
+
+{% if helpdesk_settings.HELPDESK_SHOW_KB_ON_HOMEPAGE %}
+<h2>{% trans "Knowledgebase Articles" %}</h2>
+
+<table width='100%'>
+<tr class='row_tablehead'><td>{% trans "Knowledgebase Categories" %}</td></tr>
+<tr class='row_columnheads'><th>{% trans "Category" %}</th></tr>
+
+{% for category in kb_categories %}
+<tr class='row_even row_hover'><th><a href='{{ category.get_absolute_url }}'>{{ category.title }}</a></th></tr>
+<tr class='row_odd'><td>{{ category.description }}</td></tr>
+{% endfor %}
+</table>
+
+{% endif %}
+
+{% if helpdesk_settings.HELPDESK_VIEW_A_TICKET_PUBLIC %}
+<h2>{% trans "View a Ticket" %}</h2>
+
+<form class="form form-horizontal" method='get' action='{% url helpdesk_public_view %}'>
+	<div class="control-group">
+		<label class="control-label" for='id_ticket'>{% trans "Ticket" %}</label>
+        <div class="controls"><input type='text' name='ticket' /></div>
+	</div>
+	<div class="control-group">
+        <label class="control-label" for='id_email'>{% trans "Your E-mail Address" %}</label>
+        <div class="controls"><input type='text' name='email' /></div>
+  </div>
+  <div class='controls'>
+  	<input class="btn btn-primary" type='submit' value='{% trans "View Ticket" %}' />
+  </div>
+{% csrf_token %}</form>
+{% endif %}
+
+{% if helpdesk_settings.HELPDESK_SUBMIT_A_TICKET_PUBLIC %}
+<h2 name='submit'>{% trans "Submit a Ticket" %}</h2>
+
+<p>{% trans "All fields are required. Please provide as descriptive a title and description as possible." %}</p>
+
+<form class="form form-horizontal" method='post' action='./#submit' enctype='multipart/form-data'>
+        {% for field in form %}
+            {% if field.is_hidden %}
+                {{ field }}
+            {% else %}
+            	<div class="control-group{% if field.errors %} error{% endif %}">
+	                <label class="control-label" for='id_{{ field.name }}'>{{ field.label }}</label>
+	                <div class="controls">{{ field }}
+	                {% if not field.field.required %} <p class='muted'><small>{% trans "(Optional)" %}</small></p>{% endif %}
+	                {% if field.errors %}<span class='help-inline'>{{ field.errors }}</span>{% else %}
+	                {% if field.help_text %}<span class='help-block'>{{ field.help_text }}</span>{% endif %}{% endif %}
+	                </div>
+                </div>
+            {% endif %}
+        {% endfor %}    
+    <div class='controls'>
+        <input class="btn btn-primary" type='submit' value='{% trans "Submit Ticket" %}' />
+    </div>
+
+{% csrf_token %}</form>
+{% endif %}
+
+{% if not helpdesk_settings.HELPDESK_VIEW_A_TICKET_PUBLIC and not helpdesk_settings.HELPDESK_SUBMIT_A_TICKET_PUBLIC %}
+        <h2>{% trans "Please use button at upper right to login first." %}</h2>
+{% endif %}
+
+{% endblock %}
