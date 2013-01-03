@@ -41,7 +41,7 @@ msgstr "Samenvatting van het probleem"
 
 #: helpdesk/forms.py:127
 msgid "Submitter E-Mail Address"
-msgstr "E-mailadres"
+msgstr "E-mailadres indiener"
 
 #: helpdesk/forms.py:129
 msgid ""
@@ -121,7 +121,7 @@ msgstr "Incident geopend en toegewezen aan %(name)s"
 
 #: helpdesk/forms.py:369
 msgid "Summary of your query"
-msgstr "Samenvatting van je wachtrij"
+msgstr "Samenvatting van je probleem"
 
 #: helpdesk/forms.py:374
 msgid "Your E-Mail Address"
@@ -202,7 +202,7 @@ msgstr "Aantal incidenten te tonen per pagina"
 
 #: helpdesk/forms.py:578
 msgid "How many tickets do you want to see on the Ticket List page?"
-msgstr "Hoeveel meldingen per pagina?"
+msgstr "Hoeveel incidenten wil je zien op de pagina?"
 
 #: helpdesk/forms.py:585
 msgid "Use my e-mail address when submitting tickets?"
@@ -359,7 +359,7 @@ msgstr ""
 
 #: helpdesk/models.py:124
 msgid "E-Mail Port"
-msgstr "E-mail port"
+msgstr "E-mail poort"
 
 #: helpdesk/models.py:127
 msgid ""
@@ -414,11 +414,11 @@ msgstr ""
 
 #: helpdesk/models.py:168
 msgid "E-Mail Check Interval"
-msgstr "Interval voor controleren mailbox"
+msgstr "Interval voor controleren e-mail"
 
 #: helpdesk/models.py:169
 msgid "How often do you wish to check this mailbox? (in Minutes)"
-msgstr "Hoe vaak moet deze mailbox worden bekeken? (in minuten)"
+msgstr "Hoe vaak moet deze mailbox worden gecontroleerd? (in minuten)"
 
 #: helpdesk/models.py:240 helpdesk/templates/helpdesk/dashboard.html:11
 #: helpdesk/templates/helpdesk/ticket.html:130
@@ -610,7 +610,7 @@ msgstr "Als de status gewijzigd is, waar is de status naar gewijzigd?"
 
 #: helpdesk/models.py:551 helpdesk/models.py:608
 msgid "Follow-up"
-msgstr "Follow-up"
+msgstr "Activiteit"
 
 #: helpdesk/models.py:555 helpdesk/models.py:1236
 msgid "Field"
@@ -687,6 +687,8 @@ msgid ""
 "Context available: {{ ticket }} - ticket object (eg {{ ticket.title }}); {{ "
 "queue }} - The queue; and {{ user }} - the current user."
 msgstr ""
+"Context beschikbaar: {{ ticket }} - incident object (bijv {{ ticket.title}} "
+"titel); {{ queue }} - De wachtrij; en {{ user }} - de huidige gebruiker."
 
 #: helpdesk/models.py:703
 msgid ""
@@ -714,6 +716,9 @@ msgid ""
 "something simple such as \"(Updated\") or \"(Closed)\" - the same context is "
 "available as in plain_text, below."
 msgstr ""
+"Dit zal worden voorgegaan met \"[incident.incident incident.titel\". We "
+"adviseren om iets simpel te nemen zoals \"(Bijgewerkt)\" of \"(Gesloten)\" - "
+"dezelfde inhoud is beschikbaar zoals in platte_tekst hier beneden."
 
 #: helpdesk/models.py:745
 msgid "Heading"
@@ -736,6 +741,9 @@ msgid ""
 "The context available to you includes {{ ticket }}, {{ queue }}, and "
 "depending on the time of the call: {{ resolution }} or {{ comment }}."
 msgstr ""
+"De context die voor je beschikbaar is {{ ticket }} (incident), {{ queue }} "
+"(wachtrij) en afhankelijk van het tijdstip van de aanroep {{ resolution }} "
+"(oplossing) of {{ comment }} (commentaar)."
 
 #: helpdesk/models.py:760
 msgid "HTML"
@@ -788,11 +796,11 @@ msgstr "De datum waarop deze vraag laatst is gewijzigd."
 
 #: helpdesk/models.py:861
 msgid "Unrated"
-msgstr ""
+msgstr "Niet gewaardeerd"
 
 #: helpdesk/models.py:892 helpdesk/templates/helpdesk/ticket_list.html:158
 msgid "Query Name"
-msgstr "Naam vraag"
+msgstr "Zoekopdracht naam"
 
 #: helpdesk/models.py:894
 msgid "User-provided name for this query"
@@ -812,33 +820,39 @@ msgstr "Zoekopdracht"
 
 #: helpdesk/models.py:906
 msgid "Pickled query object. Be wary changing this."
-msgstr ""
+msgstr "Picked zoek object. Wees voorzichtig met veranderen."
 
 #: helpdesk/models.py:927
 msgid "Settings Dictionary"
-msgstr ""
+msgstr "Instellingen Dictionary"
 
 #: helpdesk/models.py:928
 msgid ""
 "This is a base64-encoded representation of a pickled Python dictionary. Do "
 "not change this field via the admin."
 msgstr ""
+"Dit is een base64-geencodeerde representatie van een picklede Python "
+"dictionary. Wijzig dit veld niet via de admin.  "
 
 #: helpdesk/models.py:997
 msgid ""
 "Leave blank for this e-mail to be ignored on all queues, or select those "
 "queues you wish to ignore this e-mail for."
 msgstr ""
+"Laat leeg om dit e-mailadres te negeren bij alle zoekopdrachten, of "
+"selecteer de zoekopdrachten om dit e-mailadres bij te negeren."
 
 #: helpdesk/models.py:1009
 msgid "Date on which this e-mail address was added"
-msgstr ""
+msgstr "Datum wanneer dit e-mailadres was toegevoegd "
 
 #: helpdesk/models.py:1017
 msgid ""
 "Enter a full e-mail address, or portions with wildcards, eg *@domain.com or "
 "postmaster@*."
 msgstr ""
+"Vul een volledig e-mailadres, of een deel ervan met jokers in, bijv. "
+"*@domein.nl of postmaster@*."
 
 #: helpdesk/models.py:1022
 msgid "Save Emails in Mailbox?"
@@ -858,7 +872,7 @@ msgstr "Gebruiker die wijzigingen wil ontvangen van dit incident."
 
 #: helpdesk/models.py:1088
 msgid "For non-user followers, enter their e-mail address"
-msgstr ""
+msgstr "Voor geen gebruiker volgers, vul hun e-mailadres in"
 
 #: helpdesk/models.py:1092
 msgid "Can View Ticket?"
@@ -866,7 +880,7 @@ msgstr "Mag incident zien?"
 
 #: helpdesk/models.py:1094
 msgid "Can this CC login to view the ticket details?"
-msgstr ""
+msgstr "Kan deze CC inloggen om het incident te bekijken?"
 
 #: helpdesk/models.py:1098
 msgid "Can Update Ticket?"
@@ -874,17 +888,19 @@ msgstr "Mag incident bijwerken?"
 
 #: helpdesk/models.py:1100
 msgid "Can this CC login and update the ticket?"
-msgstr ""
+msgstr "Kan deze CC inloggen en het incident bijwerken?"
 
 #: helpdesk/models.py:1131
 msgid "Field Name"
-msgstr "Veld Naam"
+msgstr "Veldnaam"
 
 #: helpdesk/models.py:1132
 msgid ""
 "As used in the database and behind the scenes. Must be unique and consist of "
 "only lowercase letters with no punctuation."
 msgstr ""
+"Zoals gebruikt in de database en achter de schermen. Moet uniek zijn en "
+"bestaat alleen uit kleine letter zonder leestekens."
 
 #: helpdesk/models.py:1137
 msgid "Label"
@@ -892,15 +908,15 @@ msgstr "Label"
 
 #: helpdesk/models.py:1139
 msgid "The display label for this field"
-msgstr ""
+msgstr "Het weergave label voor dit veld"
 
 #: helpdesk/models.py:1143
 msgid "Help Text"
-msgstr "Help Tekst"
+msgstr "Helptekst"
 
 #: helpdesk/models.py:1144
 msgid "Shown to the user when editing the ticket"
-msgstr ""
+msgstr "Toon de gebruiker dat het incident wordt bewerkt"
 
 #: helpdesk/models.py:1150
 msgid "Character (single line)"
@@ -949,6 +965,8 @@ msgstr "Data Type"
 #: helpdesk/models.py:1168
 msgid "Allows you to restrict the data entered into this field"
 msgstr ""
+"Geeft je de mogelijkheid om gegevens die worden ingevuld in dit veld te "
+"limiteren"
 
 #: helpdesk/models.py:1173
 msgid "Maximum Length (characters)"
@@ -956,29 +974,31 @@ msgstr "Maximale Lengte (karakters)"
 
 #: helpdesk/models.py:1179
 msgid "Decimal Places"
-msgstr ""
+msgstr "Decimale plaatsen"
 
 #: helpdesk/models.py:1180
 msgid "Only used for decimal fields"
-msgstr ""
+msgstr "Alleen voor decimale velden"
 
 #: helpdesk/models.py:1186
 msgid "Add empty first choice to List?"
-msgstr ""
+msgstr "Lege eerste optie aan lijst toevoegen?"
 
 #: helpdesk/models.py:1187
 msgid ""
 "Only for List: adds an empty first entry to the choices list, which enforces "
 "that the user makes an active choice."
 msgstr ""
+"Alleen voor lijsten: voegt een lege eerste regel toe aan het keuzemenu, dat "
+"er voor zorgt dat je gebruiker een actieve keuze maakt."
 
 #: helpdesk/models.py:1191
 msgid "List Values"
-msgstr ""
+msgstr "Lijst waarden"
 
 #: helpdesk/models.py:1192
 msgid "For list fields only. Enter one option per line."
-msgstr ""
+msgstr "Alleen voor lijst velden. Vul een optie per regel in. "
 
 #: helpdesk/models.py:1198
 msgid "Ordering"
@@ -986,7 +1006,7 @@ msgstr "Volgorde"
 
 #: helpdesk/models.py:1199
 msgid "Lower numbers are displayed first; higher numbers are listed later"
-msgstr ""
+msgstr "Nummers worden van laag naar hoog getoond"
 
 #: helpdesk/models.py:1213
 msgid "Required?"
@@ -994,7 +1014,7 @@ msgstr "Verplicht?"
 
 #: helpdesk/models.py:1214
 msgid "Does the user have to enter a value for this field?"
-msgstr ""
+msgstr "Is de gebruiker verplicht om een waarde in dit veld in te vullen?"
 
 #: helpdesk/models.py:1218
 msgid "Staff Only?"
@@ -1004,6 +1024,7 @@ msgstr "Alleen Personeel?"
 msgid ""
 "If this is ticked, then the public submission form will NOT show this field"
 msgstr ""
+"Wanneer aangevinkt, wordt dit veld in het openbare formulier NIET getoond"
 
 #: helpdesk/models.py:1262
 msgid "Depends On Ticket"
@@ -1015,6 +1036,9 @@ msgid ""
 "required. Uses settings.DEFAULT_USER_SETTINGS which can be overridden to "
 "suit your situation."
 msgstr ""
+"Controleer op de gebruiker zonder django-helpdesk UserStettings en maak de "
+"instellingen waar nodig. Gebruikt settings.DEFAULT_USER_SETTINGS welke kan "
+"worden overschreven om aan je eigen situatie aan te passen. "
 
 #: helpdesk/management/commands/escalate_tickets.py:143
 #, python-format
@@ -1044,7 +1068,7 @@ msgstr "email_html_body.html"
 #: helpdesk/management/commands/get_email.py:256
 #, python-format
 msgid "E-Mail Received from %(sender_email)s"
-msgstr "E-mail ontvangen van %(sender_email)s "
+msgstr "E-mail ontvangen van %(sender_email)s"
 
 #: helpdesk/management/commands/get_email.py:264
 #, python-format
@@ -1064,6 +1088,8 @@ msgid ""
 "Powered by <a "
 "href='https://github.com/rossp/django-helpdesk'>django-helpdesk</a>."
 msgstr ""
+"Mede mogelijk gemaakt door <a "
+"href='https://github.com/rossp/django-helpdesk'>django-helpdesk</a>."
 
 #: helpdesk/templates/helpdesk/attribution.html:4
 msgid "For technical support please contact:"
@@ -1071,7 +1097,7 @@ msgstr "Voor technische ondersteuning neemt contact op met:"
 
 #: helpdesk/templates/helpdesk/base.html:9
 msgid "Powered by django-helpdesk"
-msgstr ""
+msgstr "Mede mogelijk gemaakt door django-helpdesk"
 
 #: helpdesk/templates/helpdesk/base.html:19
 #: helpdesk/templates/helpdesk/rss_list.html:9
@@ -1094,7 +1120,7 @@ msgstr "Niet toegewezen Incidenten"
 #: helpdesk/templates/helpdesk/public_base.html:6
 #: helpdesk/templates/helpdesk/public_base.html:14
 msgid "Helpdesk"
-msgstr ""
+msgstr "Helpdesk"
 
 #: helpdesk/templates/helpdesk/base.html:111
 #: helpdesk/templates/helpdesk/rss_list.html:9
@@ -1109,11 +1135,11 @@ msgstr "RSS Icoon"
 #: helpdesk/templates/helpdesk/rss_list.html:2
 #: helpdesk/templates/helpdesk/rss_list.html:4
 msgid "RSS Feeds"
-msgstr ""
+msgstr "RSS Feeds"
 
 #: helpdesk/templates/helpdesk/base.html:112
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: helpdesk/templates/helpdesk/base.html:113
 msgid "User Settings"
@@ -1130,7 +1156,7 @@ msgstr "Systeem Instellingen"
 #: helpdesk/templates/helpdesk/confirm_delete_saved_query.html:3
 #: helpdesk/templates/helpdesk/ticket_list.html:144
 msgid "Delete Saved Query"
-msgstr "Verwijder Opgeslagen Zoekopdracht"
+msgstr "Opgeslagen Zoekopdracht Verwijderen"
 
 #: helpdesk/templates/helpdesk/confirm_delete_saved_query.html:5
 #, python-format
@@ -1142,6 +1168,12 @@ msgid ""
 "(<em>%(query_title)s</em>)? To re-create it, you will need to manually "
 "re-filter your ticket listing.</p>\n"
 msgstr ""
+"\n"
+"<h2>Verwijder Zoekopdracht</h2>\n"
+"\n"
+"<p>Weet je zeker dat je dit opgeslagen filter (<em>%(query_title)s</em>) "
+"wilt verwijderen? Je kunt het filter opnieuw maken in je incidenten "
+"overzicht.</p>\n"
 
 #: helpdesk/templates/helpdesk/confirm_delete_saved_query.html:11
 msgid ""
@@ -1149,6 +1181,10 @@ msgid ""
 "<p>You have shared this query, so other users may be using it. If you delete "
 "it, they will have to manually create their own query.</p>\n"
 msgstr ""
+"\n"
+"<p>Je hebt deze zoekopdracht gedeeld, en is mogelijk in gebruik bij andere "
+"gebruikers. Wanneer je dit wist moeten zij zelf hun eigen zoekopdracht "
+"maken.</p>\n"
 
 #: helpdesk/templates/helpdesk/confirm_delete_saved_query.html:15
 #: helpdesk/templates/helpdesk/delete_ticket.html:11
@@ -1189,7 +1225,7 @@ msgstr "Maak een Incident"
 
 #: helpdesk/templates/helpdesk/dashboard.html:2
 msgid "Helpdesk Dashboard"
-msgstr ""
+msgstr "Helpdesk Samenvatting"
 
 #: helpdesk/templates/helpdesk/dashboard.html:10
 msgid "Helpdesk Summary"
@@ -1219,13 +1255,14 @@ msgstr ""
 msgid "All Tickets submitted by you"
 msgstr "Alle incidenten door jou ingediend   "
 
+# Het staat voor: Prioriteit
 #: helpdesk/templates/helpdesk/dashboard.html:37
 #: helpdesk/templates/helpdesk/dashboard.html:57
 #: helpdesk/templates/helpdesk/dashboard.html:77
 #: helpdesk/templates/helpdesk/dashboard.html:99
 #: helpdesk/templates/helpdesk/ticket_list.html:199
 msgid "Pr"
-msgstr ""
+msgstr "Pr"
 
 #: helpdesk/templates/helpdesk/dashboard.html:37
 #: helpdesk/templates/helpdesk/dashboard.html:57
@@ -1266,11 +1303,11 @@ msgstr "Alle tickets zijn toegewezen."
 
 #: helpdesk/templates/helpdesk/dashboard.html:98
 msgid "Closed & resolved Tickets you used to work on"
-msgstr ""
+msgstr "Gesloten en opgeloste incidenten waar je aan hebt gewerkt"
 
 #: helpdesk/templates/helpdesk/delete_ticket.html:3
 msgid "Delete Ticket"
-msgstr "Verwijder Ticket"
+msgstr "Incident Verwijderen"
 
 #: helpdesk/templates/helpdesk/delete_ticket.html:5
 #, python-format
@@ -1282,6 +1319,12 @@ msgid ""
 "All traces of the ticket, including followups, attachments, and updates will "
 "be irreversably removed.</p>\n"
 msgstr ""
+"\n"
+"<h2>Verwijder Incident</h2>\n"
+"\n"
+"<p>Weet je zeker dat je dit incident (<em>%(ticket_title)s</em>) wilt "
+"verwijderen? Alles van het incident, inclusief activiteit, bijlagen en "
+"updates zullen permanent worden verwijderd.</p>\n"
 
 #: helpdesk/templates/helpdesk/edit_ticket.html:3
 msgid "Edit Ticket"
@@ -1297,12 +1340,21 @@ msgid ""
 "<p><strong>Note:</strong> Editing a ticket does <em>not</em> send an e-mail "
 "to the ticket owner or submitter. No new details should be entered, this "
 "form should only be used to fix incorrect details or clean up the "
-"submission.</p>"
+"submission.</p>\n"
 msgstr ""
+"<h2>Bewerk een Incident</h2>\n"
+"\n"
+"<p>Alle velden zijn vereist, tenzij anders vermeld. Geef een zo duidelijk "
+"mogelijke titel en omschrijving.</p>\n"
+"\n"
+"<p><strong>Opmerking:</strong> Het bewerken van een incident stuurt "
+"<em>geen</em> e-mail naar de incident eigenaar of indiener. Geen nieuwe "
+"informatie moet worden toegevoegd, dit formulier moet alleen worden gebruikt "
+"om onjuistheden te corrigeren of de inzending op te schonen</p>\n"
 
 #: helpdesk/templates/helpdesk/edit_ticket.html:28
 msgid "Save Changes"
-msgstr "Opslaan Wijzigingen"
+msgstr "Wijzigingen Opslaan"
 
 #: helpdesk/templates/helpdesk/email_ignore_add.html:3
 #: helpdesk/templates/helpdesk/email_ignore_add.html:23
@@ -1321,11 +1373,21 @@ msgid ""
 "<em>email@domain.com</em> or a portion of an e-mail address with a wildcard, "
 "such as <em>*@domain.com</em> or <em>user@*</em>.</p>"
 msgstr ""
+"\n"
+"<h2>Negeer e-mailadressen</h2>\n"
+"\n"
+"<p>Om een e-mailadres te negeren en te voorkomen dat e-mails van dit adres "
+"automatisch tickets aanmaken, vul het e-mailadres hieronder in.</p>\n"
+"\n"
+"<p>Je kunt een heel e-mailadres toevoegen zoals <em>email@domein.nl</em> of "
+"een gedeelte van het adres met een joker, zoals <em>*@domein.nl</em> of "
+"<em>gebruiker@*</em>.</p>"
 
 #: helpdesk/templates/helpdesk/email_ignore_del.html:3
 msgid "Delete Ignored E-Mail Address"
-msgstr ""
+msgstr "Genegeerd e-mailadres Verwijderen"
 
+# <p>Weet je zeker dat je dit e-mailadres (<em>%(email_address)s</em>) weer wilt toestaan en automatisch incidenten aan wil maken in je systeem?</p>
 #: helpdesk/templates/helpdesk/email_ignore_del.html:5
 #, python-format
 msgid ""
@@ -1336,19 +1398,24 @@ msgid ""
 "(<em>%(email_address)s</em>) and allow their e-mails to automatically create "
 "tickets in your system? You can re-add this e-mail address at any time.</p>\n"
 msgstr ""
+"\n"
+"<h2>Stop negeren e-mailadres</h2>"
+"<p>Weet je zeker dat je dit e-mailadres "
+"(<em>%(email_address)s</em>) weer wilt toestaan en automatisch incidenten aan "
+"wil maken in je systeem?</p>\n"
 
 #: helpdesk/templates/helpdesk/email_ignore_del.html:11
 msgid "Keep Ignoring It"
-msgstr ""
+msgstr "Blijf negeren"
 
 #: helpdesk/templates/helpdesk/email_ignore_del.html:13
 msgid "Stop Ignoring It"
-msgstr ""
+msgstr "Stop negeren"
 
 #: helpdesk/templates/helpdesk/email_ignore_list.html:3
 #: helpdesk/templates/helpdesk/email_ignore_list.html:12
 msgid "Ignored E-Mail Addresses"
-msgstr ""
+msgstr "Negeer e-mailadressen"
 
 #: helpdesk/templates/helpdesk/email_ignore_list.html:5
 msgid ""
@@ -1359,10 +1426,15 @@ msgid ""
 "incoming e-mail processor. You can <a href='add/'>add a new e-mail address "
 "to the list</a> or delete any of the items below as required.</p>"
 msgstr ""
+"\n"
+"<h2>Negeerde e-mailadressen</h2>\n"
+"<p>De volgende e-mailadressen worden momenteel genegeerd door de inkomende "
+"e-mailverwerker. Je kunt <a href='add/'>nieuwe e-mailadressen toevoegen aan "
+"de lijst</a> of waarnodig onderstaande regels verwijderen.</p>"
 
 #: helpdesk/templates/helpdesk/email_ignore_list.html:13
 msgid "Date Added"
-msgstr ""
+msgstr "Datum toegevoegd"
 
 #: helpdesk/templates/helpdesk/email_ignore_list.html:13
 msgid "Queues"
@@ -1370,7 +1442,7 @@ msgstr "Wachtrijen"
 
 #: helpdesk/templates/helpdesk/email_ignore_list.html:13
 msgid "Keep in mailbox?"
-msgstr ""
+msgstr "Behoud in mailbox?"
 
 #: helpdesk/templates/helpdesk/email_ignore_list.html:21
 #: helpdesk/templates/helpdesk/ticket_list.html:232
@@ -1386,18 +1458,20 @@ msgid ""
 "<strong>Note:</strong> If the 'Keep' option is not selected, emails sent "
 "from that address will be deleted permanently."
 msgstr ""
+"<strong>Opmerking:</strong> Wanneer de 'Behoud' optie niet is geselecteerd, "
+"zullen verzonden e-mails van dat adres permanent worden verwijderd. "
 
 #: helpdesk/templates/helpdesk/followup_edit.html:2
 msgid "Edit followup"
-msgstr ""
+msgstr "Bewerk activiteit"
 
 #: helpdesk/templates/helpdesk/followup_edit.html:9
 msgid "Edit FollowUp"
-msgstr ""
+msgstr "Bewerk activiteit"
 
 #: helpdesk/templates/helpdesk/followup_edit.html:14
 msgid "Reassign ticket:"
-msgstr ""
+msgstr "Toewijzen incident:"
 
 #: helpdesk/templates/helpdesk/followup_edit.html:16
 msgid "Title:"
@@ -1416,7 +1490,7 @@ msgstr "Kennissysteem Categorie: %(kbcat)s"
 #: helpdesk/templates/helpdesk/kb_category.html:6
 #, python-format
 msgid "You are viewing all items in the %(kbcat)s category."
-msgstr ""
+msgstr "Je bekijkt alle artikelen in de %(kbcat)s categorie."
 
 #: helpdesk/templates/helpdesk/kb_category.html:12
 msgid "Article"
@@ -1455,10 +1529,12 @@ msgid ""
 "articles</a>, or continue <a href='../'>viewing other knowledgebase "
 "articles</a>."
 msgstr ""
+"Bekijk <a href='%(category_url)s'>andere <em>%(category_title)s</em> "
+"artikelen</a>, of <a href='../'>bekijk andere kennisbank artikelen</a>."
 
 #: helpdesk/templates/helpdesk/kb_item.html:15
 msgid "Feedback"
-msgstr ""
+msgstr "Terugkoppeling"
 
 #: helpdesk/templates/helpdesk/kb_item.html:17
 msgid ""
@@ -1466,6 +1542,10 @@ msgid ""
 "helped them out, in order for us to better serve future customers. We would "
 "appreciate your feedback on this article. Did you find it useful?"
 msgstr ""
+"We geven onze gebruikers de mogelijkheid om te stemmen op de artikelen "
+"waarvan zij denken dat ze waardevol bleken, zodat we nieuwe klanten beter "
+"kunnen ondersteunen. We stellen je reactie op dit artikel op prijs. Was het "
+"bruikbaar voor je? "
 
 #: helpdesk/templates/helpdesk/kb_item.html:20
 msgid "This article was useful to me"
@@ -1473,11 +1553,11 @@ msgstr "Dit artikel was bruikbaar voor me"
 
 #: helpdesk/templates/helpdesk/kb_item.html:21
 msgid "This article was <strong>not</strong> useful to me"
-msgstr ""
+msgstr "Dit artikel was <strong>niet</strong> bruikbaar voor me"
 
 #: helpdesk/templates/helpdesk/kb_item.html:24
 msgid "The results of voting by other readers of this article are below:"
-msgstr ""
+msgstr "De stemresultaten door andere lezers van dit artikel staan hieronder: "
 
 #: helpdesk/templates/helpdesk/kb_item.html:27
 #, python-format
@@ -1492,11 +1572,11 @@ msgstr "Stemmen: %(votes)s"
 #: helpdesk/templates/helpdesk/kb_item.html:29
 #, python-format
 msgid "Overall Rating: %(score)s"
-msgstr ""
+msgstr "Gemiddelde score: %(score)s"
 
 #: helpdesk/templates/helpdesk/navigation.html:4
 msgid "Dashboard"
-msgstr ""
+msgstr "Samenvatting"
 
 #: helpdesk/templates/helpdesk/navigation.html:5
 #: helpdesk/templates/helpdesk/ticket_list.html:198
@@ -1514,7 +1594,7 @@ msgstr "Statistieken"
 #: helpdesk/templates/helpdesk/navigation.html:14
 #: helpdesk/templates/helpdesk/ticket_list.html:46
 msgid "Load Saved Query"
-msgstr ""
+msgstr "Laad opgeslagen zoekopdracht"
 
 #: helpdesk/templates/helpdesk/navigation.html:25
 #: helpdesk/templates/helpdesk/navigation.html:35
@@ -1528,6 +1608,7 @@ msgstr "Zoeken..."
 #: helpdesk/templates/helpdesk/navigation.html:26
 msgid "Enter a keyword, or a ticket number to jump straight to that ticket."
 msgstr ""
+"Vul een steekwoord of incidentnummer in om direct naar het incident te gaan."
 
 #: helpdesk/templates/helpdesk/navigation.html:31
 msgid "Submit A Ticket"
@@ -1550,7 +1631,7 @@ msgstr "Wijzig de weergave taal"
 
 #: helpdesk/templates/helpdesk/public_homepage.html:6
 msgid "Knowledgebase Articles"
-msgstr ""
+msgstr "Kennisbank artikelen"
 
 #: helpdesk/templates/helpdesk/public_homepage.html:29
 #: helpdesk/templates/helpdesk/public_view_form.html:15
@@ -1580,7 +1661,7 @@ msgstr "Gebruik de knop rechtsboven om eerst in te loggen."
 
 #: helpdesk/templates/helpdesk/public_spam.html:4
 msgid "Unable To Open Ticket"
-msgstr ""
+msgstr "Kan het incident niet openen"
 
 #: helpdesk/templates/helpdesk/public_spam.html:6
 msgid ""
@@ -1594,6 +1675,16 @@ msgid ""
 "<p>We are sorry for any inconvenience, however this check is required to "
 "avoid our helpdesk resources being overloaded by spammers.</p>\n"
 msgstr ""
+"<p>Sorry, maar er is wat mis gegaan bij het opsturen van jouw incident</p>\n"
+"\n"
+"<p>Ons systeem heeft jouw reactie gemarkeerd als <strong>spam</strong>, "
+"daarom zijn we niet instaat om het op te slaan. Wanneer het geen spam is, ga "
+"terug en omschrijf je bericht opnieuw. Zorg ervoor dat het minder op spam "
+"lijkt, wanneer je veel linkjes hebt bijgevuld probeer ze dan te "
+"verwijderen.</p>\n"
+"\n"
+"<p>Onze excuses voon het ongemak, maar dit is nodig om onze helpdesk te "
+"beschermen tegen spammers.</p>\n"
 
 #: helpdesk/templates/helpdesk/public_view_form.html:8
 msgid "Error:"
@@ -1607,7 +1698,7 @@ msgstr "Wachtrij: %(queue_name)s  "
 #: helpdesk/templates/helpdesk/public_view_ticket.html:11
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:16
 msgid "Submitted On"
-msgstr "Ingediend Op"
+msgstr "Ingediend op"
 
 #: helpdesk/templates/helpdesk/public_view_ticket.html:46
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:74
@@ -1622,13 +1713,13 @@ msgstr "Accepteer en Sluit"
 #: helpdesk/templates/helpdesk/public_view_ticket.html:55
 #: helpdesk/templates/helpdesk/ticket.html:64
 msgid "Follow-Ups"
-msgstr ""
+msgstr "Activiteit"
 
 #: helpdesk/templates/helpdesk/public_view_ticket.html:63
 #: helpdesk/templates/helpdesk/ticket.html:92
 #, python-format
 msgid "Changed %(field)s from %(old_value)s to %(new_value)s."
-msgstr ""
+msgstr "%(field)s gewijzigd van %(old_value)s naar %(new_value)s."
 
 #: helpdesk/templates/helpdesk/report_index.html:3
 #: helpdesk/templates/helpdesk/report_index.html:6
@@ -1673,20 +1764,24 @@ msgstr "Meldingen per wachtrij"
 msgid ""
 "You can run this query on filtered data by using one of your saved queries."
 msgstr ""
+"Je kunt deze zoekopdracht draaien op gefilterde gegevens door een opgeslagen "
+"zoekopdrachten te gebruiken."
 
 #: helpdesk/templates/helpdesk/report_output.html:21
 msgid "Select Query:"
-msgstr ""
+msgstr "Selecteer zoekopdracht:"
 
 #: helpdesk/templates/helpdesk/report_output.html:26
 msgid "Filter Report"
-msgstr ""
+msgstr "Filter Rapport"
 
 #: helpdesk/templates/helpdesk/report_output.html:29
 msgid ""
 "Want to filter this report to just show a subset of data? Go to the Ticket "
 "List, filter your query, and save your query."
 msgstr ""
+"Wil je dit rapport filteren om een subset van informatie te tonen? Ga naar "
+"de Incident Lijst, filter de zoekopdracht en sla ge zoekopdracht op."
 
 #: helpdesk/templates/helpdesk/rss_list.html:6
 msgid ""
@@ -1695,12 +1790,18 @@ msgid ""
 "all feeds provide information only on Open and Reopened cases. This ensures "
 "your RSS reader isn't full of information about closed or historical tasks."
 msgstr ""
+"De volgende RSS feeds zijn beschikbaar om te bijken in je favoriete RSS "
+"software. Met de uitzonderingen van de 'Laatste Activiteit'-feed, geven alle "
+"feeds alleen informatie over open en heropende zaken. Dit zorgt ervoor dat "
+"je RSS lezer niet vol staat met informatie over gesloten of oude taken."
 
 #: helpdesk/templates/helpdesk/rss_list.html:10
 msgid ""
 "A summary of your open tickets - useful for getting alerted to new tickets "
 "opened for you"
 msgstr ""
+"Een samenvatting van jouw open incidenten - bruikbaar om te worden "
+"geinformeerd wanneer nieuwe incidenten voor jou worden geopend"
 
 #: helpdesk/templates/helpdesk/rss_list.html:12
 msgid "Latest Activity"
@@ -1711,6 +1812,8 @@ msgid ""
 "A summary of all helpdesk activity - including comments, emails, "
 "attachments, and more"
 msgstr ""
+"Een samenvatting van alle helpdesk activiteit - inclusief commentaar, "
+"e-mails, bijlagen en meer"
 
 #: helpdesk/templates/helpdesk/rss_list.html:16
 msgid ""
@@ -1728,10 +1831,14 @@ msgid ""
 "manage the staff who utilise a particular queue, this may be used to view "
 "new tickets coming into that queue."
 msgstr ""
+"Deze RSS feeds laten je een samenvatting zien van je eigen incidenten of "
+"alle incidenten van een van je wachtrijen in je helpdesk. BIjvoorbeeld, "
+"wanneer de leiding hebt over medewerkers die een specifieke wachtrij "
+"gebruiken kun je zien hoeveel nieuwe incidenten worden gemeld. "
 
 #: helpdesk/templates/helpdesk/rss_list.html:22
 msgid "Per-Queue Feeds"
-msgstr ""
+msgstr "Per-Wachtrij Feeds"
 
 #: helpdesk/templates/helpdesk/rss_list.html:23
 msgid "All Open Tickets"
@@ -1752,6 +1859,11 @@ msgid ""
 "\n"
 "<p>The following items can be maintained by you or other superusers:</p>"
 msgstr ""
+"\n"
+"<h2>Systeem Instellingen</h2>\n"
+"\n"
+"<p>De volgende onderdelen kunnen worden beheerd door jou of andere "
+"beheerders:</p>"
 
 #: helpdesk/templates/helpdesk/system_settings.html:11
 msgid "E-Mail Ignore list"
@@ -1763,7 +1875,7 @@ msgstr "Beheer Wachtrijen"
 
 #: helpdesk/templates/helpdesk/system_settings.html:13
 msgid "Maintain Pre-Set Replies"
-msgstr "Beheer Ingestelde Antwoorden"
+msgstr "Beheer Model Antwoorden"
 
 #: helpdesk/templates/helpdesk/system_settings.html:14
 msgid "Maintain Knowledgebase Categories"
@@ -1792,7 +1904,7 @@ msgstr "Voeg ander bestand toe"
 #: helpdesk/templates/helpdesk/ticket.html:34
 #: helpdesk/templates/helpdesk/ticket.html:197
 msgid "Add Another File"
-msgstr "Voeg een extra bestand toe"
+msgstr "Extra bestand toevoegen"
 
 #: helpdesk/templates/helpdesk/ticket.html:71
 #: helpdesk/templates/helpdesk/ticket.html:81
@@ -1805,13 +1917,16 @@ msgstr "Reageer op dit incident"
 
 #: helpdesk/templates/helpdesk/ticket.html:118
 msgid "Use a Pre-set Reply"
-msgstr "Gebruik een vooraf ingesteld antwoord"
+msgstr "Gebruik model antwoord"
 
 #: helpdesk/templates/helpdesk/ticket.html:120
 msgid ""
 "Selecting a pre-set reply will over-write your comment below. You can then "
 "modify the pre-set reply to your liking before saving this update."
 msgstr ""
+"Het selecteren van een model antwoord zal het huidige commentaar "
+"overschrijven. Je kunt daarna de reactie aanpassen voordat je de bewerking "
+"opslaat."
 
 #: helpdesk/templates/helpdesk/ticket.html:123
 msgid "Comment / Resolution"
@@ -1822,25 +1937,31 @@ msgid ""
 "You can insert ticket and queue details in your message. For more "
 "information, see the <a href='../../help/context/'>context help page</a>."
 msgstr ""
+"Je kunt incident en wachrij gegevens toevoegen aan je bericht. Voor meer "
+"informatie bekijk de <a href='../../help/context/'>context help page</a>."
 
 #: helpdesk/templates/helpdesk/ticket.html:128
 msgid ""
 "This ticket cannot be resolved or closed until the tickets it depends on are "
 "resolved."
 msgstr ""
+"Dit incident kan niet worden opgelost of gesloten totdat de incidenten waar "
+"het vanaf hangt zijn opgelost."
 
 #: helpdesk/templates/helpdesk/ticket.html:158
 msgid "Is this update public?"
-msgstr ""
+msgstr "Is deze bewerking openbaar?"
 
 #: helpdesk/templates/helpdesk/ticket.html:160
 msgid ""
 "If this is public, the submitter will be e-mailed your comment or resolution."
 msgstr ""
+"Wanneer het openbaar is zal de inzender worden geemaild met je commentaar of "
+"oplossing."
 
 #: helpdesk/templates/helpdesk/ticket.html:164
 msgid "Change Further Details &raquo;"
-msgstr ""
+msgstr "Bewerk meer gegevens &raquo;"
 
 #: helpdesk/templates/helpdesk/ticket.html:173
 #: helpdesk/templates/helpdesk/ticket_list.html:55
@@ -1851,7 +1972,7 @@ msgstr "Eigenaar"
 
 #: helpdesk/templates/helpdesk/ticket.html:174
 msgid "Unassign"
-msgstr ""
+msgstr "Intrekken toewijzing"
 
 #: helpdesk/templates/helpdesk/ticket.html:190
 msgid "Attach File(s) &raquo;"
@@ -1867,7 +1988,7 @@ msgstr "Incident bijwerken"
 
 #: helpdesk/templates/helpdesk/ticket_cc_add.html:3
 msgid "Add Ticket CC"
-msgstr ""
+msgstr "Incident CC toevoegen"
 
 #: helpdesk/templates/helpdesk/ticket_cc_add.html:5
 msgid ""
@@ -1877,14 +1998,20 @@ msgid ""
 "<p>To automatically send an email to a user or e-mail address when this "
 "ticket is updated, select the user or enter an e-mail address below.</p>"
 msgstr ""
+"\n"
+"<h2>Incident CC toevoegen</h2>\n"
+"\n"
+"<p>Om automatisch e-mail te verzenden aan een gebruik of e-mailadres wanneer "
+"dit incident wordt bijgewerkt, selecteer de gebruiker of vul hieronder een "
+"e-mail adres in.</p>"
 
 #: helpdesk/templates/helpdesk/ticket_cc_add.html:21
 msgid "Save Ticket CC"
-msgstr ""
+msgstr "Incident CC opslaan"
 
 #: helpdesk/templates/helpdesk/ticket_cc_del.html:3
 msgid "Delete Ticket CC"
-msgstr ""
+msgstr "Indident CC verwijderen"
 
 #: helpdesk/templates/helpdesk/ticket_cc_del.html:5
 #, python-format
@@ -1896,6 +2023,12 @@ msgid ""
 "(<em>%(email_address)s</em>) from the CC list for this ticket? They will "
 "stop receiving updates.</p>\n"
 msgstr ""
+"\n"
+"<h2>Incident CC verwijderen</h2>\n"
+"\n"
+"<p>Weet je zeker dat je dit e-mailadres (<em>%(email_address)s</em>) van de "
+"CC lijst voor dit incident wilt verwijderen? Er worden geen wijzigingen meer "
+"verstuurd.</p>\n"
 
 #: helpdesk/templates/helpdesk/ticket_cc_del.html:11
 #: helpdesk/templates/helpdesk/ticket_dependency_del.html:11
@@ -1924,6 +2057,16 @@ msgid ""
 "<p>You can <a href='add/'>add a new e-mail address to the list</a> or delete "
 "any of the items below as required.</p>"
 msgstr ""
+"\n"
+"<h2>Incident CC instellingen</h2>\n"
+"\n"
+"<p>De volgende personen zullen een e-mail ontvangen wanneer <em><a "
+"href='../'>%(ticket_title)s</a></em> wordt bijgewerkt. Sommige mensen kunnen "
+"kunnen het incident ook bekijken of wijzigen via de openbare incidenten "
+"pagina.</p>\n"
+"\n"
+"<p>Je kunt <a href='add/'>nieuwe e-mailadressen toevoegen aan de lijst</a> "
+"of waarnodig regels hieronder verwijderen.</p> "
 
 #: helpdesk/templates/helpdesk/ticket_cc_list.html:14
 msgid "Ticket CC List"
@@ -1940,11 +2083,11 @@ msgstr "BIjwerken?"
 #: helpdesk/templates/helpdesk/ticket_cc_list.html:29
 #, python-format
 msgid "Return to <em>%(ticket_title)s</em>"
-msgstr ""
+msgstr "Terug naar <em>%(ticket_title)s</em>"
 
 #: helpdesk/templates/helpdesk/ticket_dependency_add.html:3
 msgid "Add Ticket Dependency"
-msgstr ""
+msgstr "Incident afhankelijkheid toevoegen"
 
 #: helpdesk/templates/helpdesk/ticket_dependency_add.html:5
 msgid ""
@@ -1954,14 +2097,20 @@ msgid ""
 "<p>Adding a dependency will stop you resolving this ticket until the "
 "dependent ticket has been resolved or closed.</p>"
 msgstr ""
+"\n"
+"<h2>Incident afhankelijkheid toevoegen</h2>\n"
+"\n"
+"<p>Het toevoegen van een afhankelijkheid voorkomt dat je het incident "
+"oplost, totdat je alle afhankelijkheden van het incident hebt opgelost of "
+"gesloten.</p>"
 
 #: helpdesk/templates/helpdesk/ticket_dependency_add.html:21
 msgid "Save Ticket Dependency"
-msgstr ""
+msgstr "Incident afhankelijkheid opslaan"
 
 #: helpdesk/templates/helpdesk/ticket_dependency_del.html:3
 msgid "Delete Ticket Dependency"
-msgstr ""
+msgstr "Incident Afhankelijkheid Verwijderen"
 
 #: helpdesk/templates/helpdesk/ticket_dependency_del.html:5
 msgid ""
@@ -1970,14 +2119,19 @@ msgid ""
 "\n"
 "<p>Are you sure you wish to remove the dependency on this ticket?</p>\n"
 msgstr ""
+"\n"
+"<h2>Verwijder Incident Afhankelijkheid</h2>\n"
+"\n"
+"<p>Weet je zeker dat je deze afhankelijkheid wilt verwijderen van dit "
+"incident?</p>\n"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:11
 msgid "Unhold"
-msgstr ""
+msgstr "Voorzetten"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:11
 msgid "Hold"
-msgstr ""
+msgstr "Aanhouden"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:13
 #, python-format
@@ -2005,6 +2159,8 @@ msgid ""
 "Click here to add / remove people who should receive an e-mail whenever this "
 "ticket is updated."
 msgstr ""
+"Klik hier om mensen toe te voegen of te verwijderen die e-mails dienen te "
+"ontvangen wanneer het incident wordt bijgewerkt. "
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:48
 msgid "Dependencies"
@@ -2027,7 +2183,7 @@ msgstr "Dit incident heeft geen afhankelijkheden."
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:56
 msgid "Add Dependency"
-msgstr ""
+msgstr "Afhankelijkheid toevoegen"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:56
 msgid ""
@@ -2035,6 +2191,9 @@ msgid ""
 "another ticket. A ticket may not be closed until all tickets it depends on "
 "are closed."
 msgstr ""
+"Klik op 'Afhankelijkheid toevoegen', wanneer je dit incident afhankelijk "
+"wilt maken van een ander incident. Een incident mag niet gesloten worden "
+"totdat alle afhankelijke incidenten zijn gesloten."
 
 #: helpdesk/templates/helpdesk/ticket_list.html:2
 msgid "Ticket Listing"
@@ -2042,15 +2201,15 @@ msgstr "Incident Overzicht"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:41
 msgid "Query Options"
-msgstr ""
+msgstr "Zoekopdracht opties"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:43
 msgid "Save This Query"
-msgstr ""
+msgstr "Deze zoekopdracht opslaan"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:51
 msgid "Change Query"
-msgstr ""
+msgstr "Wijzig zoekopdracht"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:54
 #: helpdesk/templates/helpdesk/ticket_list.html:69
@@ -2064,7 +2223,7 @@ msgstr "Steekwoorden"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:59
 msgid "Date Range"
-msgstr ""
+msgstr "Datum reeks"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:90
 msgid "Reverse"
@@ -2072,7 +2231,7 @@ msgstr "Omkeren"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:92
 msgid "Ordering applied to tickets"
-msgstr ""
+msgstr "Sortering toegepast op incidenten"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:97
 msgid "Owner(s)"
@@ -2080,7 +2239,7 @@ msgstr "Eigenaar"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:101
 msgid "(ME)"
-msgstr ""
+msgstr "(eigen)"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:105
 msgid "Ctrl-Click to select multiple options"
@@ -2098,7 +2257,7 @@ msgstr "Ctrl-click om meerdere opties te selecteren"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:116
 msgid "Status(es)"
-msgstr ""
+msgstr "Status"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:122
 msgid "Date (From)"
@@ -2121,6 +2280,8 @@ msgid ""
 "Keywords are case-insensitive, and will be looked for in the title, body and "
 "submitter fields."
 msgstr ""
+"Steekwoorden zijn niet hoofdlettergevoelig en worden gezocht in de titel, "
+"inhoud en inzender velden."
 
 #: helpdesk/templates/helpdesk/ticket_list.html:142
 msgid "Apply Filter"
@@ -2130,6 +2291,7 @@ msgstr "Pas filter toe"
 #, python-format
 msgid "You are currently viewing saved query <em>%(query_name)s</em>."
 msgstr ""
+"Je bekijkt momenteel de opgeslagen zoekopdracht <em>%(query_name)s</em>."
 
 #: helpdesk/templates/helpdesk/ticket_list.html:147
 #, python-format
@@ -2137,11 +2299,14 @@ msgid ""
 "<a href='../reports/?saved_query=%(query_id)s'>Run a report</a> on this "
 "query to see stats and charts for the data listed below."
 msgstr ""
+"<a href='../reports/?saved_query=%(query_id)s'>Draai een rapport</a> van "
+"deze zoekopdracht om de statistieken en overzicht te maken voor de "
+"onderstaande data."
 
 #: helpdesk/templates/helpdesk/ticket_list.html:154
 #: helpdesk/templates/helpdesk/ticket_list.html:169
 msgid "Save Query"
-msgstr ""
+msgstr "Zoekopdracht opslaan"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:160
 msgid ""
@@ -2149,6 +2314,9 @@ msgid ""
 "query, other users will see this name, so choose something clear and "
 "descriptive!"
 msgstr ""
+"Deze naam wordt getoond in de keuzelijst van de opgeslagen zoekopdrachten. "
+"Wanneer je de zoekopdracht deelt zullen andere gebruikers deze naam zien, "
+"dus kies iets duidelijks en goed omschreven!"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:162
 msgid "Shared?"
@@ -2163,10 +2331,12 @@ msgid ""
 "If you share this query, it will be visible by <em>all</em> other logged-in "
 "users."
 msgstr ""
+"Wanneer je deze zoekopdracht deelt, zal hij zichtbaar worden voor "
+"<em>all</em> andere ingelogde gebruikers."
 
 #: helpdesk/templates/helpdesk/ticket_list.html:176
 msgid "Use Saved Query"
-msgstr ""
+msgstr "Gebruik opgeslagen zoekopdracht"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:178
 msgid "Query"
@@ -2245,10 +2415,15 @@ msgid ""
 "<p>Use the following options to change the way your helpdesk system works "
 "for you. These settings do not impact any other user.</p>\n"
 msgstr ""
+"\n"
+"<h2>Gebruiker Instellingen</h2>\n"
+"\n"
+"<p>Gebruik de volgende opties om het helpdesk systeem voor jezelf te "
+"veranderen. Deze instellingen hebben geen invloed op andere gebruikers.</p>\n"
 
 #: helpdesk/templates/helpdesk/user_settings.html:29
 msgid "Save Options"
-msgstr ""
+msgstr "Opties Opslaan"
 
 #: helpdesk/templates/helpdesk/registration/logged_out.html:2
 msgid "Logged Out"
@@ -2263,6 +2438,12 @@ msgid ""
 "make the world a better place.</p>\n"
 "\n"
 msgstr ""
+"\n"
+"<h2>Uitgelogd</h2>\n"
+"\n"
+"<p>Bedankt dat je langskwam. Hopelijk heb je geholpen met een oplossen van "
+"een paar incidenten en de wereld weer een stukje mooier gemaakt.</p>\n"
+"\n"
 
 #: helpdesk/templates/helpdesk/registration/login.html:2
 msgid "Helpdesk Login"
@@ -2296,22 +2477,22 @@ msgstr "Wachtwoord"
 #: helpdesk/views/feeds.py:35
 #, python-format
 msgid "Helpdesk: Open Tickets in queue %(queue)s for %(username)s"
-msgstr ""
+msgstr "Helpdesk: Open incidenten in wachtrij %(queue)s voor %(username)s"
 
 #: helpdesk/views/feeds.py:40
 #, python-format
 msgid "Helpdesk: Open Tickets for %(username)s"
-msgstr ""
+msgstr "Helpdesk: Open incidenten voor %(username)s"
 
 #: helpdesk/views/feeds.py:46
 #, python-format
 msgid "Open and Reopened Tickets in queue %(queue)s for %(username)s"
-msgstr ""
+msgstr "Open en heropende incidenten in wachtrij %(queue)s voor %(username)s"
 
 #: helpdesk/views/feeds.py:51
 #, python-format
 msgid "Open and Reopened Tickets for %(username)s"
-msgstr ""
+msgstr "Open en heropende incidenten voor %(username)s"
 
 #: helpdesk/views/feeds.py:98
 msgid "Helpdesk: Unassigned Tickets"
@@ -2323,23 +2504,25 @@ msgstr "Niet Toegewezen, Open en Heropende Incidenten"
 
 #: helpdesk/views/feeds.py:124
 msgid "Helpdesk: Recent Followups"
-msgstr ""
+msgstr "Helpdesk: Recente activiteit"
 
 #: helpdesk/views/feeds.py:125
 msgid ""
 "Recent FollowUps, such as e-mail replies, comments, attachments and "
 "resolutions"
 msgstr ""
+"Recente activiteiten zoals e-mail reacties, commentaal, bijlagen en "
+"oplossingen"
 
 #: helpdesk/views/feeds.py:140
 #, python-format
 msgid "Helpdesk: Open Tickets in queue %(queue)s"
-msgstr ""
+msgstr "Helpdesk: Open Incidenten in wachtrij %(queue)s"
 
 #: helpdesk/views/feeds.py:145
 #, python-format
 msgid "Open and Reopened Tickets in queue %(queue)s"
-msgstr ""
+msgstr "Open en heropende incidenten in wachtrij %(queue)s"
 
 #: helpdesk/views/public.py:91
 msgid "Invalid ticket ID or e-mail address. Please try again."
@@ -2347,7 +2530,7 @@ msgstr "Onbekend incident ID of e-mail adres. Probeer opnieuw."
 
 #: helpdesk/views/public.py:109
 msgid "Submitter accepted resolution and closed ticket"
-msgstr ""
+msgstr "Indiener heeft de oplossing geaccepteerd en het incident gesloten"
 
 #: helpdesk/views/staff.py:215
 msgid "Accepted resolution and closed ticket"
@@ -2388,14 +2571,20 @@ msgid ""
 "href=\"http://docs.djangoproject.com/en/dev/ref/databases/#sqlite-string-matching\">Django "
 "Documentation on string matching in SQLite</a>."
 msgstr ""
+"<p><strong>Opmerking:</strong> Je steekwoord zoeken is hoofdletter gevoelig "
+"door de gekozen database. Dit betekent dat het zoeken <strong>niet</strong> "
+"goed zal werken. Door te wisselen naar een andere database systeem zul je "
+"betere zoekmogelijkheden krijgen! Voor meer informatie lees de <a "
+"href=\"http://docs.djangoproject.com/en/dev/ref/databases/#sqlite-string-matching\">Django "
+"Documentatie over string matching in SQLite</a> (Engels). "
 
 #: helpdesk/views/staff.py:839
 msgid "Ticket taken off hold"
-msgstr ""
+msgstr "Incident voorgezet"
 
 #: helpdesk/views/staff.py:842
 msgid "Ticket placed on hold"
-msgstr ""
+msgstr "Incident aangehouden"
 
 #: helpdesk/views/staff.py:910
 msgid "Jan"
