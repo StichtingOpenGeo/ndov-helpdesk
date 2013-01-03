@@ -1,12 +1,15 @@
 # Create your views here.
 from django.views.generic.edit import CreateView, UpdateView
+from django.core.urlresolvers import reverse_lazy
 from signup.models import SignupQueue
 from signup.forms import ApplyLicenseForm, UploadSignedForm
 
 class ApplyView(CreateView):
     form_class = ApplyLicenseForm
     model = SignupQueue
-    success_url = '/step2'
+    
+    def get_success_url(self):
+        return reverse_lazy('signup_step2')
     
     def form_valid(self, form):
         # form.send_email()
@@ -16,7 +19,9 @@ class ApplyView(CreateView):
 class UploadView(UpdateView):
     form_class = UploadSignedForm
     model = SignupQueue
-    success_url = '/step3'
+    
+    def get_success_url(self):
+        return reverse_lazy('signup_step3')
     
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.

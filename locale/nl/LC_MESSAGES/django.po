@@ -8,30 +8,39 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-05 20:51+0200\n"
+"POT-Creation-Date: 2013-01-03 22:05+0100\n"
 "PO-Revision-Date: 2012-11-03 16:21\n"
 "Last-Translator: <joelhaasnoot+test@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.6.6\n"
 "X-Language: nl_NL\n"
 "X-Source-Language: en\n"
 
-#: helpdesk/forms.py:113 helpdesk/forms.py:360 helpdesk/models.py:262
-#: helpdesk/templates/helpdesk/dashboard.html:11
-#: helpdesk/templates/helpdesk/dashboard.html:37
-#: helpdesk/templates/helpdesk/dashboard.html:57
-#: helpdesk/templates/helpdesk/dashboard.html:77
-#: helpdesk/templates/helpdesk/dashboard.html:99
+#: helpdesk/forms.py:113 helpdesk/forms.py:366 helpdesk/models.py:262
+#: helpdesk/templates/helpdesk/dashboard.html:10
+#: helpdesk/templates/helpdesk/dashboard.html:35
+#: helpdesk/templates/helpdesk/dashboard.html:55
+#: helpdesk/templates/helpdesk/dashboard.html:75
+#: helpdesk/templates/helpdesk/dashboard.html:97
 #: helpdesk/templates/helpdesk/rss_list.html:23
 #: helpdesk/templates/helpdesk/ticket_list.html:56
 #: helpdesk/templates/helpdesk/ticket_list.html:78
-#: helpdesk/templates/helpdesk/ticket_list.html:199 helpdesk/views/staff.py:972
-#: helpdesk/views/staff.py:978 helpdesk/views/staff.py:984
+#: helpdesk/templates/helpdesk/ticket_list.html:199
+#: helpdesk/views/staff.py:972 helpdesk/views/staff.py:978
+#: helpdesk/views/staff.py:984 project_templates/helpdesk/dashboard.html:10
+#: project_templates/helpdesk/dashboard.html:35
+#: project_templates/helpdesk/dashboard.html:55
+#: project_templates/helpdesk/dashboard.html:75
+#: project_templates/helpdesk/dashboard.html:97
+#: project_templates/helpdesk/ticket_desc_table.html:16
+#: project_templates/helpdesk/ticket_list.html:56
+#: project_templates/helpdesk/ticket_list.html:78
+#: project_templates/helpdesk/ticket_list.html:193
 msgid "Queue"
 msgstr "Wachtrij"
 
@@ -72,6 +81,9 @@ msgstr ""
 #: helpdesk/templates/helpdesk/ticket.html:176
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:31
 #: helpdesk/templates/helpdesk/ticket_list.html:84 helpdesk/views/staff.py:352
+#: project_templates/helpdesk/ticket.html:186
+#: project_templates/helpdesk/ticket_desc_table.html:28
+#: project_templates/helpdesk/ticket_list.html:84
 msgid "Priority"
 msgstr "Prioriteit"
 
@@ -81,6 +93,7 @@ msgstr "Selecteer een prioriteit."
 
 #: helpdesk/forms.py:159 helpdesk/forms.py:397 helpdesk/models.py:330
 #: helpdesk/templates/helpdesk/ticket.html:178 helpdesk/views/staff.py:362
+#: project_templates/helpdesk/ticket.html:193
 msgid "Due on"
 msgstr "Deadline op"
 
@@ -94,11 +107,16 @@ msgstr ""
 "Je kan aan deze melding een bestand toevoegen , zoals een document of "
 "screenshot."
 
-#: helpdesk/forms.py:180 helpdesk/templates/helpdesk/public_view_ticket.html:33
+#: helpdesk/forms.py:180
+#: helpdesk/templates/helpdesk/public_view_ticket.html:33
 #: helpdesk/templates/helpdesk/ticket.html:182
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:42
 #: helpdesk/templates/helpdesk/ticket_list.html:61
-#: helpdesk/templates/helpdesk/ticket_list.html:199 helpdesk/views/staff.py:373
+#: helpdesk/templates/helpdesk/ticket_list.html:199
+#: helpdesk/views/staff.py:373 project_templates/helpdesk/ticket.html:201
+#: project_templates/helpdesk/ticket_desc_table.html:35
+#: project_templates/helpdesk/ticket_list.html:61
+#: project_templates/helpdesk/ticket_list.html:193
 msgid "Tags"
 msgstr "Tags"
 
@@ -119,17 +137,17 @@ msgstr "Incident geopend"
 msgid "Ticket Opened & Assigned to %(name)s"
 msgstr "Incident geopend en toegewezen aan %(name)s"
 
-#: helpdesk/forms.py:369
-msgid "Summary of your query"
-msgstr "Samenvatting van je probleem"
-
-#: helpdesk/forms.py:374
+#: helpdesk/forms.py:361
 msgid "Your E-Mail Address"
 msgstr "Je e-mailadres"
 
-#: helpdesk/forms.py:375
+#: helpdesk/forms.py:362
 msgid "We will e-mail you when your ticket is updated."
 msgstr "Je ontvangt per e-mail een melding van eventuele wijzigingen."
+
+#: helpdesk/forms.py:375
+msgid "Summary of your query"
+msgstr "Samenvatting van je probleem"
 
 #: helpdesk/forms.py:380
 msgid "Description of your issue"
@@ -221,13 +239,20 @@ msgstr ""
 
 #: helpdesk/models.py:32 helpdesk/models.py:256 helpdesk/models.py:490
 #: helpdesk/models.py:787 helpdesk/models.py:821
-#: helpdesk/templates/helpdesk/dashboard.html:37
-#: helpdesk/templates/helpdesk/dashboard.html:57
-#: helpdesk/templates/helpdesk/dashboard.html:77
-#: helpdesk/templates/helpdesk/dashboard.html:99
+#: helpdesk/templates/helpdesk/dashboard.html:35
+#: helpdesk/templates/helpdesk/dashboard.html:55
+#: helpdesk/templates/helpdesk/dashboard.html:75
+#: helpdesk/templates/helpdesk/dashboard.html:97
 #: helpdesk/templates/helpdesk/ticket.html:170
 #: helpdesk/templates/helpdesk/ticket_list.html:75
-#: helpdesk/templates/helpdesk/ticket_list.html:199 helpdesk/views/staff.py:342
+#: helpdesk/templates/helpdesk/ticket_list.html:199
+#: helpdesk/views/staff.py:342 project_templates/helpdesk/dashboard.html:35
+#: project_templates/helpdesk/dashboard.html:55
+#: project_templates/helpdesk/dashboard.html:75
+#: project_templates/helpdesk/dashboard.html:97
+#: project_templates/helpdesk/ticket.html:172
+#: project_templates/helpdesk/ticket_list.html:75
+#: project_templates/helpdesk/ticket_list.html:193
 msgid "Title"
 msgstr "Titel"
 
@@ -304,8 +329,8 @@ msgstr "E-mailadres nieuwe tickets"
 #: helpdesk/models.py:88
 msgid ""
 "If an e-mail address is entered here, then it will receive notification of "
-"all new tickets created for this queue. Enter a comma between multiple "
-"e-mail addresses."
+"all new tickets created for this queue. Enter a comma between multiple e-"
+"mail addresses."
 msgstr ""
 "Als hier een e-mailadres wordt ingevoerd worden notificaties verstuurd voor "
 "alle nieuwe tickets die worden aangemaakt in de queue. Gebruik een komma "
@@ -354,8 +379,8 @@ msgid ""
 "Your e-mail server address - either the domain name or IP address. May be "
 "\"localhost\"."
 msgstr ""
-"Serveradres van je e-mailserver - een domeinnaam of IP adres. Kan "
-"\"localhost\" zijn."
+"Serveradres van je e-mailserver - een domeinnaam of IP adres. Kan \"localhost"
+"\" zijn."
 
 #: helpdesk/models.py:124
 msgid "E-Mail Port"
@@ -420,8 +445,10 @@ msgstr "Interval voor controleren e-mail"
 msgid "How often do you wish to check this mailbox? (in Minutes)"
 msgstr "Hoe vaak moet deze mailbox worden gecontroleerd? (in minuten)"
 
-#: helpdesk/models.py:240 helpdesk/templates/helpdesk/dashboard.html:11
+#: helpdesk/models.py:240 helpdesk/templates/helpdesk/dashboard.html:10
 #: helpdesk/templates/helpdesk/ticket.html:130
+#: project_templates/helpdesk/dashboard.html:10
+#: project_templates/helpdesk/ticket.html:132
 msgid "Open"
 msgstr "Open "
 
@@ -429,27 +456,43 @@ msgstr "Open "
 #: helpdesk/templates/helpdesk/ticket.html:142
 #: helpdesk/templates/helpdesk/ticket.html:147
 #: helpdesk/templates/helpdesk/ticket.html:151
+#: project_templates/helpdesk/ticket.html:138
+#: project_templates/helpdesk/ticket.html:144
+#: project_templates/helpdesk/ticket.html:149
+#: project_templates/helpdesk/ticket.html:153
 msgid "Reopened"
 msgstr "Heropent"
 
-#: helpdesk/models.py:242 helpdesk/templates/helpdesk/dashboard.html:11
+#: helpdesk/models.py:242 helpdesk/templates/helpdesk/dashboard.html:10
 #: helpdesk/templates/helpdesk/ticket.html:131
 #: helpdesk/templates/helpdesk/ticket.html:137
 #: helpdesk/templates/helpdesk/ticket.html:143
+#: project_templates/helpdesk/dashboard.html:10
+#: project_templates/helpdesk/ticket.html:133
+#: project_templates/helpdesk/ticket.html:139
+#: project_templates/helpdesk/ticket.html:145
 msgid "Resolved"
 msgstr "Opgelost"
 
-#: helpdesk/models.py:243 helpdesk/templates/helpdesk/dashboard.html:11
+#: helpdesk/models.py:243 helpdesk/templates/helpdesk/dashboard.html:10
 #: helpdesk/templates/helpdesk/ticket.html:132
 #: helpdesk/templates/helpdesk/ticket.html:138
 #: helpdesk/templates/helpdesk/ticket.html:144
 #: helpdesk/templates/helpdesk/ticket.html:148
+#: project_templates/helpdesk/dashboard.html:10
+#: project_templates/helpdesk/ticket.html:134
+#: project_templates/helpdesk/ticket.html:140
+#: project_templates/helpdesk/ticket.html:146
+#: project_templates/helpdesk/ticket.html:150
 msgid "Closed"
 msgstr "Gesloten"
 
 #: helpdesk/models.py:244 helpdesk/templates/helpdesk/ticket.html:133
 #: helpdesk/templates/helpdesk/ticket.html:139
 #: helpdesk/templates/helpdesk/ticket.html:152
+#: project_templates/helpdesk/ticket.html:135
+#: project_templates/helpdesk/ticket.html:141
+#: project_templates/helpdesk/ticket.html:154
 msgid "Duplicate"
 msgstr "Dubbel"
 
@@ -473,9 +516,12 @@ msgstr "4. Laag"
 msgid "5. Very Low"
 msgstr "5. Zeer laag"
 
-#: helpdesk/models.py:266 helpdesk/templates/helpdesk/dashboard.html:77
+#: helpdesk/models.py:266 helpdesk/templates/helpdesk/dashboard.html:75
 #: helpdesk/templates/helpdesk/ticket_list.html:72
 #: helpdesk/templates/helpdesk/ticket_list.html:199
+#: project_templates/helpdesk/dashboard.html:75
+#: project_templates/helpdesk/ticket_list.html:72
+#: project_templates/helpdesk/ticket_list.html:193
 msgid "Created"
 msgstr "Aangemaakt"
 
@@ -494,6 +540,7 @@ msgstr "Datum waarop dit ticket voor het laatst is gewijzigd."
 #: helpdesk/models.py:278
 #: helpdesk/templates/helpdesk/public_view_ticket.html:16
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:26
+#: project_templates/helpdesk/ticket_desc_table.html:25
 msgid "Submitter E-Mail"
 msgstr "E-mailadres inzender"
 
@@ -508,12 +555,18 @@ msgstr ""
 msgid "Assigned to"
 msgstr "Toegewezen aan"
 
-#: helpdesk/models.py:294 helpdesk/templates/helpdesk/dashboard.html:37
-#: helpdesk/templates/helpdesk/dashboard.html:57
-#: helpdesk/templates/helpdesk/dashboard.html:99
+#: helpdesk/models.py:294 helpdesk/templates/helpdesk/dashboard.html:35
+#: helpdesk/templates/helpdesk/dashboard.html:55
+#: helpdesk/templates/helpdesk/dashboard.html:97
 #: helpdesk/templates/helpdesk/ticket_list.html:57
 #: helpdesk/templates/helpdesk/ticket_list.html:81
 #: helpdesk/templates/helpdesk/ticket_list.html:199
+#: project_templates/helpdesk/dashboard.html:35
+#: project_templates/helpdesk/dashboard.html:55
+#: project_templates/helpdesk/dashboard.html:97
+#: project_templates/helpdesk/ticket_list.html:57
+#: project_templates/helpdesk/ticket_list.html:81
+#: project_templates/helpdesk/ticket_list.html:193 signup/models.py:23
 msgid "Status"
 msgstr "Status"
 
@@ -528,6 +581,8 @@ msgstr "Als een ticket in de wacht staat kan deze niet worden geëscaleerd."
 #: helpdesk/models.py:308 helpdesk/models.py:796
 #: helpdesk/templates/helpdesk/public_view_ticket.html:39
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:67
+#: project_templates/helpdesk/kb_index.html:10
+#: project_templates/helpdesk/ticket_desc_table.html:61
 msgid "Description"
 msgstr "Omschrijving"
 
@@ -538,6 +593,7 @@ msgstr "Vraag van de klant."
 #: helpdesk/models.py:315
 #: helpdesk/templates/helpdesk/public_view_ticket.html:46
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:74
+#: project_templates/helpdesk/ticket_desc_table.html:66
 msgid "Resolution"
 msgstr "Antwoord"
 
@@ -557,9 +613,11 @@ msgstr ""
 "De datum dat dit ticket voor het laatst is geëscaleerd - automatisch "
 "bijgewerkt door management/commands/escalate_tickets.py."
 
-#: helpdesk/models.py:348 helpdesk/templates/helpdesk/ticket_desc_table.html:22
+#: helpdesk/models.py:348
+#: helpdesk/templates/helpdesk/ticket_desc_table.html:22
 #: helpdesk/views/feeds.py:91 helpdesk/views/feeds.py:117
 #: helpdesk/views/feeds.py:169 helpdesk/views/staff.py:299
+#: project_templates/helpdesk/ticket_desc_table.html:23
 msgid "Unassigned"
 msgstr "Niet toegewezen"
 
@@ -570,6 +628,7 @@ msgstr "- In de wacht"
 #: helpdesk/models.py:481 helpdesk/models.py:1073 helpdesk/models.py:1231
 #: helpdesk/models.py:1256 helpdesk/templates/helpdesk/public_homepage.html:26
 #: helpdesk/templates/helpdesk/public_view_form.html:12
+#: project_templates/helpdesk/public_homepage.html:25
 msgid "Ticket"
 msgstr "Incident"
 
@@ -591,8 +650,8 @@ msgid ""
 "Public tickets are viewable by the submitter and all staff, but non-public "
 "tickets can only be seen by staff."
 msgstr ""
-"Openbare tickets zijn zichtbaar voor de inzender en alle stafleden, "
-"niet-openbare tickets zijn alleen zichtbaar voor stafleden."
+"Openbare tickets zijn zichtbaar voor de inzender en alle stafleden, niet-"
+"openbare tickets zijn alleen zichtbaar voor stafleden."
 
 #: helpdesk/models.py:514 helpdesk/models.py:888 helpdesk/models.py:1081
 #: helpdesk/views/staff.py:948 helpdesk/views/staff.py:954
@@ -601,6 +660,7 @@ msgid "User"
 msgstr "Gebruiker"
 
 #: helpdesk/models.py:518 helpdesk/templates/helpdesk/ticket.html:127
+#: project_templates/helpdesk/ticket.html:128
 msgid "New Status"
 msgstr "Nieuwe Status"
 
@@ -638,7 +698,7 @@ msgstr "aangepast naar %s"
 msgid "changed from \"%(old_value)s\" to \"%(new_value)s\""
 msgstr "aangepast van \"%(old_value)s\" naar \"%(new_value)s\""
 
-#: helpdesk/models.py:612
+#: helpdesk/models.py:612 project_templates/helpdesk/ticket.html:214
 msgid "File"
 msgstr "Bestand"
 
@@ -684,8 +744,8 @@ msgstr "Inhoud"
 
 #: helpdesk/models.py:676
 msgid ""
-"Context available: {{ ticket }} - ticket object (eg {{ ticket.title }}); {{ "
-"queue }} - The queue; and {{ user }} - the current user."
+"Context available: {{ ticket }} - ticket object (eg {{ ticket.title }}); "
+"{{ queue }} - The queue; and {{ user }} - the current user."
 msgstr ""
 "Context beschikbaar: {{ ticket }} - incident object (bijv {{ ticket.title}} "
 "titel); {{ queue }} - De wachtrij; en {{ user }} - de huidige gebruiker."
@@ -759,6 +819,8 @@ msgstr "Taal voor deze template."
 
 #: helpdesk/models.py:817 helpdesk/templates/helpdesk/kb_index.html:10
 #: helpdesk/templates/helpdesk/public_homepage.html:10
+#: project_templates/helpdesk/kb_index.html:10
+#: project_templates/helpdesk/public_homepage.html:10
 msgid "Category"
 msgstr "Categorie"
 
@@ -770,7 +832,7 @@ msgstr "Vraag"
 msgid "Answer"
 msgstr "Antwoord"
 
-#: helpdesk/models.py:834
+#: helpdesk/models.py:834 project_templates/helpdesk/kb_item.html:30
 msgid "Votes"
 msgstr "Stemmen"
 
@@ -799,6 +861,7 @@ msgid "Unrated"
 msgstr "Niet gewaardeerd"
 
 #: helpdesk/models.py:892 helpdesk/templates/helpdesk/ticket_list.html:158
+#: project_templates/helpdesk/ticket_list.html:158
 msgid "Query Name"
 msgstr "Zoekopdracht naam"
 
@@ -1055,8 +1118,8 @@ msgstr "Onbekende Afzender"
 
 #: helpdesk/management/commands/get_email.py:209
 msgid ""
-"No plain-text email body available. Please see attachment "
-"email_html_body.html."
+"No plain-text email body available. Please see attachment email_html_body."
+"html."
 msgstr ""
 "Geen platte-text e-mail inhoud beschikbaar. Zie ook de bijlage "
 "email_html_body.html."
@@ -1085,11 +1148,11 @@ msgstr "(Bijgewerkt)"
 
 #: helpdesk/templates/helpdesk/attribution.html:2
 msgid ""
-"Powered by <a "
-"href='https://github.com/rossp/django-helpdesk'>django-helpdesk</a>."
+"Powered by <a href='https://github.com/rossp/django-helpdesk'>django-"
+"helpdesk</a>."
 msgstr ""
-"Mede mogelijk gemaakt door <a "
-"href='https://github.com/rossp/django-helpdesk'>django-helpdesk</a>."
+"Mede mogelijk gemaakt door <a href='https://github.com/rossp/django-"
+"helpdesk'>django-helpdesk</a>."
 
 #: helpdesk/templates/helpdesk/attribution.html:4
 msgid "For technical support please contact:"
@@ -1102,23 +1165,25 @@ msgstr "Mede mogelijk gemaakt door django-helpdesk"
 #: helpdesk/templates/helpdesk/base.html:19
 #: helpdesk/templates/helpdesk/rss_list.html:9
 #: helpdesk/templates/helpdesk/rss_list.html:23
-#: helpdesk/templates/helpdesk/rss_list.html:28
+#: helpdesk/templates/helpdesk/rss_list.html:28 project_templates/base.html:23
 msgid "My Open Tickets"
 msgstr "Mijn open incidenten"
 
-#: helpdesk/templates/helpdesk/base.html:20
+#: helpdesk/templates/helpdesk/base.html:20 project_templates/base.html:24
 msgid "All Recent Activity"
 msgstr "Alle recente activiteit"
 
 #: helpdesk/templates/helpdesk/base.html:21
-#: helpdesk/templates/helpdesk/dashboard.html:76
-#: helpdesk/templates/helpdesk/rss_list.html:15
+#: helpdesk/templates/helpdesk/dashboard.html:73
+#: helpdesk/templates/helpdesk/rss_list.html:15 project_templates/base.html:25
+#: project_templates/helpdesk/dashboard.html:73
 msgid "Unassigned Tickets"
 msgstr "Niet toegewezen Incidenten"
 
 #: helpdesk/templates/helpdesk/base.html:101
 #: helpdesk/templates/helpdesk/public_base.html:6
 #: helpdesk/templates/helpdesk/public_base.html:14
+#: project_templates/helpdesk/navigation.html:5
 msgid "Helpdesk"
 msgstr "Helpdesk"
 
@@ -1127,34 +1192,35 @@ msgstr "Helpdesk"
 #: helpdesk/templates/helpdesk/rss_list.html:12
 #: helpdesk/templates/helpdesk/rss_list.html:15
 #: helpdesk/templates/helpdesk/rss_list.html:27
-#: helpdesk/templates/helpdesk/rss_list.html:28
+#: helpdesk/templates/helpdesk/rss_list.html:28 project_templates/base.html:40
 msgid "RSS Icon"
 msgstr "RSS Icoon"
 
 #: helpdesk/templates/helpdesk/base.html:111
 #: helpdesk/templates/helpdesk/rss_list.html:2
-#: helpdesk/templates/helpdesk/rss_list.html:4
+#: helpdesk/templates/helpdesk/rss_list.html:4 project_templates/base.html:40
 msgid "RSS Feeds"
 msgstr "RSS Feeds"
 
-#: helpdesk/templates/helpdesk/base.html:112
+#: helpdesk/templates/helpdesk/base.html:112 project_templates/base.html:41
 msgid "API"
 msgstr "API"
 
-#: helpdesk/templates/helpdesk/base.html:113
+#: helpdesk/templates/helpdesk/base.html:113 project_templates/base.html:42
 msgid "User Settings"
 msgstr "Gebruiker Instellingen"
 
-#: helpdesk/templates/helpdesk/base.html:115
+#: helpdesk/templates/helpdesk/base.html:115 project_templates/base.html:44
 msgid "Change Language"
 msgstr "Verander Taal"
 
-#: helpdesk/templates/helpdesk/base.html:117
+#: helpdesk/templates/helpdesk/base.html:117 project_templates/base.html:46
 msgid "System Settings"
 msgstr "Systeem Instellingen"
 
 #: helpdesk/templates/helpdesk/confirm_delete_saved_query.html:3
 #: helpdesk/templates/helpdesk/ticket_list.html:144
+#: project_templates/helpdesk/ticket_list.html:144
 msgid "Delete Saved Query"
 msgstr "Opgeslagen Zoekopdracht Verwijderen"
 
@@ -1164,9 +1230,9 @@ msgid ""
 "\n"
 "<h2>Delete Query</h2>\n"
 "\n"
-"<p>Are you sure you want to delete this saved filter "
-"(<em>%(query_title)s</em>)? To re-create it, you will need to manually "
-"re-filter your ticket listing.</p>\n"
+"<p>Are you sure you want to delete this saved filter (<em>%(query_title)s</"
+"em>)? To re-create it, you will need to manually re-filter your ticket "
+"listing.</p>\n"
 msgstr ""
 "\n"
 "<h2>Verwijder Zoekopdracht</h2>\n"
@@ -1183,8 +1249,8 @@ msgid ""
 msgstr ""
 "\n"
 "<p>Je hebt deze zoekopdracht gedeeld, en is mogelijk in gebruik bij andere "
-"gebruikers. Wanneer je dit wist moeten zij zelf hun eigen zoekopdracht "
-"maken.</p>\n"
+"gebruikers. Wanneer je dit wist moeten zij zelf hun eigen zoekopdracht maken."
+"</p>\n"
 
 #: helpdesk/templates/helpdesk/confirm_delete_saved_query.html:15
 #: helpdesk/templates/helpdesk/delete_ticket.html:11
@@ -1215,23 +1281,28 @@ msgstr ""
 #: helpdesk/templates/helpdesk/create_ticket.html:17
 #: helpdesk/templates/helpdesk/edit_ticket.html:19
 #: helpdesk/templates/helpdesk/public_homepage.html:50
+#: project_templates/helpdesk/public_homepage.html:51
 msgid "(Optional)"
 msgstr "(Optioneel)"
 
 #: helpdesk/templates/helpdesk/create_ticket.html:26
 #: helpdesk/templates/helpdesk/public_homepage.html:59
+#: project_templates/helpdesk/public_homepage.html:59
 msgid "Submit Ticket"
 msgstr "Maak een Incident"
 
 #: helpdesk/templates/helpdesk/dashboard.html:2
+#: project_templates/helpdesk/dashboard.html:2
 msgid "Helpdesk Dashboard"
 msgstr "Helpdesk Samenvatting"
 
-#: helpdesk/templates/helpdesk/dashboard.html:10
+#: helpdesk/templates/helpdesk/dashboard.html:8
+#: project_templates/helpdesk/dashboard.html:8
 msgid "Helpdesk Summary"
 msgstr "Helpdesk Samenvatting"
 
-#: helpdesk/templates/helpdesk/dashboard.html:25
+#: helpdesk/templates/helpdesk/dashboard.html:23
+#: project_templates/helpdesk/dashboard.html:23
 msgid ""
 "Welcome to your Helpdesk Dashboard! From here you can quickly see tickets "
 "submitted by you, tickets you are working on, and those tickets that have no "
@@ -1241,7 +1312,8 @@ msgstr ""
 "gemelde incidenten, incidenten waar je aan werkt en de incidenten die geen "
 "eigenaar hebben."
 
-#: helpdesk/templates/helpdesk/dashboard.html:27
+#: helpdesk/templates/helpdesk/dashboard.html:25
+#: project_templates/helpdesk/dashboard.html:25
 msgid ""
 "Welcome to your Helpdesk Dashboard! From here you can quickly see your own "
 "tickets, and those tickets that have no owner. Why not pick up an orphan "
@@ -1251,57 +1323,78 @@ msgstr ""
 "en de incidenten die geen eigenaar hebben. Waarom los je niet even een "
 "incident op voor een klant?  "
 
-#: helpdesk/templates/helpdesk/dashboard.html:36
+#: helpdesk/templates/helpdesk/dashboard.html:33
+#: project_templates/helpdesk/dashboard.html:33
 msgid "All Tickets submitted by you"
 msgstr "Alle incidenten door jou ingediend   "
 
 # Het staat voor: Prioriteit
-#: helpdesk/templates/helpdesk/dashboard.html:37
-#: helpdesk/templates/helpdesk/dashboard.html:57
-#: helpdesk/templates/helpdesk/dashboard.html:77
-#: helpdesk/templates/helpdesk/dashboard.html:99
+#: helpdesk/templates/helpdesk/dashboard.html:35
+#: helpdesk/templates/helpdesk/dashboard.html:55
+#: helpdesk/templates/helpdesk/dashboard.html:75
+#: helpdesk/templates/helpdesk/dashboard.html:97
 #: helpdesk/templates/helpdesk/ticket_list.html:199
+#: project_templates/helpdesk/dashboard.html:35
+#: project_templates/helpdesk/dashboard.html:55
+#: project_templates/helpdesk/dashboard.html:75
+#: project_templates/helpdesk/dashboard.html:97
+#: project_templates/helpdesk/ticket_list.html:193
 msgid "Pr"
 msgstr "Pr"
 
-#: helpdesk/templates/helpdesk/dashboard.html:37
-#: helpdesk/templates/helpdesk/dashboard.html:57
-#: helpdesk/templates/helpdesk/dashboard.html:99
+#: helpdesk/templates/helpdesk/dashboard.html:35
+#: helpdesk/templates/helpdesk/dashboard.html:55
+#: helpdesk/templates/helpdesk/dashboard.html:97
+#: project_templates/helpdesk/dashboard.html:35
+#: project_templates/helpdesk/dashboard.html:55
+#: project_templates/helpdesk/dashboard.html:97
+#: project_templates/helpdesk/kb_category.html:8
 msgid "Last Update"
 msgstr "Laatste Update"
 
-#: helpdesk/templates/helpdesk/dashboard.html:56
+#: helpdesk/templates/helpdesk/dashboard.html:53
+#: project_templates/helpdesk/dashboard.html:53
 msgid "Open Tickets assigned to you (you are working on this ticket)"
 msgstr ""
 "Open Incidenten die aan jou zijn toegewezen (je werkt aan dit incident)"
 
-#: helpdesk/templates/helpdesk/dashboard.html:69
+#: helpdesk/templates/helpdesk/dashboard.html:67
+#: project_templates/helpdesk/dashboard.html:67
 msgid "You have no tickets assigned to you."
 msgstr "Geen incidenten zijn aan jou toegewezen. "
 
-#: helpdesk/templates/helpdesk/dashboard.html:76
+#: helpdesk/templates/helpdesk/dashboard.html:73
+#: project_templates/helpdesk/dashboard.html:73
 msgid "(pick up a ticket if you start to work on it)"
 msgstr "(pak een incident op als je er aan begint) "
 
-#: helpdesk/templates/helpdesk/dashboard.html:85
+#: helpdesk/templates/helpdesk/dashboard.html:83
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:22
+#: project_templates/helpdesk/dashboard.html:83
+#: project_templates/helpdesk/ticket_desc_table.html:23
 msgid "Take"
 msgstr "Neem"
 
-#: helpdesk/templates/helpdesk/dashboard.html:85
+#: helpdesk/templates/helpdesk/dashboard.html:83
 #: helpdesk/templates/helpdesk/email_ignore_list.html:13
 #: helpdesk/templates/helpdesk/email_ignore_list.html:23
 #: helpdesk/templates/helpdesk/ticket_cc_list.html:15
 #: helpdesk/templates/helpdesk/ticket_cc_list.html:23
 #: helpdesk/templates/helpdesk/ticket_list.html:234
+#: project_templates/helpdesk/dashboard.html:83
+#: project_templates/helpdesk/ticket.html:90
+#: project_templates/helpdesk/ticket_desc_table.html:8
+#: project_templates/helpdesk/ticket_list.html:235
 msgid "Delete"
 msgstr "Verwijder"
 
-#: helpdesk/templates/helpdesk/dashboard.html:89
+#: helpdesk/templates/helpdesk/dashboard.html:87
+#: project_templates/helpdesk/dashboard.html:87
 msgid "There are no unassigned tickets."
 msgstr "Alle tickets zijn toegewezen."
 
-#: helpdesk/templates/helpdesk/dashboard.html:98
+#: helpdesk/templates/helpdesk/dashboard.html:95
+#: project_templates/helpdesk/dashboard.html:95
 msgid "Closed & resolved Tickets you used to work on"
 msgstr "Gesloten en opgeloste incidenten waar je aan hebt gewerkt"
 
@@ -1331,6 +1424,7 @@ msgid "Edit Ticket"
 msgstr "Bewerkt Ticket"
 
 #: helpdesk/templates/helpdesk/edit_ticket.html:6
+#, fuzzy
 msgid ""
 "<h2>Edit a Ticket</h2>\n"
 "\n"
@@ -1339,8 +1433,8 @@ msgid ""
 "\n"
 "<p><strong>Note:</strong> Editing a ticket does <em>not</em> send an e-mail "
 "to the ticket owner or submitter. No new details should be entered, this "
-"form should only be used to fix incorrect details or clean up the "
-"submission.</p>\n"
+"form should only be used to fix incorrect details or clean up the submission."
+"</p>"
 msgstr ""
 "<h2>Bewerk een Incident</h2>\n"
 "\n"
@@ -1369,9 +1463,9 @@ msgid ""
 "<p>To ignore an e-mail address and prevent any emails from that address "
 "creating tickets automatically, enter the e-mail address below.</p>\n"
 "\n"
-"<p>You can either enter a whole e-mail address such as "
-"<em>email@domain.com</em> or a portion of an e-mail address with a wildcard, "
-"such as <em>*@domain.com</em> or <em>user@*</em>.</p>"
+"<p>You can either enter a whole e-mail address such as <em>email@domain.com</"
+"em> or a portion of an e-mail address with a wildcard, such as <em>*@domain."
+"com</em> or <em>user@*</em>.</p>"
 msgstr ""
 "\n"
 "<h2>Negeer e-mailadressen</h2>\n"
@@ -1394,15 +1488,14 @@ msgid ""
 "\n"
 "<h2>Un-Ignore E-Mail Address</h2>\n"
 "\n"
-"<p>Are you sure you wish to stop removing this email address "
-"(<em>%(email_address)s</em>) and allow their e-mails to automatically create "
+"<p>Are you sure you wish to stop removing this email address (<em>"
+"%(email_address)s</em>) and allow their e-mails to automatically create "
 "tickets in your system? You can re-add this e-mail address at any time.</p>\n"
 msgstr ""
 "\n"
-"<h2>Stop negeren e-mailadres</h2>"
-"<p>Weet je zeker dat je dit e-mailadres "
-"(<em>%(email_address)s</em>) weer wilt toestaan en automatisch incidenten aan "
-"wil maken in je systeem?</p>\n"
+"<h2>Stop negeren e-mailadres</h2><p>Weet je zeker dat je dit e-mailadres "
+"(<em>%(email_address)s</em>) weer wilt toestaan en automatisch incidenten "
+"aan wil maken in je systeem?</p>\n"
 
 #: helpdesk/templates/helpdesk/email_ignore_del.html:11
 msgid "Keep Ignoring It"
@@ -1428,9 +1521,9 @@ msgid ""
 msgstr ""
 "\n"
 "<h2>Negeerde e-mailadressen</h2>\n"
-"<p>De volgende e-mailadressen worden momenteel genegeerd door de inkomende "
-"e-mailverwerker. Je kunt <a href='add/'>nieuwe e-mailadressen toevoegen aan "
-"de lijst</a> of waarnodig onderstaande regels verwijderen.</p>"
+"<p>De volgende e-mailadressen worden momenteel genegeerd door de inkomende e-"
+"mailverwerker. Je kunt <a href='add/'>nieuwe e-mailadressen toevoegen aan de "
+"lijst</a> of waarnodig onderstaande regels verwijderen.</p>"
 
 #: helpdesk/templates/helpdesk/email_ignore_list.html:13
 msgid "Date Added"
@@ -1446,6 +1539,7 @@ msgstr "Behoud in mailbox?"
 
 #: helpdesk/templates/helpdesk/email_ignore_list.html:21
 #: helpdesk/templates/helpdesk/ticket_list.html:232
+#: project_templates/helpdesk/ticket_list.html:229
 msgid "All"
 msgstr "Alle"
 
@@ -1493,16 +1587,21 @@ msgid "You are viewing all items in the %(kbcat)s category."
 msgstr "Je bekijkt alle artikelen in de %(kbcat)s categorie."
 
 #: helpdesk/templates/helpdesk/kb_category.html:12
+#: project_templates/helpdesk/kb_category.html:8
 msgid "Article"
 msgstr "Artikel"
 
 #: helpdesk/templates/helpdesk/kb_index.html:4
 #: helpdesk/templates/helpdesk/navigation.html:11
 #: helpdesk/templates/helpdesk/navigation.html:33
+#: project_templates/helpdesk/kb_index.html:4
+#: project_templates/helpdesk/navigation.html:15
+#: project_templates/helpdesk/navigation.html:35
 msgid "Knowledgebase"
 msgstr "Kennisbank"
 
 #: helpdesk/templates/helpdesk/kb_index.html:6
+#: project_templates/helpdesk/kb_index.html:6
 msgid ""
 "We have listed a number of knowledgebase articles for your perusal in the "
 "following categories. Please check to see if any of these articles address "
@@ -1514,6 +1613,7 @@ msgstr ""
 
 #: helpdesk/templates/helpdesk/kb_index.html:9
 #: helpdesk/templates/helpdesk/public_homepage.html:9
+#: project_templates/helpdesk/public_homepage.html:9
 msgid "Knowledgebase Categories"
 msgstr "Kennissysteem Categorieën"
 
@@ -1525,18 +1625,19 @@ msgstr "Kennissysteem: %(item)s"
 #: helpdesk/templates/helpdesk/kb_item.html:13
 #, python-format
 msgid ""
-"View <a href='%(category_url)s'>other <em>%(category_title)s</em> "
-"articles</a>, or continue <a href='../'>viewing other knowledgebase "
-"articles</a>."
+"View <a href='%(category_url)s'>other <em>%(category_title)s</em> articles</"
+"a>, or continue <a href='../'>viewing other knowledgebase articles</a>."
 msgstr ""
 "Bekijk <a href='%(category_url)s'>andere <em>%(category_title)s</em> "
 "artikelen</a>, of <a href='../'>bekijk andere kennisbank artikelen</a>."
 
 #: helpdesk/templates/helpdesk/kb_item.html:15
+#: project_templates/helpdesk/kb_item.html:17
 msgid "Feedback"
 msgstr "Terugkoppeling"
 
 #: helpdesk/templates/helpdesk/kb_item.html:17
+#: project_templates/helpdesk/kb_item.html:18
 msgid ""
 "We give our users an opportunity to vote for items that they believe have "
 "helped them out, in order for us to better serve future customers. We would "
@@ -1548,14 +1649,17 @@ msgstr ""
 "bruikbaar voor je? "
 
 #: helpdesk/templates/helpdesk/kb_item.html:20
+#: project_templates/helpdesk/kb_item.html:21
 msgid "This article was useful to me"
 msgstr "Dit artikel was bruikbaar voor me"
 
 #: helpdesk/templates/helpdesk/kb_item.html:21
+#: project_templates/helpdesk/kb_item.html:22
 msgid "This article was <strong>not</strong> useful to me"
 msgstr "Dit artikel was <strong>niet</strong> bruikbaar voor me"
 
 #: helpdesk/templates/helpdesk/kb_item.html:24
+#: project_templates/helpdesk/kb_item.html:25
 msgid "The results of voting by other readers of this article are below:"
 msgstr "De stemresultaten door andere lezers van dit artikel staan hieronder: "
 
@@ -1575,46 +1679,59 @@ msgid "Overall Rating: %(score)s"
 msgstr "Gemiddelde score: %(score)s"
 
 #: helpdesk/templates/helpdesk/navigation.html:4
+#: project_templates/helpdesk/navigation.html:8
 msgid "Dashboard"
 msgstr "Samenvatting"
 
 #: helpdesk/templates/helpdesk/navigation.html:5
 #: helpdesk/templates/helpdesk/ticket_list.html:198
+#: project_templates/helpdesk/navigation.html:9
+#: project_templates/helpdesk/ticket_list.html:191
 msgid "Tickets"
 msgstr "Incidenten"
 
 #: helpdesk/templates/helpdesk/navigation.html:6
+#: project_templates/helpdesk/navigation.html:10
 msgid "New Ticket"
 msgstr "Nieuw Incident"
 
 #: helpdesk/templates/helpdesk/navigation.html:8
+#: project_templates/helpdesk/navigation.html:12
 msgid "Stats"
 msgstr "Statistieken"
 
 #: helpdesk/templates/helpdesk/navigation.html:14
 #: helpdesk/templates/helpdesk/ticket_list.html:46
+#: project_templates/helpdesk/navigation.html:18
+#: project_templates/helpdesk/ticket_list.html:46
 msgid "Load Saved Query"
 msgstr "Laad opgeslagen zoekopdracht"
 
 #: helpdesk/templates/helpdesk/navigation.html:25
 #: helpdesk/templates/helpdesk/navigation.html:35
+#: project_templates/helpdesk/navigation.html:29
+#: project_templates/helpdesk/navigation.html:37
 msgid "Logout"
 msgstr "Loguit"
 
 #: helpdesk/templates/helpdesk/navigation.html:26
+#: project_templates/helpdesk/navigation.html:30
 msgid "Search..."
 msgstr "Zoeken..."
 
 #: helpdesk/templates/helpdesk/navigation.html:26
+#: project_templates/helpdesk/navigation.html:30
 msgid "Enter a keyword, or a ticket number to jump straight to that ticket."
 msgstr ""
 "Vul een steekwoord of incidentnummer in om direct naar het incident te gaan."
 
 #: helpdesk/templates/helpdesk/navigation.html:31
+#: project_templates/helpdesk/navigation.html:33
 msgid "Submit A Ticket"
 msgstr "Maak een Incident"
 
 #: helpdesk/templates/helpdesk/navigation.html:35
+#: project_templates/helpdesk/navigation.html:37
 msgid "Log In"
 msgstr "Login"
 
@@ -1622,6 +1739,7 @@ msgstr "Login"
 #: helpdesk/templates/helpdesk/public_homepage.html:21
 #: helpdesk/templates/helpdesk/public_view_form.html:4
 #: helpdesk/templates/helpdesk/public_view_ticket.html:2
+#: project_templates/helpdesk/public_homepage.html:21
 msgid "View a Ticket"
 msgstr "Bekijk een Incident"
 
@@ -1630,24 +1748,29 @@ msgid "Change the display language"
 msgstr "Wijzig de weergave taal"
 
 #: helpdesk/templates/helpdesk/public_homepage.html:6
+#: project_templates/helpdesk/public_homepage.html:6
 msgid "Knowledgebase Articles"
 msgstr "Kennisbank artikelen"
 
 #: helpdesk/templates/helpdesk/public_homepage.html:29
 #: helpdesk/templates/helpdesk/public_view_form.html:15
+#: project_templates/helpdesk/public_homepage.html:29
 msgid "Your E-mail Address"
 msgstr "Jouw e-mail adres"
 
 #: helpdesk/templates/helpdesk/public_homepage.html:33
 #: helpdesk/templates/helpdesk/public_view_form.html:19
+#: project_templates/helpdesk/public_homepage.html:33
 msgid "View Ticket"
 msgstr "Bekijk Incident"
 
 #: helpdesk/templates/helpdesk/public_homepage.html:39
+#: project_templates/helpdesk/public_homepage.html:39
 msgid "Submit a Ticket"
 msgstr "Maak een Incident"
 
 #: helpdesk/templates/helpdesk/public_homepage.html:41
+#: project_templates/helpdesk/public_homepage.html:41
 msgid ""
 "All fields are required. Please provide as descriptive a title and "
 "description as possible."
@@ -1656,6 +1779,7 @@ msgstr ""
 "omschrijving."
 
 #: helpdesk/templates/helpdesk/public_homepage.html:67
+#: project_templates/helpdesk/public_homepage.html:66
 msgid "Please use button at upper right to login first."
 msgstr "Gebruik de knop rechtsboven om eerst in te loggen."
 
@@ -1680,8 +1804,8 @@ msgstr ""
 "<p>Ons systeem heeft jouw reactie gemarkeerd als <strong>spam</strong>, "
 "daarom zijn we niet instaat om het op te slaan. Wanneer het geen spam is, ga "
 "terug en omschrijf je bericht opnieuw. Zorg ervoor dat het minder op spam "
-"lijkt, wanneer je veel linkjes hebt bijgevuld probeer ze dan te "
-"verwijderen.</p>\n"
+"lijkt, wanneer je veel linkjes hebt bijgevuld probeer ze dan te verwijderen."
+"</p>\n"
 "\n"
 "<p>Onze excuses voon het ongemak, maar dit is nodig om onze helpdesk te "
 "beschermen tegen spammers.</p>\n"
@@ -1697,26 +1821,31 @@ msgstr "Wachtrij: %(queue_name)s  "
 
 #: helpdesk/templates/helpdesk/public_view_ticket.html:11
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:16
+#: project_templates/helpdesk/ticket_desc_table.html:19
 msgid "Submitted On"
 msgstr "Ingediend op"
 
 #: helpdesk/templates/helpdesk/public_view_ticket.html:46
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:74
+#: project_templates/helpdesk/ticket_desc_table.html:67
 msgid "Accept"
 msgstr "Accepteer"
 
 #: helpdesk/templates/helpdesk/public_view_ticket.html:46
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:74
+#: project_templates/helpdesk/ticket_desc_table.html:67
 msgid "Accept and Close"
 msgstr "Accepteer en Sluit"
 
 #: helpdesk/templates/helpdesk/public_view_ticket.html:55
 #: helpdesk/templates/helpdesk/ticket.html:64
+#: project_templates/helpdesk/ticket.html:64
 msgid "Follow-Ups"
 msgstr "Activiteit"
 
 #: helpdesk/templates/helpdesk/public_view_ticket.html:63
 #: helpdesk/templates/helpdesk/ticket.html:92
+#: project_templates/helpdesk/ticket.html:83
 #, python-format
 msgid "Changed %(field)s from %(old_value)s to %(new_value)s."
 msgstr "%(field)s gewijzigd van %(old_value)s naar %(new_value)s."
@@ -1812,8 +1941,8 @@ msgid ""
 "A summary of all helpdesk activity - including comments, emails, "
 "attachments, and more"
 msgstr ""
-"Een samenvatting van alle helpdesk activiteit - inclusief commentaar, "
-"e-mails, bijlagen en meer"
+"Een samenvatting van alle helpdesk activiteit - inclusief commentaar, e-"
+"mails, bijlagen en meer"
 
 #: helpdesk/templates/helpdesk/rss_list.html:16
 msgid ""
@@ -1821,8 +1950,8 @@ msgid ""
 "the public via the web or via e-mail"
 msgstr ""
 "Alle niet toegewezen tickets - bruikbaar om geinformeerd te worden wanneer "
-"nieuwe incidenten worden geopend door het publiek via de webstie of per "
-"e-mail"
+"nieuwe incidenten worden geopend door het publiek via de webstie of per e-"
+"mail"
 
 #: helpdesk/templates/helpdesk/rss_list.html:19
 msgid ""
@@ -1849,10 +1978,12 @@ msgid "Open Tickets"
 msgstr "Open Incidenten"
 
 #: helpdesk/templates/helpdesk/system_settings.html:3
+#: project_templates/helpdesk/system_settings.html:3
 msgid "Change System Settings"
 msgstr "Wijzig Systeem Instelligen"
 
 #: helpdesk/templates/helpdesk/system_settings.html:5
+#: project_templates/helpdesk/system_settings.html:5
 msgid ""
 "\n"
 "<h2>System Settings</h2>\n"
@@ -1866,60 +1997,75 @@ msgstr ""
 "beheerders:</p>"
 
 #: helpdesk/templates/helpdesk/system_settings.html:11
+#: project_templates/helpdesk/system_settings.html:11
 msgid "E-Mail Ignore list"
 msgstr "E-mail negeer lijst"
 
 #: helpdesk/templates/helpdesk/system_settings.html:12
+#: project_templates/helpdesk/system_settings.html:12
 msgid "Maintain Queues"
 msgstr "Beheer Wachtrijen"
 
 #: helpdesk/templates/helpdesk/system_settings.html:13
+#: project_templates/helpdesk/system_settings.html:13
 msgid "Maintain Pre-Set Replies"
 msgstr "Beheer Model Antwoorden"
 
 #: helpdesk/templates/helpdesk/system_settings.html:14
+#: project_templates/helpdesk/system_settings.html:14
 msgid "Maintain Knowledgebase Categories"
 msgstr "Beteer Kennissysteem Categorieën"
 
 #: helpdesk/templates/helpdesk/system_settings.html:15
+#: project_templates/helpdesk/system_settings.html:15
 msgid "Maintain Knowledgebase Items"
 msgstr "Beheer Kennissysteem Artikelen"
 
 #: helpdesk/templates/helpdesk/system_settings.html:16
+#: project_templates/helpdesk/system_settings.html:16
 msgid "Maintain E-Mail Templates"
 msgstr "Beheer E-Mail Sjablonen"
 
 #: helpdesk/templates/helpdesk/system_settings.html:17
+#: project_templates/helpdesk/system_settings.html:17
 msgid "Maintain Users"
 msgstr "Beheer Gebruikers"
 
 #: helpdesk/templates/helpdesk/ticket.html:2
+#: project_templates/helpdesk/ticket.html:2
 msgid "View Ticket Details"
 msgstr "Bekijk Incident Details"
 
 #: helpdesk/templates/helpdesk/ticket.html:34
+#: project_templates/helpdesk/ticket.html:34
 msgid "Attach another File"
 msgstr "Voeg ander bestand toe"
 
 #: helpdesk/templates/helpdesk/ticket.html:34
 #: helpdesk/templates/helpdesk/ticket.html:197
+#: project_templates/helpdesk/ticket.html:34
+#: project_templates/helpdesk/ticket.html:217
 msgid "Add Another File"
 msgstr "Extra bestand toevoegen"
 
 #: helpdesk/templates/helpdesk/ticket.html:71
 #: helpdesk/templates/helpdesk/ticket.html:81
+#: project_templates/helpdesk/ticket.html:72
 msgid "Private"
 msgstr "Prive"
 
 #: helpdesk/templates/helpdesk/ticket.html:111
+#: project_templates/helpdesk/ticket.html:106
 msgid "Respond to this ticket"
 msgstr "Reageer op dit incident"
 
 #: helpdesk/templates/helpdesk/ticket.html:118
+#: project_templates/helpdesk/ticket.html:111
 msgid "Use a Pre-set Reply"
 msgstr "Gebruik model antwoord"
 
 #: helpdesk/templates/helpdesk/ticket.html:120
+#: project_templates/helpdesk/ticket.html:114
 msgid ""
 "Selecting a pre-set reply will over-write your comment below. You can then "
 "modify the pre-set reply to your liking before saving this update."
@@ -1929,10 +2075,12 @@ msgstr ""
 "opslaat."
 
 #: helpdesk/templates/helpdesk/ticket.html:123
+#: project_templates/helpdesk/ticket.html:120
 msgid "Comment / Resolution"
 msgstr "Commentaar / Oplossing"
 
 #: helpdesk/templates/helpdesk/ticket.html:125
+#: project_templates/helpdesk/ticket.html:123
 msgid ""
 "You can insert ticket and queue details in your message. For more "
 "information, see the <a href='../../help/context/'>context help page</a>."
@@ -1941,6 +2089,7 @@ msgstr ""
 "informatie bekijk de <a href='../../help/context/'>context help page</a>."
 
 #: helpdesk/templates/helpdesk/ticket.html:128
+#: project_templates/helpdesk/ticket.html:130
 msgid ""
 "This ticket cannot be resolved or closed until the tickets it depends on are "
 "resolved."
@@ -1949,10 +2098,12 @@ msgstr ""
 "het vanaf hangt zijn opgelost."
 
 #: helpdesk/templates/helpdesk/ticket.html:158
+#: project_templates/helpdesk/ticket.html:160
 msgid "Is this update public?"
 msgstr "Is deze bewerking openbaar?"
 
 #: helpdesk/templates/helpdesk/ticket.html:160
+#: project_templates/helpdesk/ticket.html:162
 msgid ""
 "If this is public, the submitter will be e-mailed your comment or resolution."
 msgstr ""
@@ -1960,6 +2111,7 @@ msgstr ""
 "oplossing."
 
 #: helpdesk/templates/helpdesk/ticket.html:164
+#: project_templates/helpdesk/ticket.html:167
 msgid "Change Further Details &raquo;"
 msgstr "Bewerk meer gegevens &raquo;"
 
@@ -1967,14 +2119,20 @@ msgstr "Bewerk meer gegevens &raquo;"
 #: helpdesk/templates/helpdesk/ticket_list.html:55
 #: helpdesk/templates/helpdesk/ticket_list.html:87
 #: helpdesk/templates/helpdesk/ticket_list.html:199
+#: project_templates/helpdesk/ticket.html:179
+#: project_templates/helpdesk/ticket_list.html:55
+#: project_templates/helpdesk/ticket_list.html:87
+#: project_templates/helpdesk/ticket_list.html:193
 msgid "Owner"
 msgstr "Eigenaar"
 
 #: helpdesk/templates/helpdesk/ticket.html:174
+#: project_templates/helpdesk/ticket.html:181
 msgid "Unassign"
 msgstr "Intrekken toewijzing"
 
 #: helpdesk/templates/helpdesk/ticket.html:190
+#: project_templates/helpdesk/ticket.html:209
 msgid "Attach File(s) &raquo;"
 msgstr "Bestanden toevoegen &raquo;"
 
@@ -1983,6 +2141,7 @@ msgid "Attach a File"
 msgstr "Bestand toevoegen"
 
 #: helpdesk/templates/helpdesk/ticket.html:204
+#: project_templates/helpdesk/ticket.html:221
 msgid "Update This Ticket"
 msgstr "Incident bijwerken"
 
@@ -2002,8 +2161,8 @@ msgstr ""
 "<h2>Incident CC toevoegen</h2>\n"
 "\n"
 "<p>Om automatisch e-mail te verzenden aan een gebruik of e-mailadres wanneer "
-"dit incident wordt bijgewerkt, selecteer de gebruiker of vul hieronder een "
-"e-mail adres in.</p>"
+"dit incident wordt bijgewerkt, selecteer de gebruiker of vul hieronder een e-"
+"mail adres in.</p>"
 
 #: helpdesk/templates/helpdesk/ticket_cc_add.html:21
 msgid "Save Ticket CC"
@@ -2019,9 +2178,9 @@ msgid ""
 "\n"
 "<h2>Delete Ticket CC</h2>\n"
 "\n"
-"<p>Are you sure you wish to delete this email address "
-"(<em>%(email_address)s</em>) from the CC list for this ticket? They will "
-"stop receiving updates.</p>\n"
+"<p>Are you sure you wish to delete this email address (<em>"
+"%(email_address)s</em>) from the CC list for this ticket? They will stop "
+"receiving updates.</p>\n"
 msgstr ""
 "\n"
 "<h2>Incident CC verwijderen</h2>\n"
@@ -2050,9 +2209,9 @@ msgid ""
 "\n"
 "<h2>Ticket CC Settings</h2>\n"
 "\n"
-"<p>The following people will receive an e-mail whenever <em><a "
-"href='../'>%(ticket_title)s</a></em> is updated. Some people can also view "
-"or edit the ticket via the public ticket views.</p>\n"
+"<p>The following people will receive an e-mail whenever <em><a href='../'>"
+"%(ticket_title)s</a></em> is updated. Some people can also view or edit the "
+"ticket via the public ticket views.</p>\n"
 "\n"
 "<p>You can <a href='add/'>add a new e-mail address to the list</a> or delete "
 "any of the items below as required.</p>"
@@ -2126,10 +2285,12 @@ msgstr ""
 "incident?</p>\n"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:11
+#: project_templates/helpdesk/ticket_desc_table.html:11
 msgid "Unhold"
 msgstr "Voorzetten"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:11
+#: project_templates/helpdesk/ticket_desc_table.html:11
 msgid "Hold"
 msgstr "Aanhouden"
 
@@ -2139,22 +2300,27 @@ msgid "Queue: %(queue)s"
 msgstr "Wachtrij: %(queue)s"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:21
+#: project_templates/helpdesk/ticket_desc_table.html:22
 msgid "Assigned To"
 msgstr "Toegewezen Aan"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:27
+#: project_templates/helpdesk/ticket_desc_table.html:26
 msgid "Ignore"
 msgstr "Negeer"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:36
+#: project_templates/helpdesk/ticket_desc_table.html:31
 msgid "Copies To"
 msgstr "Kopieën Naar"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:37
+#: project_templates/helpdesk/ticket_desc_table.html:32
 msgid "Manage"
 msgstr "Beheer"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:37
+#: project_templates/helpdesk/ticket_desc_table.html:32
 msgid ""
 "Click here to add / remove people who should receive an e-mail whenever this "
 "ticket is updated."
@@ -2163,10 +2329,12 @@ msgstr ""
 "ontvangen wanneer het incident wordt bijgewerkt. "
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:48
+#: project_templates/helpdesk/ticket_desc_table.html:40
 msgid "Dependencies"
 msgstr "Afhankelijkheden"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:50
+#: project_templates/helpdesk/ticket_desc_table.html:42
 msgid ""
 "This ticket cannot be resolved until the following ticket(s) are resolved"
 msgstr ""
@@ -2174,18 +2342,22 @@ msgstr ""
 "opgelost"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:51
+#: project_templates/helpdesk/ticket_desc_table.html:43
 msgid "Remove Dependency"
 msgstr "Verwijder Afhankelijkheid"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:54
+#: project_templates/helpdesk/ticket_desc_table.html:46
 msgid "This ticket has no dependencies."
 msgstr "Dit incident heeft geen afhankelijkheden."
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:56
+#: project_templates/helpdesk/ticket_desc_table.html:48
 msgid "Add Dependency"
 msgstr "Afhankelijkheid toevoegen"
 
 #: helpdesk/templates/helpdesk/ticket_desc_table.html:56
+#: project_templates/helpdesk/ticket_desc_table.html:48
 msgid ""
 "Click on 'Add Dependency', if you want to make this ticket dependent on "
 "another ticket. A ticket may not be closed until all tickets it depends on "
@@ -2196,86 +2368,110 @@ msgstr ""
 "totdat alle afhankelijke incidenten zijn gesloten."
 
 #: helpdesk/templates/helpdesk/ticket_list.html:2
+#: project_templates/helpdesk/ticket_list.html:2
 msgid "Ticket Listing"
 msgstr "Incident Overzicht"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:41
+#: project_templates/helpdesk/ticket_list.html:41
 msgid "Query Options"
 msgstr "Zoekopdracht opties"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:43
+#: project_templates/helpdesk/ticket_list.html:43
 msgid "Save This Query"
 msgstr "Deze zoekopdracht opslaan"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:51
+#: project_templates/helpdesk/ticket_list.html:51
 msgid "Change Query"
 msgstr "Wijzig zoekopdracht"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:54
 #: helpdesk/templates/helpdesk/ticket_list.html:69
+#: project_templates/helpdesk/ticket_list.html:54
+#: project_templates/helpdesk/ticket_list.html:69
 msgid "Sorting"
 msgstr "Sorteer"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:58
 #: helpdesk/templates/helpdesk/ticket_list.html:137
+#: project_templates/helpdesk/ticket_list.html:58
+#: project_templates/helpdesk/ticket_list.html:137
 msgid "Keywords"
 msgstr "Steekwoorden"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:59
+#: project_templates/helpdesk/ticket_list.html:59
 msgid "Date Range"
 msgstr "Datum reeks"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:90
+#: project_templates/helpdesk/ticket_list.html:90
 msgid "Reverse"
 msgstr "Omkeren"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:92
+#: project_templates/helpdesk/ticket_list.html:92
 msgid "Ordering applied to tickets"
 msgstr "Sortering toegepast op incidenten"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:97
+#: project_templates/helpdesk/ticket_list.html:97
 msgid "Owner(s)"
 msgstr "Eigenaar"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:101
+#: project_templates/helpdesk/ticket_list.html:101
 msgid "(ME)"
 msgstr "(eigen)"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:105
+#: project_templates/helpdesk/ticket_list.html:105
 msgid "Ctrl-Click to select multiple options"
 msgstr "Ctrl-Click om meerdere opties te selecteren"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:110
+#: project_templates/helpdesk/ticket_list.html:110
 msgid "Queue(s)"
 msgstr "Wachtrijen"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:111
 #: helpdesk/templates/helpdesk/ticket_list.html:117
 #: helpdesk/templates/helpdesk/ticket_list.html:131
+#: project_templates/helpdesk/ticket_list.html:111
+#: project_templates/helpdesk/ticket_list.html:117
+#: project_templates/helpdesk/ticket_list.html:131
 msgid "Ctrl-click to select multiple options"
 msgstr "Ctrl-click om meerdere opties te selecteren"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:116
+#: project_templates/helpdesk/ticket_list.html:116
 msgid "Status(es)"
 msgstr "Status"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:122
+#: project_templates/helpdesk/ticket_list.html:122
 msgid "Date (From)"
 msgstr "Datum (Van)"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:123
+#: project_templates/helpdesk/ticket_list.html:123
 msgid "Date (To)"
 msgstr "Datum (Naar)"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:124
+#: project_templates/helpdesk/ticket_list.html:124
 msgid "Use YYYY-MM-DD date format, eg 2011-05-29"
 msgstr "Gebruik JJJJ-MM-DD datum weergave, vb. 2011-05-29"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:130
+#: project_templates/helpdesk/ticket_list.html:130
 msgid "Tag(s)"
 msgstr "Label(s)"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:138
+#: project_templates/helpdesk/ticket_list.html:138
 msgid ""
 "Keywords are case-insensitive, and will be looked for in the title, body and "
 "submitter fields."
@@ -2284,16 +2480,19 @@ msgstr ""
 "inhoud en inzender velden."
 
 #: helpdesk/templates/helpdesk/ticket_list.html:142
+#: project_templates/helpdesk/ticket_list.html:142
 msgid "Apply Filter"
 msgstr "Pas filter toe"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:144
+#: project_templates/helpdesk/ticket_list.html:144
 #, python-format
 msgid "You are currently viewing saved query <em>%(query_name)s</em>."
 msgstr ""
 "Je bekijkt momenteel de opgeslagen zoekopdracht <em>%(query_name)s</em>."
 
 #: helpdesk/templates/helpdesk/ticket_list.html:147
+#: project_templates/helpdesk/ticket_list.html:147
 #, python-format
 msgid ""
 "<a href='../reports/?saved_query=%(query_id)s'>Run a report</a> on this "
@@ -2305,10 +2504,13 @@ msgstr ""
 
 #: helpdesk/templates/helpdesk/ticket_list.html:154
 #: helpdesk/templates/helpdesk/ticket_list.html:169
+#: project_templates/helpdesk/ticket_list.html:154
+#: project_templates/helpdesk/ticket_list.html:169
 msgid "Save Query"
 msgstr "Zoekopdracht opslaan"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:160
+#: project_templates/helpdesk/ticket_list.html:160
 msgid ""
 "This name appears in the drop-down list of saved queries. If you share your "
 "query, other users will see this name, so choose something clear and "
@@ -2319,87 +2521,107 @@ msgstr ""
 "dus kies iets duidelijks en goed omschreven!"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:162
+#: project_templates/helpdesk/ticket_list.html:162
 msgid "Shared?"
 msgstr "Gedeeld?"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:163
+#: project_templates/helpdesk/ticket_list.html:163
 msgid "Yes, share this query with other users."
 msgstr "Ja, deel deze zoekopdracht met andere gebruikers."
 
 #: helpdesk/templates/helpdesk/ticket_list.html:164
+#: project_templates/helpdesk/ticket_list.html:164
 msgid ""
 "If you share this query, it will be visible by <em>all</em> other logged-in "
 "users."
 msgstr ""
-"Wanneer je deze zoekopdracht deelt, zal hij zichtbaar worden voor "
-"<em>all</em> andere ingelogde gebruikers."
+"Wanneer je deze zoekopdracht deelt, zal hij zichtbaar worden voor <em>all</"
+"em> andere ingelogde gebruikers."
 
 #: helpdesk/templates/helpdesk/ticket_list.html:176
+#: project_templates/helpdesk/ticket_list.html:176
 msgid "Use Saved Query"
 msgstr "Gebruik opgeslagen zoekopdracht"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:178
+#: project_templates/helpdesk/ticket_list.html:178
 msgid "Query"
 msgstr "Zoekopdracht"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:183
+#: project_templates/helpdesk/ticket_list.html:183
 msgid "Run Query"
 msgstr "Draai Zoekopdracht"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:213
+#: project_templates/helpdesk/ticket_list.html:207
 msgid "No Tickets Match Your Selection"
 msgstr "Geen incidenten die aan de selectie voldoen"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:219
+#: project_templates/helpdesk/ticket_list.html:213
 msgid "Previous"
 msgstr "Vorige"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:223
+#: project_templates/helpdesk/ticket_list.html:217
 #, python-format
 msgid "Page %(ticket_num)s of %(num_pages)s."
 msgstr "Pagina %(ticket_num)s van %(num_pages)s. "
 
 #: helpdesk/templates/helpdesk/ticket_list.html:227
+#: project_templates/helpdesk/ticket_list.html:221
 msgid "Next"
 msgstr "Volgende"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:232
+#: project_templates/helpdesk/ticket_list.html:226
 msgid "Select:"
 msgstr "Selecteer:"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:232
+#: project_templates/helpdesk/ticket_list.html:230
 msgid "None"
 msgstr "Geen"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:232
+#: project_templates/helpdesk/ticket_list.html:231
 msgid "Inverse"
 msgstr "Inverteer"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:234
+#: project_templates/helpdesk/ticket_list.html:235
 msgid "With Selected Tickets:"
 msgstr "Met Geselecteerde Tickets:"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:234
+#: project_templates/helpdesk/ticket_list.html:235
 msgid "Take (Assign to me)"
 msgstr "Neem (Aan mij toewijzen)"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:234
+#: project_templates/helpdesk/ticket_list.html:235
 msgid "Close"
 msgstr "Sluit"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:234
+#: project_templates/helpdesk/ticket_list.html:235
 msgid "Close (Don't Send E-Mail)"
 msgstr "Sluit (Stuur geen e-mail)"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:234
+#: project_templates/helpdesk/ticket_list.html:235
 msgid "Close (Send E-Mail)"
 msgstr "Sluit (Stuur e-mail)"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:234
+#: project_templates/helpdesk/ticket_list.html:235
 msgid "Assign To"
 msgstr "Toewijzen"
 
 #: helpdesk/templates/helpdesk/ticket_list.html:234
+#: project_templates/helpdesk/ticket_list.html:235
 msgid "Nobody (Unassign)"
 msgstr "Niemand (Niet toegewezen)"
 
@@ -2567,16 +2789,16 @@ msgid ""
 "<p><strong>Note:</strong> Your keyword search is case sensitive because of "
 "your database. This means the search will <strong>not</strong> be accurate. "
 "By switching to a different database system you will gain better searching! "
-"For more information, read the <a "
-"href=\"http://docs.djangoproject.com/en/dev/ref/databases/#sqlite-string-matching\">Django "
-"Documentation on string matching in SQLite</a>."
+"For more information, read the <a href=\"http://docs.djangoproject.com/en/"
+"dev/ref/databases/#sqlite-string-matching\">Django Documentation on string "
+"matching in SQLite</a>."
 msgstr ""
 "<p><strong>Opmerking:</strong> Je steekwoord zoeken is hoofdletter gevoelig "
 "door de gekozen database. Dit betekent dat het zoeken <strong>niet</strong> "
 "goed zal werken. Door te wisselen naar een andere database systeem zul je "
-"betere zoekmogelijkheden krijgen! Voor meer informatie lees de <a "
-"href=\"http://docs.djangoproject.com/en/dev/ref/databases/#sqlite-string-matching\">Django "
-"Documentatie over string matching in SQLite</a> (Engels). "
+"betere zoekmogelijkheden krijgen! Voor meer informatie lees de <a href="
+"\"http://docs.djangoproject.com/en/dev/ref/databases/#sqlite-string-matching"
+"\">Django Documentatie over string matching in SQLite</a> (Engels). "
 
 #: helpdesk/views/staff.py:839
 msgid "Ticket taken off hold"
@@ -2661,3 +2883,108 @@ msgstr "Wachtrijk per Status"
 #: helpdesk/views/staff.py:983
 msgid "Queue by Month"
 msgstr "Wachtrij per Maand"
+
+#: project_templates/base.html:40
+#, fuzzy
+msgid "Feeds"
+msgstr "RSS Feeds"
+
+#: project_templates/helpdesk/kb_category.html:8
+#, fuzzy
+msgid "Rating"
+msgstr "Sorteer"
+
+#: project_templates/helpdesk/kb_category.html:11
+#: project_templates/helpdesk/ticket.html:70
+#: project_templates/helpdesk/ticket_desc_table.html:20
+msgid "ago"
+msgstr ""
+
+#: project_templates/helpdesk/kb_item.html:14
+#, fuzzy, python-format
+msgid ""
+"View <a href='%(category_url)s'>other %(category_title)s articles</a></"
+"strong>, or continue <a href='../'>viewing other knowledgebase articles</a>."
+msgstr ""
+"Bekijk <a href='%(category_url)s'>andere <em>%(category_title)s</em> "
+"artikelen</a>, of <a href='../'>bekijk andere kennisbank artikelen</a>."
+
+#: project_templates/helpdesk/kb_item.html:28
+msgid "Recommendations"
+msgstr ""
+
+#: project_templates/helpdesk/kb_item.html:32
+#, fuzzy
+msgid "Total rating"
+msgstr "Sorteer"
+
+#: project_templates/helpdesk/ticket.html:75
+#: project_templates/helpdesk/ticket_desc_table.html:5
+msgid "Edit"
+msgstr ""
+
+#: project_templates/helpdesk/ticket.html:170
+#, fuzzy
+msgid "Further details"
+msgstr "Bewerk meer gegevens &raquo;"
+
+#: project_templates/helpdesk/ticket.html:212
+#, fuzzy
+msgid "Attach files"
+msgstr "Bestand toevoegen"
+
+#: signup/models.py:8
+msgid "Name of representative"
+msgstr ""
+
+#: signup/models.py:9
+#, fuzzy
+msgid "Position"
+msgstr "Positieve stemmen"
+
+#: signup/models.py:11
+msgid "Organization name"
+msgstr ""
+
+#: signup/models.py:12
+msgid "Signing city"
+msgstr ""
+
+#: signup/models.py:18
+#, fuzzy
+msgid "Request"
+msgstr "Verplicht?"
+
+#: signup/models.py:19
+#, fuzzy
+msgid "Generated"
+msgstr "Niet gewaardeerd"
+
+#: signup/models.py:20
+msgid "Uploaded"
+msgstr ""
+
+#: signup/models.py:21
+#, fuzzy
+msgid "Verified"
+msgstr "Laatst gewijzigd"
+
+#: signup/templates/signup/signupqueue_form.html:4
+msgid "Apply for a license"
+msgstr ""
+
+#: signup/templates/signup/signupqueue_form.html:5
+msgid "Please enter the details below and you will be emailed a license"
+msgstr ""
+
+#: signup/templates/signup/signupqueue_form.html:16
+msgid "Apply"
+msgstr ""
+
+#: signup/templates/signup/signupqueue_thanks.html:4
+msgid "Thank you for your submission"
+msgstr ""
+
+#: signup/templates/signup/signupqueue_thanks.html:5
+msgid "We will send you a contract ready to sign as soon as possible."
+msgstr ""
