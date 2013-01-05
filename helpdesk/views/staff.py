@@ -56,18 +56,18 @@ def dashboard(request):
     tickets = Ticket.objects.filter(
             assigned_to=request.user,
         ).exclude(
-            status__in = [Ticket.CLOSED_STATUS, Ticket.RESOLVED_STATUS],
+            status__in = [Ticket.CLOSED_STATUS, Ticket.RESOLVED_STATUS, Ticket.DUPLICATE_STATUS],
         )
 
     # closed & resolved tickets, assigned to current user
     tickets_closed_resolved =  Ticket.objects.filter(
             assigned_to=request.user, 
-            status__in = [Ticket.CLOSED_STATUS, Ticket.RESOLVED_STATUS])
+            status__in = [Ticket.CLOSED_STATUS, Ticket.RESOLVED_STATUS, Ticket.DUPLICATE_STATUS])
 
     unassigned_tickets = Ticket.objects.filter(
             assigned_to__isnull=True,
         ).exclude(
-            status=Ticket.CLOSED_STATUS,
+            status__in = [Ticket.CLOSED_STATUS, Ticket.RESOLVED_STATUS, Ticket.DUPLICATE_STATUS]
         )
 
     # all tickets, reported by current user
