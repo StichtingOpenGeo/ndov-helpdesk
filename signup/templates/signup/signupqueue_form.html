@@ -5,10 +5,14 @@
 <p>{% trans "Please enter the details below and you will be emailed a license" %}</p>
 <form class="form form-horizontal" method='post' action='{% url signup_apply %}'>
 {% for field in form %}
-	<div class="control-group">
+	<div class="control-group {% if field.errors %}error{% endif %}">
 		<label class="control-label">{{ field.label }}</label>
 		<div class="controls">
-			{{ field }}		
+			{{ field }}
+			{% if field.errors %}<span class="help-inline">{{ field.errors|striptags }}</span>{% else %}
+				{% if field.field.required %}&nbsp;<span class="label label-important"><small>{% trans "required" %}</small></span>{% endif %}
+			{% endif %}
+				
 		</div>
 	</div>
 {% endfor %}
@@ -16,5 +20,4 @@
 		<input type="submit" class="btn btn-primary" value="{% trans "Apply" %}"/>
 	</div>
 {% csrf_token %}</form>
-
 	{% endblock %}

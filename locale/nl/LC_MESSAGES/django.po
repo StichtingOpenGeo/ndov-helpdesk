@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NDOVHelpdesk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-05 16:47+0100\n"
-"PO-Revision-Date: 2013-01-05 16:47+0100\n"
+"POT-Creation-Date: 2013-01-05 22:42+0100\n"
+"PO-Revision-Date: 2013-01-05 22:48+0100\n"
 "Last-Translator: Joel Haasnoot <joelhaasnoot@gmail.com>\n"
 "Language-Team: Stichting Opengeo\n"
 "Language: nl\n"
@@ -566,7 +566,7 @@ msgstr "Toegewezen aan"
 #: project_templates/helpdesk/dashboard.html:97
 #: project_templates/helpdesk/ticket_list.html:57
 #: project_templates/helpdesk/ticket_list.html:81
-#: project_templates/helpdesk/ticket_list.html:193 signup/models.py:23
+#: project_templates/helpdesk/ticket_list.html:193 signup/models.py:22
 msgid "Status"
 msgstr "Status"
 
@@ -2929,34 +2929,34 @@ msgid "Attach files"
 msgstr "Bestand toevoegen"
 
 #: signup/models.py:8
-msgid "Name of representative"
-msgstr "Naam tekenbevoegde"
+msgid "Name (representative)"
+msgstr "Naam (tekenbevoegde)"
 
 #: signup/models.py:9
 msgid "Position"
 msgstr "Functie"
 
-#: signup/models.py:11
+#: signup/models.py:10
 msgid "Organization name"
 msgstr "Naam organizatie"
 
-#: signup/models.py:12
-msgid "Signing city"
-msgstr "Vestigingsplaats"
+#: signup/models.py:11
+msgid "City"
+msgstr "Plaats"
 
-#: signup/models.py:18
+#: signup/models.py:17
 msgid "Request"
 msgstr "Verzoek"
 
-#: signup/models.py:19
+#: signup/models.py:18
 msgid "Generated"
 msgstr "Gegenereerd"
 
-#: signup/models.py:20
+#: signup/models.py:19
 msgid "Uploaded"
 msgstr "Teruggestuurd"
 
-#: signup/models.py:21
+#: signup/models.py:20
 msgid "Verified"
 msgstr "Geverifieerd"
 
@@ -2970,7 +2970,11 @@ msgstr ""
 "Na het invullen van onderstaande details sturen we je zo snel mogelijk een "
 "ingevulde overeenkomst toe."
 
-#: signup/templates/signup/signupqueue_form.html:16
+#: signup/templates/signup/signupqueue_form.html:13
+msgid "required"
+msgstr "verplicht"
+
+#: signup/templates/signup/signupqueue_form.html:20
 msgid "Apply"
 msgstr "Verstuur"
 
@@ -2983,3 +2987,6 @@ msgid "We will send you a contract ready to sign as soon as possible."
 msgstr ""
 "We sturen je zo snel mogelijk een ingevulde overeenkomst die na "
 "ondertekening ingescand geretourneerd dient te worden."
+
+#~ msgid "Signing city"
+#~ msgstr "Vestigingsplaats"
