@@ -7,10 +7,10 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^signup/', include('signup.urls')),
+    url(r'^aanmelden/', include('signup.urls')),
 	url(r'^helpdesk/', include('helpdesk.urls')),
-    url(r'^password/$', 'django.contrib.auth.views.password_change', name='auth_password_change'),
-    url(r'^password/done/$', 'django.contrib.auth.views.password_change_done'),
+    url(r'^wachtwoord/$', 'django.contrib.auth.views.password_change', name='auth_password_change'),
+    url(r'^wachtwoord/aangepast/$', 'django.contrib.auth.views.password_change_done'),
     ('^', include('django.contrib.flatpages.urls')),
 )
 
