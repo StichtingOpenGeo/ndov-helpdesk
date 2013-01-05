@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: NDOVHelpdesk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-01-05 22:42+0100\n"
-"PO-Revision-Date: 2013-01-05 22:48+0100\n"
+"PO-Revision-Date: 2013-01-05 22:55+0100\n"
 "Last-Translator: Joel Haasnoot <joelhaasnoot@gmail.com>\n"
 "Language-Team: Stichting Opengeo\n"
 "Language: nl\n"
@@ -2938,7 +2938,7 @@ msgstr "Functie"
 
 #: signup/models.py:10
 msgid "Organization name"
-msgstr "Naam organizatie"
+msgstr "Naam organisatie"
 
 #: signup/models.py:11
 msgid "City"
