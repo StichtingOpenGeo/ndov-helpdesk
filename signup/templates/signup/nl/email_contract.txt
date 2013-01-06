@@ -1,0 +1,12 @@
+Beste {{ name }},
+
+Wij danken u voor uw aanmelding bij het NDOV Loket. Om uw aanmelding te voltooien vragen wij u deze e-mail te beantwoorden met een scan van de ondertekening. Deze zal dan automatisch in ons incident beheersysteem worden opgenomen.
+
+U kunt ook direct op ons incident beheer systeem inloggen, gebruik hiervoor de volgende gegevens:
+
+Gebruikersnaam: {{ username }}
+Wachtwoord: {{ password }}
+
+Een van onze medewerkers zal contact met u opnemen over de technische en financiele afronding van de levering.
+
+{% include 'helpdesk/nl/email_text_footer.txt' %}
