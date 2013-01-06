@@ -145,6 +145,7 @@ def decode_mail_headers(string):
     return u' '.join([unicode(msg, charset or 'utf-8') for msg, charset in decoded])
 
 def ticket_from_message(message, queue, quiet):
+    update = None
     # 'message' must be an RFC822 formatted message.
     msg = message
     message = email.message_from_string(msg)

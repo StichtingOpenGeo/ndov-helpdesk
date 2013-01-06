@@ -192,7 +192,7 @@ class Queue(models.Model):
         in the sender name field, so hopefully the admin can see and fix it.
         """
         if not self.email_address:
-            return u'NO QUEUE EMAIL ADDRESS DEFINED <%s>' % settings.DEFAULT_FROM_EMAIL
+            return unicode(settings.DEFAULT_FROM_EMAIL)
         else:
             return u'%s <%s>' % (self.title, self.email_address)
     from_address = property(_from_address)
