@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NDOVHelpdesk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-06 19:57+0100\n"
-"PO-Revision-Date: 2013-01-06 19:58+0100\n"
+"POT-Creation-Date: 2013-01-06 20:03+0100\n"
+"PO-Revision-Date: 2013-01-06 20:05+0100\n"
 "Last-Translator: Joel Haasnoot <joelhaasnoot@gmail.com>\n"
 "Language-Team: Stichting Opengeo\n"
 "Language: nl\n"
@@ -2928,6 +2928,10 @@ msgstr "Verdere details"
 msgid "Attach files"
 msgstr "Bestand toevoegen"
 
+#: signup/models.py:7
+msgid "Email address"
+msgstr "E-mailadres"
+
 #: signup/models.py:8
 msgid "Name (representative)"
 msgstr "Naam (tekenbevoegde)"
@@ -2959,6 +2963,10 @@ msgstr "Teruggestuurd"
 #: signup/models.py:20
 msgid "Verified"
 msgstr "Geverifieerd"
+
+#: signup/models.py:28
+msgid "registration"
+msgstr "opgave"
 
 #: signup/management/commands/doqueue.py:51
 #, python-format

@@ -4,7 +4,7 @@ from django.conf import settings
 
 class SignupQueue(models.Model):
     # Data for generating signup
-    email = models.EmailField(unique=True)
+    email = models.EmailField(_('Email address'), unique=True)
     name = models.CharField(_('Name (representative)'), max_length=75) 
     position = models.CharField(_('Position'), max_length=100, blank=True)
     organization = models.CharField(_('Organization name'), max_length=100, blank=True)
@@ -23,6 +23,9 @@ class SignupQueue(models.Model):
     date_requested = models.DateField(auto_now_add=True)
     date_uploaded = models.DateField(blank=True, null=True)
     date_verified = models.DateField(blank=True, null=True)
+    
+    class Meta:
+        verbose_name = _("registration")
     
     def __unicode__(self):
         return u'%s - %s'  % (self.name, self.organization)
