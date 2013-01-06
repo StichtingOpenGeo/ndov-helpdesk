@@ -48,7 +48,7 @@ def send_created_contract(request, username, password, filename):
     # Setup email
     email_template = get_template('signup/nl/email_contract.txt')
     email_context = Context({ 'name': request.name, 'username': username, 'password': password })
-    subject = _("NDOV Contract for %(name)s ") % {'name' : request.name, 'email': request.email}
+    subject = _("NDOV Contract for %(name)s ") % {'name' : name} 
     email = EmailMessage(subject, email_template.render(email_context), getattr(settings, 'DEFAULT_FROM_EMAIL'), [request.email])
     
     attachment_name = 'overeenkomst-%s-%s.pdf' % (name.lower().replace(' ', '_'), datetime.now().strftime("%Y%m%d"))
