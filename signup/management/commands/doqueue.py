@@ -34,7 +34,7 @@ def send_emails():
             
             # Update the status once everything is ok
             request.status = 2
-            #request.save()
+            request.save()
             
             cleanup_tmp(pdf) # Cleanup our mess
 
