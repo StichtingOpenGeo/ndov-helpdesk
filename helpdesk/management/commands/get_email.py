@@ -29,6 +29,7 @@ from django.conf import settings
 
 from helpdesk.lib import send_templated_mail, safe_template_context
 from helpdesk.models import Queue, Ticket, FollowUp, Attachment, IgnoreEmail
+from helpdesk import settings as helpdesk_settings
 
 class Command(BaseCommand):
     def __init__(self):
@@ -169,10 +170,15 @@ def ticket_from_message(message, queue, quiet):
                 return False
             return True
     
-    # Check if we're being CC'ed, in which case we might not want to send emails
-    if not getattr(settings, 'HELPDESK_EMAIL_CONFIRM_CC', False) and message.get('to') != queue.email_address:
+    # Check if we're being CC'ed, in which case we might not want to send emails or filter
+    if (not helpdesk_settings.HELPDESK_EMAIL_CONFIRM_CC or helpdesk_settings.HELPDESK_FILTER_CC_ALTERNATE) \
+    and message.get('to') != queue.email_address:
         print "This is cc!"
         is_cc = True
+
+    # If we want to filter CC'd messages to a seperate queue, do so
+    if helpdesk_settings.HELPDESK_FILTER_CC_ALTERNATE and is_cc:
+        queue = queue.alternate_queue
 
     matchobj = re.match(r"^\[(?P<queue>[-A-Za-z0-9]+)-(?P<id>\d+)\]", subject)
     if matchobj:

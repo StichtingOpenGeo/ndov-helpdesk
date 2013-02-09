@@ -179,6 +179,12 @@ class Queue(models.Model):
         # This is updated by management/commands/get_mail.py.
         )
 
+    # An optional alternate queue to defer certain emails to, as set by options
+    alternate_queue = models.ForeignKey('Queue', 
+                                        blank = True, 
+                                        null=True, 
+                                        help_text=_("Alternate queue to add messages to as defined by settings"))
+
     def __unicode__(self):
         return u"%s" % self.title
 
@@ -210,6 +216,10 @@ class Queue(models.Model):
                 self.email_box_port = 995
             elif self.email_box_type == 'pop3' and not self.email_box_ssl:
                 self.email_box_port = 110
+        
+        # Prevent that we get the same queue als alternate 
+        if self.alternate_queue.id == self.id:
+            self.alternate_queue = None
         super(Queue, self).save(*args, **kwargs)
 
 
