@@ -143,6 +143,12 @@ QUEUE_EMAIL_BOX_SSL = False
 
 SIGNUP_UPLOAD_TO=MEDIA_ROOT
 
+# These are overides over the default settings
+HELPDESK_KB_ENABLED_STAFF = True
+HELPDESK_TRANSLATE_TICKET_COMMENTS_LANG = ["en", "de", "fr", "it", "ru", "nl"]
+HELPDESK_SHOW_CHANGE_PASSWORD = True
+
+
 try:
     from local_settings import *
 except ImportError:
