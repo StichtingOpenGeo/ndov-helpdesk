@@ -30,7 +30,6 @@ from django.conf import settings
 from helpdesk.lib import send_templated_mail, safe_template_context
 from helpdesk.models import Queue, Ticket, FollowUp, Attachment, IgnoreEmail
 
-
 class Command(BaseCommand):
     def __init__(self):
         BaseCommand.__init__(self)
@@ -54,7 +53,7 @@ def process_email(quiet=False):
     for q in Queue.objects.filter(
             email_box_type__isnull=False,
             allow_email_submission=True):
-
+        
         if not q.email_box_last_check:
             q.email_box_last_check = datetime.now()-timedelta(minutes=30)
 
@@ -99,7 +98,7 @@ def process_queue(q, quiet=False):
             msgNum = msg.split(" ")[0]
             msgSize = msg.split(" ")[1]
 
-            full_message = "\n".join(server.retr(msgNum)[1])
+            full_message = "\n".join(server.retr(msgNum)[1])  
             ticket = ticket_from_message(message=full_message, queue=q, quiet=quiet)
 
             if ticket:
@@ -145,16 +144,18 @@ def decode_mail_headers(string):
     return u' '.join([unicode(msg, charset or 'utf-8') for msg, charset in decoded])
 
 def ticket_from_message(message, queue, quiet):
+    is_cc = False
+    
     # 'message' must be an RFC822 formatted message.
     msg = message
     message = email.message_from_string(msg)
     subject = message.get('subject', _('Created from e-mail'))
     subject = decode_mail_headers(decodeUnknown(message.get_charset(), subject))
     subject = subject.replace("Re: ", "").replace("Fw: ", "").replace("RE: ", "").replace("FW: ", "").strip()
-
+    
     sender = message.get('from', _('Unknown Sender'))
-    sender = decode_mail_headers(decodeUnknown(message.get_charset(), sender))
-
+    sender = decode_mail_headers(decodeUnknown(message.get_charset(), sender)) 
+    
     sender_email = parseaddr(sender)[1]
 
     body_plain, body_html = '', ''
@@ -166,6 +167,11 @@ def ticket_from_message(message, queue, quiet):
                 # and the 'True' will cause the message to be deleted.
                 return False
             return True
+    
+    # Check if we're being CC'ed, in which case we might not want to send emails
+    if not getattr(settings, 'HELPDESK_EMAIL_CONFIRM_CC', False) and message.get('to') != queue.email_address:
+        print "This is cc!"
+        is_cc = True
 
     matchobj = re.match(r"^\[(?P<queue>[-A-Za-z0-9]+)-(?P<id>\d+)\]", subject)
     if matchobj:
@@ -288,7 +294,7 @@ def ticket_from_message(message, queue, quiet):
 
     if new:
 
-        if sender_email:
+        if sender_email and not is_cc:
             send_templated_mail(
                 'newticket_submitter',
                 context,
@@ -297,7 +303,7 @@ def ticket_from_message(message, queue, quiet):
                 fail_silently=True,
                 )
 
-        if queue.new_ticket_cc:
+        if queue.new_ticket_cc and not is_cc:
             send_templated_mail(
                 'newticket_cc',
                 context,
@@ -306,7 +312,7 @@ def ticket_from_message(message, queue, quiet):
                 fail_silently=True,
                 )
 
-        if queue.updated_ticket_cc and queue.updated_ticket_cc != queue.new_ticket_cc:
+        if queue.updated_ticket_cc and queue.updated_ticket_cc != queue.new_ticket_cc and not is_cc:
             send_templated_mail(
                 'newticket_cc',
                 context,
@@ -323,7 +329,7 @@ def ticket_from_message(message, queue, quiet):
         else:
             update = _(' (Updated)')
 
-        if t.assigned_to:
+        if t.assigned_to and not is_cc:
             send_templated_mail(
                 'updated_owner',
                 context,
@@ -332,7 +338,7 @@ def ticket_from_message(message, queue, quiet):
                 fail_silently=True,
                 )
 
-        if queue.updated_ticket_cc:
+        if queue.updated_ticket_cc  and not is_cc:
             send_templated_mail(
                 'updated_cc',
                 context,
@@ -346,4 +352,3 @@ def ticket_from_message(message, queue, quiet):
 
 if __name__ == '__main__':
     process_email()
-

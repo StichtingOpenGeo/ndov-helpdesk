@@ -61,7 +61,7 @@ HELPDESK_TRANSLATE_TICKET_COMMENTS = getattr(settings, 'HELPDESK_TRANSLATE_TICKE
 HELPDESK_TRANSLATE_TICKET_COMMENTS_LANG = getattr(settings, 'HELPDESK_TRANSLATE_TICKET_COMMENTS_LANG', ["en", "de", "fr", "it", "ru"])
 
 # show link to 'change password' on 'User Settings' page?
-HELPDESK_SHOW_CHANGE_PASSWORD = getattr(settings, 'HELPDESK_SHOW_CHANGE_PASSWORD', False)
+HELPDESK_SHOW_CHANGE_PASSWORD = getattr(settings, 'HELPDESK_SHOW_CHANGE_PASSWORD', True)
 
 # allow user to override default layout for 'followups' - work in progress.
 HELPDESK_FOLLOWUP_MOD = getattr(settings, 'HELPDESK_FOLLOWUP_MOD', False)
@@ -140,3 +140,7 @@ QUEUE_EMAIL_BOX_SSL = getattr(settings, 'QUEUE_EMAIL_BOX_SSL', None)
 QUEUE_EMAIL_BOX_HOST = getattr(settings, 'QUEUE_EMAIL_BOX_HOST', None)
 QUEUE_EMAIL_BOX_USER = getattr(settings, 'QUEUE_EMAIL_BOX_USER', None)
 QUEUE_EMAIL_BOX_PASSWORD = getattr(settings, 'QUEUE_EMAIL_BOX_PASSWORD', None)
+
+''' email filtering options '''
+# By default, don't confirm CC'ed emails 
+HELPDESK_EMAIL_CONFIRM_CC = getattr(settings, 'HELPDESK_EMAIL_CONFIRM_CC', False)
