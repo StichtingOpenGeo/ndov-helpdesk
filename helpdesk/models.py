@@ -218,7 +218,7 @@ class Queue(models.Model):
                 self.email_box_port = 110
         
         # Prevent that we get the same queue als alternate 
-        if self.alternate_queue.id == self.id:
+        if self.alternate_queue is not None and self.alternate_queue.id == self.id:
             self.alternate_queue = None
         super(Queue, self).save(*args, **kwargs)
 
