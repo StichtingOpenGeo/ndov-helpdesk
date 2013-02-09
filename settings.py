@@ -24,7 +24,7 @@ LANGUAGE_CODE = 'nl'
 
 SITE_ID = 4
 
-LOGIN_URL = '/login/'
+LOGIN_URL = '/helpdesk/login/'
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -34,6 +34,8 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
+LOCALE_PATHS= ('locale/', )
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = ''
@@ -41,7 +43,7 @@ MEDIA_ROOT = ''
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -102,8 +104,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.markup',
 	'django.contrib.flatpages',
-	'helpdesk',
+	'signup',
+    'helpdesk',
 	'south',
     #	'rosetta',
     # Uncomment the next line to enable the admin:
@@ -133,16 +137,13 @@ LOGGING = {
     }
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-        'NAME': 'ndov-helpdesk',                  
-        'USER': 'ndov-helpdesk',               
-        'PASSWORD': '',                
-        'HOST': '127.0.0.1',                
-        'PORT': '5432',                  
-    }
-}
 
 QUEUE_EMAIL_BOX_TYPE = 'imap'
 QUEUE_EMAIL_BOX_SSL = False
+
+SIGNUP_UPLOAD_TO=MEDIA_ROOT
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
