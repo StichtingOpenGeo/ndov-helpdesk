@@ -145,6 +145,7 @@ def decode_mail_headers(string):
 
 def ticket_from_message(message, queue, quiet):
     is_cc = False
+    update = None
     
     # 'message' must be an RFC822 formatted message.
     msg = message
