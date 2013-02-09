@@ -145,3 +145,5 @@ QUEUE_EMAIL_BOX_PASSWORD = getattr(settings, 'QUEUE_EMAIL_BOX_PASSWORD', None)
 # By default, don't confirm CC'ed emails 
 HELPDESK_EMAIL_CONFIRM_CC = getattr(settings, 'HELPDESK_EMAIL_CONFIRM_CC', False)
 HELPDESK_FILTER_CC_ALTERNATE = getattr(settings, 'HELPDESK_FILTER_CC_ALTERNATE', False)
+
+HELPDESK_SEND_SUBMITTER_EMAIL = getattr(settings, 'HELPDESK_SEND_SUBMITTER_EMAIL', True)

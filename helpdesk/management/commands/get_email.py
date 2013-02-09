@@ -159,7 +159,7 @@ def ticket_from_message(message, queue, quiet):
     sender = decode_mail_headers(decodeUnknown(message.get_charset(), sender)) 
     
     sender_email = parseaddr(sender)[1]
-
+    
     body_plain, body_html = '', ''
 
     for ignore in IgnoreEmail.objects.filter(Q(queues=queue) | Q(queues__isnull=True)):
@@ -171,8 +171,10 @@ def ticket_from_message(message, queue, quiet):
             return True
     
     # Check if we're being CC'ed, in which case we might not want to send emails or filter
+    dest = decode_mail_headers(decodeUnknown(message.get_charset(), message.get('to', _('Unknown Sender'))))
+    dest_email = parseaddr(dest)
     if (not helpdesk_settings.HELPDESK_EMAIL_CONFIRM_CC or helpdesk_settings.HELPDESK_FILTER_CC_ALTERNATE) \
-    and message.get('to') != queue.email_address:
+    and dest_email[1] != queue.email_address:
         print "This is cc!"
         is_cc = True
 
@@ -216,12 +218,16 @@ def ticket_from_message(message, queue, quiet):
 
         counter += 1
 
+    plain = html = False
+
     if body_plain:
         body = body_plain
+        plain = True
     else:
         body = _('No plain-text email body available. Please see attachment email_html_body.html.')
 
     if body_html:
+        html = True
         files.append({
             'filename': _("email_html_body.html"),
             'content': body_html,
@@ -300,8 +306,7 @@ def ticket_from_message(message, queue, quiet):
     context = safe_template_context(t)
 
     if new:
-
-        if sender_email and not is_cc:
+        if helpdesk_settings.HELPDESK_SEND_SUBMITTER_EMAIL and sender_email and not is_cc:
             send_templated_mail(
                 'newticket_submitter',
                 context,
@@ -345,7 +350,7 @@ def ticket_from_message(message, queue, quiet):
                 fail_silently=True,
                 )
 
-        if queue.updated_ticket_cc  and not is_cc:
+        if queue.updated_ticket_cc and not is_cc:
             send_templated_mail(
                 'updated_cc',
                 context,
