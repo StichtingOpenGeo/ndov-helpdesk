@@ -66,8 +66,8 @@ function googleTranslateElementInit() {
 	<table class="table table-condensed">
 	{% for followup in ticket.followup_set.all %}
 	<tr>
-        <td>{{ followup.title }}</td>
-        <td>{{ followup.user.get_full_name }}&nbsp;&nbsp;&nbsp;&nbsp;{{ followup.date }} ({{ followup.date|timesince }} {% trans "ago" %})
+        <td><strong>{{ followup.title }}</strong></td>
+        <td><p><small><strong>{{ followup.user.get_full_name }}</strong> - {{ followup.date }} ({{ followup.date|timesince }} {% trans "ago" %})</small></p>
          
         {% if not followup.public %}<span class='label label-important'>({% trans "Private" %})</span>{% endif %}
         {% if helpdesk_settings.HELPDESK_SHOW_EDIT_BUTTON_FOLLOW_UP %}
@@ -75,9 +75,8 @@ function googleTranslateElementInit() {
         		<a href="{% url helpdesk_followup_edit ticket.id followup.id %}" class='btn btn-mini'>{% trans "Edit" %}</a>
         	{% endif %}
         {% endif %}
-		<span class='followup-desc'>{% if followup.comment %}{{ followup.comment|force_escape|urlizetrunc:50|num_to_link|linebreaksbr }}{% endif %}</span>
+		<p><span class='followup-desc'>{% if followup.comment %}{{ followup.comment|force_escape|urlizetrunc:50|num_to_link|linebreaksbr }}{% endif %}</span></p>
 		
-	
 		{% for change in followup.ticketchange_set.all %}
 			{% if forloop.first %}<div class='changes'><ul>{% endif %}
 			<li>{% blocktrans with change.field as field and change.old_value as old_value and change.new_value as new_value %}Changed {{ field }} from {{ old_value }} to {{ new_value }}.{% endblocktrans %}</li>
@@ -127,31 +126,31 @@ function googleTranslateElementInit() {
 		<div class="control-group">
         	<label class="control-label" >{% trans "New Status" %}</label>
         	<div class="controls">
-	        {% if not ticket.can_be_resolved %}<dd>{% trans "This ticket cannot be resolved or closed until the tickets it depends on are resolved." %}</dd>{% endif %}
+	        {% if not ticket.can_be_resolved %}<p class="alert alert-warning">{% trans "This ticket cannot be resolved or closed until the tickets it depends on are resolved." %}</p>{% endif %}
 	        {% ifequal ticket.status 1 %}
-	        <label class="radio inline"><input type='radio' name='new_status' value='1' id='st_open' checked='checked'>{% trans "Open" %}</label>
-	        <label class="radio inline"><input type='radio' name='new_status' value='3' id='st_resolved'{% if not ticket.can_be_resolved %} disabled='disabled'{% endif %}>{% trans "Resolved" %}</label>
-	        <label class="radio inline"><input type='radio' name='new_status' value='4' id='st_closed'{% if not ticket.can_be_resolved %} disabled='disabled'{% endif %}>{% trans "Closed" %}</label>
-	        <label class="radio inline"><input type='radio' name='new_status' value='5' id='st_duplicate'>{% trans "Duplicate" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='1' id='st_open' checked='checked'>{% trans "Open" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='3' id='st_resolved'{% if not ticket.can_be_resolved %} disabled='disabled'{% endif %}>{% trans "Resolved" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='4' id='st_closed'{% if not ticket.can_be_resolved %} disabled='disabled'{% endif %}>{% trans "Closed" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='5' id='st_duplicate'>{% trans "Duplicate" %}</label>
 	        {% endifequal %}
 	        {% ifequal ticket.status 2 %}
-	        <label class="radio inline"><input type='radio' name='new_status' value='2' id='st_reopened'>{% trans "Reopened" %}</label>
-	        <label class="radio inline"><input type='radio' name='new_status' value='3' id='st_resolved'{% if not ticket.can_be_resolved %} disabled='disabled'{% endif %}>{% trans "Resolved" %}</label> 
-	        <label class="radio inline"><input type='radio' name='new_status' value='4' id='st_closed'{% if not ticket.can_be_resolved %} disabled='disabled'{% endif %}>{% trans "Closed" %}</label> 
-	        <label class="radio inline"><input type='radio' name='new_status' value='5' id='st_duplicate'>{% trans "Duplicate" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='2' id='st_reopened'>{% trans "Reopened" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='3' id='st_resolved'{% if not ticket.can_be_resolved %} disabled='disabled'{% endif %}>{% trans "Resolved" %}</label> 
+				<label class="radio inline"><input type='radio' name='new_status' value='4' id='st_closed'{% if not ticket.can_be_resolved %} disabled='disabled'{% endif %}>{% trans "Closed" %}</label> 
+				<label class="radio inline"><input type='radio' name='new_status' value='5' id='st_duplicate'>{% trans "Duplicate" %}</label>
 	        {% endifequal %}
 	        {% ifequal ticket.status 3 %}
-	        <label class="radio inline"><input type='radio' name='new_status' value='2' id='st_reopened'><label for='st_reopened'>{% trans "Reopened" %}</label>
-	        <label class="radio inline"><input type='radio' name='new_status' value='3' id='st_resolved' checked='checked'><label for='st_resolved' class='active'>{% trans "Resolved" %}</label> 
-	        <label class="radio inline"><input type='radio' name='new_status' value='4' id='st_closed'><label for='st_closed'>{% trans "Closed" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='2' id='st_reopened'>{% trans "Reopened" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='3' id='st_resolved' checked='checked'>{% trans "Resolved" %}</label> 
+				<label class="radio inline"><input type='radio' name='new_status' value='4' id='st_closed'>{% trans "Closed" %}</label>
 	        {% endifequal %}
 	        {% ifequal ticket.status 4 %}
-	        <label class="checkbox inline"><input type='radio' name='new_status' value='2' id='st_reopened'> {% trans "Reopened" %}</label>&laquo; 
-	        <input type='radio' name='new_status' value='4' id='st_closed' checked='checked'><label for='st_closed'>{% trans "Closed" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='2' id='st_reopened'>{% trans "Reopened" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='4' id='st_closed' checked='checked'>{% trans "Closed" %}</label>
 	        {% endifequal %}
 	        {% ifequal ticket.status 5 %}
-	        <input type='radio' name='new_status' value='2' id='st_reopened'><label for='st_reopened'>{% trans "Reopened" %}</label> &laquo; 
-	        <input type='radio' name='new_status' value='5' id='st_duplicate' checked='checked'><label for='st_duplicate'>{% trans "Duplicate" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='2' id='st_reopened'>{% trans "Reopened" %}</label>
+				<label class="radio inline"><input type='radio' name='new_status' value='5' id='st_duplicate' checked='checked'>{% trans "Duplicate" %}</label>
 	        {% endifequal %}
 	    
 	        {% if helpdesk_settings.HELPDESK_UPDATE_PUBLIC_DEFAULT %}
