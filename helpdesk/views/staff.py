@@ -1214,12 +1214,13 @@ def attachment_publish(request, ticket_id, attachment_id):
 		ticket = get_object_or_404(Ticket, id=ticket_id)
 		attachment = get_object_or_404(Attachment, id=attachment_id)
 		
-		file_from = attachment_path(attachment, attachment.filename)
+		file_from = attachment.file.name
 		file_to = os.path.join(helpdesk_settings.HELPDESK_ATTACHMENT_PUBLISH_PATH, ticket.queue.slug, os.path.basename(file_from))
 		
 		# Check if it exists
-		if not os.path.isdir(os.path.dirname(file_to)):
-			os.makedirs(os.path.dirname(file_to))
-		shutil.copy(file_from, file_to)
+		if os.path.isfile(file_from):
+			if not os.path.isdir(os.path.dirname(file_to)):
+				os.makedirs(os.path.dirname(file_to))
+			shutil.copy(file_from, file_to)
 	return HttpResponseRedirect(reverse('helpdesk_view', args=[ticket_id]))
 attachment_publish = staff_member_required(attachment_publish)
