@@ -88,6 +88,11 @@ function googleTranslateElementInit() {
 			{% if followup.user and request.user == followup.user %}
 				<a class="btn btn-mini btn-danger" href='{% url helpdesk_attachment_del ticket.id attachment.id %}'>{% trans "Delete" %}</a>
 			{% endif %}
+			<form method='post' action='{% url helpdesk_attachment_publish ticket.id attachment.id %}' enctype='multipart/form-data' class="form-horizontal">
+				{% csrf_token %} 
+				<input type="hidden" name="attachment_id" value="{{ attachment.id }}" />
+				<input type="submit" class="btn btn-mini btn-warning" value="{% trans 'Publish to external server' %}" />
+			</form>
 			</li>
 			{% if forloop.last %}</ul></div>{% endif %}
 		{% endfor %}

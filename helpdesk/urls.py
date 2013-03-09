@@ -83,6 +83,10 @@ urlpatterns = patterns('helpdesk.views.staff',
         'attachment_del',
         name='helpdesk_attachment_del'),
 
+	url(r'^tickets/(?P<ticket_id>[0-9]+)/attachment_publish/(?P<attachment_id>[0-9]+)/$',
+        'attachment_publish',
+        name='helpdesk_attachment_publish'),
+
     url(r'^raw/(?P<type>\w+)/$',
         'raw_details',
         name='helpdesk_raw'),
