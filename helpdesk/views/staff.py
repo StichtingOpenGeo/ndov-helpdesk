@@ -8,7 +8,7 @@ views/staff.py - The bulk of the application - provides most business logic and
 """
 
 from datetime import datetime
-import sys
+import sys, shutil, os
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -28,7 +28,7 @@ from django import forms
 
 from helpdesk.forms import TicketForm, UserSettingsForm, EmailIgnoreForm, EditTicketForm, TicketCCForm, EditFollowUpForm, TicketDependencyForm
 from helpdesk.lib import send_templated_mail, query_to_dict, apply_query, safe_template_context
-from helpdesk.models import Ticket, Queue, FollowUp, TicketChange, PreSetReply, Attachment, SavedSearch, IgnoreEmail, TicketCC, TicketDependency
+from helpdesk.models import Ticket, Queue, FollowUp, TicketChange, PreSetReply, Attachment, SavedSearch, IgnoreEmail, TicketCC, TicketDependency, attachment_path
 from helpdesk.settings import HAS_TAG_SUPPORT
 from helpdesk import settings as helpdesk_settings
   
@@ -1209,3 +1209,18 @@ def attachment_del(request, ticket_id, attachment_id):
     return HttpResponseRedirect(reverse('helpdesk_view', args=[ticket_id]))
 attachment_del = staff_member_required(attachment_del)
 
+def attachment_publish(request, ticket_id, attachment_id):
+	if request.POST:
+		ticket = get_object_or_404(Ticket, id=ticket_id)
+		attachment = get_object_or_404(Attachment, id=attachment_id)
+		
+		file_from = attachment.file.name
+		file_to = os.path.join(helpdesk_settings.HELPDESK_ATTACHMENT_PUBLISH_PATH, ticket.queue.slug, os.path.basename(file_from))
+		
+		# Check if it exists
+		if os.path.isfile(file_from):
+			if not os.path.isdir(os.path.dirname(file_to)):
+				os.makedirs(os.path.dirname(file_to))
+			shutil.copy(file_from, file_to)
+	return HttpResponseRedirect(reverse('helpdesk_view', args=[ticket_id]))
+attachment_publish = staff_member_required(attachment_publish)
