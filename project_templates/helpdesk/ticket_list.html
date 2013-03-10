@@ -49,80 +49,112 @@ $(document).ready(function() {
     
     <div id='tabfilter'>
     <h3>{% trans "Change Query" %}</h3>
-    <form>
-        <select name='select' id='filterBuilderSelect'>
-        <option value='Sort'>{% trans "Sorting" %}</option>
-        <option value='Owner'>{% trans "Owner" %}</option>
-        <option value='Queue'>{% trans "Queue" %}</option>
-        <option value='Status'>{% trans "Status" %}</option>
-        <option value='Keywords'>{% trans "Keywords" %}</option>
-        <option value='Dates'>{% trans "Date Range" %}</option>
-        {% if tags_enabled %}
-        <option value='Tags'>{% trans "Tags" %}</option>
-        {% endif %}
-        </select>
-        <input type='button' id='filterBuilderButton' class="btn btn-success" value='+' />
+    <form class="form form-horizontal">
+        <div class="control-group">
+            <div class="controls">
+                <select name='select' id='filterBuilderSelect'>
+                    <option value='Sort'>{% trans "Sorting" %}</option>
+                    <option value='Owner'>{% trans "Owner" %}</option>
+                    <option value='Queue'>{% trans "Queue" %}</option>
+                    <option value='Status'>{% trans "Status" %}</option>
+                    <option value='Keywords'>{% trans "Keywords" %}</option>
+                    <option value='Dates'>{% trans "Date Range" %}</option>
+                    {% if tags_enabled %}
+                        <option value='Tags'>{% trans "Tags" %}</option>
+                    {% endif %}
+                </select>
+                <input type='button' id='filterBuilderButton' class="btn btn-success pull-right" value='+' />
+            </div>
+        </div>
     {% csrf_token %}</form>
 
     <form method='get' action='./' class="form form-horizontal">
-    <div class='filterBox{% if query_params.sorting %} filterBoxShow{% endif %}' id='filterBoxSort'>
-    <label for='id_sort'>{% trans "Sorting" %}</label>
-    <select id='id_sort' name='sort'>
-        <option value='created'{% ifequal query_params.sorting "created"%} selected='selected'{% endifequal %}>
-            {% trans "Created" %}
-        </option>
-        <option value='title'{% ifequal query_params.sorting "title"%} selected='selected'{% endifequal %}>
-            {% trans "Title" %}
-        </option>
-        <option value='queue'{% ifequal query_params.sorting "queue"%} selected='selected'{% endifequal %}>
-            {% trans "Queue" %}
-        </option>
-        <option value='status'{% ifequal query_params.sorting "status"%} selected='selected'{% endifequal %}>
-            {% trans "Status" %}
-        </option>
-        <option value='priority'{% ifequal query_params.sorting "priority"%} selected='selected'{% endifequal %}>
-            {% trans "Priority" %}
-        </option>
-        <option value='assigned_to'{% ifequal query_params.sorting "assigned_to"%} selected='selected'{% endifequal %}>
-            {% trans "Owner" %}
-        </option>
-    </select>
-    <label for='id_sortreverse'>{% trans "Reverse" %}</label>
-    <input type='checkbox' name='sortreverse' id='id_sortreverse'{% if query_params.sortreverse %} checked='checked'{% endif %} />
-    <p class='filterHelp'>{% trans "Ordering applied to tickets" %}</p>
-    <input type='button' class='btn btn-danger filterBuilderRemove' value='-' />
+    <div class='control-group filterBox{% if query_params.sorting %} filterBoxShow{% endif %}' id='filterBoxSort'>
+        <label class="control-label" for='id_sort'>{% trans "Sorting" %}</label>
+        <div class="controls">
+            <select id='id_sort' name='sort'>
+                <option value='created'{% ifequal query_params.sorting "created"%} selected='selected'{% endifequal %}>
+                    {% trans "Created" %}
+                </option>
+                <option value='title'{% ifequal query_params.sorting "title"%} selected='selected'{% endifequal %}>
+                    {% trans "Title" %}
+                </option>
+                <option value='queue'{% ifequal query_params.sorting "queue"%} selected='selected'{% endifequal %}>
+                    {% trans "Queue" %}
+                </option>
+                <option value='status'{% ifequal query_params.sorting "status"%} selected='selected'{% endifequal %}>
+                    {% trans "Status" %}
+                </option>
+                <option value='priority'{% ifequal query_params.sorting "priority"%} selected='selected'{% endifequal %}>
+                    {% trans "Priority" %}
+                </option>
+                <option value='assigned_to'{% ifequal query_params.sorting "assigned_to"%} selected='selected'{% endifequal %}>
+                    {% trans "Owner" %}
+                </option>
+            </select>
+        </div>
     </div>
-
-    <div class='filterBox{% if query_params.filtering.assigned_to__id__in %} filterBoxShow{% endif %}' id='filterBoxOwner'>
-    <label for='id_owners'>{% trans "Owner(s)" %}</label>
-    <select id='id_owners' name='assigned_to' multiple='selected' size='5'>
-        {% for u in user_choices %}
-        <option value='{{ u.id }}'{% if u.id|in_list:query_params.filtering.assigned_to__id__in %} selected='selected'{% endif %}>
-            {{ u.username }}{% ifequal u user %} {% trans "(ME)" %}{% endifequal %}
-        </option>
-        {% endfor %}
-    </select>
-    <p class='filterHelp'>{% trans "Ctrl-Click to select multiple options" %}</p>
-    <input type='button' class='btn btn-danger filterBuilderRemove' value='-' />
-    </div>
-
-    <div class='filterBox{% if query_params.filtering.queue__id__in %} filterBoxShow{% endif %}' id='filterBoxQueue'>
-    <label for='id_queues'>{% trans "Queue(s)" %}</label><select id='id_queues' name='queue' multiple='selected' size='5'>{% for q in queue_choices %}<option value='{{ q.id }}'{% if q.id|in_list:query_params.filtering.queue__id__in %} selected='selected'{% endif %}>{{ q.title }}</option>{% endfor %}</select>
-    <p class='filterHelp'>{% trans "Ctrl-click to select multiple options" %}</p>
-    <input type='button' class='btn btn-danger filterBuilderRemove' value='-' />
-    </div>
-
-    <div class='filterBox{% if query_params.filtering.status__in %} filterBoxShow{% endif %}' id='filterBoxStatus'>
-    <label for='id_statuses'>{% trans "Status(es)" %}</label><select id='id_statuses' name='status' multiple='selected' size='5'>{% for s in status_choices %}<option value='{{ s.0 }}'{% if s.0|in_list:query_params.filtering.status__in %} selected='selected'{% endif %}>{{ s.1 }}</option>{% endfor %}</select>
-    <p class='filterHelp'>{% trans "Ctrl-click to select multiple options" %}</p>
-    <input type='button' class='btn btn-danger filterBuilderRemove' value='-' />
+    <div class="control-group">
+        <label class="control-label" for='id_sortreverse'>{% trans "Reverse" %}</label>
+        <div class="controls">
+            <input class="input" type='checkbox' name='sortreverse' id='id_sortreverse'{% if query_params.sortreverse %} checked='checked'{% endif %} />
+            <input type='button' class='btn btn-danger pull-right filterBuilderRemove' value='-' />
+            <p class='help-block'>{% trans "Ordering applied to tickets" %}</p>
+        </div>
     </div>
     
-    <div class='filterBox{% if query_params.filtering.created__gte or query_params.filtering.created__lte %} filterBoxShow{% endif %}' id='filterBoxDates'>
-        <label for='id_date_from'>{% trans "Date (From)" %}</label><input type='text' name='date_from' value='{{ query_params.filtering.created__gte }}' id='id_date_from' />
-        <label for='id_date_to'>{% trans "Date (To)" %}</label><input type='text' name='date_to' value='{{ query_params.filtering.created__lte }}' id='id_date_to' />
-    <p class='filterHelp'>{% trans "Use YYYY-MM-DD date format, eg 2011-05-29" %}</p>
-    <input type='button' class='btn btn-danger filterBuilderRemove' value='-' />
+    <div class='control-group filterBox{% if query_params.filtering.assigned_to__id__in %} filterBoxShow{% endif %}' id='filterBoxOwner'>
+        <label class="control-label" for='id_owners'>{% trans "Owner(s)" %}</label>
+        <div class="controls"> 
+            <select id='id_owners' name='assigned_to' multiple='selected' size='5'>
+                {% for u in user_choices %}
+                <option value='{{ u.id }}'{% if u.id|in_list:query_params.filtering.assigned_to__id__in %} selected='selected'{% endif %}>
+                    {{ u.username }}{% ifequal u user %} {% trans "(ME)" %}{% endifequal %}
+                </option>
+                {% endfor %}
+            </select>
+            <input type='button' class='btn btn-danger pull-right filterBuilderRemove' value='-' />
+            <p class='help-block'>{% trans "Ctrl-Click to select multiple options" %}</p>
+        </div>
+    </div>
+
+    <div class='control-group filterBox{% if query_params.filtering.queue__id__in %} filterBoxShow{% endif %}' id='filterBoxQueue'>
+        <label class="control-label" for='id_queues'>{% trans "Queue(s)" %}</label>
+        <div class="controls">
+            <select id='id_queues' name='queue' multiple='selected' size='5'>{% for q in queue_choices %}<option value='{{ q.id }}'{% if q.id|in_list:query_params.filtering.queue__id__in %} selected='selected'{% endif %}>{{ q.title }}</option>{% endfor %}</select>
+            <input type='button' class='btn btn-danger pull-right filterBuilderRemove' value='-' />
+            <p class='help-block'>{% trans "Ctrl-click to select multiple options" %}</p>
+        </div>
+        
+    </div>
+
+    <div class='control-group filterBox{% if query_params.filtering.status__in %} filterBoxShow{% endif %}' id='filterBoxStatus'>
+        <label class="control-label" for='id_statuses'>{% trans "Status(es)" %}</label>
+        <div class="controls">
+            <select id='id_statuses' name='status' multiple='selected' size='5'>
+                {% for s in status_choices %}
+                    <option value='{{ s.0 }}'{% if s.0|in_list:query_params.filtering.status__in %} selected='selected'{% endif %}>{{ s.1 }}</option>
+                {% endfor %}
+            </select>
+            <input type='button' class='btn btn-danger pull-right filterBuilderRemove' value='-' />
+            <p class='filterHelp'>{% trans "Ctrl-click to select multiple options" %}</p>
+        </div>
+    </div>
+    
+    <div class='control-group filterBox{% if query_params.filtering.created__gte or query_params.filtering.created__lte %} filterBoxShow{% endif %}' id='filterBoxDates'>
+        <label class="control-label" for='id_date_from'>{% trans "Date (From)" %}</label>
+        <div class="controls">
+            <input type='text' name='date_from' value='{{ query_params.filtering.created__gte }}' id='id_date_from' />
+            <input type='button' class='btn btn-danger pull-right filterBuilderRemove' value='-' />
+        </div>
+    </div>
+    
+    <div class='control-group filterBox{% if query_params.filtering.created__gte or query_params.filtering.created__lte %} filterBoxShow{% endif %}' id='filterBoxDates'>
+        <label class="control-label" for='id_date_to'>{% trans "Date (To)" %}</label>
+        <div class="controls">
+            <input type='text' name='date_to' value='{{ query_params.filtering.created__lte }}' id='id_date_to' />
+            <p class='help-block'>{% trans "Use YYYY-MM-DD date format, eg 2011-05-29" %}</p>
+        </div>
     </div>
 
 {% if tags_enabled %}
@@ -133,11 +165,15 @@ $(document).ready(function() {
 </div>
 {% endif %}
 
-    <div class='filterBox{% if query %} filterBoxShow{% endif %}' id='filterBoxKeywords'>
-    <label for='id_query'>{% trans "Keywords" %}</label><input type='text' name='q' value='{{ query }}' id='id_query' />
-    <p class='filterHelp'>{% trans "Keywords are case-insensitive, and will be looked for in the title, body and submitter fields." %}</p>
-    <input type='button' class='btn btn-danger filterBuilderRemove' value='-' />
+    <div class='control-group filterBox{% if query %} filterBoxShow{% endif %}' id='filterBoxKeywords'>
+        <label class="control-label" for='id_query'>{% trans "Keywords" %}</label>
+        <div class="controls">
+            <input type='text' name='q' value='{{ query }}' id='id_query' />
+            <input type='button' class='btn btn-danger pull-right filterBuilderRemove' value='-' />
+            <p class='help-block'>{% trans "Keywords are case-insensitive, and will be looked for in the title, body and submitter fields." %}</p>
+        </div>
     </div>
+    
     <hr style='clear: both;' />
     <input type='submit' class="btn btn-primary" value='{% trans "Apply Filter" %}' />
     {% if from_saved_query and saved_query.user = user %}
@@ -151,25 +187,29 @@ $(document).ready(function() {
     
     {% if not from_saved_query %}
     <div class='tab' id='tabsave'>
-    <h3>{% trans "Save Query" %}</h3>
-    <form method='post' action='{% url helpdesk_savequery %}'>
-    <input type='hidden' name='query_encoded' value='{{ urlsafe_query }}' />
-    <dl>
-        <dt><label for='id_title'>{% trans "Query Name" %}</label></dt>
-        <dd><input type='text' name='title' id='id_title' /></dd>
-        <dd class='form_help_text'>{% trans "This name appears in the drop-down list of saved queries. If you share your query, other users will see this name, so choose something clear and descriptive!" %}</dd>
+        <h3>{% trans "Save Query" %}</h3>
+        <form method='post' class="form form-horizontal" action='{% url helpdesk_savequery %}'>
+        <input type='hidden' name='query_encoded' value='{{ urlsafe_query }}' />
+        <div class="control-group">
+            <label class="control-label" for='id_title'>{% trans "Query Name" %}</label>
+            <div class="controls">
+                <input type='text' name='title' id='id_title' />
+                <p class='help-block'>{% trans "This name appears in the drop-down list of saved queries. If you share your query, other users will see this name, so choose something clear and descriptive!" %}</dd>
+            </div>
+        </div>
+        <div class="control-group">        
+            <label class="control-label" for='id_shared'>{% trans "Shared?" %}</label>
+            <div class="controls"> 
+                <input type='checkbox' name='shared' id='id_shared' /> {% trans "Yes, share this query with other users." %}
+                <p class='help-block'>{% trans "If you share this query, it will be visible by <em>all</em> other logged-in users." %}</p>
+            </div>
+        </div>
 
-        <dt><label for='id_shared'>{% trans "Shared?" %}</label></dt>
-        <dd><input type='checkbox' name='shared' id='id_shared' /> {% trans "Yes, share this query with other users." %}</dd>
-        <dd class='form_help_text'>{% trans "If you share this query, it will be visible by <em>all</em> other logged-in users." %}</dd>
+        <div class='buttons'>
+            <input type='submit' class="btn btn-primary" value='{% trans "Save Query" %}' class="btn">
+        </div>
 
-    </dl>
-
-    <div class='buttons'>
-        <input type='submit' value='{% trans "Save Query" %}' class="btn">
-    </div>
-
-    {% csrf_token %}</form>
+        {% csrf_token %}</form>
     </div>{% endif %}
 
     <div id='tabload'>
