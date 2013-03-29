@@ -162,7 +162,9 @@ HELPDESK_KB_ENABLED_STAFF = True
 HELPDESK_TRANSLATE_TICKET_COMMENTS_LANG = ["en", "de", "fr", "it", "ru", "nl"]
 HELPDESK_SHOW_CHANGE_PASSWORD = True
 HELPDESK_SEND_SUBMITTER_EMAIL = False
-HELPDESK_FILTER_CC_ALTERNATE = True
+HELPDESK_FILTER_LABEL_TO_QUEUE = True # This has priority over the next issue
+HELPDESK_FILTER_CC_ALTERNATE = True # This will unfortunately move issues with a non existant label to this queue
+
 
 try:
     from local_settings import *

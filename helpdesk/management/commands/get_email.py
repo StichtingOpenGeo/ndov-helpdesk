@@ -188,16 +188,15 @@ def ticket_from_message(message, queue, quiet):
           if new_queue:
             print " ++ Matched label '%s' to queue '%s'" % (match_info.group('label').lower(), new_queue)
             queue = new_queue
+            reset_queue = True
         except:
           print " !! Failed to match label '%s' to a queue, not moving message" % match_info.group('label').lower()
-      
-      reset_queue = True
       
     # Check we want to filter CCs, but only if we have a queue and 
     # a queue was not already modified because we matched a label
     if helpdesk_settings.HELPDESK_FILTER_CC_ALTERNATE and is_cc and queue.alternate_queue is not None \
     and not reset_queue:
-        print "We think this is CC'd"
+        print " ++ We think this is CC'd"
         queue = queue.alternate_queue
 
     matchobj = re.match(r"^\[(?P<queue>[-A-Za-z0-9]+)-(?P<id>\d+)\]", subject)
