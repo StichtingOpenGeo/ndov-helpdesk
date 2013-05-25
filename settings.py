@@ -132,7 +132,7 @@ LOGGING = {
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler'
-        }, 
+        },
         'logfile': {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
@@ -148,6 +148,11 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
+        'cli_actions':  {
+            'handlers': ['logfile'],
+            'level': 'DEBUG',
+            'propagate': True,
+        }
     }
 }
 
