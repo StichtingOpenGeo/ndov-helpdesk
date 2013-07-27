@@ -56,6 +56,14 @@ class Queue(models.Model):
         help_text=_('Locale of this queue. All correspondence in this queue will be in this language.'),
         )
 
+    # Add field to only list on dashboard
+    allow_public_access = models.BooleanField(
+        _('Allow Public listing?'),
+        blank=True,
+        default=True,
+        help_text=_('Should this queue be listed on the public dashboard or be limited to staff'),
+        )
+
     allow_public_submission = models.BooleanField(
         _('Allow Public Submission?'),
         blank=True,
@@ -180,10 +188,11 @@ class Queue(models.Model):
         )
 
     # An optional alternate queue to defer certain emails to, as set by options
-    alternate_queue = models.ForeignKey('Queue', 
-                                        blank = True, 
-                                        null=True, 
+    alternate_queue = models.ForeignKey('Queue',
+                                        blank = True,
+                                        null=True,
                                         help_text=_("Alternate queue to add messages to as defined by settings"))
+
 
     def __unicode__(self):
         return u"%s" % self.title
@@ -216,8 +225,8 @@ class Queue(models.Model):
                 self.email_box_port = 995
             elif self.email_box_type == 'pop3' and not self.email_box_ssl:
                 self.email_box_port = 110
-        
-        # Prevent that we get the same queue als alternate 
+
+        # Prevent that we get the same queue als alternate
         if self.alternate_queue is not None and self.alternate_queue.id == self.id:
             self.alternate_queue = None
         super(Queue, self).save(*args, **kwargs)
@@ -251,7 +260,7 @@ class Ticket(models.Model):
         (REOPENED_STATUS, _('Reopened')),
         (RESOLVED_STATUS, _('Resolved')),
         (CLOSED_STATUS, _('Closed')),
-        (DUPLICATE_STATUS, _('Duplicate')),        
+        (DUPLICATE_STATUS, _('Duplicate')),
     )
 
     PRIORITY_CHOICES = (
@@ -492,7 +501,7 @@ class FollowUp(models.Model):
         )
 
     date = models.DateTimeField(
-        _('Date'), 
+        _('Date'),
         default = datetime.now()
         )
 
@@ -771,7 +780,7 @@ class EmailTemplate(models.Model):
         help_text=_('The same context is available here as in plain_text, '
             'above.'),
         )
-    
+
     locale = models.CharField(
         _('Locale'),
         max_length=10,
@@ -885,7 +894,7 @@ class KBItem(models.Model):
 class SavedSearch(models.Model):
     """
     Allow a user to save a ticket search, eg their filtering and sorting
-    options, and optionally share it with other users. This lets people 
+    options, and optionally share it with other users. This lets people
     easily create a set of commonly-used filters, such as:
         * My tickets waiting on me
         * My tickets waiting on submitter
@@ -925,7 +934,7 @@ class SavedSearch(models.Model):
 class UserSettings(models.Model):
     """
     A bunch of user-specific settings that we want to be able to define, such
-    as notification preferences and other things that should probably be 
+    as notification preferences and other things that should probably be
     configurable.
 
     We should always refer to user.usersettings.settings['setting_name'].
@@ -967,7 +976,7 @@ class UserSettings(models.Model):
 
 def create_usersettings(sender, created_models=[], instance=None, created=False, **kwargs):
     """
-    Helper function to create UserSettings instances as 
+    Helper function to create UserSettings instances as
     required, eg when we first create the UserSettings database
     table via 'syncdb' or when we save a new user.
 
@@ -982,7 +991,7 @@ def create_usersettings(sender, created_models=[], instance=None, created=False,
     elif UserSettings in created_models:
         # We just created the UserSettings model, lets create a UserSettings
         # entry for each existing user. This will only happen once (at install
-        # time, or at upgrade) when the UserSettings model doesn't already 
+        # time, or at upgrade) when the UserSettings model doesn't already
         # exist.
         for u in User.objects.all():
             try:
@@ -996,8 +1005,8 @@ models.signals.post_save.connect(create_usersettings, sender=User)
 
 class IgnoreEmail(models.Model):
     """
-    This model lets us easily ignore e-mails from certain senders when 
-    processing IMAP and POP3 mailboxes, eg mails from postmaster or from 
+    This model lets us easily ignore e-mails from certain senders when
+    processing IMAP and POP3 mailboxes, eg mails from postmaster or from
     known trouble-makers.
     """
     queues = models.ManyToManyField(
@@ -1070,11 +1079,11 @@ class IgnoreEmail(models.Model):
 
 class TicketCC(models.Model):
     """
-    Often, there are people who wish to follow a ticket who aren't the 
+    Often, there are people who wish to follow a ticket who aren't the
     person who originally submitted it. This model provides a way for those
     people to follow a ticket.
 
-    In this circumstance, a 'person' could be either an e-mail address or 
+    In this circumstance, a 'person' could be either an e-mail address or
     an existing system user.
     """
 
@@ -1191,11 +1200,11 @@ class CustomField(models.Model):
         blank=True,
         null=True,
         )
-        
+
     empty_selection_list = models.BooleanField(
         _('Add empty first choice to List?'),
         help_text=_('Only for List: adds an empty first entry to the choices list, which enforces that the user makes an active choice.'),
-        )        
+        )
 
     list_values = models.TextField(
         _('List Values'),
@@ -1203,7 +1212,7 @@ class CustomField(models.Model):
         blank=True,
         null=True,
         )
-    
+
     ordering = models.IntegerField(
         _('Ordering'),
         help_text=_('Lower numbers are displayed first; higher numbers are listed later'),
@@ -1258,7 +1267,7 @@ class TicketCustomFieldValue(models.Model):
 class TicketDependency(models.Model):
     """
     The ticket identified by `ticket` cannot be resolved until the ticket in `depends_on` has been resolved.
-    To help enforce this, a helper function `can_be_resolved` on each Ticket instance checks that 
+    To help enforce this, a helper function `can_be_resolved` on each Ticket instance checks that
     these have all been resolved.
     """
     ticket = models.ForeignKey(
