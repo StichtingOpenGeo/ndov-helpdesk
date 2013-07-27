@@ -19,9 +19,9 @@
 		<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap.addons.css' type='text/css' />
         <link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/jquery-smoothness-theme/jquery-ui-1.8.9.custom.css' type='text/css' />
 		{% if user.username %}
-        <link rel='alternate' href='{% url helpdesk_rss_user user.username %}' type='application/rss+xml' title='{% trans "My Open Tickets" %}' />
-        <link rel='alternate' href='{% url helpdesk_rss_activity %}' type='application/rss+xml' title='{% trans "All Recent Activity" %}' />
-        <link rel='alternate' href='{% url helpdesk_rss_unassigned %}' type='application/rss+xml' title='{% trans "Unassigned Tickets" %}' />
+        <link rel='alternate' href='{% url "helpdesk_rss_user" user.username %}' type='application/rss+xml' title='{% trans "My Open Tickets" %}' />
+        <link rel='alternate' href='{% url "helpdesk_rss_activity" %}' type='application/rss+xml' title='{% trans "All Recent Activity" %}' />
+        <link rel='alternate' href='{% url "helpdesk_rss_unassigned" %}' type='application/rss+xml' title='{% trans "Unassigned Tickets" %}' />
 		{% endif %}
 
         {% block helpdesk_head %}{% endblock %}
@@ -36,13 +36,13 @@
 
             <footer class='footer'>
 				<div class="btn-group">
-					<a href='{% url helpdesk_rss_index %}' class="btn"><img src='{{ STATIC_URL }}helpdesk/rss_icon.png' width='14' height='14' alt='{% trans "RSS Icon" %}' title='{% trans "RSS Feeds" %}' border='0' />{% trans "Feeds" %}</a>
-					{% if helpdesk_settings.HELPDESK_FOOTER_SHOW_API_LINK %}<a href='{% url helpdesk_api_help %}' class="btn">{% trans "API" %}</a>{% endif %}
-					<a href='{% url helpdesk_user_settings %}' class="btn">{% trans "User Settings" %}</a>
+					<a href='{% url "helpdesk_rss_index" %}' class="btn"><img src='{{ STATIC_URL }}helpdesk/rss_icon.png' width='14' height='14' alt='{% trans "RSS Icon" %}' title='{% trans "RSS Feeds" %}' border='0' />{% trans "Feeds" %}</a>
+					{% if helpdesk_settings.HELPDESK_FOOTER_SHOW_API_LINK %}<a href='{% url "helpdesk_api_help" %}' class="btn">{% trans "API" %}</a>{% endif %}
+					<a href='{% url "helpdesk_user_settings" %}' class="btn">{% trans "User Settings" %}</a>
 					{% if helpdesk_settings.HELPDESK_FOOTER_SHOW_CHANGE_LANGUAGE_LINK %}
-					<a href='{% url helpdesk_public_change_language %}?return_to={{ request.path }}' class="btn">{% trans "Change Language" %}</a>
+					<a href='{% url "helpdesk_public_change_language" %}?return_to={{ request.path }}' class="btn">{% trans "Change Language" %}</a>
 					{% endif %}
-					{% if user.is_superuser %}<a href='{% url helpdesk_system_settings %}' class="btn">{% trans "System Settings" %}</a>{% endif %}
+					{% if user.is_superuser %}<a href='{% url "helpdesk_system_settings" %}' class="btn">{% trans "System Settings" %}</a>{% endif %}
 				</div>
             </footer>
         </div>

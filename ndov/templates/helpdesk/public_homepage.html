@@ -20,7 +20,7 @@
 {% if helpdesk_settings.HELPDESK_VIEW_A_TICKET_PUBLIC %}
 <h2>{% trans "View a Ticket" %}</h2>
 
-<form class="form form-horizontal" method='get' action='{% url helpdesk_public_view %}'>
+<form class="form form-horizontal" method='get' action='{% url "helpdesk_public_view" %}'>
 	<div class="control-group">
 		<label class="control-label" for='id_ticket'>{% trans "Ticket" %}</label>
         <div class="controls"><input type='text' name='ticket' /></div>
@@ -54,7 +54,7 @@
 	                </div>
                 </div>
             {% endif %}
-        {% endfor %}    
+        {% endfor %}
     <div class='controls'>
         <input class="btn btn-primary" type='submit' value='{% trans "Submit Ticket" %}' />
     </div>
