@@ -11,10 +11,10 @@
 <tr class='row_columnheads'><th>{% trans "Queue" %}</th><th>{% trans "Open" %}</th><th>{% trans "Resolved" %}</th><th>{% trans "Closed" %}</th></tr>
 {% for queue in dash_tickets %}
 <tr class='row_{% cycle odd,even %} row_hover '>
-<th><a href='{% url helpdesk_list %}?queue={{ queue.queue }}&status=1&status=2'>{{ queue.name }}</a></th>
-<td align="center">{% if queue.open %}<a href='{% url helpdesk_list %}?queue={{ queue.queue }}&status=1&status=2'>{% endif %}{{ queue.open }}{% if queue.open %}</a>{% endif %}</td>
-<td align="center">{% if queue.resolved %}<a href='{% url helpdesk_list %}?queue={{ queue.queue }}&status=3'>{% endif %}{{ queue.resolved }}{% if queue.resolved %}</a>{% endif %}</td>
-<td align="center">{% if queue.closed %}<a href='{% url helpdesk_list %}?queue={{ queue.queue }}&status=4'>{% endif %}{{ queue.closed }}{% if queue.closed %}</a>{% endif %}</td>
+<th><a href='{% url "helpdesk_list" %}?queue={{ queue.queue }}&status=1&status=2'>{{ queue.name }}</a></th>
+<td align="center">{% if queue.open %}<a href='{% url "helpdesk_list" %}?queue={{ queue.queue }}&status=1&status=2'>{% endif %}{{ queue.open }}{% if queue.open %}</a>{% endif %}</td>
+<td align="center">{% if queue.resolved %}<a href='{% url "helpdesk_list" %}?queue={{ queue.queue }}&status=3'>{% endif %}{{ queue.resolved }}{% if queue.resolved %}</a>{% endif %}</td>
+<td align="center">{% if queue.closed %}<a href='{% url "helpdesk_list" %}?queue={{ queue.queue }}&status=4'>{% endif %}{{ queue.closed }}{% if queue.closed %}</a>{% endif %}</td>
 </tr>
 {% endfor %}
 </table>
@@ -82,7 +82,7 @@
 <th><a href='{{ ticket.get_absolute_url }}'>{{ ticket.title }}</a></th>
 <td>{{ ticket.queue }}</td>
 <td><span title='{{ ticket.created|date:"r" }}'>{{ ticket.created|timesince }} ago</span></td>
-<th><a href='{{ ticket.get_absolute_url }}?take'><span class='button button_take'>{% trans "Take" %}</span></a> {% if helpdesk_settings.HELPDESK_DASHBOARD_SHOW_DELETE_UNASSIGNED %}| <a href='{% url helpdesk_delete ticket.id %}'><span class='button button_delete'>{% trans "Delete" %}</span></a>{% endif %}</th>
+<th><a href='{{ ticket.get_absolute_url }}?take'><span class='button button_take'>{% trans "Take" %}</span></a> {% if helpdesk_settings.HELPDESK_DASHBOARD_SHOW_DELETE_UNASSIGNED %}| <a href='{% url "helpdesk_delete" ticket.id %}'><span class='button button_delete'>{% trans "Delete" %}</span></a>{% endif %}</th>
 </tr>
 {% endfor %}
 {% if not unassigned_tickets %}

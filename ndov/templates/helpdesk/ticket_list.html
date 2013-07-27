@@ -177,7 +177,7 @@ $(document).ready(function() {
     <hr style='clear: both;' />
     <input type='submit' class="btn btn-primary" value='{% trans "Apply Filter" %}' />
     {% if from_saved_query and saved_query.user = user %}
-    <p>{% blocktrans with saved_query.title as query_name %}You are currently viewing saved query <em>{{ query_name }}</em>.{% endblocktrans %} <a href='{% url helpdesk_delete_query saved_query.id %}'>{% trans "Delete Saved Query" %}</a></p>
+    <p>{% blocktrans with saved_query.title as query_name %}You are currently viewing saved query <em>{{ query_name }}</em>.{% endblocktrans %} <a href='{% url "helpdesk_delete_query" saved_query.id %}'>{% trans "Delete Saved Query" %}</a></p>
     {% endif %}
     {% if from_saved_query %}
     <p>{% blocktrans with saved_query.id as query_id %}<a href='../reports/?saved_query={{ query_id }}'>Run a report</a> on this query to see stats and charts for the data listed below.{% endblocktrans %}</p>
@@ -188,7 +188,7 @@ $(document).ready(function() {
     {% if not from_saved_query %}
     <div class='tab' id='tabsave'>
         <h3>{% trans "Save Query" %}</h3>
-        <form method='post' class="form form-horizontal" action='{% url helpdesk_savequery %}'>
+        <form method='post' class="form form-horizontal" action='{% url "helpdesk_savequery" %}'>
         <input type='hidden' name='query_encoded' value='{{ urlsafe_query }}' />
         <div class="control-group">
             <label class="control-label" for='id_title'>{% trans "Query Name" %}</label>
@@ -214,7 +214,7 @@ $(document).ready(function() {
 
     <div id='tabload'>
     <h3>{% trans "Use Saved Query" %}</h3>
-    <form method='get' action='{% url helpdesk_list %}'>
+    <form method='get' action='{% url "helpdesk_list" %}'>
     <p><label for='id_query_selector'>{% trans "Query" %}</label> <select name='saved_query' id='id_query_selector'>
         {% for q in user_saved_queries %}
         <option value='{{ q.id }}'>{{ q.title }}{% if q.shared %} (Shared{% ifnotequal user q.user %} by {{ q.user.username }}{% endifnotequal %}){% endif %}</option>
@@ -227,7 +227,7 @@ $(document).ready(function() {
 </div>
 
 {{ search_message|safe }}
-<form method='post' action='{% url helpdesk_mass_update %}' id="ticket_mass_update">
+<form method='post' action='{% url "helpdesk_mass_update" %}' id="ticket_mass_update">
 <h2>{% trans "Tickets" %}</h2>
 <table class="table table-striped">
 <tr class='row_columnheads'><th>#</th><th>&nbsp;</th><th>{% trans "Pr" %}</th><th>{% trans "Title" %}</th><th>{% trans "Queue" %}</th><th>{% trans "Status" %}</th><th>{% trans "Created" %}</th><th>{% trans "Owner" %}</th>{% if tags_enabled %}<th>{% trans "Tags" %}</th>{% endif %}</tr>

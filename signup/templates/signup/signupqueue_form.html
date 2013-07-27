@@ -3,7 +3,7 @@
 {% block helpdesk_body %}
 <h2>{% trans "Apply for a license" %}</h2>
 <p>{% trans "Please enter the details below and you will be emailed a license" %}</p>
-<form class="form form-horizontal" method='post' action='{% url signup_apply %}'>
+<form class="form form-horizontal" method='post' action='{% url "signup_apply" %}'>
 {% for field in form %}
 	<div class="control-group {% if field.errors %}error{% endif %}">
 		<label class="control-label">{{ field.label }}</label>
