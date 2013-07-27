@@ -34,7 +34,7 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-LOCALE_PATHS= ('locale/', )
+LOCALE_PATHS= ('ndov/locale/', )
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
@@ -62,7 +62,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    'project_static/',
+    'ndov/static/',
 )
 
 # List of finder classes that know how to find static files in
@@ -94,7 +94,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
-    'project_templates/',
+    'ndov/templates/',
 )
 
 INSTALLED_APPS = (
