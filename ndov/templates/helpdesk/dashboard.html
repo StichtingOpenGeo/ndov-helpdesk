@@ -26,6 +26,26 @@
 {% endif %}
 </div>
 
+<br style='clear: both;' />
+
+<h2>{% trans "Unassigned Tickets" %} {% trans "(pick up a ticket if you start to work on it)" %}</h2>
+<table class="table table-striped">
+<tr class='row_columnheads'><th>#</th><th>{% trans "Pr" %}</th><th>{% trans "Title" %}</th><th>{% trans "Queue" %}</th><th>{% trans "Created" %}</th><th>&nbsp;</th></tr>
+{% for ticket in unassigned_tickets %}
+<tr class='row_{% cycle odd,even %} row_hover'>
+<th><a href='{{ ticket.get_absolute_url }}'>{{ ticket.ticket }}</a></th>
+<td>{{ ticket.get_priority_span }}</td>
+<th><a href='{{ ticket.get_absolute_url }}'>{{ ticket.title }}</a></th>
+<td>{{ ticket.queue }}</td>
+<td><span title='{{ ticket.created|date:"r" }}'>{{ ticket.created|timesince }} ago</span></td>
+<th><a href='{{ ticket.get_absolute_url }}?take'><span class='button button_take'>{% trans "Take" %}</span></a> {% if helpdesk_settings.HELPDESK_DASHBOARD_SHOW_DELETE_UNASSIGNED %}| <a href='{% url helpdesk_delete ticket.id %}'><span class='button button_delete'>{% trans "Delete" %}</span></a>{% endif %}</th>
+</tr>
+{% endfor %}
+{% if not unassigned_tickets %}
+<tr class='row_odd'><td colspan='6'>{% trans "There are no unassigned tickets." %}</td></tr>
+{% endif %}
+</table>
+
 
 
 <br style='clear: both;' />
@@ -45,26 +65,6 @@
 {% endfor %}
 {% if not user_tickets %}
 <tr class='row_odd'><td colspan='5'>{% trans "You have no tickets assigned to you." %}</td></tr>
-{% endif %}
-</table>
-
-<br style='clear: both;' />
-
-<h2>{% trans "Unassigned Tickets" %} {% trans "(pick up a ticket if you start to work on it)" %}</h2>
-<table class="table table-striped">
-<tr class='row_columnheads'><th>#</th><th>{% trans "Pr" %}</th><th>{% trans "Title" %}</th><th>{% trans "Queue" %}</th><th>{% trans "Created" %}</th><th>&nbsp;</th></tr>
-{% for ticket in unassigned_tickets %}
-<tr class='row_{% cycle odd,even %} row_hover'>
-<th><a href='{{ ticket.get_absolute_url }}'>{{ ticket.ticket }}</a></th>
-<td>{{ ticket.get_priority_span }}</td>
-<th><a href='{{ ticket.get_absolute_url }}'>{{ ticket.title }}</a></th>
-<td>{{ ticket.queue }}</td>
-<td><span title='{{ ticket.created|date:"r" }}'>{{ ticket.created|timesince }} ago</span></td>
-<th><a href='{{ ticket.get_absolute_url }}?take'><span class='button button_take'>{% trans "Take" %}</span></a> {% if helpdesk_settings.HELPDESK_DASHBOARD_SHOW_DELETE_UNASSIGNED %}| <a href='{% url helpdesk_delete ticket.id %}'><span class='button button_delete'>{% trans "Delete" %}</span></a>{% endif %}</th>
-</tr>
-{% endfor %}
-{% if not unassigned_tickets %}
-<tr class='row_odd'><td colspan='6'>{% trans "There are no unassigned tickets." %}</td></tr>
 {% endif %}
 </table>
 
