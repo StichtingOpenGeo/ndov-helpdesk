@@ -31,13 +31,16 @@ from helpdesk.lib import send_templated_mail, query_to_dict, apply_query, safe_t
 from helpdesk.models import Ticket, Queue, FollowUp, TicketChange, PreSetReply, Attachment, SavedSearch, IgnoreEmail, TicketCC, TicketDependency, attachment_path
 from helpdesk.settings import HAS_TAG_SUPPORT
 from helpdesk import settings as helpdesk_settings
-  
+
 if HAS_TAG_SUPPORT:
     from tagging.models import Tag, TaggedItem
 
 if helpdesk_settings.HELPDESK_ALLOW_NON_STAFF_TICKET_UPDATE:
     # treat 'normal' users like 'staff'
     staff_member_required = user_passes_test(lambda u: u.is_authenticated() and u.is_active)
+elif helpdesk_settings.HELPDESK_ALLOW_EDITOR_GROUP:
+    staff_member_required = user_passes_test(lambda u: u.is_authenticated() and u.is_active
+                                             and (u.groups.filter(name=helpdesk_settings.HELPDESK_EDITOR_GROUP_NAME).exists() or u.is_superuser))
 else:
     staff_member_required = user_passes_test(lambda u: u.is_authenticated() and u.is_active and u.is_staff)
 
@@ -51,7 +54,6 @@ def dashboard(request):
     showing ticket counts by queue/status, and a list of unassigned tickets
     with options for them to 'Take' ownership of said tickets.
     """
-
     # open & reopened tickets, assigned to current user
     tickets = Ticket.objects.filter(
             assigned_to=request.user,
@@ -61,7 +63,7 @@ def dashboard(request):
 
     # closed & resolved tickets, assigned to current user
     tickets_closed_resolved =  Ticket.objects.filter(
-            assigned_to=request.user, 
+            assigned_to=request.user,
             status__in = [Ticket.CLOSED_STATUS, Ticket.RESOLVED_STATUS, Ticket.DUPLICATE_STATUS])
 
     unassigned_tickets = Ticket.objects.filter(
@@ -85,22 +87,15 @@ def dashboard(request):
     # Queue 1    10     4
     # Queue 2     4    12
 
-    cursor = connection.cursor()
-    if helpdesk_settings.HELPDESK_DASHBOARD_HIDE_EMPTY_QUEUES:
-        cursor.execute("""
-            SELECT      q.id as queue,
-                        q.title AS name,
-                        COUNT(CASE t.status WHEN '1' THEN t.id WHEN '2' THEN t.id END) AS open,
-                        COUNT(CASE t.status WHEN '3' THEN t.id END) AS resolved,
-                        COUNT(CASE t.status WHEN '4' THEN t.id END) AS closed
-                FROM    helpdesk_ticket t,
-                        helpdesk_queue q
-                WHERE   q.id = t.queue_id
-                GROUP BY queue, name
-                ORDER BY q.id;
-        """)
+    # Determine whether to remove hidden queues
+    if request.user.is_superuser:
+      where = ''
     else:
-        cursor.execute("""
+      where = 'WHERE q.allow_public_access IS true' # Sqlite doesn't like this / Postgres needs true
+
+    cursor = connection.cursor()
+    # Removed a second query here that didn't list empty queues. Not very relevant, so is removed
+    cursor.execute("""
             SELECT      q.id as queue,
                         q.title AS name,
                         COUNT(CASE t.status WHEN '1' THEN t.id WHEN '2' THEN t.id END) AS open,
@@ -108,12 +103,13 @@ def dashboard(request):
                         COUNT(CASE t.status WHEN '4' THEN t.id END) AS closed
                 FROM    helpdesk_queue q
                 LEFT OUTER JOIN helpdesk_ticket t
-                ON      q.id = t.queue_id            
+                ON      q.id = t.queue_id
+                %s
                 GROUP BY queue, name
                 ORDER BY q.id;
-        """)    
-    
-    
+        """ % where)
+
+
     dash_tickets = query_to_dict(cursor.fetchall(), cursor.description)
 
     return render_to_response('helpdesk/dashboard.html',
@@ -152,7 +148,7 @@ def followup_edit(request, ticket_id, followup_id, ):
                                       'public': followup.public,
                                       'new_status': followup.new_status,
                                       })
-        
+
         return render_to_response('helpdesk/followup_edit.html',
             RequestContext(request, {
                 'followup': followup,
@@ -175,20 +171,20 @@ def followup_edit(request, ticket_id, followup_id, ):
                 new_followup.user = followup.user
             new_followup.save()
             # get list of old attachments & link them to new_followup
-            attachments = Attachment.objects.filter(followup = followup)            
+            attachments = Attachment.objects.filter(followup = followup)
             for attachment in attachments:
                 attachment.followup = new_followup
                 attachment.save()
             # delete old followup
-            followup.delete()                
+            followup.delete()
         return HttpResponseRedirect(reverse('helpdesk_view', args=[ticket.id]))
-            
+
 def view_ticket(request, ticket_id):
     ticket = get_object_or_404(Ticket, id=ticket_id)
 
     if request.GET.has_key('take'):
         # Allow the user to assign the ticket to themselves whilst viewing it.
-        
+
         # Trick the update_ticket() view into thinking it's being called with
         # a valid POST.
         request.POST = {
@@ -382,7 +378,7 @@ def update_ticket(request, ticket_id, public=False):
 
     messages_sent_to = []
 
-    # ticket might have changed above, so we re-instantiate context with the 
+    # ticket might have changed above, so we re-instantiate context with the
     # (possibly) updated ticket.
     context = safe_template_context(ticket)
     context.update(
@@ -628,7 +624,7 @@ def ticket_list(request):
             or  request.GET.has_key('status')
             or  request.GET.has_key('q')
             or  request.GET.has_key('sort')
-            or  request.GET.has_key('sortreverse') 
+            or  request.GET.has_key('sortreverse')
             or  request.GET.has_key('tags') ):
 
         # Fall-back if no querying is being done, force the list to only
@@ -667,7 +663,7 @@ def ticket_list(request):
         date_from = request.GET.get('date_from')
         if date_from:
             query_params['filtering']['created__gte'] = date_from
-        
+
         date_to = request.GET.get('date_to')
         if date_to:
             query_params['filtering']['created__lte'] = date_to
@@ -737,7 +733,7 @@ def ticket_list(request):
     querydict = request.GET.copy()
     querydict.pop('page', 1)
 
-    tag_choices = [] 
+    tag_choices = []
     if HAS_TAG_SUPPORT:
         # FIXME: restrict this to tags that are actually in use
         tag_choices = Tag.objects.all()
@@ -771,7 +767,7 @@ def edit_ticket(request, ticket_id):
             return HttpResponseRedirect(ticket.get_absolute_url())
     else:
         form = EditTicketForm(instance=ticket)
-    
+
     return render_to_response('helpdesk/edit_ticket.html',
         RequestContext(request, {
             'form': form,
@@ -885,7 +881,7 @@ def run_report(request, report):
         return HttpResponseRedirect(reverse("helpdesk_report_index"))
 
     report_queryset = Ticket.objects.all().select_related()
-   
+
     from_saved_query = False
     saved_query = None
 
@@ -920,7 +916,7 @@ def run_report(request, report):
         _('Nov'),
         _('Dec'),
     )
-    
+
     first_ticket = Ticket.objects.all().order_by('created')[0]
     first_month = first_ticket.created.month
     first_year = first_ticket.created.year
@@ -1017,11 +1013,11 @@ def run_report(request, report):
             metric2 = u'%s %s' % (months[ticket.created.month - 1], ticket.created.year)
 
         summarytable[metric1, metric2] += 1
-    
+
     table = []
-    
+
     header1 = sorted(set(list( i.encode('utf-8') for i,_ in summarytable.keys() )))
-    
+
     column_headings = [col1heading] + possible_options
 
     # Pivot the data so that 'header1' fields are always first column
@@ -1213,10 +1209,10 @@ def attachment_publish(request, ticket_id, attachment_id):
 	if request.POST:
 		ticket = get_object_or_404(Ticket, id=ticket_id)
 		attachment = get_object_or_404(Attachment, id=attachment_id)
-		
+
 		file_from = attachment.file.name
 		file_to = os.path.join(helpdesk_settings.HELPDESK_ATTACHMENT_PUBLISH_PATH, ticket.queue.slug, os.path.basename(file_from))
-		
+
 		# Check if it exists
 		if os.path.isfile(file_from):
 			if not os.path.isdir(os.path.dirname(file_to)):
