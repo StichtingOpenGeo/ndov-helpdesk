@@ -37,13 +37,13 @@ if HAS_TAG_SUPPORT:
 
 if helpdesk_settings.HELPDESK_ALLOW_NON_STAFF_TICKET_UPDATE:
     # treat 'normal' users like 'staff'
-    staff_member_required = user_passes_test(lambda u: u.is_authenticated() and u.is_active)
+    smrq_test = lambda u: u.is_authenticated() and u.is_active
 elif helpdesk_settings.HELPDESK_ALLOW_EDITOR_GROUP:
-    staff_member_required = user_passes_test(lambda u: u.is_authenticated() and u.is_active
-                                             and (u.groups.filter(name=helpdesk_settings.HELPDESK_EDITOR_GROUP_NAME).exists() or u.is_superuser))
+    smrq_test = lambda u: u.is_authenticated() and u.is_active \
+                and (u.groups.filter(name=helpdesk_settings.HELPDESK_EDITOR_GROUP_NAME).exists() or u.is_superuser)
 else:
-    staff_member_required = user_passes_test(lambda u: u.is_authenticated() and u.is_active and u.is_staff)
-
+    smrq_test = lambda u: u.is_authenticated() and u.is_active and u.is_staff
+staff_member_required = user_passes_test(smrq_test)
 
 superuser_required = user_passes_test(lambda u: u.is_authenticated() and u.is_active and u.is_superuser)
 
@@ -239,7 +239,8 @@ view_ticket = staff_member_required(view_ticket)
 
 
 def update_ticket(request, ticket_id, public=False):
-    if not (public or (request.user.is_authenticated() and request.user.is_active and (request.user.is_staff or helpdesk_settings.HELPDESK_ALLOW_NON_STAFF_TICKET_UPDATE))):
+    #if not (public or (request.user.is_authenticated() and request.user.is_active and (request.user.is_staff or helpdesk_settings.HELPDESK_ALLOW_NON_STAFF_TICKET_UPDATE))):
+    if not (public or smrq_test(request.user)):
         return HttpResponseForbidden(_('Sorry, you need to login to do that.'))
 
     ticket = get_object_or_404(Ticket, id=ticket_id)
@@ -293,7 +294,7 @@ def update_ticket(request, ticket_id, public=False):
                 'username': new_user.username,
                 }
             ticket.assigned_to = new_user
-            reassigned = Trueis_superuser
+            reassigned = True
         # user changed owner to 'unassign'
         elif owner == 0 and ticket.assigned_to is not None:
             f.title = _('Unassigned')
