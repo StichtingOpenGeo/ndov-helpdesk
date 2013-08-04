@@ -29,26 +29,6 @@
 </div>
 
 
-{% if all_tickets_reported_by_current_user %}
-<br style='clear: both;' />
-
-<table width='100%'>
-<tr class='row_tablehead'><td colspan='6'>{% trans "All Tickets submitted by you" %}</td></tr>
-<tr class='row_columnheads'><th>#</th><th>{% trans "Pr" %}</th><th>{% trans "Title" %}</th><th>{% trans "Queue" %}</th><th>{% trans "Status" %}</th><th>{% trans "Last Update" %}</th></tr>
-{% for ticket in all_tickets_reported_by_current_user %}
-<tr class='row_{% cycle odd,even %} row_hover'>
-<th><a href='{{ ticket.get_absolute_url }}'>{{ ticket.ticket }}</a></th>
-<td>{{ ticket.get_priority_span }}</td>
-<th><a href='{{ ticket.get_absolute_url }}'>{{ ticket.title }}</a></th>
-<td>{{ ticket.queue }}</td>
-<td>{{ ticket.get_status }}</td>
-<td><span title='{{ ticket.modified|date:"r" }}'>{{ ticket.modified|timesince }}</span></td>
-</tr>
-{% endfor %}
-</table>
-{% endif %}
-
-
 
 <br style='clear: both;' />
 
@@ -98,6 +78,26 @@
 <tr class='row_tablehead'><td colspan='6'>{% trans "Closed & resolved Tickets you used to work on" %}</td></tr>
 <tr class='row_columnheads'><th>#</th><th>{% trans "Pr" %}</th><th>{% trans "Title" %}</th><th>{% trans "Queue" %}</th><th>{% trans "Status" %}</th><th>{% trans "Last Update" %}</th></tr>
 {% for ticket in user_tickets_closed_resolved %}
+<tr class='row_{% cycle odd,even %} row_hover'>
+<th><a href='{{ ticket.get_absolute_url }}'>{{ ticket.ticket }}</a></th>
+<td>{{ ticket.get_priority_span }}</td>
+<th><a href='{{ ticket.get_absolute_url }}'>{{ ticket.title }}</a></th>
+<td>{{ ticket.queue }}</td>
+<td>{{ ticket.get_status }}</td>
+<td><span title='{{ ticket.modified|date:"r" }}'>{{ ticket.modified|timesince }}</span></td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+
+
+{% if all_tickets_reported_by_current_user %}
+<br style='clear: both;' />
+
+<table width='100%'>
+<tr class='row_tablehead'><td colspan='6'>{% trans "All Tickets submitted by you" %}</td></tr>
+<tr class='row_columnheads'><th>#</th><th>{% trans "Pr" %}</th><th>{% trans "Title" %}</th><th>{% trans "Queue" %}</th><th>{% trans "Status" %}</th><th>{% trans "Last Update" %}</th></tr>
+{% for ticket in all_tickets_reported_by_current_user %}
 <tr class='row_{% cycle odd,even %} row_hover'>
 <th><a href='{{ ticket.get_absolute_url }}'>{{ ticket.ticket }}</a></th>
 <td>{{ ticket.get_priority_span }}</td>
