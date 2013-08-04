@@ -54,7 +54,7 @@ def process_email(quiet=False):
     for q in Queue.objects.filter(
             email_box_type__isnull=False,
             allow_email_submission=True):
-        
+
         if not q.email_box_last_check:
             q.email_box_last_check = datetime.now()-timedelta(minutes=30)
 
@@ -99,7 +99,7 @@ def process_queue(q, quiet=False):
             msgNum = msg.split(" ")[0]
             msgSize = msg.split(" ")[1]
 
-            full_message = "\n".join(server.retr(msgNum)[1])  
+            full_message = "\n".join(server.retr(msgNum)[1])
             ticket = ticket_from_message(message=full_message, queue=q, quiet=quiet)
 
             if ticket:
@@ -126,7 +126,7 @@ def process_queue(q, quiet=False):
                 ticket = ticket_from_message(message=data[0][1], queue=q, quiet=quiet)
                 if ticket:
                     server.store(num, '+FLAGS', '\\Deleted')
-        
+
         server.expunge()
         server.close()
         server.logout()
@@ -138,7 +138,8 @@ def decodeUnknown(charset, string):
             return string.decode('utf-8')
         except:
             return string.decode('iso8859-1')
-    return unicode(string, charset)
+    return unicode(string, charset, errors='ignore')
+
 
 def decode_mail_headers(string):
     decoded = decode_header(string)
@@ -147,19 +148,19 @@ def decode_mail_headers(string):
 def ticket_from_message(message, queue, quiet):
     is_cc = False
     update = None
-    
+
     # 'message' must be an RFC822 formatted message.
     msg = message
     message = email.message_from_string(msg)
     subject = message.get('subject', _('Created from e-mail'))
     subject = decode_mail_headers(decodeUnknown(message.get_charset(), subject))
     subject = subject.replace("Re: ", "").replace("Fw: ", "").replace("RE: ", "").replace("FW: ", "").strip()
-    
+
     sender = message.get('from', _('Unknown Sender'))
-    sender = decode_mail_headers(decodeUnknown(message.get_charset(), sender)) 
-    
+    sender = decode_mail_headers(decodeUnknown(message.get_charset(), sender))
+
     sender_email = parseaddr(sender)[1]
-    
+
     body_plain, body_html = '', ''
 
     for ignore in IgnoreEmail.objects.filter(Q(queues=queue) | Q(queues__isnull=True)):
@@ -169,7 +170,7 @@ def ticket_from_message(message, queue, quiet):
                 # and the 'True' will cause the message to be deleted.
                 return False
             return True
-    
+
     # Check if we're being CC'ed, in which case we might not want to send emails or filter
     dest = decode_mail_headers(decodeUnknown(message.get_charset(), message.get('to', _('Unknown Sender'))))
     dest_email = parseaddr(dest)
@@ -191,8 +192,8 @@ def ticket_from_message(message, queue, quiet):
             reset_queue = True
         except:
           print " !! Failed to match label '%s' to a queue, not moving message" % match_info.group('label').lower()
-      
-    # Check we want to filter CCs, but only if we have a queue and 
+
+    # Check we want to filter CCs, but only if we have a queue and
     # a queue was not already modified because we matched a label
     if helpdesk_settings.HELPDESK_FILTER_CC_ALTERNATE and is_cc and queue.alternate_queue is not None \
     and not reset_queue:
@@ -219,7 +220,10 @@ def ticket_from_message(message, queue, quiet):
 
         if part.get_content_maintype() == 'text' and name == None:
             if part.get_content_subtype() == 'plain':
-                body_plain = decodeUnknown(part.get_content_charset(), part.get_payload(decode=True))
+                try:
+                  body_plain = decodeUnknown(part.get_content_charset(), part.get_payload(decode=True))
+                except: # We could get a unicode exception here, in which case, we really don't know anymore
+                  body_plain = None
             else:
                 body_html = part.get_payload(decode=True)
         else:
@@ -298,7 +302,7 @@ def ticket_from_message(message, queue, quiet):
     if t.status == Ticket.REOPENED_STATUS:
         f.new_status = Ticket.REOPENED_STATUS
         f.title = _('Ticket Re-Opened by E-Mail Received from %(sender_email)s' % {'sender_email': sender_email})
-    
+
     f.save()
 
     if not quiet:
