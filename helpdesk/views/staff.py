@@ -182,6 +182,10 @@ def followup_edit(request, ticket_id, followup_id, ):
 def view_ticket(request, ticket_id):
     ticket = get_object_or_404(Ticket, id=ticket_id)
 
+    # If queue isn't public we could never actually get here!
+    if not ticket.queue.allow_public_access and not request.user.is_superuser:
+      return HttpResponseRedirect(reverse('login'))
+
     if request.GET.has_key('take'):
         # Allow the user to assign the ticket to themselves whilst viewing it.
 
@@ -289,7 +293,7 @@ def update_ticket(request, ticket_id, public=False):
                 'username': new_user.username,
                 }
             ticket.assigned_to = new_user
-            reassigned = True
+            reassigned = Trueis_superuser
         # user changed owner to 'unassign'
         elif owner == 0 and ticket.assigned_to is not None:
             f.title = _('Unassigned')
