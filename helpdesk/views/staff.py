@@ -40,7 +40,7 @@ if helpdesk_settings.HELPDESK_ALLOW_NON_STAFF_TICKET_UPDATE:
     staff_member_required = user_passes_test(lambda u: u.is_authenticated() and u.is_active)
 elif helpdesk_settings.HELPDESK_ALLOW_EDITOR_GROUP:
     staff_member_required = user_passes_test(lambda u: u.is_authenticated() and u.is_active
-                                             and u.groups.filter(name=helpdesk_settings.HELPDESK_EDITOR_GROUP_NAME).exists())
+                                             and (u.groups.filter(name=helpdesk_settings.HELPDESK_EDITOR_GROUP_NAME).exists() or u.is_superuser))
 else:
     staff_member_required = user_passes_test(lambda u: u.is_authenticated() and u.is_active and u.is_staff)
 
@@ -54,7 +54,6 @@ def dashboard(request):
     showing ticket counts by queue/status, and a list of unassigned tickets
     with options for them to 'Take' ownership of said tickets.
     """
-
     # open & reopened tickets, assigned to current user
     tickets = Ticket.objects.filter(
             assigned_to=request.user,
@@ -92,7 +91,7 @@ def dashboard(request):
     if request.user.is_superuser:
       where = ''
     else:
-      where = 'WHERE q.allow_public_access IS true'
+      where = 'WHERE q.allow_public_access IS true' # Sqlite doesn't like this / Postgres needs true
 
     cursor = connection.cursor()
     # Removed a second query here that didn't list empty queues. Not very relevant, so is removed
