@@ -239,7 +239,6 @@ view_ticket = staff_member_required(view_ticket)
 
 
 def update_ticket(request, ticket_id, public=False):
-    #if not (public or (request.user.is_authenticated() and request.user.is_active and (request.user.is_staff or helpdesk_settings.HELPDESK_ALLOW_NON_STAFF_TICKET_UPDATE))):
     if not (public or smrq_test(request.user)):
         return HttpResponseForbidden(_('Sorry, you need to login to do that.'))
 
@@ -280,7 +279,7 @@ def update_ticket(request, ticket_id, public=False):
 
     f = FollowUp(ticket=ticket, date=datetime.now(), comment=comment)
 
-    if request.user.is_staff or helpdesk_settings.HELPDESK_ALLOW_NON_STAFF_TICKET_UPDATE:
+    if smrq_test(request.user):
         f.user = request.user
 
     f.public = public
@@ -466,7 +465,7 @@ def update_ticket(request, ticket_id, public=False):
 
     ticket.save()
 
-    if request.user.is_staff or helpdesk_settings.HELPDESK_ALLOW_NON_STAFF_TICKET_UPDATE:
+    if smrq_test(request.user):
         return HttpResponseRedirect(ticket.get_absolute_url())
     else:
         return HttpResponseRedirect(ticket.ticket_url)
