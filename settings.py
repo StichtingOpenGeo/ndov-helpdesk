@@ -137,8 +137,8 @@ LOGGING = {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
             'filename': "logs/debug.log",
-            'maxBytes': 50000,
-            'backupCount': 2,
+            'maxBytes': 5000000,
+            'backupCount': 10,
             'formatter': 'standard',
         }
     },
@@ -149,7 +149,7 @@ LOGGING = {
             'propagate': True,
         },
         'cli_actions':  {
-            'handlers': ['logfile'],
+            'handlers': ['mail_admins', 'logfile'],
             'level': 'DEBUG',
             'propagate': True,
         }

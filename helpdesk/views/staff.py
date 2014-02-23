@@ -237,12 +237,15 @@ def view_ticket(request, ticket_id):
         }))
 view_ticket = staff_member_required(view_ticket)
 
-
 def update_ticket(request, ticket_id, public=False):
     if not (public or smrq_test(request.user)):
         return HttpResponseForbidden(_('Sorry, you need to login to do that.'))
 
     ticket = get_object_or_404(Ticket, id=ticket_id)
+
+    # If queue isn't public we could never actually get here!
+    if not ticket.queue.allow_public_access and not request.user.is_superuser:
+      return HttpResponseRedirect(reverse('login'))
 
     comment = request.POST.get('comment', '')
     new_status = int(request.POST.get('new_status', ticket.status))

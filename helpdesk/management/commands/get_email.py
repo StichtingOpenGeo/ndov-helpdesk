@@ -10,10 +10,8 @@ scripts/get_email.py - Designed to be run from cron, this script checks the
                        adding to existing tickets if needed)
 """
 
-import email
-import imaplib
-import mimetypes
-import poplib
+import email, imaplib, poplib, mimetypes
+import logging
 import re
 
 from datetime import datetime, timedelta
@@ -30,6 +28,8 @@ from django.conf import settings
 from helpdesk.lib import send_templated_mail, safe_template_context
 from helpdesk.models import Queue, Ticket, FollowUp, Attachment, IgnoreEmail
 from helpdesk import settings as helpdesk_settings
+
+logger = logging.getLogger(__name__)
 
 class Command(BaseCommand):
     def __init__(self):
@@ -65,8 +65,10 @@ def process_email(quiet=False):
         queue_time_delta = timedelta(minutes=q.email_box_interval)
 
         if (q.email_box_last_check + queue_time_delta) > datetime.now():
+            logger.info("Skipping queue, we checked too recently, last check at %s" % q.email_box_last_check)
             continue
 
+        logger.debug("Processing queue '%s'" % q)
         process_queue(q, quiet=quiet)
 
         q.email_box_last_check = datetime.now()
@@ -75,10 +77,11 @@ def process_email(quiet=False):
 
 def process_queue(q, quiet=False):
     if not quiet:
-        print "Processing: %s" % q
+        logger.info("Processing: %s" % q)
 
     email_box_type = settings.QUEUE_EMAIL_BOX_TYPE if settings.QUEUE_EMAIL_BOX_TYPE else q.email_box_type
 
+    # Check a POP3 box
     if email_box_type == 'pop3':
 
         if q.email_box_ssl or settings.QUEUE_EMAIL_BOX_SSL:
@@ -107,6 +110,7 @@ def process_queue(q, quiet=False):
 
         server.quit()
 
+    # Check a IMAP box
     elif email_box_type == 'imap':
         if q.email_box_ssl or settings.QUEUE_EMAIL_BOX_SSL:
             if not q.email_box_port: q.email_box_port = 993
@@ -124,8 +128,9 @@ def process_queue(q, quiet=False):
             for num in msgnums:
                 status, data = server.fetch(num, '(RFC822)')
                 ticket = ticket_from_message(message=data[0][1], queue=q, quiet=quiet)
-                if ticket:
-                    server.store(num, '+FLAGS', '\\Deleted')
+                server.store(num, '+FLAGS', '\\Deleted')
+                if not ticket:
+                    logger.error("Failed to get ticket from email, please check message:\n %s" % data)
 
         server.expunge()
         server.close()
@@ -187,17 +192,17 @@ def ticket_from_message(message, queue, quiet):
         try:
           new_queue = Queue.objects.get(slug=match_info.group('label').lower())
           if new_queue:
-            print " ++ Matched label '%s' to queue '%s'" % (match_info.group('label').lower(), new_queue)
+            logger.info(" ++ Matched label '%s' to queue '%s'" % (match_info.group('label').lower(), new_queue))
             queue = new_queue
             reset_queue = True
         except:
-          print " !! Failed to match label '%s' to a queue, not moving message" % match_info.group('label').lower()
+          logger.error(" !! Failed to match label '%s' to a queue, not moving message" % match_info.group('label').lower())
 
     # Check we want to filter CCs, but only if we have a queue and
     # a queue was not already modified because we matched a label
     if helpdesk_settings.HELPDESK_FILTER_CC_ALTERNATE and is_cc and queue.alternate_queue is not None \
     and not reset_queue:
-        print " ++ We think this is CC'd"
+        logger.info(" ++ We think this is CC'd")
         queue = queue.alternate_queue
 
     matchobj = re.match(r"^\[(?P<queue>[-A-Za-z0-9]+)-(?P<id>\d+)\]", subject)
@@ -262,6 +267,7 @@ def ticket_from_message(message, queue, quiet):
             t = Ticket.objects.get(id=ticket)
             new = False
         except Ticket.DoesNotExist:
+            logger.debug("Didn't find a ticket with ID %s" % ticket)
             ticket = None
 
     priority = 3
@@ -275,6 +281,7 @@ def ticket_from_message(message, queue, quiet):
         priority = 2
 
     if ticket == None:
+        logger.debug("Creating new ticket for email")
         t = Ticket(
             title=subject,
             queue=queue,
@@ -288,6 +295,7 @@ def ticket_from_message(message, queue, quiet):
         update = ''
 
     elif t.status == Ticket.CLOSED_STATUS:
+        logger.debug("Reopening ticket")
         t.status = Ticket.REOPENED_STATUS
         t.save()
 
@@ -306,7 +314,7 @@ def ticket_from_message(message, queue, quiet):
     f.save()
 
     if not quiet:
-        print (" [%s-%s] %s%s" % (t.queue.slug, t.id, t.title, update)).encode('ascii', 'replace')
+        logger.info(" [%s-%s] %s%s" % (t.queue.slug, t.id, t.title, update)).encode('ascii', 'replace')
 
     for file in files:
         if file['content']:
@@ -321,7 +329,7 @@ def ticket_from_message(message, queue, quiet):
             a.file.save(filename, ContentFile(file['content']), save=False)
             a.save()
             if not quiet:
-                print "    - %s" % filename
+                logger.info("    - %s" % filename)
 
 
     context = safe_template_context(t)
