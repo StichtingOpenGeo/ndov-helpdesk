@@ -171,7 +171,7 @@ HELPDESK_FILTER_LABEL_TO_QUEUE = True # This has priority over the next issue
 HELPDESK_FILTER_CC_ALTERNATE = True # This will unfortunately move issues with a non existant label to this queue
 
 HELPDESK_ALLOW_EDITOR_GROUP = True
-HELPDESK_EDITOR_GROUP_NAME = 'Medewerkers'
+HELPDESK_EDITOR_GROUP_NAME = 'Afnemers' 
 
 try:
     from local_settings import *
