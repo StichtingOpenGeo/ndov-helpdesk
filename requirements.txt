@@ -4,3 +4,4 @@ dj-database-url==0.2.0
 south
 Markdown
 django-rosetta
+unidecode

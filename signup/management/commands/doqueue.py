@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import tempfile, subprocess, os, glob, re, logging
 from datetime import datetime
-
+import unidecode
 from django.core.management.base import BaseCommand
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -27,16 +27,21 @@ class Command(BaseCommand):
 def send_emails():
     ''' For each application that doesn't have a contract mailed, create one '''
     logger.info("Running queue for %s signups" % (SignupQueue.objects.filter(status=1).count()))
+
     for request in SignupQueue.objects.filter(status=1):
         success, pdf = make_pdf(request.name, request.position, request.city, request.organization)
         if success:
             username, password = create_account(request.name, request.email)
-            send_created_contract(request, username, password, pdf)
-            print "We sent a contract (%s) to %s <%s>" % (pdf, request.name, request.email)
-            logger.info("We sent a contract (%s) to %s" % (pdf, request.name))
+            if username is not None:
+                send_created_contract(request, username, password, pdf)
+                print("We sent a contract (%s) to %s <%s>" % (pdf, request.name, request.email))
+                logger.info("We sent a contract (%s) to %s" % (pdf, request.name))
 
-            # Update the status once everything is ok
-            request.status = 2
+                # Update the status once everything is ok
+                request.status = 2
+            else:
+                logger.info("Setting status for %s to error (PDF: %s)" % (request.name, pdf))
+                request.status = 5
             request.save()
 
             cleanup_tmp(pdf) # Cleanup our mess
@@ -56,26 +61,30 @@ def send_created_contract(request, username, password, filename):
     subject = _("NDOV overeenkomst voor %(name)s ") % {'name' : name}
     email = EmailMessage(subject, email_template.render(email_context), getattr(settings, 'DEFAULT_FROM_EMAIL'), [request.email])
 
-    attachment_name = 'overeenkomst-%s-%s.pdf' % (name.lower().replace(' ', '_'), datetime.now().strftime("%Y%m%d"))
+    attachment_name = 'overeenkomst-%s-%s.pdf' % (unidecode.unidecode(name).lower().replace(' ', '_'), datetime.now().strftime("%Y%m%d"))
     with open(filename) as f:
         email.attach(attachment_name, f.read(), 'application/pdf')
-        email.send()
+    email.send()
 
 def create_account(name, email):
     ''' Create a new account with a random password and make sure we have a unique username '''
     password = User.objects.make_random_password()
-    username = re.sub(r'[^\w]', '', name.lower()) # Remove anything not a word character/letter
+    username = re.sub(r'[^\w]', '', unidecode.unidecode(name.lower())) # Remove anything not a word character/letter
     logger.info("We're creating a user account <%s>" % (username))
 
     # Generate a unique username, append a number if we can't
     suffix_number = 1
     while User.objects.filter(username__exact=username).count() > 0:
         logger.debug("Username <%s> already exists, using suffix %s" % (username, suffix_number))
+        # TODO this works till 10
         username = "%s%i" % (username[:-1] if suffix_number > 1 else username, suffix_number)
         suffix_number += 1
 
-    User.objects.create_user(username, email, password)
-    return username, password
+    try:
+        User.objects.create_user(username, email, password)
+        return username, password
+    except: # Database errors
+        return None, None
 
 def make_pdf(name, position, city, organization=None):
     ''' Write a LaTex file from our template '''
