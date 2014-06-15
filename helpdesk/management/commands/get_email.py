@@ -29,7 +29,7 @@ from helpdesk.lib import send_templated_mail, safe_template_context
 from helpdesk.models import Queue, Ticket, FollowUp, Attachment, IgnoreEmail
 from helpdesk import settings as helpdesk_settings
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('cli_actions')
 
 class Command(BaseCommand):
     def __init__(self):
@@ -128,8 +128,10 @@ def process_queue(q, quiet=False):
             for num in msgnums:
                 status, data = server.fetch(num, '(RFC822)')
                 ticket = ticket_from_message(message=data[0][1], queue=q, quiet=quiet)
-                server.store(num, '+FLAGS', '\\Deleted')
-                if not ticket:
+
+                if ticket:
+                    server.store(num, '+FLAGS', '\\Deleted')
+                else:
                     logger.error("Failed to get ticket from email, please check message:\n %s" % data)
 
         server.expunge()

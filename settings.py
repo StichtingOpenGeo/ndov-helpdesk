@@ -149,7 +149,7 @@ LOGGING = {
             'propagate': True,
         },
         'cli_actions':  {
-            'handlers': ['mail_admins', 'logfile'],
+            'handlers': ['logfile'],
             'level': 'DEBUG',
             'propagate': True,
         }
