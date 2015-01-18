@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _, ugettext
 from django.conf import settings
 
+
 class SignupQueue(models.Model):
     # Data for generating signup
     email = models.EmailField(_('Email address'), unique=True)

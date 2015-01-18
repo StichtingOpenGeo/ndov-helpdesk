@@ -14,6 +14,7 @@ from signup.models import SignupQueue
 
 logger = logging.getLogger('cli_actions')
 
+
 class Command(BaseCommand):
     def __init__(self):
         BaseCommand.__init__(self)
@@ -46,6 +47,8 @@ def send_emails():
 
             cleanup_tmp(pdf) # Cleanup our mess
         else:
+            request.status = 5
+            request.save()
             logger.info("Something went wrong here :( (%s, %s)" % (success, pdf))
 
 
@@ -66,8 +69,9 @@ def send_created_contract(request, username, password, filename):
         email.attach(attachment_name, f.read(), 'application/pdf')
     email.send()
 
+
 def create_account(name, email):
-    ''' Create a new account with a random password and make sure we have a unique username '''
+    """ Create a new account with a random password and make sure we have a unique username """
     password = User.objects.make_random_password()
     username = re.sub(r'[^\w]', '', unidecode.unidecode(name.lower())) # Remove anything not a word character/letter
     logger.info("We're creating a user account <%s>" % (username))
@@ -86,9 +90,10 @@ def create_account(name, email):
     except: # Database errors
         return None, None
 
+
 def make_pdf(name, position, city, organization=None):
-    ''' Write a LaTex file from our template '''
-    # Write our prefix with variables for the template - NOTE: escaped slashes!
+    """ Write a LaTex file from our template
+    Write our prefix with variables for the template - NOTE: escaped slashes! """
     templatestring = u"\\newcommand{\\tekenbevoegd}{%s}" % tex_clean(name)
     templatestring += u"\\newcommand{\\functie}{%s}" % tex_clean(position)
     templatestring += u"\\newcommand{\\vestigingsplaats}{%s}" % tex_clean(city)
@@ -114,20 +119,24 @@ def make_pdf(name, position, city, organization=None):
             return (False, None)
         else:
             # We were successful, return the name of the pdf
-            return (True, "%s.pdf" % os.path.splitext(file.name)[0])
+            filename = "%s.pdf" % os.path.splitext(file.name)[0]
+            return True, filename
     except OSError as e:
         logger.debug("Error creating pdf from latex, removing latex: %s" % (e))
         cleanup_tmp(file.name)
-        return (False, None) # TODO Log this error though, we have one!
+        return False, None
+
 
 def cleanup_tmp(name):
-    ''' Cleanup all the files we created in the tmp directory '''
+    """ Cleanup all the files we created in the tmp directory """
     for f in glob.glob("%s.*" % os.path.splitext(name)[0]):
         os.remove(f)
 
+
 def tex_clean(string):
-    ''' Remove anything that could be read by LaTex as a command / variable '''
-    return string.strip('\@{}')
+    """ Remove anything that could be read by LaTex as a command / variable """
+    # return string.strip('\@{}%')
+    return re.sub(r'[^\w .-]', '', string)
 
 if __name__ == '__main__':
     send_emails()

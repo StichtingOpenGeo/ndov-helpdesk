@@ -5,3 +5,6 @@ south
 Markdown
 django-rosetta
 unidecode
+# Monitoring crap
+python-zabbix
+pyzmq
