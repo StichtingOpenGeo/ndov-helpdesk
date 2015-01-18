@@ -1,0 +1,9 @@
+Hoi!
+Er is iets mis gegaan met het aanmaken van het volgende contract:
+
+Naam {{ name }},
+Organisatie: {{ organization }}
+
+De logging bevat meer context - vooral of de PDF fout ging of het aanmaken van een account
+
+{% include 'helpdesk/nl/email_text_footer.txt' %}

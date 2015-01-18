@@ -43,13 +43,15 @@ def send_emails():
             else:
                 logger.info("Setting status for %s to error (PDF: %s)" % (request.name, pdf))
                 request.status = 5
+                send_error(request)
             request.save()
 
             cleanup_tmp(pdf) # Cleanup our mess
         else:
+            logger.info("Something went wrong here :( (%s, %s)" % (success, pdf))
             request.status = 5
             request.save()
-            logger.info("Something went wrong here :( (%s, %s)" % (success, pdf))
+            send_error(request)
 
 
 def send_created_contract(request, username, password, filename):
@@ -67,6 +69,15 @@ def send_created_contract(request, username, password, filename):
     attachment_name = 'overeenkomst-%s-%s.pdf' % (unidecode.unidecode(name).lower().replace(' ', '_'), datetime.now().strftime("%Y%m%d"))
     with open(filename) as f:
         email.attach(attachment_name, f.read(), 'application/pdf')
+    email.send()
+
+
+def send_error(request):
+    email_template = get_template('signup/nl/email_error.txt')
+    email_context = Context({ 'name': request.name, 'organization': request.organization})
+    subject = "[NDOV] Fout bij aanmaken overeenkomst"
+    email = EmailMessage(subject, email_template.render(email_context),
+                         getattr(settings, 'DEFAULT_FROM_EMAIL'), [getattr(settings, 'SIGNUP_ERROR_EMAIL')])
     email.send()
 
 

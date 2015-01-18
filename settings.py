@@ -161,6 +161,7 @@ QUEUE_EMAIL_BOX_TYPE = 'imap'
 QUEUE_EMAIL_BOX_SSL = False
 
 SIGNUP_UPLOAD_TO=MEDIA_ROOT
+SIGNUP_ERROR_EMAIL=''
 
 # These are overides over the default settings
 HELPDESK_KB_ENABLED_STAFF = True
