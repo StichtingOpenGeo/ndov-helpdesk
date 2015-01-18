@@ -40,11 +40,12 @@ def send_emails():
 
                 # Update the status once everything is ok
                 request.status = 2
+                request.save()
             else:
                 logger.info("Setting status for %s to error (PDF: %s)" % (request.name, pdf))
                 request.status = 5
+                request.save()
                 send_error(request)
-            request.save()
 
             cleanup_tmp(pdf) # Cleanup our mess
         else:
