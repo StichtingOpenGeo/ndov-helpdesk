@@ -39,3 +39,6 @@ def zabbix_send():
 
 myioloop = ioloop.IOLoop.instance()
 myperiodiccallback = ioloop.PeriodicCallback(zabbix_send, 300000, myioloop)
+
+myperiodiccallback.start()
+myioloop.start()
