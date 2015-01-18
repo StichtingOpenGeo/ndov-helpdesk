@@ -6,5 +6,4 @@ Markdown
 django-rosetta
 unidecode
 # Monitoring crap
-python-zabbix
-pyzmq
+-e git+https://github.com/skinkie/python-zabbix#egg=python-zabbix
