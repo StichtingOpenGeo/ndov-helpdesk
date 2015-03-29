@@ -1,23 +1,10 @@
-{% extends "signup/base.html" %}{% load i18n %}
+{% extends "signup/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
 
 {% block helpdesk_body %}
-<h2>{% trans "Apply for a license" %}</h2>
-<p>{% trans "Please enter the details below and you will be emailed a license" %}</p>
-<form class="form form-horizontal" method='post' action='{% url signup_apply %}'>
-{% for field in form %}
-	<div class="control-group {% if field.errors %}error{% endif %}">
-		<label class="control-label">{{ field.label }}</label>
-		<div class="controls">
-			{{ field }}
-			{% if field.errors %}<span class="help-inline">{{ field.errors|striptags }}</span>{% else %}
-				{% if field.field.required %}&nbsp;<span class="label label-important"><small>{% trans "required" %}</small></span>{% endif %}
-			{% endif %}
-				
-		</div>
-	</div>
-{% endfor %}
-	<div class="controls">
-		<input type="submit" class="btn btn-primary" value="{% trans "Apply" %}"/>
-	</div>
-{% csrf_token %}</form>
-	{% endblock %}
+    <h2>{% trans "Apply for a license" %}</h2>
+    <p>{% trans "Please enter the details below and you will be emailed a license" %}</p>
+    {% crispy form form.helper %}
+
+{% endblock %}

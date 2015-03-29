@@ -1,52 +1,94 @@
 {% load i18n %}
 {% load saved_queries %}
 {% load load_helpdesk_settings %}
-{% with request|load_helpdesk_settings as helpdesk_settings %}
-{% with request|saved_queries as user_saved_queries_ %}
-<!DOCTYPE html>
-<html lang="nl">
+{#{% with request|load_helpdesk_settings as helpdesk_settings %}#}
+{#{% with request|saved_queries as user_saved_queries_ %}#}
+    <html>
     <head>
-        <title>{% block title %}{% block helpdesk_title %}Helpdesk{% endblock %}{% endblock %} :: NDOV Loket</title>
-	<meta name="description" content="Stichting OpenGeo voert een ND-OV met geplande en actuele reisinformatie uit het Nederlandse openbaar vervoer." />
-	<meta name="keywords" content="NDOV,ND-OV,loket,open data,opendata,openbaar vervoer,OV,reisinformatie,BISON,IFF,standaarden,Connexxion,Arriva,Veolia,EBS,NS,Nederlandse Spoorwegen,Syntus" />
-        <script src='{{ STATIC_URL }}helpdesk/jquery-1.5.min.js' type='text/javascript' language='javascript'></script>
-        <script src='{{ STATIC_URL }}helpdesk/jquery-ui-1.8.9.custom.min.js' type='text/javascript' language='javascript'></script>
-        {% comment %}
-        <script src='{{ STATIC_URL }}helpdesk/jquery.translate-debug-all.js' type='text/javascript' language='javascript'></script>
-        {% endcomment %}
-		<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap.min.css' type='text/css' />
-		<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap-responsive.min.css' type='text/css' />
-		<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap.addons.css' type='text/css' />
-        <link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/jquery-smoothness-theme/jquery-ui-1.8.9.custom.css' type='text/css' />
-		{% if user.username %}
-        <link rel='alternate' href='{% url helpdesk_rss_user user.username %}' type='application/rss+xml' title='{% trans "My Open Tickets" %}' />
-        <link rel='alternate' href='{% url helpdesk_rss_activity %}' type='application/rss+xml' title='{% trans "All Recent Activity" %}' />
-        <link rel='alternate' href='{% url helpdesk_rss_unassigned %}' type='application/rss+xml' title='{% trans "Unassigned Tickets" %}' />
-		{% endif %}
+        <meta name="description" content="NDOV Loket levert marktpartijen actuele en geplande reisinformatie, tarieven en toegankelijkheid.">
+        <meta name="keywords" content="NDOV,ND-OV,loket,ndovloket,open data,opendata,openbaar vervoer,OV,reisinformatie,BISON,IFF,standaarden,Connexxion,Arriva,Veolia,EBS,NS,Nederlandse Spoorwegen,Syntus">
+        <title>NDOV Loket - {% block title %}{% block helpdesk_title %}Helpdesk{% endblock %}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="http://ndovloket.nl/Untitled.css">
+
+        {#        <script src='{{ STATIC_URL }}helpdesk/jquery-1.5.min.js' type='text/javascript' language='javascript'></script>#}
+        {#        <script src='{{ STATIC_URL }}helpdesk/jquery-ui-1.8.9.custom.min.js' type='text/javascript' language='javascript'></script>#}
+        {#        <link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/jquery-smoothness-theme/jquery-ui-1.8.9.custom.css' type='text/css' />#}
 
         {% block helpdesk_head %}{% endblock %}
     </head>
+
     <body>
-        <div class='container'>
-            {% include "helpdesk/navigation.html" %}
-
-            <div id='body'>
-                {% block helpdesk_body %}{% endblock %}
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-
-            <footer class='footer'>
-				<div class="btn-group">
-					<a href='{% url helpdesk_rss_index %}' class="btn"><img src='{{ STATIC_URL }}helpdesk/rss_icon.png' width='14' height='14' alt='{% trans "RSS Icon" %}' title='{% trans "RSS Feeds" %}' border='0' />{% trans "Feeds" %}</a>
-					{% if helpdesk_settings.HELPDESK_FOOTER_SHOW_API_LINK %}<a href='{% url helpdesk_api_help %}' class="btn">{% trans "API" %}</a>{% endif %}
-					<a href='{% url helpdesk_user_settings %}' class="btn">{% trans "User Settings" %}</a>
-					{% if helpdesk_settings.HELPDESK_FOOTER_SHOW_CHANGE_LANGUAGE_LINK %}
-					<a href='{% url helpdesk_public_change_language %}?return_to={{ request.path }}' class="btn">{% trans "Change Language" %}</a>
-					{% endif %}
-					{% if user.is_superuser %}<a href='{% url helpdesk_system_settings %}' class="btn">{% trans "System Settings" %}</a>{% endif %}
-				</div>
-            </footer>
+            <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                <ul class="nav navbar-left navbar-nav">
+                    <li class="active">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/helpdesk/kb/">Kennisbank</a>
+                    </li>
+                    <li>
+                        <a href="/helpdesk/tickets/">Incidenten</a>
+                    </li>
+                    <li>
+                        <a href="research.html">Research</a>
+                    </li>
+                </ul>
+                <a class="btn btn-danger navbar-btn navbar-right" href="https://ndovloket.nl/aanmelden/">Aanmelden</a>
+            </div>
         </div>
+    </div>
+    <div class="carousel slide" id="fullcarousel-example" data-interval="false" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="active item">
+                <img src="ndov-carousel.png">
+                <div class="carousel-caption">
+                    <h2 class="text-left">NDOV Loket</h2>
+                    <p class="text-left">reisinformatie direct van de bron</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="background-image" style="background-image : url('ticks.png')"></div>
+            <div class="container" style="position: relative; top: -100px;">
+                <div class="row">
+                    <div class="section">
+                        <div class="container">
+                            {% include "helpdesk/navigation.html" %}
+                            {% block helpdesk_body %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="container ">
+                    <div class="row ">
+                        <a href="https://twitter.com/ndovloket
+                                                            "><i class="fa fa-2x fa-fw fa-twitter pull-right "></i></a>
+                        <a href="https://ndovloket.wordpress.com/
+                                                            "><i class="fa fa-2x fa-fw pull-right fa-wordpress "></i></a>
+                        <a href="http://github.com/StichtingOpenGeo/
+                                                            "><i class="fa fa-2x fa-fw fa-github pull-right "></i></a>
+                    </div>
+                </div>
+            </div>
+    </div>
+
     </body>
 </html>
-{% endwith %}
-{% endwith %}
+

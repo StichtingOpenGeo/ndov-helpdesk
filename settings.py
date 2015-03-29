@@ -34,7 +34,7 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-LOCALE_PATHS= ('ndov/locale/', )
+LOCALE_PATHS = ('ndov/locale/',)
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
@@ -70,7 +70,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -80,7 +80,7 @@ SECRET_KEY = '5*#74p#taescig^(kresv4sv6up(ui8unnh1eez4&s*l2mo$@4'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    #     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,6 +96,7 @@ ROOT_URLCONF = 'urls'
 TEMPLATE_DIRS = (
     'ndov/templates/',
 )
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -105,11 +106,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.markup',
-	'django.contrib.flatpages',
-	'signup',
+    'django.contrib.flatpages',
+    'signup',
     'helpdesk',
-	'south',
-    #	'rosetta',
+    'south',
+    'crispy_forms',
+    'rosetta',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin'
 )
@@ -124,8 +126,8 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'standard': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
         },
     },
     'handlers': {
@@ -134,8 +136,8 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
         'logfile': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
             'filename': "logs/debug.log",
             'maxBytes': 5000000,
             'backupCount': 10,
@@ -148,7 +150,7 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
-        'cli_actions':  {
+        'cli_actions': {
             'handlers': ['logfile'],
             'level': 'DEBUG',
             'propagate': True,
@@ -156,23 +158,22 @@ LOGGING = {
     }
 }
 
-
 QUEUE_EMAIL_BOX_TYPE = 'imap'
 QUEUE_EMAIL_BOX_SSL = False
 
-SIGNUP_UPLOAD_TO=MEDIA_ROOT
-SIGNUP_ERROR_EMAIL=''
+SIGNUP_UPLOAD_TO = MEDIA_ROOT
+SIGNUP_ERROR_EMAIL = ''
 
 # These are overides over the default settings
 HELPDESK_KB_ENABLED_STAFF = True
 HELPDESK_TRANSLATE_TICKET_COMMENTS_LANG = ["en", "de", "fr", "it", "ru", "nl"]
 HELPDESK_SHOW_CHANGE_PASSWORD = True
 HELPDESK_SEND_SUBMITTER_EMAIL = False
-HELPDESK_FILTER_LABEL_TO_QUEUE = True # This has priority over the next issue
-HELPDESK_FILTER_CC_ALTERNATE = True # This will unfortunately move issues with a non existant label to this queue
+HELPDESK_FILTER_LABEL_TO_QUEUE = True  # This has priority over the next issue
+HELPDESK_FILTER_CC_ALTERNATE = True  # This will unfortunately move issues with a non existant label to this queue
 
 HELPDESK_ALLOW_EDITOR_GROUP = True
-HELPDESK_EDITOR_GROUP_NAME = 'Afnemers' 
+HELPDESK_EDITOR_GROUP_NAME = 'Afnemers'
 
 try:
     from local_settings import *

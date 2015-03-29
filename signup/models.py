@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _, ugettext
+from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
 
@@ -31,3 +31,36 @@ class SignupQueue(models.Model):
     
     def __unicode__(self):
         return u'%s - %s'  % (self.name, self.organization)
+
+
+class Contact(models.Model):
+    TYPES = ((1, _('Technical')),
+             (2, _('Administrative')),
+             (3, _('Signee')))
+
+    signup = models.ForeignKey(SignupQueue)
+    type = models.PositiveSmallIntegerField(_('Type'), default=1, choices=TYPES)
+    name = models.CharField(_('Name (representative)'), max_length=75)
+    position = models.CharField(_('Position'), max_length=100, blank=True)
+    email = models.EmailField(_('Email address'))
+
+    class Meta:
+        verbose_name = _("contact")
+        unique_together = ('signup', 'type')
+
+    def __unicode__(self):
+        return u'%s - %s'  % (self.name, self.signup.organization)
+
+
+class AccessRight(models.Model):
+    signup = models.ForeignKey(SignupQueue)
+    ip = models.IPAddressField()
+    is_active = models.BooleanField()
+    valid_from = models.DateField(blank=True)
+    valid_to = models.DateField(blank=True)
+
+    class Meta:
+        verbose_name = _("ip address")
+
+    def __unicode__(self):
+        return u'%s - %s'  % (self.ip, self.signup.organization)
