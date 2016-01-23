@@ -2,13 +2,13 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Field, Div, HTML
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from signup.models import SignupQueue
+from signup.models import SignupQueue, Contact
 
 
 class ApplyLicenseForm(forms.ModelForm):
 
-    tech_name = forms.CharField(label=_('Name (technical contact)'))
-    tech_email = forms.EmailField(label=_('Email (technical contact)'))
+    tech_name = forms.CharField(label=_('Name'))
+    tech_email = forms.EmailField(label=_('Email'))
 
     class Meta:
         model = SignupQueue
@@ -27,10 +27,10 @@ class ApplyLicenseForm(forms.ModelForm):
                 css_class='col-md-6'),
             Div(css_class='clearfix'),
             Div(
-                Div(HTML("{% load i18n %}<h4>{% trans 'Contact' %}</h4>"),
+                Div(HTML("{% load i18n %}<h4>{% trans 'Representative' %}</h4>"),
                     Field('name'),
-                    Field('email'),
                     Field('position'),
+                    Field('email'),
                     Field('city'),
                     css_class='col-md-6'),
                 Div(HTML("{% load i18n %}<h4>{% trans 'Technical contact' %}</h4>"),
@@ -45,7 +45,9 @@ class ApplyLicenseForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', _('Apply')))
 
     def save(self, commit=True):
-        return super(ApplyLicenseForm, self).save(commit)
+        saved = super(ApplyLicenseForm, self).save(commit)
+        Contact(signup=saved, type=1, name=self.cleaned_data['tech_name'], email=self.cleaned_data['tech_email']).save()
+        return saved
 
 
 class UploadSignedForm(forms.ModelForm):

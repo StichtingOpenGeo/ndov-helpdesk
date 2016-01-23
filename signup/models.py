@@ -6,7 +6,7 @@ from django.conf import settings
 class SignupQueue(models.Model):
     # Data for generating signup
     email = models.EmailField(_('Email address'), unique=True)
-    name = models.CharField(_('Name (representative)'), max_length=75) 
+    name = models.CharField(_('Name'), max_length=75)
     position = models.CharField(_('Position'), max_length=100, blank=True)
     organization = models.CharField(_('Organization name'), max_length=100, blank=True)
     city = models.CharField(_('City'), max_length=50)
@@ -40,7 +40,7 @@ class Contact(models.Model):
 
     signup = models.ForeignKey(SignupQueue)
     type = models.PositiveSmallIntegerField(_('Type'), default=1, choices=TYPES)
-    name = models.CharField(_('Name (representative)'), max_length=75)
+    name = models.CharField(_('Name'), max_length=75)
     position = models.CharField(_('Position'), max_length=100, blank=True)
     email = models.EmailField(_('Email address'))
 
