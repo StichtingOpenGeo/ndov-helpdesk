@@ -49,12 +49,12 @@ class Contact(models.Model):
         unique_together = ('signup', 'type')
 
     def __unicode__(self):
-        return u'%s - %s'  % (self.name, self.signup.organization)
+        return u'%s - %s' % (self.name, self.signup.organization)
 
 
 class AccessRight(models.Model):
     signup = models.ForeignKey(SignupQueue)
-    ip = models.IPAddressField()
+    ip = models.GenericIPAddressField()
     is_active = models.BooleanField()
     valid_from = models.DateField(blank=True)
     valid_to = models.DateField(blank=True)

@@ -7,8 +7,8 @@ from signup.models import SignupQueue
 
 class ApplyLicenseForm(forms.ModelForm):
 
-    tech_name = forms.CharField(_('Name (technical contact)'))
-    tech_email = forms.EmailField(_('Email (technical contact)'))
+    tech_name = forms.CharField(label=_('Name (technical contact)'))
+    tech_email = forms.EmailField(label=_('Email (technical contact)'))
 
     class Meta:
         model = SignupQueue
@@ -52,4 +52,4 @@ class UploadSignedForm(forms.ModelForm):
     
     class Meta:
         model = SignupQueue
-        include = ('signed_file')
+        fields = ['signed_file']

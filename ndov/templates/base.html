@@ -1,25 +1,15 @@
 {% load i18n %}
-{% load saved_queries %}
-{% load load_helpdesk_settings %}
-{#{% with request|load_helpdesk_settings as helpdesk_settings %}#}
-{#{% with request|saved_queries as user_saved_queries_ %}#}
     <html>
     <head>
         <meta name="description" content="NDOV Loket levert marktpartijen actuele en geplande reisinformatie, tarieven en toegankelijkheid.">
         <meta name="keywords" content="NDOV,ND-OV,loket,ndovloket,open data,opendata,openbaar vervoer,OV,reisinformatie,BISON,IFF,standaarden,Connexxion,Arriva,Veolia,EBS,NS,Nederlandse Spoorwegen,Syntus">
-        <title>NDOV Loket - {% block title %}{% block helpdesk_title %}Helpdesk{% endblock %}{% endblock %}</title>
+        <title>NDOV Loket - {% block title %}{% endblock %}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="http://ndovloket.nl/Untitled.css">
-
-        {#        <script src='{{ STATIC_URL }}helpdesk/jquery-1.5.min.js' type='text/javascript' language='javascript'></script>#}
-        {#        <script src='{{ STATIC_URL }}helpdesk/jquery-ui-1.8.9.custom.min.js' type='text/javascript' language='javascript'></script>#}
-        {#        <link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/jquery-smoothness-theme/jquery-ui-1.8.9.custom.css' type='text/css' />#}
-
-        {% block helpdesk_head %}{% endblock %}
     </head>
 
     <body>
@@ -39,10 +29,10 @@
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="/helpdesk/kb/">Kennisbank</a>
+                        <a href="documentatie.html">Documentatie</a>
                     </li>
                     <li>
-                        <a href="/helpdesk/tickets/">Incidenten</a>
+                        <a href="kennisbank.html">Kennisbank</a>
                     </li>
                     <li>
                         <a href="research.html">Research</a>
@@ -55,7 +45,7 @@
     <div class="carousel slide" id="fullcarousel-example" data-interval="false" data-ride="carousel">
         <div class="carousel-inner">
             <div class="active item">
-                <img src="ndov-carousel.png">
+                <img src="//ndovloket.nl/ndov-carousel.png">
                 <div class="carousel-caption">
                     <h2 class="text-left">NDOV Loket</h2>
                     <p class="text-left">reisinformatie direct van de bron</p>
@@ -69,7 +59,7 @@
                 <div class="row">
                     <div class="section">
                         <div class="container">
-                            {% include "helpdesk/navigation.html" %}
+                            {% block body %}{% endblock %}
                             {% block helpdesk_body %}{% endblock %}
                         </div>
                     </div>

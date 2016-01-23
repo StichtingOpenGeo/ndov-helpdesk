@@ -105,14 +105,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.markup',
-    'django.contrib.flatpages',
     'signup',
-    'helpdesk',
-    'south',
     'crispy_forms',
-    'rosetta',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin'
 )
 
@@ -163,17 +157,6 @@ QUEUE_EMAIL_BOX_SSL = False
 
 SIGNUP_UPLOAD_TO = MEDIA_ROOT
 SIGNUP_ERROR_EMAIL = ''
-
-# These are overides over the default settings
-HELPDESK_KB_ENABLED_STAFF = True
-HELPDESK_TRANSLATE_TICKET_COMMENTS_LANG = ["en", "de", "fr", "it", "ru", "nl"]
-HELPDESK_SHOW_CHANGE_PASSWORD = True
-HELPDESK_SEND_SUBMITTER_EMAIL = False
-HELPDESK_FILTER_LABEL_TO_QUEUE = True  # This has priority over the next issue
-HELPDESK_FILTER_CC_ALTERNATE = True  # This will unfortunately move issues with a non existant label to this queue
-
-HELPDESK_ALLOW_EDITOR_GROUP = True
-HELPDESK_EDITOR_GROUP_NAME = 'Afnemers'
 
 try:
     from local_settings import *

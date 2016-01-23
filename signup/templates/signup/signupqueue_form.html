@@ -2,9 +2,15 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
-{% block helpdesk_body %}
-    <h2>{% trans "Apply for a license" %}</h2>
-    <p>{% trans "Please enter the details below and you will be emailed a license" %}</p>
-    {% crispy form form.helper %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="cliente">
+                <h3 class="text-warning">{% trans "Apply for a license" %}</h3>
+                <p>{% trans "Please enter the details below and you will be emailed a license" %}</p>
+                {% crispy form form.helper %}
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
