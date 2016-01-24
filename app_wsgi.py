@@ -6,5 +6,5 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.abspath(os.path.dirname(
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ['DJANGO_SETTINGS_MODULE'] = "ndov-helpdesk.settings"
+os.environ['DJANGO_SETTINGS_MODULE'] = "settings"
 application = get_wsgi_application()
