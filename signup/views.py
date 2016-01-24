@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse_lazy
 from signup.models import SignupQueue
 from signup.forms import ApplyLicenseForm, UploadSignedForm
 
+
 class ApplyView(CreateView):
     form_class = ApplyLicenseForm
     model = SignupQueue

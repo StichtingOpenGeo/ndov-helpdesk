@@ -1,15 +1,14 @@
-from django.conf.urls.defaults import patterns, include, url
-from django.conf import settings
-
+from django.conf.urls import patterns, url, include
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+from django.views.generic import RedirectView
+
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    # Uncomment the next line to enable the admin:
+urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^aanmelden/', include('signup.urls')),
-    url(r'^wachtwoord/$', 'django.contrib.auth.views.password_change', name='auth_password_change'),
-    url(r'^wachtwoord/aangepast/$', 'django.contrib.auth.views.password_change_done'),
-    (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/favicon.ico'}),
-    ('^', include('django.contrib.flatpages.urls')),
-)
+    url(r'^wachtwoord/$', auth_views.password_change, name='auth_password_change'),
+    url(r'^wachtwoord/aangepast/$', auth_views.password_change_done),
+    url(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico'))
+]

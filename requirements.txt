@@ -1,7 +1,5 @@
-Django==1.4
-psycopg2==2.4.5
-dj-database-url==0.2.0
-south
+Django>=1.9,<=2.0
+psycopg2==2.5.1
 Markdown
 django-rosetta
 unidecode
