@@ -6,7 +6,7 @@
             <div class="cliente">
                 <h2 class="text-warning">{% trans "Apply for a license" %}</h2>
                 <p>{% trans "Please enter the details below and you will be emailed a license" %}</p>
-                <form class="form form-horizontal" method='post' action='{% url "signup_apply" %}'>
+                <form class="form form-horizontal" method='post' action='{% url 'signup_apply' %}'>
                     {% for field in form %}
                         <div class="form-group {% if field.errors %}error{% endif %}">
                             <label class="col-sm-2 control-label">{{ field.label }}</label>
