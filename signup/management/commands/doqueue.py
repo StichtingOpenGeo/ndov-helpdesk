@@ -67,14 +67,14 @@ def send_created_contract(request, username, password, filename):
     email = EmailMessage(subject, email_template.render(email_context), getattr(settings, 'DEFAULT_FROM_EMAIL'), [request.email])
 
     attachment_name = 'overeenkomst-%s-%s.pdf' % (unidecode.unidecode(name).lower().replace(' ', '_'), datetime.now().strftime("%Y%m%d"))
-    with open(filename) as f:
+    with open(filename, 'rb') as f:
         email.attach(attachment_name, f.read(), 'application/pdf')
     email.send()
 
 
 def send_error(request):
     email_template = get_template('signup/nl/email_error.txt')
-    email_context = Context({ 'name': request.name, 'organization': request.organization})
+    email_context = Context({'name': request.name, 'organization': request.organization})
     subject = "[NDOV] Fout bij aanmaken overeenkomst"
     email = EmailMessage(subject, email_template.render(email_context),
                          getattr(settings, 'DEFAULT_FROM_EMAIL'), [getattr(settings, 'SIGNUP_ERROR_EMAIL')])
