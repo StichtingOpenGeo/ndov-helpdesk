@@ -40,7 +40,7 @@ MEDIA_ROOT = ''
 MEDIA_URL = '/'
 
 # Absolute path to the directory static files should be collected to
-STATIC_ROOT = '/home/projects/ndovloket/www/app/ndov/static'
+STATIC_ROOT = '/home/projects/ndovloket/www/app/static'
 STATIC_URL = '/static/'
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'
