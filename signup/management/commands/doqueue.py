@@ -116,7 +116,7 @@ def make_pdf(name, position, city, organization=None):
 
     # Write the complete template out to a temporary file
     file = tempfile.NamedTemporaryFile(mode='w', prefix='ndov_signup-', suffix='.tex', delete=False)
-    file.write(templatestring.encode('utf-8'))
+    file.write(templatestring)
     file.close()
     logger.debug("Wrote template tex out to %s" % file.name)
 
