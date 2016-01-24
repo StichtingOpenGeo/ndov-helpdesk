@@ -1,9 +1,15 @@
 {% extends "signup/base.html" %}{% load i18n %}
 
 {% block body %}
-	<h2>{% trans "Thank you for your submission" %}</h2>
-	<p>{% trans "We will send you a contract ready to sign as soon as possible." %}</p>
-	<br />
-	<br />
-	<br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="cliente">
+                <h2 class="text-warning">{% trans "Thank you for your submission" %}</h2>
+                <p>{% trans "We will send you a contract ready to sign as soon as possible." %}</p>
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
 {% endblock %}
