@@ -112,7 +112,7 @@ def make_pdf(name, position, city, organization=None):
         templatestring += "\\newcommand{\\onderneming}{%s}" % tex_clean(organization)
 
     # Read the actual template
-    templatestring += open('signup/management/commands/templates/overeenkomst-template.tex', 'r').read().decode('utf8')
+    templatestring += open('signup/management/commands/templates/overeenkomst-template.tex', 'r').read()
 
     # Write the complete template out to a temporary file
     file = tempfile.NamedTemporaryFile(mode='w', prefix='ndov_signup-', suffix='.tex', delete=False)
