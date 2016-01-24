@@ -6,4 +6,4 @@ Organisatie: {{ organization }}
 
 De logging bevat meer context - vooral of de PDF fout ging of het aanmaken van een account
 
-{% include 'helpdesk/nl/email_text_footer.txt' %}
+{% include 'signup/nl/email_text_footer.txt' %}
