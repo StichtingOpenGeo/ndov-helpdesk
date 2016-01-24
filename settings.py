@@ -100,42 +100,42 @@ INSTALLED_APPS = (
     'django.contrib.admin'
 )
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'standard': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
-        },
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler'
-        },
-        'logfile': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
-            'filename': "logs/debug.log",
-            'maxBytes': 5000000,
-            'backupCount': 10,
-            'formatter': 'standard',
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins', 'logfile'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-        'cli_actions':  {
-            'handlers': ['logfile'],
-            'level': 'DEBUG',
-            'propagate': True,
-        }
-    }
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'standard': {
+#             'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+#             'datefmt' : "%d/%b/%Y %H:%M:%S"
+#         },
+#     },
+#     'handlers': {
+#         'mail_admins': {
+#             'level': 'ERROR',
+#             'class': 'django.utils.log.AdminEmailHandler'
+#         },
+#         'logfile': {
+#             'level':'DEBUG',
+#             'class':'logging.handlers.RotatingFileHandler',
+#             'filename': "logs/debug.log",
+#             'maxBytes': 5000000,
+#             'backupCount': 10,
+#             'formatter': 'standard',
+#         }
+#     },
+#     'loggers': {
+#         'django.request': {
+#             'handlers': ['mail_admins', 'logfile'],
+#             'level': 'ERROR',
+#             'propagate': True,
+#         },
+#         'cli_actions':  {
+#             'handlers': ['logfile'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         }
+#     }
+# }
 
 SIGNUP_UPLOAD_TO=MEDIA_ROOT
 SIGNUP_ERROR_EMAIL=''
