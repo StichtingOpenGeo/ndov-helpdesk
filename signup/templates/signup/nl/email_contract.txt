@@ -2,11 +2,8 @@ Beste {{ name }},
 
 Wij danken u voor uw aanmelding bij het NDOV Loket. Om uw aanmelding te voltooien vragen wij u deze e-mail te beantwoorden met een scan van de ondertekening.
 
-U kunt met de volgende gegevens binnenkort inloggen op uw eigen persoonlijke pagina.
+Een van onze medewerkers zal contact met u opnemen over de technische afronding van de levering. Zoals ook op onze website staat beschreven brengen wij op dit moment geen verdere kosten in rekening.
 
-Gebruikersnaam: {{ username }}
-Wachtwoord: {{ password }}
+Na de ondertekening zullen wij u aansluiten op onze Google Group en heeft u direct de beschikking over dienstregelingen en tarieven. Om actuele reisinformatie te ontvangen is een vast IP adres nodig.
 
-Een van onze medewerkers zal contact met u opnemen over de technische en financiele afronding van de levering.
-
-{% include 'signup/nl/email_text_footer.txt' %}
+{% include 'helpdesk/nl/email_text_footer.txt' %}
