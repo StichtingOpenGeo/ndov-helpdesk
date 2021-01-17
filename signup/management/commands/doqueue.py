@@ -6,7 +6,6 @@ from django.core.management.base import BaseCommand
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import get_template
-from django.template import Context
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
@@ -47,7 +46,7 @@ def send_emails():
                 request.save()
                 send_error(request)
 
-            cleanup_tmp(pdf) # Cleanup our mess
+            cleanup_tmp(pdf)  # Cleanup our mess
         else:
             logger.info("Something went wrong here :( (%s, %s)" % (success, pdf))
             request.status = 5
@@ -63,19 +62,20 @@ def send_created_contract(request, username, password, filename):
 
     # Setup email
     email_template = get_template('signup/nl/email_contract.txt')
-    email_context = Context({ 'name': request.name, 'username': username, 'password': password })
-    subject = _("NDOV overeenkomst voor %(name)s ") % {'name' : name}
-    email = EmailMessage(subject, email_template.render(email_context), getattr(settings, 'DEFAULT_FROM_EMAIL'), [request.email])
+    email_context = {'name': request.name, 'username': username, 'password': password}
+    subject = _("NDOV overeenkomst voor %(name)s ") % {'name': name}
+    email = EmailMessage(subject, email_template.render(email_context), getattr(settings, 'DEFAULT_FROM_EMAIL'),
+                         [request.email])
 
-    attachment_name = 'overeenkomst-%s-%s.pdf' % (unidecode.unidecode(name).lower().replace(' ', '_'), datetime.now().strftime("%Y%m%d"))
-    with open(filename) as f:
+    attachment_name = 'overeenkomst-%s-%s.pdf' % (unidecode.unidecode(name).lower().replace(' ', '_').replace('_', ''), datetime.now().strftime("%Y%m%d"))
+    with open(filename, 'rb') as f:
         email.attach(attachment_name, f.read(), 'application/pdf')
     email.send()
 
 
 def send_error(request):
     email_template = get_template('signup/nl/email_error.txt')
-    email_context = Context({ 'name': request.name, 'organization': request.organization})
+    email_context = {'name': request.name, 'organization': request.organization}
     subject = "[NDOV] Fout bij aanmaken overeenkomst"
     email = EmailMessage(subject, email_template.render(email_context),
                          getattr(settings, 'DEFAULT_FROM_EMAIL'), [getattr(settings, 'SIGNUP_ERROR_EMAIL')])
@@ -85,7 +85,7 @@ def send_error(request):
 def create_account(name, email):
     """ Create a new account with a random password and make sure we have a unique username """
     password = User.objects.make_random_password()
-    username = re.sub(r'[^\w]', '', unidecode.unidecode(name.lower())) # Remove anything not a word character/letter
+    username = re.sub(r'[^\w]', '', unidecode.unidecode(name.lower()))  # Remove anything not a word character/letter
     logger.info("We're creating a user account <%s>" % (username))
 
     # Generate a unique username, append a number if we can't
@@ -99,7 +99,7 @@ def create_account(name, email):
     try:
         User.objects.create_user(username, email, password)
         return username, password
-    except: # Database errors
+    except:  # Database errors
         return None, None
 
 
@@ -113,18 +113,19 @@ def make_pdf(name, position, city, organization=None):
         templatestring += "\\newcommand{\\onderneming}{%s}" % tex_clean(organization)
 
     # Read the actual template
-    templatestring += open('signup/management/commands/templates/overeenkomst-template.tex', 'r').read().decode('utf8')
+    templatestring += open('signup/management/commands/templates/overeenkomst-template.tex', 'r').read()
 
     # Write the complete template out to a temporary file
     file = tempfile.NamedTemporaryFile(mode='w', prefix='ndov_signup-', suffix='.tex', delete=False)
-    file.write(templatestring.encode('utf-8'))
+    file.write(templatestring)
     file.close()
     logger.debug("Wrote template tex out to %s" % file.name)
 
     # Latex the temporary file to create a pdf
     try:
-        with open(os.devnull, "w") as f: # We don't care so much about the output itself, write to /dev/null
-            retcode = subprocess.call(["pdflatex", '--output-directory=%s' % os.path.dirname(file.name), file.name], stdout=f)
+        with open(os.devnull, "w") as f:  # We don't care so much about the output itself, write to /dev/null
+            retcode = subprocess.call(["pdflatex", '--output-directory=%s' % os.path.dirname(file.name), file.name],
+                                      stdout=f)
         if retcode < 0:
             logger.debug("Error creating pdf from latex, return code not positive")
             cleanup_tmp(file.name)
@@ -150,6 +151,6 @@ def tex_clean(string):
     # return string.strip('\@{}%')
     return re.sub(r'[^\w .-]', '', string)
 
+
 if __name__ == '__main__':
     send_emails()
-
