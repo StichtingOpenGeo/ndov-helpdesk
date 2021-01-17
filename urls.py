@@ -7,9 +7,9 @@ import django.contrib.auth.views as auth_views
 admin.autodiscover()
 
 urlpatterns = [
-    path(r'^admin/', admin.site.urls),
-    path(r'', include('signup.urls')),
-    path(r'^wachtwoord/$', auth_views.password_change, name='auth_password_change'),
-    path(r'^wachtwoord/aangepast/$', auth_views.password_change_done),
-    (r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico')),
+    path('admin/', admin.site.urls),
+    path('', include('signup.urls')),
+    path('wachtwoord/', auth_views.password_change, name='auth_password_change'),
+    path('wachtwoord/aangepast/', auth_views.password_change_done),
+    path('favicon.ico', RedirectView.as_view(url='/static/favicon.ico')),
 ]

@@ -1,5 +1,7 @@
 # Django settings for ndov project.
+import os
 
+BASE_DIR = os.path.dirname(__file__)
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
@@ -76,12 +78,19 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '5*#74p#taescig^(kresv4sv6up(ui8unnh1eez4&s*l2mo$@4'
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    #     'django.template.loaders.eggs.Loader',
-)
+TEMPLATES = [{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'OPTIONS': {
+        'loaders': [
+            (
+                'django.template.loaders.filesystem.Loader',
+                [BASE_DIR + '/ndov/templates'],
+            ),
+            ('django.template.loaders.app_directories.Loader')
+        ],
+        'context_processors': ['django.contrib.auth.context_processors.auth' ]
+    },
+}]
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
