@@ -88,11 +88,13 @@ TEMPLATES = [{
             ),
             ('django.template.loaders.app_directories.Loader')
         ],
-        'context_processors': ['django.contrib.auth.context_processors.auth' ]
+        'context_processors': ['django.contrib.auth.context_processors.auth',
+                               'django.template.context_processors.request',
+                               'django.contrib.messages.context_processors.messages']
     },
 }]
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
