@@ -20,7 +20,9 @@ class SignupQueue(models.Model):
                 (2, _('Generated')),
                 (3, _('Uploaded')),
                 (4, _('Verified')),
-                (5, _('Error'))
+                (5, _('Error')),
+                (11, _('Migrated')),
+                (12, _('Unsubscribed')),
                 )
     status = models.IntegerField(_('Status'), default=1, choices=STATUSES)
     date_requested = models.DateField(auto_now_add=True)

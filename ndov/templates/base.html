@@ -1,44 +1,75 @@
 {% load i18n %}
-    <html>
+<!DOCTYPE html>
+<html lang="nl">
     <head>
-        <meta name="description" content="NDOV Loket levert marktpartijen actuele en geplande reisinformatie, tarieven en toegankelijkheid.">
-        <meta name="keywords" content="NDOV,ND-OV,loket,ndovloket,open data,opendata,openbaar vervoer,OV,reisinformatie,BISON,IFF,standaarden,Connexxion,Arriva,Veolia,EBS,NS,Nederlandse Spoorwegen,Syntus">
         <title>NDOV Loket - {% block title %}{% endblock %}</title>
+        <meta name="description" content="Stichting OpenGeo voert een ND-OV met geplande en actuele reisinformatie uit het Nederlandse openbaar vervoer." />
+        <meta name="keywords" content="NDOV,ND-OV,loket,open data,opendata,openbaar vervoer,OV,reisinformatie,BISON,IFF,standaarden,Connexxion,Arriva,Veolia,EBS,NS,Nederlandse Spoorwegen,Syntus" />
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="http://ndovloket.nl/Untitled.css">
-    </head>
 
+        <link rel="stylesheet" href="//ndovloket.nl/pages.css">
+    </head>
     <body>
-    <div class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-left navbar-nav">
+                        <li>
+                            <a href="//ndovloket.nl/index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="//ndovloket.nl/documentatie.html">Documentatie</a>
+                        </li>
+                        <li>
+                            <a href="//ndovloket.nl/kennisbank.html">Kennisbank</a>
+                        </li>
+                        <li>
+                            <a href="//ndovloket.nl/research.html">Research</a>
+                        </li>
+                    </ul>
+                    <a class="btn btn-danger navbar-btn navbar-right" href="https://ndovloket.nl/aanmelden/">Aanmelden</a>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-                <ul class="nav navbar-left navbar-nav">
-                    <li class="active">
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="documentatie.html">Documentatie</a>
-                    </li>
-                    <li>
-                        <a href="kennisbank.html">Kennisbank</a>
-                    </li>
-                    <li>
-                        <a href="research.html">Research</a>
-                    </li>
-                </ul>
-                <a class="btn btn-danger navbar-btn navbar-right" href="https://ndovloket.nl/aanmelden/">Aanmelden</a>
+        </div>
+        <div class="carousel slide" id="fullcarousel-example" data-interval="false" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="active item">
+                    <img src="//ndovloket.nl/ndov-carousel.png">
+                    <div class="carousel-caption">
+                        <h2 class="text-left">NDOV Loket</h2>
+                        <p class="text-left">reisinformatie direct van de bron</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="background-image" style="background-image : url('//ndovloket.nl/ticks.png')"></div>
+            <div class="container" style="position: relative; top: -70px;">
+                <div class="row">
+                    {% block body %}{% block helpdesk_body %}{% endblock %}{% endblock %}
+                </div>
+            </div>
+            <div class="section">
+                <div class="container ">
+                    <div class="row ">
+                        <a href="https://twitter.com/ndovloket"><i class="fa fa-2x fa-fw fa-twitter pull-right "></i></a>
+                        <a href="https://ndovloket.wordpress.com/"><i class="fa fa-2x fa-fw pull-right fa-wordpress "></i></a>
+                        <a href="https://github.com/StichtingOpenGeo/"><i class="fa fa-2x fa-fw fa-github pull-right "></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -81,4 +112,3 @@
 
     </body>
 </html>
-

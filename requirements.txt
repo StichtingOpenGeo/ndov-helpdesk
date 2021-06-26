@@ -1,9 +1,9 @@
 Django>=3.1,<3.2
 psycopg2==2.8.6
 south
-Markdown
 django-rosetta
 unidecode
 django-crispy-forms==1.10.0
-# Monitoring crap
-# -e git+https://github.com/skinkie/python-zabbix#egg=python-zabbix
+
+# Monitoring requirements
+-i https://testpypi.python.org/pypi protobix
