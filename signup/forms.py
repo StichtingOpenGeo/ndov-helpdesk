@@ -6,8 +6,8 @@ from signup.models import SignupQueue
 
 class ApplyLicenseForm(forms.ModelForm):
 
-    tech_name = forms.CharField(label=_('Name'))
-    tech_email = forms.EmailField(label=_('Email'))
+    # tech_name = forms.CharField(label=_('Name'))
+    # tech_email = forms.EmailField(label=_('Email'))
 
     class Meta:
         model = SignupQueue
