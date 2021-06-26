@@ -77,6 +77,7 @@ TEMPLATES = [{
                                 'django.template.context_processors.i18n',
                                 'django.template.context_processors.media',
                                 'django.template.context_processors.static',
+                                'django.template.context_processors.request',
                                 'django.template.context_processors.tz',
                                 'django.contrib.messages.context_processors.messages',]
     },
@@ -143,6 +144,8 @@ LOGGING = {
 
 SIGNUP_UPLOAD_TO=MEDIA_ROOT
 SIGNUP_ERROR_EMAIL=''
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 try:
     from local_settings import *
