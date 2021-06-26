@@ -62,7 +62,6 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '5*#74p#taescig^(kresv4sv6up(ui8unnh1eez4&s*l2mo$@4'
 
-<<<<<<< HEAD
 TEMPLATES = [{
     'BACKEND': 'django.template.backends.django.DjangoTemplates',
     'OPTIONS': {
