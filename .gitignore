@@ -17,3 +17,4 @@ lib64
 *.log
 *.pot
 local_settings.py
+.idea/
