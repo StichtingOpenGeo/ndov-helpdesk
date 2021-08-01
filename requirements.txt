@@ -1,9 +1,9 @@
 Django>=3.2.4,<3.2.99
 psycopg2==2.8.6
-south
-django-rosetta
-unidecode
-django-crispy-forms==1.10.0
+#south
+#django-rosetta
+unidecode==1.2.0
+#django-crispy-forms==1.10.0
 
 # Monitoring requirements
 -i https://testpypi.python.org/pypi protobix
