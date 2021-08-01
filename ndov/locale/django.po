@@ -1,0 +1,2210 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NDOVHelpdesk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-01 22:25+0200\n"
+"PO-Revision-Date: 2015-03-29 12:35+0200\n"
+"Last-Translator:   <joelhaasnoot@gmail.com>\n"
+"Language-Team: Stichting Opengeo\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Language: nl_NL\n"
+"X-Source-Language: en\n"
+"X-Translated-Using: django-rosetta 0.7.4\n"
+
+#: signup/management/commands/doqueue.py:66
+#, fuzzy, python-format
+#| msgid "NDOV Contract for %(name)s "
+msgid "NDOV overeenkomst voor %(name)s "
+msgstr "NDOV overeenkomst voor %(name)s "
+
+#: signup/models.py:9 signup/models.py:48
+msgid "Email address"
+msgstr "E-mailadres"
+
+#: signup/models.py:10 signup/models.py:46
+msgid "Name"
+msgstr "Naam"
+
+#: signup/models.py:11 signup/models.py:47
+msgid "Position"
+msgstr "Functie"
+
+#: signup/models.py:12
+msgid "Organization name"
+msgstr "Naam organisatie"
+
+#: signup/models.py:13
+msgid "City"
+msgstr "Plaats"
+
+#: signup/models.py:19
+msgid "Request"
+msgstr "Verzoek"
+
+#: signup/models.py:20
+msgid "Generated"
+msgstr "Gegenereerd"
+
+#: signup/models.py:21
+msgid "Uploaded"
+msgstr "Teruggestuurd"
+
+#: signup/models.py:22
+msgid "Verified"
+msgstr "Geverifieerd"
+
+#: signup/models.py:23
+#, fuzzy
+#| msgid "Error:"
+msgid "Error"
+msgstr "Fout:"
+
+#: signup/models.py:24
+#, fuzzy
+#| msgid "Unrated"
+msgid "Migrated"
+msgstr "Niet gewaardeerd"
+
+#: signup/models.py:25
+msgid "Unsubscribed"
+msgstr ""
+
+#: signup/models.py:27
+msgid "Status"
+msgstr "Status"
+
+#: signup/models.py:33
+msgid "registration"
+msgstr "opgave"
+
+#: signup/models.py:40
+msgid "Technical"
+msgstr ""
+
+#: signup/models.py:41
+msgid "Administrative"
+msgstr ""
+
+#: signup/models.py:42
+msgid "Signee"
+msgstr ""
+
+#: signup/models.py:45
+#, fuzzy
+#| msgid "MIME Type"
+msgid "Type"
+msgstr "MIME type"
+
+#: signup/models.py:51
+msgid "contact"
+msgstr ""
+
+#: signup/models.py:66
+#, fuzzy
+#| msgid "Email address"
+msgid "ip address"
+msgstr "E-mailadres"
+
+#: signup/templates/signup/signupqueue_form.html:8
+msgid "Apply for a license"
+msgstr "Aanmelden"
+
+#: signup/templates/signup/signupqueue_form.html:9
+msgid "Please enter the details below and you will be emailed a license"
+msgstr ""
+"Na het invullen van onderstaande details sturen we je zo snel mogelijk een "
+"ingevulde overeenkomst toe."
+
+#: signup/templates/signup/signupqueue_form.html:17
+msgid "required"
+msgstr "verplicht"
+
+#: signup/templates/signup/signupqueue_form.html:24
+msgid "Apply"
+msgstr "Verstuur"
+
+#: signup/templates/signup/signupqueue_thanks.html:7
+msgid "Thank you for your submission"
+msgstr "Bedankt voor je aanmelding"
+
+#: signup/templates/signup/signupqueue_thanks.html:8
+msgid "We will send you a contract ready to sign as soon as possible."
+msgstr ""
+"We sturen je zo snel mogelijk een ingevulde overeenkomst die na "
+"ondertekening ingescand geretourneerd dient te worden."
+
+#~ msgid "Queue"
+#~ msgstr "Wachtrij"
+
+#~ msgid "Summary of the problem"
+#~ msgstr "Samenvatting van het probleem"
+
+#~ msgid "Submitter E-Mail Address"
+#~ msgstr "E-mailadres indiener"
+
+#~ msgid ""
+#~ "This e-mail address will receive copies of all public updates to this "
+#~ "ticket."
+#~ msgstr ""
+#~ "Dit e-mailadres ontvangt kopieën van alle openbare wijzigingen voor deze "
+#~ "melding."
+
+#~ msgid "Description of Issue"
+#~ msgstr "Omschrijven van het probleem"
+
+#~ msgid "Case owner"
+#~ msgstr "Eigenaar"
+
+#~ msgid ""
+#~ "If you select an owner other than yourself, they'll be e-mailed details "
+#~ "of this ticket immediately."
+#~ msgstr ""
+#~ "Als je jezelf niet als eigenaar kiest wordt deze persoon op de hoogte "
+#~ "gesteld van dit ticket."
+
+#~ msgid "Priority"
+#~ msgstr "Prioriteit"
+
+#~ msgid "Please select a priority carefully. If unsure, leave it as '3'."
+#~ msgstr "Selecteer een prioriteit."
+
+#~ msgid "Due on"
+#~ msgstr "Deadline op"
+
+#~ msgid "Attach File"
+#~ msgstr "Bestand toevoegen"
+
+#~ msgid ""
+#~ "You can attach a file such as a document or screenshot to this ticket."
+#~ msgstr ""
+#~ "Je kan aan deze melding een bestand toevoegen , zoals een document of "
+#~ "screenshot."
+
+#~ msgid "Tags"
+#~ msgstr "Tags"
+
+#~ msgid ""
+#~ "Words, separated by spaces, or phrases separated by commas. These should "
+#~ "communicate significant characteristics of this ticket"
+#~ msgstr ""
+#~ "Steekwoorden, gescheiden door spaties of zinnen gescheiden door komma's. "
+#~ "Moeten de kenmerken van het incident uitdragen"
+
+#~ msgid "Ticket Opened"
+#~ msgstr "Incident geopend"
+
+#, python-format
+#~ msgid "Ticket Opened & Assigned to %(name)s"
+#~ msgstr "Incident geopend en toegewezen aan %(name)s"
+
+#~ msgid "Your E-Mail Address"
+#~ msgstr "Je e-mailadres"
+
+#~ msgid "We will e-mail you when your ticket is updated."
+#~ msgstr "Je ontvangt per e-mail een melding van eventuele wijzigingen."
+
+#~ msgid "Summary of your query"
+#~ msgstr "Samenvatting van je probleem"
+
+#~ msgid "Description of your issue"
+#~ msgstr "Omschrijving van je probleem"
+
+#~ msgid ""
+#~ "Please be as descriptive as possible, including any details we may need "
+#~ "to address your query."
+#~ msgstr ""
+#~ "Omschrijf het probleem zo goed mogelijk, en gebruik details indien die "
+#~ "van belang kunnen zijn."
+
+#~ msgid "Urgency"
+#~ msgstr "Urgentie"
+
+#~ msgid "Please select a priority carefully."
+#~ msgstr "Kies een urgentie niveau."
+
+#~ msgid "Ticket Opened Via Web"
+#~ msgstr "Incident geopend via web"
+
+#~ msgid "Show Ticket List on Login?"
+#~ msgstr "Toon lijst actuele meldingen na login?"
+
+#~ msgid ""
+#~ "Display the ticket list upon login? Otherwise, the dashboard is shown."
+#~ msgstr ""
+#~ "Toont de lijst met meldingen na login, anders wordt het dashboard getoond."
+
+#~ msgid "E-mail me on ticket change?"
+#~ msgstr "Verstuur e-mail bij wijzigingen?"
+
+#~ msgid ""
+#~ "If you're the ticket owner and the ticket is changed via the web by "
+#~ "somebody else, do you want to receive an e-mail?"
+#~ msgstr ""
+#~ "Als een melding wordt gewijzigd waarvan jij de eigenaar bent, wil je dan "
+#~ "een e-mail ontvangen?"
+
+#~ msgid "E-mail me when assigned a ticket?"
+#~ msgstr "Stuur mij een e-mail als ik een melding toegewezen krijg?"
+
+#~ msgid ""
+#~ "If you are assigned a ticket via the web, do you want to receive an e-"
+#~ "mail?"
+#~ msgstr ""
+#~ "Als een melding wordt toegewezen via de website, wil je dan een e-mail "
+#~ "ontvangen?"
+
+#~ msgid "E-mail me when a ticket is changed via the API?"
+#~ msgstr "Stuur mij een e-mail als een melding via de API wordt gewijzigd?"
+
+#~ msgid "If a ticket is altered by the API, do you want to receive an e-mail?"
+#~ msgstr ""
+#~ "Als een melding door de API wordt gewijzigd, wil je dan een e-mail "
+#~ "ontvangen?"
+
+#~ msgid "Number of tickets to show per page"
+#~ msgstr "Aantal incidenten te tonen per pagina"
+
+#~ msgid "How many tickets do you want to see on the Ticket List page?"
+#~ msgstr "Hoeveel incidenten wil je zien op de pagina?"
+
+#~ msgid "Use my e-mail address when submitting tickets?"
+#~ msgstr "Gebruik mijn e-mailadres bij het indienen van meldingen?"
+
+#~ msgid ""
+#~ "When you submit a ticket, do you want to automatically use your e-mail "
+#~ "address as the submitter address? You can type a different e-mail address "
+#~ "when entering the ticket if needed, this option only changes the default."
+#~ msgstr ""
+#~ "Wanneer je een ticket indient, wil je automatisch jouw e-mail adres "
+#~ "gebruiken als adres van de indiener? Je kunt een verschillend e-mail "
+#~ "adres invoeren op het moment van het openen van een ticket, deze optie "
+#~ "verandert alleen de standaard optie. "
+
+#~ msgid "Title"
+#~ msgstr "Titel"
+
+#~ msgid "Slug"
+#~ msgstr "URL-deel"
+
+#~ msgid ""
+#~ "This slug is used when building ticket ID's. Once set, try not to change "
+#~ "it or e-mailing may get messy."
+#~ msgstr ""
+#~ "Dit wordt gebruikt om ticket IDs op te bouwen. Wijzig dit niet meer, "
+#~ "anders wordt het versturen van e-mails erg lastig."
+
+#~ msgid "E-Mail Address"
+#~ msgstr "E-mailadres"
+
+#~ msgid ""
+#~ "All outgoing e-mails for this queue will use this e-mail address. If you "
+#~ "use IMAP or POP3, this should be the e-mail address for that mailbox."
+#~ msgstr ""
+#~ "Alle uitgaande e-mails voor deze wachtrij gebruiken dit e-mailadres. Als "
+#~ "je IMAP op POP3 gebruikt moet dit het mailadres zijn voor die mailbox."
+
+#~ msgid "Locale"
+#~ msgstr "Taal"
+
+#~ msgid ""
+#~ "Locale of this queue. All correspondence in this queue will be in this "
+#~ "language."
+#~ msgstr ""
+#~ "Taal voor deze wachtrij. Alle corresponsentie zal in deze taal gebeuren."
+
+#~ msgid "Allow Public Submission?"
+#~ msgstr "Inzendingen openbaar maken?"
+
+#~ msgid "Should this queue be listed on the public submission form?"
+#~ msgstr "Moet deze wachtrij worden getoond op het publieke invoerformulier?"
+
+#~ msgid "Allow E-Mail Submission?"
+#~ msgstr "E-mail inzendingen toelaten?"
+
+#~ msgid "Do you want to poll the e-mail box below for new tickets?"
+#~ msgstr "Wil je het onderstaande e-mailadres controleren op nieuwe tickets?"
+
+#~ msgid "Escalation Days"
+#~ msgstr "Aantal dagen voor escalatie"
+
+#~ msgid ""
+#~ "For tickets which are not held, how often do you wish to increase their "
+#~ "priority? Set to 0 for no escalation."
+#~ msgstr ""
+#~ "Voor tickets die niet worden vastgehouden,  hoe vaak moet de prioriteit "
+#~ "hiervan worden verhoogd? Gebruik 0 om nooit te escaleren."
+
+#~ msgid "New Ticket CC Address"
+#~ msgstr "E-mailadres nieuwe tickets"
+
+#~ msgid ""
+#~ "If an e-mail address is entered here, then it will receive notification "
+#~ "of all new tickets created for this queue. Enter a comma between multiple "
+#~ "e-mail addresses."
+#~ msgstr ""
+#~ "Als hier een e-mailadres wordt ingevoerd worden notificaties verstuurd "
+#~ "voor alle nieuwe tickets die worden aangemaakt in de queue. Gebruik een "
+#~ "komma voor meerdere e-mail adressen."
+
+#~ msgid "Updated Ticket CC Address"
+#~ msgstr "E-mailadres gewijzigde tickets"
+
+#~ msgid ""
+#~ "If an e-mail address is entered here, then it will receive notification "
+#~ "of all activity (new tickets, closed tickets, updates, reassignments, "
+#~ "etc) for this queue. Separate multiple addresses with a comma."
+#~ msgstr ""
+#~ "Als hier een e-mailadres wordt ingevoerd worden notificaties verstuurd "
+#~ "voor alle activiteiten in de queue (nieuwe tickets, gesloten tickets, "
+#~ "updates, etc). Gebruik een komma voor meerdere e-mail adressen."
+
+#~ msgid "E-Mail Box Type"
+#~ msgstr "Type e-mailadres"
+
+#~ msgid "POP 3"
+#~ msgstr "POP3"
+
+#~ msgid "IMAP"
+#~ msgstr "IMAP"
+
+#~ msgid ""
+#~ "E-Mail server type for creating tickets automatically from a mailbox - "
+#~ "both POP3 and IMAP are supported."
+#~ msgstr ""
+#~ "Type e-mail server voor het automatisch aanmaken van tickets. Zowel POP3 "
+#~ "als IMAP worden ondersteund."
+
+#~ msgid "E-Mail Hostname"
+#~ msgstr "E-mail server"
+
+#~ msgid ""
+#~ "Your e-mail server address - either the domain name or IP address. May be "
+#~ "\"localhost\"."
+#~ msgstr ""
+#~ "Serveradres van je e-mailserver - een domeinnaam of IP adres. Kan "
+#~ "\"localhost\" zijn."
+
+#~ msgid "E-Mail Port"
+#~ msgstr "E-mail poort"
+
+#~ msgid ""
+#~ "Port number to use for accessing e-mail. Default for POP3 is \"110\", and "
+#~ "for IMAP is \"143\". This may differ on some servers. Leave it blank to "
+#~ "use the defaults."
+#~ msgstr ""
+#~ "Portnummer voor toegang to e-mailaccount. Standaardwaarde voor POP3 is "
+#~ "110 en voor IMAP 143. Dit kan afwijken per server. Laat leeg om "
+#~ "standaardwaardes te hanteren."
+
+#~ msgid "Use SSL for E-Mail?"
+#~ msgstr "Gebruik SSL?"
+
+#~ msgid ""
+#~ "Whether to use SSL for IMAP or POP3 - the default ports when using SSL "
+#~ "are 993 for IMAP and 995 for POP3."
+#~ msgstr ""
+#~ "Moet SSL worden gebruikt om te communiceren met de e-mailserver? De "
+#~ "standaard port voor SSL met IMAP is 993 en voor POP3 is 995."
+
+#~ msgid "E-Mail Username"
+#~ msgstr "E-mail gebruikersnaam"
+
+#~ msgid "Username for accessing this mailbox."
+#~ msgstr "Gebruikersnaam om deze mailbox te benaderen."
+
+#~ msgid "E-Mail Password"
+#~ msgstr "E-mail wachtwoord"
+
+#~ msgid "Password for the above username"
+#~ msgstr "Wachtwoord voor de bovenstaande gebruikersnaam"
+
+#~ msgid "IMAP Folder"
+#~ msgstr "IMAP Map"
+
+#~ msgid ""
+#~ "If using IMAP, what folder do you wish to fetch messages from? This "
+#~ "allows you to use one IMAP account for multiple queues, by filtering "
+#~ "messages on your IMAP server into separate folders. Default: INBOX."
+#~ msgstr ""
+#~ "Indien IMAP wordt gebruikt, uit welke map moeten berichten worden "
+#~ "bekeken? Standaardwaarde is INBOX."
+
+#~ msgid "E-Mail Check Interval"
+#~ msgstr "Interval voor controleren e-mail"
+
+#~ msgid "How often do you wish to check this mailbox? (in Minutes)"
+#~ msgstr "Hoe vaak moet deze mailbox worden gecontroleerd? (in minuten)"
+
+#~ msgid "Open"
+#~ msgstr "Open "
+
+#~ msgid "Reopened"
+#~ msgstr "Heropent"
+
+#~ msgid "Resolved"
+#~ msgstr "Opgelost"
+
+#~ msgid "Closed"
+#~ msgstr "Gesloten"
+
+#~ msgid "Duplicate"
+#~ msgstr "Dubbel"
+
+#~ msgid "1. Critical"
+#~ msgstr "1. Kritiek"
+
+#~ msgid "2. High"
+#~ msgstr "2. Hoog"
+
+#~ msgid "3. Normal"
+#~ msgstr "3. Normaal"
+
+#~ msgid "4. Low"
+#~ msgstr "4. Laag"
+
+#~ msgid "5. Very Low"
+#~ msgstr "5. Zeer laag"
+
+#~ msgid "Created"
+#~ msgstr "Aangemaakt"
+
+#~ msgid "Date this ticket was first created"
+#~ msgstr "Datum waarop dit ticket voor het eerst was aangemaakt"
+
+#~ msgid "Modified"
+#~ msgstr "Laatst gewijzigd"
+
+#~ msgid "Date this ticket was most recently changed."
+#~ msgstr "Datum waarop dit ticket voor het laatst is gewijzigd."
+
+#~ msgid "Submitter E-Mail"
+#~ msgstr "E-mailadres inzender"
+
+#~ msgid ""
+#~ "The submitter will receive an email for all public follow-ups left for "
+#~ "this task."
+#~ msgstr ""
+#~ "De inzender ontvangt en e-mail voor alle publieke antwoorden voor deze "
+#~ "taak."
+
+#~ msgid "Assigned to"
+#~ msgstr "Toegewezen aan"
+
+#~ msgid "On Hold"
+#~ msgstr "In de wacht"
+
+#~ msgid "If a ticket is on hold, it will not automatically be escalated."
+#~ msgstr "Als een ticket in de wacht staat kan deze niet worden geëscaleerd."
+
+#~ msgid "Description"
+#~ msgstr "Omschrijving"
+
+#~ msgid "The content of the customers query."
+#~ msgstr "Vraag van de klant."
+
+#~ msgid "Resolution"
+#~ msgstr "Antwoord"
+
+#~ msgid "The resolution provided to the customer by our staff."
+#~ msgstr "Het antwoord geleverd aan de klant door ons personeel."
+
+#~ msgid "1 = Highest Priority, 5 = Low Priority"
+#~ msgstr "1 = Hoogste prioriteit, 5 = Lage prioriteit"
+
+#~ msgid ""
+#~ "The date this ticket was last escalated - updated automatically by "
+#~ "management/commands/escalate_tickets.py."
+#~ msgstr ""
+#~ "De datum dat dit ticket voor het laatst is geëscaleerd - automatisch "
+#~ "bijgewerkt door management/commands/escalate_tickets.py."
+
+#~ msgid "Unassigned"
+#~ msgstr "Niet toegewezen"
+
+#~ msgid " - On Hold"
+#~ msgstr "- In de wacht"
+
+#~ msgid "Ticket"
+#~ msgstr "Incident"
+
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgid "Comment"
+#~ msgstr "Opmerking"
+
+#~ msgid "Public"
+#~ msgstr "Openbaar"
+
+#~ msgid ""
+#~ "Public tickets are viewable by the submitter and all staff, but non-"
+#~ "public tickets can only be seen by staff."
+#~ msgstr ""
+#~ "Openbare tickets zijn zichtbaar voor de inzender en alle stafleden, niet-"
+#~ "openbare tickets zijn alleen zichtbaar voor stafleden."
+
+#~ msgid "User"
+#~ msgstr "Gebruiker"
+
+#~ msgid "New Status"
+#~ msgstr "Nieuwe Status"
+
+#~ msgid "If the status was changed, what was it changed to?"
+#~ msgstr "Als de status gewijzigd is, waar is de status naar gewijzigd?"
+
+#~ msgid "Follow-up"
+#~ msgstr "Activiteit"
+
+#~ msgid "Field"
+#~ msgstr "Veld"
+
+#~ msgid "Old Value"
+#~ msgstr "Oude waarde"
+
+#~ msgid "New Value"
+#~ msgstr "Nieuwe waarde"
+
+#~ msgid "removed"
+#~ msgstr "verwijderd"
+
+#, python-format
+#~ msgid "set to %s"
+#~ msgstr "aangepast naar %s"
+
+#, python-format
+#~ msgid "changed from \"%(old_value)s\" to \"%(new_value)s\""
+#~ msgstr "aangepast van \"%(old_value)s\" naar \"%(new_value)s\""
+
+#~ msgid "File"
+#~ msgstr "Bestand"
+
+#~ msgid "Filename"
+#~ msgstr "Bestandsnaam"
+
+#~ msgid "Size"
+#~ msgstr "Groote"
+
+#~ msgid "Size of this file in bytes"
+#~ msgstr "Groote van dit bestand in bytes"
+
+#~ msgid ""
+#~ "Leave blank to allow this reply to be used for all queues, or select "
+#~ "those queues you wish to limit this reply to."
+#~ msgstr ""
+#~ "Laat leeg om dit antwoord te kunnen gebruiken voor alle wachtrijen, of "
+#~ "selecteer voor welke wachtrijen dit bericht van toepassing voor is."
+
+#~ msgid ""
+#~ "Only used to assist users with selecting a reply - not shown to the user."
+#~ msgstr ""
+#~ "Wordt alleen gebruikt om gebruikers een antwoord te laten selecteren - "
+#~ "wordt niet getoond aan gebruiker."
+
+#~ msgid "Body"
+#~ msgstr "Inhoud"
+
+#~ msgid ""
+#~ "Context available: {{ ticket }} - ticket object (eg {{ ticket.title }}); "
+#~ "{{ queue }} - The queue; and {{ user }} - the current user."
+#~ msgstr ""
+#~ "Context beschikbaar: {{ ticket }} - incident object (bijv {{ ticket."
+#~ "title}} titel); {{ queue }} - De wachtrij; en {{ user }} - de huidige "
+#~ "gebruiker."
+
+#~ msgid ""
+#~ "Leave blank for this exclusion to be applied to all queues, or select "
+#~ "those queues you wish to exclude with this entry."
+#~ msgstr ""
+#~ "Laat leeg om deze uitsluiting toe te passen op alle wachtrijen, of select "
+#~ "de wachtrijden die je wilt uitsluiten van deze regel."
+
+#~ msgid "Date on which escalation should not happen"
+#~ msgstr "Datum waarop escalatie niet mag gebeuren"
+
+#~ msgid "Template Name"
+#~ msgstr "Naam tempalte"
+
+#~ msgid "Subject"
+#~ msgstr "Onderwerp"
+
+#~ msgid ""
+#~ "This will be prefixed with \"[ticket.ticket] ticket.title\". We recommend "
+#~ "something simple such as \"(Updated\") or \"(Closed)\" - the same context "
+#~ "is available as in plain_text, below."
+#~ msgstr ""
+#~ "Dit zal worden voorgegaan met \"[incident.incident incident.titel\". We "
+#~ "adviseren om iets simpel te nemen zoals \"(Bijgewerkt)\" of "
+#~ "\"(Gesloten)\" - dezelfde inhoud is beschikbaar zoals in platte_tekst "
+#~ "hier beneden."
+
+#~ msgid "Heading"
+#~ msgstr "Kop"
+
+#~ msgid ""
+#~ "In HTML e-mails, this will be the heading at the top of the email - the "
+#~ "same context is available as in plain_text, below."
+#~ msgstr ""
+#~ "In HTML e-mails, zal dit de kopregel aan de bovenkant van de e-mail zijn "
+#~ "- dezelfde inhoud is beschikbaar in plain_text, beneden."
+
+#~ msgid "Plain Text"
+#~ msgstr "Platte tekst"
+
+#~ msgid ""
+#~ "The context available to you includes {{ ticket }}, {{ queue }}, and "
+#~ "depending on the time of the call: {{ resolution }} or {{ comment }}."
+#~ msgstr ""
+#~ "De context die voor je beschikbaar is {{ ticket }} (incident), "
+#~ "{{ queue }} (wachtrij) en afhankelijk van het tijdstip van de aanroep "
+#~ "{{ resolution }} (oplossing) of {{ comment }} (commentaar)."
+
+#~ msgid "HTML"
+#~ msgstr "HTM-inhoud"
+
+#~ msgid "The same context is available here as in plain_text, above."
+#~ msgstr "De zelfde context is hier te gebruiken als hierboven in plain_text."
+
+#~ msgid "Locale of this template."
+#~ msgstr "Taal voor deze template."
+
+#~ msgid "Category"
+#~ msgstr "Categorie"
+
+#~ msgid "Question"
+#~ msgstr "Vraag"
+
+#~ msgid "Answer"
+#~ msgstr "Antwoord"
+
+#~ msgid "Votes"
+#~ msgstr "Stemmen"
+
+#~ msgid "Total number of votes cast for this item"
+#~ msgstr "Totaal aantal stemmen"
+
+#~ msgid "Positive Votes"
+#~ msgstr "Positieve stemmen"
+
+#~ msgid "Number of votes for this item which were POSITIVE."
+#~ msgstr "Aantal stemmen op dit bericht die positief waren."
+
+#~ msgid "Last Updated"
+#~ msgstr "Laatst gewijigd"
+
+#~ msgid "The date on which this question was most recently changed."
+#~ msgstr "De datum waarop deze vraag laatst is gewijzigd."
+
+#~ msgid "Query Name"
+#~ msgstr "Zoekopdracht naam"
+
+#~ msgid "User-provided name for this query"
+#~ msgstr "Gebruiker gedefinieerde naam voor vraag"
+
+#~ msgid "Shared With Other Users?"
+#~ msgstr "Gedeeld met andere gebruikers?"
+
+#~ msgid "Should other users see this query?"
+#~ msgstr "Mogen andere gebruikers deze zoekopdracht zien?"
+
+#~ msgid "Search Query"
+#~ msgstr "Zoekopdracht"
+
+#~ msgid "Pickled query object. Be wary changing this."
+#~ msgstr "Picked zoek object. Wees voorzichtig met veranderen."
+
+#~ msgid "Settings Dictionary"
+#~ msgstr "Instellingen Dictionary"
+
+#~ msgid ""
+#~ "This is a base64-encoded representation of a pickled Python dictionary. "
+#~ "Do not change this field via the admin."
+#~ msgstr ""
+#~ "Dit is een base64-geencodeerde representatie van een picklede Python "
+#~ "dictionary. Wijzig dit veld niet via de admin.  "
+
+#~ msgid ""
+#~ "Leave blank for this e-mail to be ignored on all queues, or select those "
+#~ "queues you wish to ignore this e-mail for."
+#~ msgstr ""
+#~ "Laat leeg om dit e-mailadres te negeren bij alle zoekopdrachten, of "
+#~ "selecteer de zoekopdrachten om dit e-mailadres bij te negeren."
+
+#~ msgid "Date on which this e-mail address was added"
+#~ msgstr "Datum wanneer dit e-mailadres was toegevoegd "
+
+#~ msgid ""
+#~ "Enter a full e-mail address, or portions with wildcards, eg *@domain.com "
+#~ "or postmaster@*."
+#~ msgstr ""
+#~ "Vul een volledig e-mailadres, of een deel ervan met jokers in, bijv. "
+#~ "*@domein.nl of postmaster@*."
+
+#~ msgid "Save Emails in Mailbox?"
+#~ msgstr "Sla e-mail op in mailbox?"
+
+#~ msgid ""
+#~ "Do you want to save emails from this address in the mailbox? If this is "
+#~ "unticked, emails from this address will be deleted."
+#~ msgstr ""
+#~ "Wil je de e-mails opslaan van dit adres in de mailbox? Wanneer deze optie "
+#~ "niet is geselecteerd worden de e-mails van dit adres verwijderd."
+
+#~ msgid "User who wishes to receive updates for this ticket."
+#~ msgstr "Gebruiker die wijzigingen wil ontvangen van dit incident."
+
+#~ msgid "For non-user followers, enter their e-mail address"
+#~ msgstr "Voor geen gebruiker volgers, vul hun e-mailadres in"
+
+#~ msgid "Can View Ticket?"
+#~ msgstr "Mag incident zien?"
+
+#~ msgid "Can this CC login to view the ticket details?"
+#~ msgstr "Kan deze CC inloggen om het incident te bekijken?"
+
+#~ msgid "Can Update Ticket?"
+#~ msgstr "Mag incident bijwerken?"
+
+#~ msgid "Can this CC login and update the ticket?"
+#~ msgstr "Kan deze CC inloggen en het incident bijwerken?"
+
+#~ msgid "Field Name"
+#~ msgstr "Veldnaam"
+
+#~ msgid ""
+#~ "As used in the database and behind the scenes. Must be unique and consist "
+#~ "of only lowercase letters with no punctuation."
+#~ msgstr ""
+#~ "Zoals gebruikt in de database en achter de schermen. Moet uniek zijn en "
+#~ "bestaat alleen uit kleine letter zonder leestekens."
+
+#~ msgid "Label"
+#~ msgstr "Label"
+
+#~ msgid "The display label for this field"
+#~ msgstr "Het weergave label voor dit veld"
+
+#~ msgid "Help Text"
+#~ msgstr "Helptekst"
+
+#~ msgid "Shown to the user when editing the ticket"
+#~ msgstr "Toon de gebruiker dat het incident wordt bewerkt"
+
+#~ msgid "Character (single line)"
+#~ msgstr "Karakter (enkele reger)"
+
+#~ msgid "Text (multi-line)"
+#~ msgstr "Tekst (meerdere regels)"
+
+#~ msgid "Integer"
+#~ msgstr "Heel getal"
+
+#~ msgid "Decimal"
+#~ msgstr "Decimaal"
+
+#~ msgid "List"
+#~ msgstr "Lijst"
+
+#~ msgid "Boolean (checkbox yes/no)"
+#~ msgstr "Boolean (selectievakje ja/nee)"
+
+#~ msgid "Time"
+#~ msgstr "Tijd"
+
+#~ msgid "Date & Time"
+#~ msgstr "Datum & Tijd"
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "IP Address"
+#~ msgstr "IP Adres"
+
+#~ msgid "Data Type"
+#~ msgstr "Data Type"
+
+#~ msgid "Allows you to restrict the data entered into this field"
+#~ msgstr ""
+#~ "Geeft je de mogelijkheid om gegevens die worden ingevuld in dit veld te "
+#~ "limiteren"
+
+#~ msgid "Maximum Length (characters)"
+#~ msgstr "Maximale Lengte (karakters)"
+
+#~ msgid "Decimal Places"
+#~ msgstr "Decimale plaatsen"
+
+#~ msgid "Only used for decimal fields"
+#~ msgstr "Alleen voor decimale velden"
+
+#~ msgid "Add empty first choice to List?"
+#~ msgstr "Lege eerste optie aan lijst toevoegen?"
+
+#~ msgid ""
+#~ "Only for List: adds an empty first entry to the choices list, which "
+#~ "enforces that the user makes an active choice."
+#~ msgstr ""
+#~ "Alleen voor lijsten: voegt een lege eerste regel toe aan het keuzemenu, "
+#~ "dat er voor zorgt dat je gebruiker een actieve keuze maakt."
+
+#~ msgid "List Values"
+#~ msgstr "Lijst waarden"
+
+#~ msgid "For list fields only. Enter one option per line."
+#~ msgstr "Alleen voor lijst velden. Vul een optie per regel in. "
+
+#~ msgid "Ordering"
+#~ msgstr "Volgorde"
+
+#~ msgid "Lower numbers are displayed first; higher numbers are listed later"
+#~ msgstr "Nummers worden van laag naar hoog getoond"
+
+#~ msgid "Required?"
+#~ msgstr "Verplicht?"
+
+#~ msgid "Does the user have to enter a value for this field?"
+#~ msgstr "Is de gebruiker verplicht om een waarde in dit veld in te vullen?"
+
+#~ msgid "Staff Only?"
+#~ msgstr "Alleen Personeel?"
+
+#~ msgid ""
+#~ "If this is ticked, then the public submission form will NOT show this "
+#~ "field"
+#~ msgstr ""
+#~ "Wanneer aangevinkt, wordt dit veld in het openbare formulier NIET getoond"
+
+#~ msgid "Depends On Ticket"
+#~ msgstr "Hangt af van incident"
+
+#~ msgid ""
+#~ "Check for user without django-helpdesk UserSettings and create settings "
+#~ "if required. Uses settings.DEFAULT_USER_SETTINGS which can be overridden "
+#~ "to suit your situation."
+#~ msgstr ""
+#~ "Controleer op de gebruiker zonder django-helpdesk UserStettings en maak "
+#~ "de instellingen waar nodig. Gebruikt settings.DEFAULT_USER_SETTINGS welke "
+#~ "kan worden overschreven om aan je eigen situatie aan te passen. "
+
+#, python-format
+#~ msgid "Ticket escalated after %s days"
+#~ msgstr "Incident geëscaleerd na %s dagen "
+
+#~ msgid "Created from e-mail"
+#~ msgstr "Gemaakt van e-mail"
+
+#~ msgid "Unknown Sender"
+#~ msgstr "Onbekende Afzender"
+
+#~ msgid ""
+#~ "No plain-text email body available. Please see attachment email_html_body."
+#~ "html."
+#~ msgstr ""
+#~ "Geen platte-text e-mail inhoud beschikbaar. Zie ook de bijlage "
+#~ "email_html_body.html."
+
+#~ msgid "email_html_body.html"
+#~ msgstr "email_html_body.html"
+
+#, python-format
+#~ msgid "E-Mail Received from %(sender_email)s"
+#~ msgstr "E-mail ontvangen van %(sender_email)s"
+
+#, python-format
+#~ msgid "Ticket Re-Opened by E-Mail Received from %(sender_email)s"
+#~ msgstr "Incident heropent door ontvangen e-mail van %(sender_email)s "
+
+#~ msgid " (Reopened)"
+#~ msgstr "(Heropend)"
+
+#~ msgid " (Updated)"
+#~ msgstr "(Bijgewerkt)"
+
+#~ msgid ""
+#~ "Powered by <a href='https://github.com/rossp/django-helpdesk'>django-"
+#~ "helpdesk</a>."
+#~ msgstr ""
+#~ "Mede mogelijk gemaakt door <a href='https://github.com/rossp/django-"
+#~ "helpdesk'>django-helpdesk</a>."
+
+#~ msgid "For technical support please contact:"
+#~ msgstr "Voor technische ondersteuning neemt contact op met:"
+
+#~ msgid "Powered by django-helpdesk"
+#~ msgstr "Mede mogelijk gemaakt door django-helpdesk"
+
+#~ msgid "My Open Tickets"
+#~ msgstr "Mijn open incidenten"
+
+#~ msgid "All Recent Activity"
+#~ msgstr "Alle recente activiteit"
+
+#~ msgid "Unassigned Tickets"
+#~ msgstr "Niet toegewezen Incidenten"
+
+#~ msgid "Helpdesk"
+#~ msgstr "Helpdesk"
+
+#~ msgid "RSS Icon"
+#~ msgstr "RSS Icoon"
+
+#~ msgid "RSS Feeds"
+#~ msgstr "RSS Feeds"
+
+#~ msgid "API"
+#~ msgstr "API"
+
+#~ msgid "User Settings"
+#~ msgstr "Gebruiker Instellingen"
+
+#~ msgid "Change Language"
+#~ msgstr "Verander Taal"
+
+#~ msgid "System Settings"
+#~ msgstr "Systeem Instellingen"
+
+#~ msgid "Delete Saved Query"
+#~ msgstr "Opgeslagen Zoekopdracht Verwijderen"
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "<h2>Delete Query</h2>\n"
+#~ "\n"
+#~ "<p>Are you sure you want to delete this saved filter (<em>"
+#~ "%(query_title)s</em>)? To re-create it, you will need to manually re-"
+#~ "filter your ticket listing.</p>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Verwijder Zoekopdracht</h2>\n"
+#~ "\n"
+#~ "<p>Weet je zeker dat je dit opgeslagen filter (<em>%(query_title)s</em>) "
+#~ "wilt verwijderen? Je kunt het filter opnieuw maken in je incidenten "
+#~ "overzicht.</p>\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "<p>You have shared this query, so other users may be using it. If you "
+#~ "delete it, they will have to manually create their own query.</p>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<p>Je hebt deze zoekopdracht gedeeld, en is mogelijk in gebruik bij "
+#~ "andere gebruikers. Wanneer je dit wist moeten zij zelf hun eigen "
+#~ "zoekopdracht maken.</p>\n"
+
+#~ msgid "No, Don't Delete It"
+#~ msgstr "Nee, Verwijder het niet"
+
+#~ msgid "Yes - Delete It"
+#~ msgstr "Ja - Verwijrder het"
+
+#~ msgid "Create Ticket"
+#~ msgstr "Maak Ticket"
+
+#~ msgid ""
+#~ "<h2>Submit a Ticket</h2>\n"
+#~ "\n"
+#~ "<p>Unless otherwise stated, all fields are required. Please provide as "
+#~ "descriptive a title and description as possible.</p>"
+#~ msgstr ""
+#~ "<h2>Maak een Incident</h2>\n"
+#~ "\n"
+#~ "<p>Alle velden zijn vereist, tenzij anders vermeld. Geef een zo duidelijk "
+#~ "mogelijke titel en omschrijving.</p>"
+
+#~ msgid "(Optional)"
+#~ msgstr "(Optioneel)"
+
+#~ msgid "Submit Ticket"
+#~ msgstr "Maak een Incident"
+
+#~ msgid "Helpdesk Dashboard"
+#~ msgstr "Helpdesk Samenvatting"
+
+#~ msgid "Helpdesk Summary"
+#~ msgstr "Helpdesk Samenvatting"
+
+#~ msgid ""
+#~ "Welcome to your Helpdesk Dashboard! From here you can quickly see tickets "
+#~ "submitted by you, tickets you are working on, and those tickets that have "
+#~ "no owner."
+#~ msgstr ""
+#~ "Welkom op jouw Helpdesk Dashboard! Van hier kun je snel bij de door jou "
+#~ "gemelde incidenten, incidenten waar je aan werkt en de incidenten die "
+#~ "geen eigenaar hebben."
+
+#~ msgid ""
+#~ "Welcome to your Helpdesk Dashboard! From here you can quickly see your "
+#~ "own tickets, and those tickets that have no owner. Why not pick up an "
+#~ "orphan ticket and sort it out for a customer?"
+#~ msgstr ""
+#~ "Welkom op jouw Helpdesk Dashboard! Hier kun je snel bij je eigen "
+#~ "incidenten en de incidenten die geen eigenaar hebben. Waarom los je niet "
+#~ "even een incident op voor een klant?  "
+
+#~ msgid "All Tickets submitted by you"
+#~ msgstr "Alle incidenten door jou ingediend   "
+
+# Het staat voor: Prioriteit
+#~ msgid "Pr"
+#~ msgstr "Pr"
+
+#~ msgid "Last Update"
+#~ msgstr "Laatste Update"
+
+#~ msgid "Open Tickets assigned to you (you are working on this ticket)"
+#~ msgstr ""
+#~ "Open Incidenten die aan jou zijn toegewezen (je werkt aan dit incident)"
+
+#~ msgid "You have no tickets assigned to you."
+#~ msgstr "Geen incidenten zijn aan jou toegewezen. "
+
+#~ msgid "(pick up a ticket if you start to work on it)"
+#~ msgstr "(pak een incident op als je er aan begint) "
+
+#~ msgid "Take"
+#~ msgstr "Neem"
+
+#~ msgid "Delete"
+#~ msgstr "Verwijder"
+
+#~ msgid "There are no unassigned tickets."
+#~ msgstr "Alle tickets zijn toegewezen."
+
+#~ msgid "Closed & resolved Tickets you used to work on"
+#~ msgstr "Gesloten en opgeloste incidenten waar je aan hebt gewerkt"
+
+#~ msgid "Delete Ticket"
+#~ msgstr "Incident Verwijderen"
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "<h2>Delete Ticket</h2>\n"
+#~ "\n"
+#~ "<p>Are you sure you want to delete this ticket (<em>%(ticket_title)s</"
+#~ "em>)? All traces of the ticket, including followups, attachments, and "
+#~ "updates will be irreversably removed.</p>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Verwijder Incident</h2>\n"
+#~ "\n"
+#~ "<p>Weet je zeker dat je dit incident (<em>%(ticket_title)s</em>) wilt "
+#~ "verwijderen? Alles van het incident, inclusief activiteit, bijlagen en "
+#~ "updates zullen permanent worden verwijderd.</p>\n"
+
+#~ msgid "Edit Ticket"
+#~ msgstr "Bewerkt Ticket"
+
+#, fuzzy
+#~ msgid ""
+#~ "<h2>Edit a Ticket</h2>\n"
+#~ "\n"
+#~ "<p>Unless otherwise stated, all fields are required. Please provide as "
+#~ "descriptive a title and description as possible.</p>\n"
+#~ "\n"
+#~ "<p><strong>Note:</strong> Editing a ticket does <em>not</em> send an e-"
+#~ "mail to the ticket owner or submitter. No new details should be entered, "
+#~ "this form should only be used to fix incorrect details or clean up the "
+#~ "submission.</p>"
+#~ msgstr ""
+#~ "<h2>Bewerk een Incident</h2>\n"
+#~ "\n"
+#~ "<p>Alle velden zijn vereist, tenzij anders vermeld. Geef een zo duidelijk "
+#~ "mogelijke titel en omschrijving.</p>\n"
+#~ "\n"
+#~ "<p><strong>Opmerking:</strong> Het bewerken van een incident stuurt "
+#~ "<em>geen</em> e-mail naar de incident eigenaar of indiener. Geen nieuwe "
+#~ "informatie moet worden toegevoegd, dit formulier moet alleen worden "
+#~ "gebruikt om onjuistheden te corrigeren of de inzending op te schonen</p>\n"
+
+#~ msgid "Save Changes"
+#~ msgstr "Wijzigingen Opslaan"
+
+#~ msgid "Ignore E-Mail Address"
+#~ msgstr "Negeer e-mail adres"
+
+#~ msgid ""
+#~ "\n"
+#~ "<h2>Ignore E-Mail Address</h2>\n"
+#~ "\n"
+#~ "<p>To ignore an e-mail address and prevent any emails from that address "
+#~ "creating tickets automatically, enter the e-mail address below.</p>\n"
+#~ "\n"
+#~ "<p>You can either enter a whole e-mail address such as <em>email@domain."
+#~ "com</em> or a portion of an e-mail address with a wildcard, such as "
+#~ "<em>*@domain.com</em> or <em>user@*</em>.</p>"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Negeer e-mailadressen</h2>\n"
+#~ "\n"
+#~ "<p>Om een e-mailadres te negeren en te voorkomen dat e-mails van dit "
+#~ "adres automatisch tickets aanmaken, vul het e-mailadres hieronder in.</"
+#~ "p>\n"
+#~ "\n"
+#~ "<p>Je kunt een heel e-mailadres toevoegen zoals <em>email@domein.nl</em> "
+#~ "of een gedeelte van het adres met een joker, zoals <em>*@domein.nl</em> "
+#~ "of <em>gebruiker@*</em>.</p>"
+
+#~ msgid "Delete Ignored E-Mail Address"
+#~ msgstr "Genegeerd e-mailadres Verwijderen"
+
+# <p>Weet je zeker dat je dit e-mailadres (<em>%(email_address)s</em>) weer
+# wilt toestaan en automatisch incidenten aan wil maken in je systeem?</p>
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "<h2>Un-Ignore E-Mail Address</h2>\n"
+#~ "\n"
+#~ "<p>Are you sure you wish to stop removing this email address (<em>"
+#~ "%(email_address)s</em>) and allow their e-mails to automatically create "
+#~ "tickets in your system? You can re-add this e-mail address at any time.</"
+#~ "p>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Stop negeren e-mailadres</h2><p>Weet je zeker dat je dit e-mailadres "
+#~ "(<em>%(email_address)s</em>) weer wilt toestaan en automatisch incidenten "
+#~ "aan wil maken in je systeem?</p>\n"
+
+#~ msgid "Keep Ignoring It"
+#~ msgstr "Blijf negeren"
+
+#~ msgid "Stop Ignoring It"
+#~ msgstr "Stop negeren"
+
+#~ msgid "Ignored E-Mail Addresses"
+#~ msgstr "Negeer e-mailadressen"
+
+#~ msgid ""
+#~ "\n"
+#~ "<h2>Ignored E-Mail Addresses</h2>\n"
+#~ "\n"
+#~ "<p>The following e-mail addresses are currently being ignored by the "
+#~ "incoming e-mail processor. You can <a href='add/'>add a new e-mail "
+#~ "address to the list</a> or delete any of the items below as required.</p>"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Negeerde e-mailadressen</h2>\n"
+#~ "<p>De volgende e-mailadressen worden momenteel genegeerd door de "
+#~ "inkomende e-mailverwerker. Je kunt <a href='add/'>nieuwe e-mailadressen "
+#~ "toevoegen aan de lijst</a> of waarnodig onderstaande regels verwijderen.</"
+#~ "p>"
+
+#~ msgid "Date Added"
+#~ msgstr "Datum toegevoegd"
+
+#~ msgid "Queues"
+#~ msgstr "Wachtrijen"
+
+#~ msgid "Keep in mailbox?"
+#~ msgstr "Behoud in mailbox?"
+
+#~ msgid "All"
+#~ msgstr "Alle"
+
+#~ msgid "Keep"
+#~ msgstr "Bewaar"
+
+#~ msgid ""
+#~ "<strong>Note:</strong> If the 'Keep' option is not selected, emails sent "
+#~ "from that address will be deleted permanently."
+#~ msgstr ""
+#~ "<strong>Opmerking:</strong> Wanneer de 'Behoud' optie niet is "
+#~ "geselecteerd, zullen verzonden e-mails van dat adres permanent worden "
+#~ "verwijderd. "
+
+#~ msgid "Edit followup"
+#~ msgstr "Bewerk activiteit"
+
+#~ msgid "Edit FollowUp"
+#~ msgstr "Bewerk activiteit"
+
+#~ msgid "Reassign ticket:"
+#~ msgstr "Toewijzen incident:"
+
+#~ msgid "Title:"
+#~ msgstr "Titel:"
+
+#~ msgid "Comment:"
+#~ msgstr "Commentaar:"
+
+#, python-format
+#~ msgid "Knowledgebase Category: %(kbcat)s"
+#~ msgstr "Kennissysteem Categorie: %(kbcat)s"
+
+#, python-format
+#~ msgid "You are viewing all items in the %(kbcat)s category."
+#~ msgstr "Je bekijkt alle artikelen in de %(kbcat)s categorie."
+
+#~ msgid "Article"
+#~ msgstr "Artikel"
+
+#~ msgid "Knowledgebase"
+#~ msgstr "Kennisbank"
+
+#~ msgid ""
+#~ "We have listed a number of knowledgebase articles for your perusal in the "
+#~ "following categories. Please check to see if any of these articles "
+#~ "address your problem prior to opening a support ticket."
+#~ msgstr ""
+#~ "We hebben een aantal kennisbank artikelen voor je geselecteerd in de "
+#~ "volgende categorieën. Bekijk of deze artikelen je zouden kunnen helpen "
+#~ "bij het oplossen van jouw probleem voor je een incident meldt."
+
+#~ msgid "Knowledgebase Categories"
+#~ msgstr "Kennissysteem Categorieën"
+
+#, python-format
+#~ msgid "Knowledgebase: %(item)s"
+#~ msgstr "Kennissysteem: %(item)s"
+
+#, python-format
+#~ msgid ""
+#~ "View <a href='%(category_url)s'>other <em>%(category_title)s</em> "
+#~ "articles</a>, or continue <a href='../'>viewing other knowledgebase "
+#~ "articles</a>."
+#~ msgstr ""
+#~ "Bekijk <a href='%(category_url)s'>andere <em>%(category_title)s</em> "
+#~ "artikelen</a>, of <a href='../'>bekijk andere kennisbank artikelen</a>."
+
+#~ msgid "Feedback"
+#~ msgstr "Terugkoppeling"
+
+#~ msgid ""
+#~ "We give our users an opportunity to vote for items that they believe have "
+#~ "helped them out, in order for us to better serve future customers. We "
+#~ "would appreciate your feedback on this article. Did you find it useful?"
+#~ msgstr ""
+#~ "We geven onze gebruikers de mogelijkheid om te stemmen op de artikelen "
+#~ "waarvan zij denken dat ze waardevol bleken, zodat we nieuwe klanten beter "
+#~ "kunnen ondersteunen. We stellen je reactie op dit artikel op prijs. Was "
+#~ "het bruikbaar voor je? "
+
+#~ msgid "This article was useful to me"
+#~ msgstr "Dit artikel was bruikbaar voor me"
+
+#~ msgid "This article was <strong>not</strong> useful to me"
+#~ msgstr "Dit artikel was <strong>niet</strong> bruikbaar voor me"
+
+#~ msgid "The results of voting by other readers of this article are below:"
+#~ msgstr ""
+#~ "De stemresultaten door andere lezers van dit artikel staan hieronder: "
+
+#, python-format
+#~ msgid "Recommendations: %(recommendations)s"
+#~ msgstr "Aanbevelingen: %(recommendations)s"
+
+#, python-format
+#~ msgid "Votes: %(votes)s"
+#~ msgstr "Stemmen: %(votes)s"
+
+#, python-format
+#~ msgid "Overall Rating: %(score)s"
+#~ msgstr "Gemiddelde score: %(score)s"
+
+#~ msgid "Dashboard"
+#~ msgstr "Samenvatting"
+
+#~ msgid "Tickets"
+#~ msgstr "Incidenten"
+
+#~ msgid "New Ticket"
+#~ msgstr "Nieuw Incident"
+
+#~ msgid "Stats"
+#~ msgstr "Statistieken"
+
+#~ msgid "Load Saved Query"
+#~ msgstr "Laad opgeslagen zoekopdracht"
+
+#~ msgid "Logout"
+#~ msgstr "Loguit"
+
+#~ msgid "Search..."
+#~ msgstr "Zoeken..."
+
+#~ msgid "Enter a keyword, or a ticket number to jump straight to that ticket."
+#~ msgstr ""
+#~ "Vul een steekwoord of incidentnummer in om direct naar het incident te "
+#~ "gaan."
+
+#~ msgid "Submit A Ticket"
+#~ msgstr "Maak een Incident"
+
+#~ msgid "Log In"
+#~ msgstr "Login"
+
+#~ msgid "View a Ticket"
+#~ msgstr "Bekijk een Incident"
+
+#~ msgid "Change the display language"
+#~ msgstr "Wijzig de weergave taal"
+
+#~ msgid "Knowledgebase Articles"
+#~ msgstr "Kennisbank artikelen"
+
+#~ msgid "Your E-mail Address"
+#~ msgstr "Jouw e-mail adres"
+
+#~ msgid "View Ticket"
+#~ msgstr "Bekijk Incident"
+
+#~ msgid "Submit a Ticket"
+#~ msgstr "Maak een Incident"
+
+#~ msgid ""
+#~ "All fields are required. Please provide as descriptive a title and "
+#~ "description as possible."
+#~ msgstr ""
+#~ "Alle velden zijn verplicht. Geef een zo duidelijk mogelijke titel en "
+#~ "omschrijving."
+
+#~ msgid "Please use button at upper right to login first."
+#~ msgstr "Gebruik de knop rechtsboven om eerst in te loggen."
+
+#~ msgid "Unable To Open Ticket"
+#~ msgstr "Kan het incident niet openen"
+
+#~ msgid ""
+#~ "<p>Sorry, but there has been an error trying to submit your ticket.</p>\n"
+#~ "\n"
+#~ "<p>Our system has marked your submission as <strong>spam</strong>, so we "
+#~ "are unable to save it. If this is not spam, please press back and re-type "
+#~ "your message. Be careful to avoid sounding 'spammy', and if you have "
+#~ "heaps of links please try removing them if possible.</p>\n"
+#~ "\n"
+#~ "<p>We are sorry for any inconvenience, however this check is required to "
+#~ "avoid our helpdesk resources being overloaded by spammers.</p>\n"
+#~ msgstr ""
+#~ "<p>Sorry, maar er is wat mis gegaan bij het opsturen van jouw incident</"
+#~ "p>\n"
+#~ "\n"
+#~ "<p>Ons systeem heeft jouw reactie gemarkeerd als <strong>spam</strong>, "
+#~ "daarom zijn we niet instaat om het op te slaan. Wanneer het geen spam is, "
+#~ "ga terug en omschrijf je bericht opnieuw. Zorg ervoor dat het minder op "
+#~ "spam lijkt, wanneer je veel linkjes hebt bijgevuld probeer ze dan te "
+#~ "verwijderen.</p>\n"
+#~ "\n"
+#~ "<p>Onze excuses voon het ongemak, maar dit is nodig om onze helpdesk te "
+#~ "beschermen tegen spammers.</p>\n"
+
+#, python-format
+#~ msgid "Queue: %(queue_name)s"
+#~ msgstr "Wachtrij: %(queue_name)s  "
+
+#~ msgid "Submitted On"
+#~ msgstr "Ingediend op"
+
+#~ msgid "Accept"
+#~ msgstr "Accepteer"
+
+#~ msgid "Accept and Close"
+#~ msgstr "Accepteer en Sluit"
+
+#~ msgid "Follow-Ups"
+#~ msgstr "Activiteit"
+
+#, python-format
+#~ msgid "Changed %(field)s from %(old_value)s to %(new_value)s."
+#~ msgstr "%(field)s gewijzigd van %(old_value)s naar %(new_value)s."
+
+#~ msgid "Reports &amp; Statistics"
+#~ msgstr "Rapporten &amp; Statistieken"
+
+#~ msgid "You haven't created any tickets yet, so you cannot run any reports."
+#~ msgstr ""
+#~ "Je hebt nog geen incidenten aangemaakt, dus je kunt geen rapporten maken."
+
+#~ msgid "Reports By User"
+#~ msgstr "Meldingen per gebruiker"
+
+#~ msgid "by Priority"
+#~ msgstr "per Prioriteit"
+
+#~ msgid "by Queue"
+#~ msgstr "per Wachtrij"
+
+#~ msgid "by Status"
+#~ msgstr "per Status"
+
+#~ msgid "by Month"
+#~ msgstr "per Maand"
+
+#~ msgid "Reports By Queue"
+#~ msgstr "Meldingen per wachtrij"
+
+#~ msgid ""
+#~ "You can run this query on filtered data by using one of your saved "
+#~ "queries."
+#~ msgstr ""
+#~ "Je kunt deze zoekopdracht draaien op gefilterde gegevens door een "
+#~ "opgeslagen zoekopdrachten te gebruiken."
+
+#~ msgid "Select Query:"
+#~ msgstr "Selecteer zoekopdracht:"
+
+#~ msgid "Filter Report"
+#~ msgstr "Filter Rapport"
+
+#~ msgid ""
+#~ "Want to filter this report to just show a subset of data? Go to the "
+#~ "Ticket List, filter your query, and save your query."
+#~ msgstr ""
+#~ "Wil je dit rapport filteren om een subset van informatie te tonen? Ga "
+#~ "naar de Incident Lijst, filter de zoekopdracht en sla ge zoekopdracht op."
+
+#~ msgid ""
+#~ "The following RSS feeds are available for you to monitor using your "
+#~ "preferred RSS software. With the exception of the 'Latest Activity' feed, "
+#~ "all feeds provide information only on Open and Reopened cases. This "
+#~ "ensures your RSS reader isn't full of information about closed or "
+#~ "historical tasks."
+#~ msgstr ""
+#~ "De volgende RSS feeds zijn beschikbaar om te bijken in je favoriete RSS "
+#~ "software. Met de uitzonderingen van de 'Laatste Activiteit'-feed, geven "
+#~ "alle feeds alleen informatie over open en heropende zaken. Dit zorgt "
+#~ "ervoor dat je RSS lezer niet vol staat met informatie over gesloten of "
+#~ "oude taken."
+
+#~ msgid ""
+#~ "A summary of your open tickets - useful for getting alerted to new "
+#~ "tickets opened for you"
+#~ msgstr ""
+#~ "Een samenvatting van jouw open incidenten - bruikbaar om te worden "
+#~ "geinformeerd wanneer nieuwe incidenten voor jou worden geopend"
+
+#~ msgid "Latest Activity"
+#~ msgstr "Laatste Actviteit"
+
+#~ msgid ""
+#~ "A summary of all helpdesk activity - including comments, emails, "
+#~ "attachments, and more"
+#~ msgstr ""
+#~ "Een samenvatting van alle helpdesk activiteit - inclusief commentaar, e-"
+#~ "mails, bijlagen en meer"
+
+#~ msgid ""
+#~ "All unassigned tickets - useful for being alerted to new tickets opened "
+#~ "by the public via the web or via e-mail"
+#~ msgstr ""
+#~ "Alle niet toegewezen tickets - bruikbaar om geinformeerd te worden "
+#~ "wanneer nieuwe incidenten worden geopend door het publiek via de webstie "
+#~ "of per e-mail"
+
+#~ msgid ""
+#~ "These RSS feeds allow you to view a summary of either your own tickets, "
+#~ "or all tickets, for each of the queues in your helpdesk. For example, if "
+#~ "you manage the staff who utilise a particular queue, this may be used to "
+#~ "view new tickets coming into that queue."
+#~ msgstr ""
+#~ "Deze RSS feeds laten je een samenvatting zien van je eigen incidenten of "
+#~ "alle incidenten van een van je wachtrijen in je helpdesk. BIjvoorbeeld, "
+#~ "wanneer de leiding hebt over medewerkers die een specifieke wachtrij "
+#~ "gebruiken kun je zien hoeveel nieuwe incidenten worden gemeld. "
+
+#~ msgid "Per-Queue Feeds"
+#~ msgstr "Per-Wachtrij Feeds"
+
+#~ msgid "All Open Tickets"
+#~ msgstr "Alle Open Incidenten"
+
+#~ msgid "Open Tickets"
+#~ msgstr "Open Incidenten"
+
+#~ msgid "Change System Settings"
+#~ msgstr "Wijzig Systeem Instelligen"
+
+#~ msgid ""
+#~ "\n"
+#~ "<h2>System Settings</h2>\n"
+#~ "\n"
+#~ "<p>The following items can be maintained by you or other superusers:</p>"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Systeem Instellingen</h2>\n"
+#~ "\n"
+#~ "<p>De volgende onderdelen kunnen worden beheerd door jou of andere "
+#~ "beheerders:</p>"
+
+#~ msgid "E-Mail Ignore list"
+#~ msgstr "E-mail negeer lijst"
+
+#~ msgid "Maintain Queues"
+#~ msgstr "Beheer Wachtrijen"
+
+#~ msgid "Maintain Pre-Set Replies"
+#~ msgstr "Beheer Model Antwoorden"
+
+#~ msgid "Maintain Knowledgebase Categories"
+#~ msgstr "Beteer Kennissysteem Categorieën"
+
+#~ msgid "Maintain Knowledgebase Items"
+#~ msgstr "Beheer Kennissysteem Artikelen"
+
+#~ msgid "Maintain E-Mail Templates"
+#~ msgstr "Beheer E-Mail Sjablonen"
+
+#~ msgid "Maintain Users"
+#~ msgstr "Beheer Gebruikers"
+
+#~ msgid "View Ticket Details"
+#~ msgstr "Bekijk Incident Details"
+
+#~ msgid "Attach another File"
+#~ msgstr "Voeg ander bestand toe"
+
+#~ msgid "Add Another File"
+#~ msgstr "Extra bestand toevoegen"
+
+#~ msgid "Private"
+#~ msgstr "Prive"
+
+#~ msgid "Respond to this ticket"
+#~ msgstr "Reageer op dit incident"
+
+#~ msgid "Use a Pre-set Reply"
+#~ msgstr "Gebruik model antwoord"
+
+#~ msgid ""
+#~ "Selecting a pre-set reply will over-write your comment below. You can "
+#~ "then modify the pre-set reply to your liking before saving this update."
+#~ msgstr ""
+#~ "Het selecteren van een model antwoord zal het huidige commentaar "
+#~ "overschrijven. Je kunt daarna de reactie aanpassen voordat je de "
+#~ "bewerking opslaat."
+
+#~ msgid "Comment / Resolution"
+#~ msgstr "Commentaar / Oplossing"
+
+#~ msgid ""
+#~ "You can insert ticket and queue details in your message. For more "
+#~ "information, see the <a href='../../help/context/'>context help page</a>."
+#~ msgstr ""
+#~ "Je kunt incident en wachrij gegevens toevoegen aan je bericht. Voor meer "
+#~ "informatie bekijk de <a href='../../help/context/'>context help page</a>."
+
+#~ msgid ""
+#~ "This ticket cannot be resolved or closed until the tickets it depends on "
+#~ "are resolved."
+#~ msgstr ""
+#~ "Dit incident kan niet worden opgelost of gesloten totdat de incidenten "
+#~ "waar het vanaf hangt zijn opgelost."
+
+#~ msgid "Is this update public?"
+#~ msgstr "Is deze bewerking openbaar?"
+
+#~ msgid ""
+#~ "If this is public, the submitter will be e-mailed your comment or "
+#~ "resolution."
+#~ msgstr ""
+#~ "Wanneer het openbaar is zal de inzender worden geemaild met je commentaar "
+#~ "of oplossing."
+
+#~ msgid "Change Further Details &raquo;"
+#~ msgstr "Bewerk meer gegevens &raquo;"
+
+#~ msgid "Owner"
+#~ msgstr "Eigenaar"
+
+#~ msgid "Unassign"
+#~ msgstr "Intrekken toewijzing"
+
+#~ msgid "Attach File(s) &raquo;"
+#~ msgstr "Bestanden toevoegen &raquo;"
+
+#~ msgid "Attach a File"
+#~ msgstr "Bestand toevoegen"
+
+#~ msgid "Update This Ticket"
+#~ msgstr "Incident bijwerken"
+
+#~ msgid "Add Ticket CC"
+#~ msgstr "Incident CC toevoegen"
+
+#~ msgid ""
+#~ "\n"
+#~ "<h2>Add Ticket CC</h2>\n"
+#~ "\n"
+#~ "<p>To automatically send an email to a user or e-mail address when this "
+#~ "ticket is updated, select the user or enter an e-mail address below.</p>"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Incident CC toevoegen</h2>\n"
+#~ "\n"
+#~ "<p>Om automatisch e-mail te verzenden aan een gebruik of e-mailadres "
+#~ "wanneer dit incident wordt bijgewerkt, selecteer de gebruiker of vul "
+#~ "hieronder een e-mail adres in.</p>"
+
+#~ msgid "Save Ticket CC"
+#~ msgstr "Incident CC opslaan"
+
+#~ msgid "Delete Ticket CC"
+#~ msgstr "Indident CC verwijderen"
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "<h2>Delete Ticket CC</h2>\n"
+#~ "\n"
+#~ "<p>Are you sure you wish to delete this email address (<em>"
+#~ "%(email_address)s</em>) from the CC list for this ticket? They will stop "
+#~ "receiving updates.</p>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Incident CC verwijderen</h2>\n"
+#~ "\n"
+#~ "<p>Weet je zeker dat je dit e-mailadres (<em>%(email_address)s</em>) van "
+#~ "de CC lijst voor dit incident wilt verwijderen? Er worden geen "
+#~ "wijzigingen meer verstuurd.</p>\n"
+
+#~ msgid "Don't Delete"
+#~ msgstr "Verwijder niet"
+
+#~ msgid "Yes, Delete"
+#~ msgstr "Ja, Verwijder"
+
+#~ msgid "Ticket CC Settings"
+#~ msgstr "Incident Instellingen"
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "<h2>Ticket CC Settings</h2>\n"
+#~ "\n"
+#~ "<p>The following people will receive an e-mail whenever <em><a href='../'>"
+#~ "%(ticket_title)s</a></em> is updated. Some people can also view or edit "
+#~ "the ticket via the public ticket views.</p>\n"
+#~ "\n"
+#~ "<p>You can <a href='add/'>add a new e-mail address to the list</a> or "
+#~ "delete any of the items below as required.</p>"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Incident CC instellingen</h2>\n"
+#~ "\n"
+#~ "<p>De volgende personen zullen een e-mail ontvangen wanneer <em><a "
+#~ "href='../'>%(ticket_title)s</a></em> wordt bijgewerkt. Sommige mensen "
+#~ "kunnen kunnen het incident ook bekijken of wijzigen via de openbare "
+#~ "incidenten pagina.</p>\n"
+#~ "\n"
+#~ "<p>Je kunt <a href='add/'>nieuwe e-mailadressen toevoegen aan de lijst</"
+#~ "a> of waarnodig regels hieronder verwijderen.</p> "
+
+#~ msgid "Ticket CC List"
+#~ msgstr "Incident CC Lijst"
+
+#~ msgid "View?"
+#~ msgstr "Bekijken?"
+
+#~ msgid "Update?"
+#~ msgstr "BIjwerken?"
+
+#, python-format
+#~ msgid "Return to <em>%(ticket_title)s</em>"
+#~ msgstr "Terug naar <em>%(ticket_title)s</em>"
+
+#~ msgid "Add Ticket Dependency"
+#~ msgstr "Incident afhankelijkheid toevoegen"
+
+#~ msgid ""
+#~ "\n"
+#~ "<h2>Add Ticket Dependency</h2>\n"
+#~ "\n"
+#~ "<p>Adding a dependency will stop you resolving this ticket until the "
+#~ "dependent ticket has been resolved or closed.</p>"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Incident afhankelijkheid toevoegen</h2>\n"
+#~ "\n"
+#~ "<p>Het toevoegen van een afhankelijkheid voorkomt dat je het incident "
+#~ "oplost, totdat je alle afhankelijkheden van het incident hebt opgelost of "
+#~ "gesloten.</p>"
+
+#~ msgid "Save Ticket Dependency"
+#~ msgstr "Incident afhankelijkheid opslaan"
+
+#~ msgid "Delete Ticket Dependency"
+#~ msgstr "Incident Afhankelijkheid Verwijderen"
+
+#~ msgid ""
+#~ "\n"
+#~ "<h2>Delete Ticket Dependency</h2>\n"
+#~ "\n"
+#~ "<p>Are you sure you wish to remove the dependency on this ticket?</p>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Verwijder Incident Afhankelijkheid</h2>\n"
+#~ "\n"
+#~ "<p>Weet je zeker dat je deze afhankelijkheid wilt verwijderen van dit "
+#~ "incident?</p>\n"
+
+#~ msgid "Unhold"
+#~ msgstr "Voorzetten"
+
+#~ msgid "Hold"
+#~ msgstr "Aanhouden"
+
+#, python-format
+#~ msgid "Queue: %(queue)s"
+#~ msgstr "Wachtrij: %(queue)s"
+
+#~ msgid "Assigned To"
+#~ msgstr "Toegewezen Aan"
+
+#~ msgid "Ignore"
+#~ msgstr "Negeer"
+
+#~ msgid "Copies To"
+#~ msgstr "Kopieën Naar"
+
+#~ msgid "Manage"
+#~ msgstr "Beheer"
+
+#~ msgid ""
+#~ "Click here to add / remove people who should receive an e-mail whenever "
+#~ "this ticket is updated."
+#~ msgstr ""
+#~ "Klik hier om mensen toe te voegen of te verwijderen die e-mails dienen te "
+#~ "ontvangen wanneer het incident wordt bijgewerkt. "
+
+#~ msgid "Dependencies"
+#~ msgstr "Afhankelijkheden"
+
+#~ msgid ""
+#~ "This ticket cannot be resolved until the following ticket(s) are resolved"
+#~ msgstr ""
+#~ "Dit incident kan niet worden opgelost totdat de volgende incidenten zijn "
+#~ "opgelost"
+
+#~ msgid "Remove Dependency"
+#~ msgstr "Verwijder Afhankelijkheid"
+
+#~ msgid "This ticket has no dependencies."
+#~ msgstr "Dit incident heeft geen afhankelijkheden."
+
+#~ msgid "Add Dependency"
+#~ msgstr "Afhankelijkheid toevoegen"
+
+#~ msgid ""
+#~ "Click on 'Add Dependency', if you want to make this ticket dependent on "
+#~ "another ticket. A ticket may not be closed until all tickets it depends "
+#~ "on are closed."
+#~ msgstr ""
+#~ "Klik op 'Afhankelijkheid toevoegen', wanneer je dit incident afhankelijk "
+#~ "wilt maken van een ander incident. Een incident mag niet gesloten worden "
+#~ "totdat alle afhankelijke incidenten zijn gesloten."
+
+#~ msgid "Ticket Listing"
+#~ msgstr "Incident Overzicht"
+
+#~ msgid "Query Options"
+#~ msgstr "Zoekopdracht opties"
+
+#~ msgid "Save This Query"
+#~ msgstr "Deze zoekopdracht opslaan"
+
+#~ msgid "Change Query"
+#~ msgstr "Wijzig zoekopdracht"
+
+#~ msgid "Sorting"
+#~ msgstr "Sorteer"
+
+#~ msgid "Keywords"
+#~ msgstr "Steekwoorden"
+
+#~ msgid "Date Range"
+#~ msgstr "Datum reeks"
+
+#~ msgid "Reverse"
+#~ msgstr "Omkeren"
+
+#~ msgid "Ordering applied to tickets"
+#~ msgstr "Sortering toegepast op incidenten"
+
+#~ msgid "Owner(s)"
+#~ msgstr "Eigenaar"
+
+#~ msgid "(ME)"
+#~ msgstr "(eigen)"
+
+#~ msgid "Ctrl-Click to select multiple options"
+#~ msgstr "Ctrl-Click om meerdere opties te selecteren"
+
+#~ msgid "Queue(s)"
+#~ msgstr "Wachtrijen"
+
+#~ msgid "Ctrl-click to select multiple options"
+#~ msgstr "Ctrl-click om meerdere opties te selecteren"
+
+#~ msgid "Status(es)"
+#~ msgstr "Status"
+
+#~ msgid "Date (From)"
+#~ msgstr "Datum (Van)"
+
+#~ msgid "Date (To)"
+#~ msgstr "Datum (Naar)"
+
+#~ msgid "Use YYYY-MM-DD date format, eg 2011-05-29"
+#~ msgstr "Gebruik JJJJ-MM-DD datum weergave, vb. 2011-05-29"
+
+#~ msgid "Tag(s)"
+#~ msgstr "Label(s)"
+
+#~ msgid ""
+#~ "Keywords are case-insensitive, and will be looked for in the title, body "
+#~ "and submitter fields."
+#~ msgstr ""
+#~ "Steekwoorden zijn niet hoofdlettergevoelig en worden gezocht in de titel, "
+#~ "inhoud en inzender velden."
+
+#~ msgid "Apply Filter"
+#~ msgstr "Pas filter toe"
+
+#, python-format
+#~ msgid "You are currently viewing saved query <em>%(query_name)s</em>."
+#~ msgstr ""
+#~ "Je bekijkt momenteel de opgeslagen zoekopdracht <em>%(query_name)s</em>."
+
+#, python-format
+#~ msgid ""
+#~ "<a href='../reports/?saved_query=%(query_id)s'>Run a report</a> on this "
+#~ "query to see stats and charts for the data listed below."
+#~ msgstr ""
+#~ "<a href='../reports/?saved_query=%(query_id)s'>Draai een rapport</a> van "
+#~ "deze zoekopdracht om de statistieken en overzicht te maken voor de "
+#~ "onderstaande data."
+
+#~ msgid "Save Query"
+#~ msgstr "Zoekopdracht opslaan"
+
+#~ msgid ""
+#~ "This name appears in the drop-down list of saved queries. If you share "
+#~ "your query, other users will see this name, so choose something clear and "
+#~ "descriptive!"
+#~ msgstr ""
+#~ "Deze naam wordt getoond in de keuzelijst van de opgeslagen "
+#~ "zoekopdrachten. Wanneer je de zoekopdracht deelt zullen andere gebruikers "
+#~ "deze naam zien, dus kies iets duidelijks en goed omschreven!"
+
+#~ msgid "Shared?"
+#~ msgstr "Gedeeld?"
+
+#~ msgid "Yes, share this query with other users."
+#~ msgstr "Ja, deel deze zoekopdracht met andere gebruikers."
+
+#~ msgid ""
+#~ "If you share this query, it will be visible by <em>all</em> other logged-"
+#~ "in users."
+#~ msgstr ""
+#~ "Wanneer je deze zoekopdracht deelt, zal hij zichtbaar worden voor "
+#~ "<em>all</em> andere ingelogde gebruikers."
+
+#~ msgid "Use Saved Query"
+#~ msgstr "Gebruik opgeslagen zoekopdracht"
+
+#~ msgid "Query"
+#~ msgstr "Zoekopdracht"
+
+#~ msgid "Run Query"
+#~ msgstr "Draai Zoekopdracht"
+
+#~ msgid "No Tickets Match Your Selection"
+#~ msgstr "Geen incidenten die aan de selectie voldoen"
+
+#~ msgid "Previous"
+#~ msgstr "Vorige"
+
+#, python-format
+#~ msgid "Page %(ticket_num)s of %(num_pages)s."
+#~ msgstr "Pagina %(ticket_num)s van %(num_pages)s. "
+
+#~ msgid "Next"
+#~ msgstr "Volgende"
+
+#~ msgid "Select:"
+#~ msgstr "Selecteer:"
+
+#~ msgid "None"
+#~ msgstr "Geen"
+
+#~ msgid "Inverse"
+#~ msgstr "Inverteer"
+
+#~ msgid "With Selected Tickets:"
+#~ msgstr "Met Geselecteerde Tickets:"
+
+#~ msgid "Take (Assign to me)"
+#~ msgstr "Neem (Aan mij toewijzen)"
+
+#~ msgid "Close"
+#~ msgstr "Sluit"
+
+#~ msgid "Close (Don't Send E-Mail)"
+#~ msgstr "Sluit (Stuur geen e-mail)"
+
+#~ msgid "Close (Send E-Mail)"
+#~ msgstr "Sluit (Stuur e-mail)"
+
+#~ msgid "Assign To"
+#~ msgstr "Toewijzen"
+
+#~ msgid "Nobody (Unassign)"
+#~ msgstr "Niemand (Niet toegewezen)"
+
+#~ msgid "Change User Settings"
+#~ msgstr "Wijzig gebruiker instellingen"
+
+#~ msgid ""
+#~ "\n"
+#~ "<h2>User Settings</h2>\n"
+#~ "\n"
+#~ "<p>Use the following options to change the way your helpdesk system works "
+#~ "for you. These settings do not impact any other user.</p>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Gebruiker Instellingen</h2>\n"
+#~ "\n"
+#~ "<p>Gebruik de volgende opties om het helpdesk systeem voor jezelf te "
+#~ "veranderen. Deze instellingen hebben geen invloed op andere gebruikers.</"
+#~ "p>\n"
+
+#~ msgid "Save Options"
+#~ msgstr "Opties Opslaan"
+
+#~ msgid "Logged Out"
+#~ msgstr "Uitgelogd"
+
+#~ msgid ""
+#~ "\n"
+#~ "<h2>Logged Out</h2>\n"
+#~ "\n"
+#~ "<p>Thanks for being here. Hopefully you've helped resolve a few tickets "
+#~ "and make the world a better place.</p>\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<h2>Uitgelogd</h2>\n"
+#~ "\n"
+#~ "<p>Bedankt dat je langskwam. Hopelijk heb je geholpen met een oplossen "
+#~ "van een paar incidenten en de wereld weer een stukje mooier gemaakt.</p>\n"
+#~ "\n"
+
+#~ msgid "Helpdesk Login"
+#~ msgstr "Helpdesk Login"
+
+#~ msgid "Login"
+#~ msgstr "Login"
+
+#~ msgid ""
+#~ "To log in and begin responding to cases, simply enter your username and "
+#~ "password below."
+#~ msgstr ""
+#~ "Om in te loggen en te reageren op zaken, vul hieronder je gebruikersnaam "
+#~ "en wachtwoord in."
+
+#~ msgid "Your username and password didn't match. Please try again."
+#~ msgstr ""
+#~ "Jouw gebruikersnaam en wachtwoord komen niet overeen. Probeer opnieuw."
+
+#~ msgid "Username"
+#~ msgstr "Gebruikersnaam"
+
+#~ msgid "Password"
+#~ msgstr "Wachtwoord"
+
+#, python-format
+#~ msgid "Helpdesk: Open Tickets in queue %(queue)s for %(username)s"
+#~ msgstr "Helpdesk: Open incidenten in wachtrij %(queue)s voor %(username)s"
+
+#, python-format
+#~ msgid "Helpdesk: Open Tickets for %(username)s"
+#~ msgstr "Helpdesk: Open incidenten voor %(username)s"
+
+#, python-format
+#~ msgid "Open and Reopened Tickets in queue %(queue)s for %(username)s"
+#~ msgstr ""
+#~ "Open en heropende incidenten in wachtrij %(queue)s voor %(username)s"
+
+#, python-format
+#~ msgid "Open and Reopened Tickets for %(username)s"
+#~ msgstr "Open en heropende incidenten voor %(username)s"
+
+#~ msgid "Helpdesk: Unassigned Tickets"
+#~ msgstr "Helpdesk: Niet toegewezen Incidenten"
+
+#~ msgid "Unassigned Open and Reopened tickets"
+#~ msgstr "Niet Toegewezen, Open en Heropende Incidenten"
+
+#~ msgid "Helpdesk: Recent Followups"
+#~ msgstr "Helpdesk: Recente activiteit"
+
+#~ msgid ""
+#~ "Recent FollowUps, such as e-mail replies, comments, attachments and "
+#~ "resolutions"
+#~ msgstr ""
+#~ "Recente activiteiten zoals e-mail reacties, commentaal, bijlagen en "
+#~ "oplossingen"
+
+#, python-format
+#~ msgid "Helpdesk: Open Tickets in queue %(queue)s"
+#~ msgstr "Helpdesk: Open Incidenten in wachtrij %(queue)s"
+
+#, python-format
+#~ msgid "Open and Reopened Tickets in queue %(queue)s"
+#~ msgstr "Open en heropende incidenten in wachtrij %(queue)s"
+
+#~ msgid "Invalid ticket ID or e-mail address. Please try again."
+#~ msgstr "Onbekend incident ID of e-mail adres. Probeer opnieuw."
+
+#~ msgid "Submitter accepted resolution and closed ticket"
+#~ msgstr "Indiener heeft de oplossing geaccepteerd en het incident gesloten"
+
+#~ msgid "Accepted resolution and closed ticket"
+#~ msgstr "Oplossing geaccepteerd en incident afgesloten"
+
+#~ msgid "Sorry, you need to login to do that."
+#~ msgstr "Helaas, je moet hiervoor zijn ingelogd."
+
+#, python-format
+#~ msgid "Assigned to %(username)s"
+#~ msgstr "Toegewezen aan %(username)s "
+
+#~ msgid "Updated"
+#~ msgstr "Bijgewerkt"
+
+#, python-format
+#~ msgid "Assigned to %(username)s in bulk update"
+#~ msgstr "Toegewezen aan %(username)s in massa wijziging"
+
+#~ msgid "Unassigned in bulk update"
+#~ msgstr "Niet toegewezen na massa bijwerken"
+
+#~ msgid "Closed in bulk update"
+#~ msgstr "Gesloten in massa wijziging"
+
+#~ msgid ""
+#~ "<p><strong>Note:</strong> Your keyword search is case sensitive because "
+#~ "of your database. This means the search will <strong>not</strong> be "
+#~ "accurate. By switching to a different database system you will gain "
+#~ "better searching! For more information, read the <a href=\"http://docs."
+#~ "djangoproject.com/en/dev/ref/databases/#sqlite-string-matching\">Django "
+#~ "Documentation on string matching in SQLite</a>."
+#~ msgstr ""
+#~ "<p><strong>Opmerking:</strong> Je steekwoord zoeken is hoofdletter "
+#~ "gevoelig door de gekozen database. Dit betekent dat het zoeken "
+#~ "<strong>niet</strong> goed zal werken. Door te wisselen naar een andere "
+#~ "database systeem zul je betere zoekmogelijkheden krijgen! Voor meer "
+#~ "informatie lees de <a href=\"http://docs.djangoproject.com/en/dev/ref/"
+#~ "databases/#sqlite-string-matching\">Django Documentatie over string "
+#~ "matching in SQLite</a> (Engels). "
+
+#~ msgid "Ticket taken off hold"
+#~ msgstr "Incident voorgezet"
+
+#~ msgid "Ticket placed on hold"
+#~ msgstr "Incident aangehouden"
+
+#~ msgid "Jan"
+#~ msgstr "jan"
+
+#~ msgid "Feb"
+#~ msgstr "feb"
+
+#~ msgid "Mar"
+#~ msgstr "mar"
+
+#~ msgid "Apr"
+#~ msgstr "apr"
+
+#~ msgid "May"
+#~ msgstr "mei"
+
+#~ msgid "Jun"
+#~ msgstr "jun"
+
+#~ msgid "Jul"
+#~ msgstr "jul"
+
+#~ msgid "Aug"
+#~ msgstr "aug"
+
+#~ msgid "Sep"
+#~ msgstr "sep"
+
+#~ msgid "Oct"
+#~ msgstr "okt"
+
+#~ msgid "Nov"
+#~ msgstr "nov"
+
+#~ msgid "Dec"
+#~ msgstr "dec"
+
+#~ msgid "User by Priority"
+#~ msgstr "Gebruiker per Prioriteit"
+
+#~ msgid "User by Queue"
+#~ msgstr "Gebruiker per Wachtrij"
+
+#~ msgid "User by Status"
+#~ msgstr "Gebruiker per Status"
+
+#~ msgid "User by Month"
+#~ msgstr "Gebruiker per Maand"
+
+#~ msgid "Queue by Priority"
+#~ msgstr "Wachtrij per Prioriteit"
+
+#~ msgid "Queue by Status"
+#~ msgstr "Wachtrijk per Status"
+
+#~ msgid "Queue by Month"
+#~ msgstr "Wachtrij per Maand"
+
+#~ msgid "Feeds"
+#~ msgstr "RSS Feeds"
+
+#~ msgid "Rating"
+#~ msgstr "Beoordeling"
+
+#~ msgid "ago"
+#~ msgstr "geleden"
+
+#, fuzzy, python-format
+#~ msgid ""
+#~ "View <a href='%(category_url)s'>other %(category_title)s articles</a></"
+#~ "strong>, or continue <a href='../'>viewing other knowledgebase articles</"
+#~ "a>."
+#~ msgstr ""
+#~ "Bekijk <a href='%(category_url)s'>andere <em>%(category_title)s</em> "
+#~ "artikelen</a>, of <a href='../'>bekijk andere kennisbank artikelen</a>."
+
+#~ msgid "Recommendations"
+#~ msgstr "Aanbevelingen"
+
+#~ msgid "Total rating"
+#~ msgstr "Totaal beoordeling"
+
+#~ msgid "Edit"
+#~ msgstr "Bewerk"
+
+#~ msgid "Further details"
+#~ msgstr "Verdere details"
+
+#~ msgid "Attach files"
+#~ msgstr "Bestand toevoegen"
+
+#~ msgid "Name (representative)"
+#~ msgstr "Naam (tekenbevoegde)"
+
+#~ msgid "Signing city"
+#~ msgstr "Vestigingsplaats"
