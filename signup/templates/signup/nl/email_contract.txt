@@ -6,4 +6,4 @@ Een van onze medewerkers zal contact met u opnemen over de technische afronding 
 
 Na de ondertekening zullen wij u aansluiten op onze Google Group en heeft u direct de beschikking over dienstregelingen en tarieven. Om actuele reisinformatie te ontvangen is een vast IP adres nodig.
 
-{% include 'helpdesk/nl/email_text_footer.txt' %}
+{% include 'nl/email_text_footer.txt' %}

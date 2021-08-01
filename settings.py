@@ -1,5 +1,7 @@
 # Django settings for ndov project.
+import os
 
+BASE_DIR = os.path.dirname(__file__)
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
@@ -34,7 +36,7 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-LOCALE_PATHS= ('ndov/locale/', )
+LOCALE_PATHS = ('ndov/locale/',)
 
 MEDIA_ROOT = ''
 MEDIA_URL = '/'
@@ -54,13 +56,34 @@ STATICFILES_DIRS = (
 # various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 )
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '5*#74p#taescig^(kresv4sv6up(ui8unnh1eez4&s*l2mo$@4'
 
-MIDDLEWARE_CLASSES = (
+TEMPLATES = [{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'OPTIONS': {
+        'loaders': [
+            (
+                'django.template.loaders.filesystem.Loader',
+                [BASE_DIR + '/ndov/templates'],
+            ),
+            ('django.template.loaders.app_directories.Loader')
+        ],
+        'context_processors': [ 'django.contrib.auth.context_processors.auth',
+                                'django.template.context_processors.debug',
+                                'django.template.context_processors.i18n',
+                                'django.template.context_processors.media',
+                                'django.template.context_processors.static',
+                                'django.template.context_processors.request',
+                                'django.template.context_processors.tz',
+                                'django.contrib.messages.context_processors.messages',]
+    },
+}]
+
+MIDDLEWARE = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -70,24 +93,6 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'APP_DIRS': True,
-        'DIRS': [ 'ndov/templates/' ],
-        'OPTIONS': {
-            'context_processors': [
-                'django.contrib.auth.context_processors.auth',
-                'django.template.context_processors.debug',
-                'django.template.context_processors.i18n',
-                'django.template.context_processors.media',
-                'django.template.context_processors.static',
-                'django.template.context_processors.tz',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    }
-]
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -105,8 +110,8 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'standard': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
         },
     },
     'handlers': {
@@ -115,8 +120,8 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
         'logfile': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
             'filename': "logs/debug.log",
             'maxBytes': 5000000,
             'backupCount': 10,
@@ -129,7 +134,7 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
-        'cli_actions':  {
+        'cli_actions': {
             'handlers': ['logfile'],
             'level': 'DEBUG',
             'propagate': True,
@@ -139,6 +144,8 @@ LOGGING = {
 
 SIGNUP_UPLOAD_TO=MEDIA_ROOT
 SIGNUP_ERROR_EMAIL=''
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 try:
     from local_settings import *

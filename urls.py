@@ -1,14 +1,15 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls import include
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
+from django.urls import path
 from django.views.generic import RedirectView
+import django.contrib.auth.views as auth_views
 
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^aanmelden/', include('signup.urls')),
-    url(r'^wachtwoord/$', auth_views.password_change, name='auth_password_change'),
-    url(r'^wachtwoord/aangepast/$', auth_views.password_change_done),
-    url(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico'))
+    path('admin/', admin.site.urls),
+    path('aanmelden/', include('signup.urls')),
+    path('wachtwoord/', auth_views.PasswordChangeView.as_view(), name='auth_password_change'),
+    path('wachtwoord/aangepast/', auth_views.PasswordChangeDoneView.as_view()),
+    path('favicon.ico', RedirectView.as_view(url='/static/favicon.ico'))
 ]
