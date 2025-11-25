@@ -147,6 +147,8 @@ SIGNUP_ERROR_EMAIL=''
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS","*").split(",")
+
 try:
     from local_settings import *
 except ImportError:
