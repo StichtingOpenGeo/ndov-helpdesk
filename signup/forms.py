@@ -14,6 +14,9 @@ class ApplyLicenseForm(forms.ModelForm):
     class Meta:
         model = SignupQueue
         exclude = ('signed_file', 'date_requested', 'date_uploaded', 'date_verified', 'status')
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Jan De Vries'}),
+        }
 
 
 class UploadSignedForm(forms.ModelForm):
