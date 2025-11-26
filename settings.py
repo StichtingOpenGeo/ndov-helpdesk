@@ -61,7 +61,7 @@ STATICFILES_FINDERS = (
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '5*#74p#taescig^(kresv4sv6up(ui8unnh1eez4&s*l2mo$@4'
-ALTCHA_HMAC_KEY = '4d59aae3d1c05710be52c101a35283a9f9eb76fc6c1d799db48b810ade2586bf'
+ALTCHA_HMAC_KEY = '4d59aae3d1c05710be52c101a35283a9f9eb76fc6c1d799db48b810ade2586bf' # Replace this with your own 64 char hex string, this should be kept secret.
 
 
 TEMPLATES = [{
