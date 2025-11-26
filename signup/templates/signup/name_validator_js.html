@@ -1,0 +1,68 @@
+{% load i18n %}
+{% load static %}
+<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+<script type="text/javascript">
+    // Check if jQuery is available
+    if (typeof jQuery === 'undefined') {
+        console.error("jQuery is not loaded. Name validation will not work.");
+    } else {
+        // Initialize validation when document is ready
+        $(document).ready(function() {
+            initializeNameValidation();
+        });
+    }
+
+    // Function to initialize name validation
+    function initializeNameValidation() {
+        // Check if the name field exists and django is loaded
+        if ($('#id_name').length === 0 || typeof django === 'undefined' || !django.gettext) {
+            // If not, try again in 100ms
+            console.error("django is not loaded. Name validation will not work.");
+            setTimeout(initializeNameValidation, 100);
+            return;
+        }
+
+        // Add validation message element after the name field
+        var errorMessage = "Vul zowel een voornaam als een achternaam in";
+        try {
+            errorMessage = django.gettext("Vul zowel een voornaam als een achternaam in");
+            console.log(errorMessage)
+        } catch (e) {
+            console.error("Error translating message:", e);
+        }
+        $('#id_name').after('<span id="name-validation-error" class="help-inline text-danger" style="display:none;">' + errorMessage + '</span>');
+
+        // Function to validate name field
+        function validateName() {
+            var nameField = $('#id_name');
+            var nameValue = nameField.val().trim();
+            var errorElement = $('#name-validation-error');
+
+            // Check if name contains at least one space (indicating first name and surname)
+            if (nameValue && nameValue.indexOf(' ') === -1) {
+                errorElement.show();
+                return false;
+            } else {
+                errorElement.hide();
+                return true;
+            }
+        }
+
+        // Validate on input change
+        $('#id_name').on('input', validateName);
+
+        // Validate on form submission
+        if ($('form').length > 0) {
+            $('form').on('submit', function(e) {
+                if (!validateName()) {
+                    e.preventDefault();
+                }
+            });
+        } else {
+            console.error("Form element not found. Form submission validation will not work.");
+        }
+
+        // Initial validation
+        validateName();
+    }
+</script>
