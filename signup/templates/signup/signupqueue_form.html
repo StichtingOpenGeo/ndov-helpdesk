@@ -10,11 +10,11 @@
                 <form class="form form-horizontal" method='post' action='{% url 'signup_apply' %}'>
                     {% for field in form %}
                         <div class="form-group {% if field.errors %}error{% endif %}">
-                            <label class="col-sm-2 control-label">{{ field.label }}</label>
+                            <label class="col-sm-2 control-label">{% if field.name != "captcha" %}{{ field.label }} {% endif %}</label>
                             <div class="col-sm-10">
                                 {{ field }}
                                 {% if field.errors %}<span class="help-inline">{{ field.errors|striptags }}</span>{% else %}
-                                    {% if field.field.required %}&nbsp;<span class="label label-important"><small>{% trans "required" %}</small></span>{% endif %}
+                                    {% if field.field.required and field.name != "captcha" %}&nbsp;<span class="label label-important"><small>{% trans "required" %}</small></span>{% endif %}
                                 {% endif %}
 
                             </div>
