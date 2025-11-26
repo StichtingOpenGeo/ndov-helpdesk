@@ -2,12 +2,14 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from signup.models import SignupQueue
-
+from django_altcha import AltchaField
 
 class ApplyLicenseForm(forms.ModelForm):
 
     # tech_name = forms.CharField(label=_('Name'))
     # tech_email = forms.EmailField(label=_('Email'))
+
+    captcha = AltchaField()
 
     class Meta:
         model = SignupQueue
