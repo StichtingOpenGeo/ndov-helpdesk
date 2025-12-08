@@ -11,50 +11,49 @@
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-        <link rel="stylesheet" href="//ndovloket.nl/pages.css">
     </head>
     <body>
-        <div class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-                    <ul class="nav navbar-left navbar-nav">
-                        <li>
-                            <a href="//ndovloket.nl/index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="//ndovloket.nl/documentatie.html">Documentatie</a>
-                        </li>
-                        <li>
-                            <a href="//ndovloket.nl/kennisbank.html">Kennisbank</a>
-                        </li>
-                        <li>
-                            <a href="//ndovloket.nl/research.html">Research</a>
-                        </li>
-                    </ul>
-                    <a class="btn btn-danger navbar-btn navbar-right" href="https://ndovloket.nl/aanmelden/">Aanmelden</a>
-                </div>
-            </div>
+        <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="https://ndovloket.nl ">
+            <p>NDOV Loket</p>
+          </a>
         </div>
-        <div class="carousel slide" id="fullcarousel-example" data-interval="false" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="active item">
-                    <img src="//ndovloket.nl/ndov-carousel.png">
-                    <div class="carousel-caption">
-                        <h2 class="text-left">NDOV Loket</h2>
-                        <p class="text-left">reisinformatie direct van de bron</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <button
+          class="hamburger-btn"
+          aria-label="Menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul class="nav-links">
+            <li class="dropdown">
+              <button class="nav-link-btn dropdown-toggle">
+                Open Data
+                <span class="arrow">▼</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="https://data.ndovloket.nl">Bestanden</a></li>
+                <li><a href="https://ndovloket.nl/datasets">Datasets</a></li>
+                <li><a href="https://ndovloket.nl/realtime">Realtime</a></li>
+              </ul>
+            </li>
+            <li><a href="https://ndovloket.nl/faq">FAQ</a></li>
+            <li><a href="https://ndovloket.nl/documentatie">Documentatie</a></li>
+          </ul>
+          <div class="primary-btn-container">
+            <a href="https://ndovloket.nl/aanmelden" class="primary-btn">Aanmelden</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
         <div class="section">
             <div class="background-image" style="background-image : url('//ndovloket.nl/ticks.png')"></div>
             <div class="container" style="position: relative; top: -70px;">
@@ -75,3 +74,548 @@
 
     </body>
 </html>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Slabo+27px&display=swap');
+
+.site-header {
+  background-color: var(--white);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 5px 0;
+}
+
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--accent-color); /* Semi-transparent primary color overlay */
+  z-index: -1;
+}
+
+.site-header .container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.logo {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 101; /* Keep logo above menu overlay if needed */
+}
+.logo p {
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-size: 1rem;
+  font-style: normal;
+  color: var(--accent-color);
+  margin: 0;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  align-content: center;
+  margin-right: 20px;
+}
+
+.nav-links a {
+  color: var(--white);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.primary-btn-container {
+  margin-left: 10px;
+}
+
+.primary-btn {
+  background-color: var(--white);
+  color: var(--accent-color);
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  font-weight: 700;
+  font-style: normal;
+  font-family: 'Inter', sans-serif;
+  display: inline-block;
+}
+
+.hamburger-btn {
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 2px;
+  z-index: 102;
+}
+
+.hamburger-btn span {
+  position: absolute;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+.hamburger-btn span:nth-child(1) {
+  top: 0;
+}
+.hamburger-btn span:nth-child(2) {
+  top: 11px;
+}
+.hamburger-btn span:nth-child(3) {
+  bottom: 0;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+  padding-left: 20px;
+}
+
+.nav-link-btn {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1rem; /* Match standard nav link size */
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link-btn:hover {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.arrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+.arrow.rotated {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Align below the button */
+  left: 20px; /* Align with the text start (accounting for padding) */
+  background-color: var(--white);
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 5px 0;
+  margin-top: 10px;
+  min-width: 160px;
+  z-index: 200;
+  display: none; /* Added for JS functionality */
+}
+
+.dropdown-menu.show { /* Added for JS functionality */
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  color: var(--accent-color);
+  font-weight: normal;
+  font-size: 0.95rem;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 10px 0;
+  }
+
+  .site-header .container {
+    padding: 0 20px;
+  }
+
+  .hamburger-btn {
+    display: block;
+    margin-left: auto; /* Push to right */
+    order: 2; /* Ensure it's on the right */
+  }
+
+  /* Hamburger Animation */
+  .hamburger-btn.is-active span:nth-child(1) {
+    top: 11px;
+    transform: rotate(45deg);
+  }
+  .hamburger-btn.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+  }
+  .hamburger-btn.is-active span:nth-child(3) {
+    bottom: 11px;
+    transform: rotate(-45deg);
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--accent-color);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease-in-out,
+      padding 0.3s ease-in-out;
+    width: 100%;
+    z-index: 99;
+  }
+
+  .main-nav.nav-open {
+    max-height: 300px; /* Adjust as needed */
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-menu li {
+    margin: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 5px 0;
+    text-align: center;
+  }
+
+  /* Keep Primary Button Visible in Header (not inside collapsible menu) */
+  /* Actually, the request says "make the menu a hamburger menu EXCEPT for any primary btns" */
+  /* This usually implies the primary button stays visible on the navbar itself. */
+
+  /* In this structure, .primary-btn-container is inside .main-nav. 
+     To keep it visible, we need to move it out of the collapsible area visually or structurally.
+     Let's try css manipulation first. */
+
+  .main-nav {
+    /* Reset position for desktop-like behavior for the primary button container? 
+       No, easier to treat nav-links and primary-btn separately in mobile layout. */
+    display: contents; /* This removes the parent wrapper's influence */
+  }
+
+  .nav-links {
+    position: absolute;
+    width: 100vw;
+    top: 55px; /* Adjust based on header height */
+    left: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    right: 0;
+    background-color: var(--accent-color);
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 90;
+  }
+
+  .nav-open .nav-links {
+    padding: 20px 0;
+    max-height: 100vh;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .primary-btn-container {
+    margin-left: auto; /* Push to right, but before hamburger */
+    margin-right: -50px; /* TODO: make this not stupid */
+    order: 1;
+  }
+
+  /* Ensure links text color is correct on mobile background */
+  .nav-links a {
+    color: var(--white);
+    font-size: 1.1rem;
+  }
+
+  /* Mobile Dropdown */
+  .dropdown {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0px; /* Remove desktop padding */
+    margin-left: 0px;
+  }
+
+  .dropdown-menu {
+    position: static; /* Flow in the list */
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+    width: 90vw;
+    text-align: center;
+    margin-top: 5px;
+    padding: 0;
+  }
+
+  .dropdown-menu a {
+    color: var(--white);
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-link-btn {
+    font-size: 1.1rem; /* Match mobile link size */
+    padding: 5px 0;
+    width: 100%;
+    justify-content: center;
+  }
+  .nav-link-btn:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+/* Global styles */
+:root {
+  --primary-color: #3966aa;
+  --secondary-color: #ffaa00;
+  --accent-color: #404580;
+  --text-color: #333333;
+  --light-gray: #f5f5f5;
+  --medium-gray: #dddddd;
+  --dark-gray: #666666;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --success-color: #4caf50;
+  --info-color: #2196f3;
+  --info-light-color: #bbdefb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--white);
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/* Section styles */
+.section {
+  padding: 60px 0;
+}
+
+.section h2 {
+  font-size: 32px;
+  color: var(--primary-color);
+}
+
+.section p {
+  margin-bottom: 10px;
+}
+
+.section ol {
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .section h2 {
+    font-size: 26px;
+  }
+}
+
+.primary-btn a {
+  background-color: var(--white);
+  color: var(--primary-color);
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+
+  font-weight: 700;
+  font-style: normal;
+}
+
+.primary-btn:hover {
+  text-decoration: none;
+  color: var(--secondary-color)
+}
+
+form {
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid var(--medium-gray);
+}
+
+.altcha {
+  margin: 10px 0px;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const mainNav = document.querySelector('.main-nav');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const arrow = document.querySelector('.arrow');
+
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', function() {
+            hamburgerBtn.classList.toggle('is-active');
+            mainNav.classList.toggle('nav-open');
+        });
+    }
+
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const isOpen = dropdownMenu.classList.contains('show');
+            
+            if (isOpen) {
+                closeDropdown();
+            } else {
+                openDropdown();
+            }
+        });
+    }
+
+    function openDropdown() {
+        dropdownMenu.classList.add('show');
+        arrow.classList.add('rotated');
+    }
+
+    function closeDropdown() {
+        dropdownMenu.classList.remove('show');
+        arrow.classList.remove('rotated');
+    }
+
+    document.addEventListener('click', function(event) {
+        if (dropdownMenu && dropdownMenu.classList.contains('show')) {
+            if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                closeDropdown();
+            }
+        }
+    });
+});
+</script>
