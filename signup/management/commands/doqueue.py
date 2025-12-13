@@ -11,6 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from signup.models import SignupQueue
 
+logging.basicConfig(filename='/tmp/queue.log', level=logging.DEBUG)
 logger = logging.getLogger('cli_actions')
 
 
@@ -29,10 +30,16 @@ def send_emails():
     logger.info("Running queue for %s signups" % (SignupQueue.objects.filter(status=1).count()))
 
     for request in SignupQueue.objects.filter(status=1):
+        if request.organization is not None and (request.organization.replace(".", "").replace("/", "").lower() in ("particulier", "student", "nvt", "na", "prive", "personal", "persoonlijk", "geen", "zelfstandig", "freelance", "eigen gebruik", "hobby")):
+            request.organization = ''
+        if request.position is not None and (request.position.lower() in ("student")):
+            request.organization = ''
+
         success, pdf = make_pdf(request.name, request.position, request.city, request.organization)
         if success:
-            username, password = create_account(request.name, request.email)
-            if username is not None:
+            # username, password = create_account(request.name, request.email)
+            username, password = 'Uit', 'Uit'
+            if True: # username is not None:
                 send_created_contract(request, username, password, pdf)
                 print("We sent a contract (%s) to %s <%s>" % (pdf, request.name, request.email))
                 logger.info("We sent a contract (%s) to %s" % (pdf, request.name))

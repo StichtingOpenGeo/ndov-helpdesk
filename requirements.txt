@@ -6,4 +6,5 @@ unidecode==1.2.0
 #django-crispy-forms==1.10.0
 
 # Monitoring requirements
--i https://testpypi.python.org/pypi protobix
+# -i https://testpypi.python.org/pypi protobix
+protobix

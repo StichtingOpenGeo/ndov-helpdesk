@@ -35,7 +35,7 @@ class SignupQueue(models.Model):
     def __unicode__(self):
         return u'%s - %s'  % (self.name, self.organization)
 
-
+"""
 class Contact(models.Model):
     TYPES = ((1, _('Technical')),
              (2, _('Administrative')),
@@ -67,3 +67,4 @@ class AccessRight(models.Model):
 
     def __unicode__(self):
         return u'%s - %s'  % (self.ip, self.signup.organization)
+"""
