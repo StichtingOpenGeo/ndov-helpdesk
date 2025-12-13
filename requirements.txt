@@ -1,5 +1,5 @@
 Django==5.2.9
-psycopg2==2.8.6
+psycopg2
 #south
 #django-rosetta
 unidecode==1.2.0
