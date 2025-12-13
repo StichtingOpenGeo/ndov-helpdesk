@@ -7,7 +7,7 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import get_template
 from django.contrib.auth.models import User
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from signup.models import SignupQueue
 
