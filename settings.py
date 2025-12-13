@@ -61,6 +61,8 @@ STATICFILES_FINDERS = (
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '5*#74p#taescig^(kresv4sv6up(ui8unnh1eez4&s*l2mo$@4'
+ALTCHA_HMAC_KEY = '4d59aae3d1c05710be52c101a35283a9f9eb76fc6c1d799db48b810ade2586bf' # Replace this with your own 64 char hex string, this should be kept secret.
+
 
 TEMPLATES = [{
     'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -102,7 +104,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'signup',
-    'django.contrib.admin'
+    'django.contrib.admin',
+    "django_altcha",
 )
 
 LOGGING = {
@@ -146,6 +149,9 @@ SIGNUP_UPLOAD_TO=MEDIA_ROOT
 SIGNUP_ERROR_EMAIL=''
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS","127.0.0.1").split(",")
+
 
 try:
     from local_settings import *
