@@ -1,4 +1,4 @@
-Django==5.2.9
+Django==5.2.13
 psycopg2
 #south
 #django-rosetta
