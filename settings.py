@@ -86,6 +86,7 @@ TEMPLATES = [{
 }]
 
 MIDDLEWARE = (
+    'signup.middleware.AdminIPRestrictionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -151,6 +152,12 @@ SIGNUP_ERROR_EMAIL=''
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS","127.0.0.1").split(",")
+
+# The admin is only reachable from these networks (others get a 404).
+# Set to [] in local_settings.py to disable the restriction for local development.
+ADMIN_ALLOWED_NETWORKS = ['10.9.0.0/24']
+# Reverse proxies whose X-Forwarded-For header is trusted for the admin IP check.
+ADMIN_TRUSTED_PROXIES = ['127.0.0.1/32', '::1/128']
 
 
 try:
