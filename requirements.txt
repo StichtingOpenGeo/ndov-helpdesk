@@ -1,8 +1,8 @@
-Django==5.2.15
+Django==5.2.19
 psycopg2
 #south
 #django-rosetta
-unidecode==1.2.0
+unidecode==1.4.0
 #django-crispy-forms==1.10.0
 
 django-altcha
